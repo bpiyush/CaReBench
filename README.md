@@ -1,6 +1,6 @@
 <div align="center">
   <h2>
-    <img src="assets/logo.png"" style="width:1.5em;vertical-align: middle" alt="Logo">
+    <img src="assets/logo.png"" style="vertical-align: middle" alt="Logo" height="25px" width="25px">
     <a href="https://arxiv.org/pdf/2501.00513" style="vertical-align: middle;"><span style="font-variant: small-caps;">CaReBench:</span> A Fine-grained Benchmark for Video Captioning and Retrieval</a>
   </h2>
 
