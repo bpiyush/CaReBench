@@ -14,8 +14,6 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
     
-    import ipdb; ipdb.set_trace()
-    
     mllm = AutoBase.from_pretrained(
         args.base_model, load_llm=False, device_map='auto',
     )
