@@ -432,11 +432,15 @@ def train(
 
     # model.print_trainable_parameters()  # Be more transparent about the % of trainable params.
 
-    train_data = data["train"].shuffle().map(generate_and_tokenize_prompt, num_proc=25)
+    # train_data = data["train"].shuffle().map(generate_and_tokenize_prompt, num_proc=25)
+    train_data = data["train"].shuffle(
+        buffer_size=8192,
+    ).map(generate_and_tokenize_prompt, num_proc=8)
     DC_FUN = DataCollatorForSeq2SeqForNeg if use_neg_sentence else transformers.DataCollatorForSeq2Seq
     data_collator = DC_FUN(
         tokenizer, pad_to_multiple_of=8, return_tensors="pt", padding=True
     )
+    print(data_collator)
 
     trainer = SentembTrainer(
         model=model,
@@ -475,6 +479,7 @@ def train(
     if torch.__version__ >= "2" and sys.platform != "win32":
         model = torch.compile(model)
 
+    print("Starting training")
     trainer.train()
 
     model.save_pretrained(output_dir)
