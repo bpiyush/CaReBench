@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OUTPUT_DIR="/work/piyush/experiments/CaRe/debug_run"
+OUTPUT_DIR="/work/piyush/experiments/CaRe/debug_run_nli+ego4d"
 RUN_NAME=`basename $OUTPUT_DIR`
 
 args=()
@@ -18,7 +18,8 @@ GPUS=8
 NUM_NODES=1
 
 # CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli_for_simcse.csv'
-CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli_for_simcse-10k.csv'
+# CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli_for_simcse-10k.csv'
+CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli+ego4d-20k.csv'
 
 echo $BASE_MODEL
 echo $MICRO_BATCH_SIZE $BATCH_SIZE

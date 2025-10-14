@@ -1,4 +1,4 @@
-* You need 8 GPUs with a lot of CPU memory. Since the peak memory usage is ~220GB, you need at least 256GB of CPU memory.
+* You need 8 GPUs with a lot of CPU memory. Since the peak memory usage is ~227GB, you need at least 256GB of CPU memory.
 
 ```sh
 srun --pty --partition ddp-4way --cpus-per-task=24 --mem=256000 --gres=gpu:8 --time=24:00:00  --constraint=quadro_rtx_8000 bash
@@ -31,3 +31,7 @@ bash scripts/train_debug.sh
 
 First, we need to load the entire VLM and then load LLM weights from the fine-tuned model.
 Then, we need to save the entire model in a new folder.
+
+```sh
+python tasks/merge_weights.py -b /work/piyush/pretrained_checkpoints/CaRe-7B-Stage-1 -f /work/piyush/experiments/CaRe/debug_run
+```
