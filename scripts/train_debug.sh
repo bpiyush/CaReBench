@@ -10,7 +10,8 @@ BASE_MODEL="/work/piyush/pretrained_checkpoints/CaRe-7B-Stage-1"
 # MICRO_BATCH_SIZE=32
 BATCH_SIZE=32
 MICRO_BATCH_SIZE=4
-EPOCH=2
+# EPOCH=2
+EPOCH=1
 LR=2e-5
 WARMUP_RATIO=0.1
 CUTOFF_LEN=32
@@ -21,7 +22,8 @@ NUM_NODES=1
 # CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli_for_simcse-10k.csv'
 # CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli+ego4d-20k.csv'
 # CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli45k+ego4d-5k.csv'
-CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli-9k+ego4d-1k.csv'
+# CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli-9k+ego4d-1k.csv'
+CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli-90k+ego4d-10k.csv'
 
 echo $BASE_MODEL
 echo $MICRO_BATCH_SIZE $BATCH_SIZE
