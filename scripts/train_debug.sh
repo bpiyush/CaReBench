@@ -1,6 +1,7 @@
 #!/bin/bash
 
-OUTPUT_DIR="/work/piyush/experiments/CaRe/debug_run_nli-9k+ego4d-1k"
+# OUTPUT_DIR="/work/piyush/experiments/CaRe/debug_run_nli-9k+ego4d-1k"
+OUTPUT_DIR="/work/piyush/experiments/CaRe/debug_run_nli-275k"
 RUN_NAME=`basename $OUTPUT_DIR`
 
 args=()
@@ -18,12 +19,12 @@ CUTOFF_LEN=32
 GPUS=8
 NUM_NODES=1
 
-# CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli_for_simcse.csv'
+CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli-275k.csv'
 # CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli_for_simcse-10k.csv'
 # CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli+ego4d-20k.csv'
 # CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli45k+ego4d-5k.csv'
 # CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli-9k+ego4d-1k.csv'
-CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli-90k+ego4d-10k.csv'
+# CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli-90k+ego4d-10k.csv'
 
 echo $BASE_MODEL
 echo $MICRO_BATCH_SIZE $BATCH_SIZE
