@@ -70,3 +70,148 @@ def get_frame_indices(num_frames, vlen, sample='rand', fix_start=None, input_fps
     else:
         raise ValueError
     return frame_indices
+
+
+import torch
+import torch.nn.functional as F
+
+
+def make_square_video_tensor(video: torch.Tensor, min_side: int = 336) -> torch.Tensor:
+    """
+    Process video tensor by resizing and center-padding.
+    
+    Args:
+        video: Input tensor of shape [T, C, H', W']
+        min_side: Target size for the minimum side (default: 336)
+    
+    Returns:
+        Output tensor of shape [T, C, H, W] where H == W == max(resized_h, resized_w)
+    """
+    T, C, H, W = video.shape
+    
+    # Step 1: Find the minimum side
+    current_min_side = min(H, W)
+    
+    # Step 2: Calculate scale factor and new dimensions
+    scale = min_side / current_min_side
+    new_h = int(H * scale)
+    new_w = int(W * scale)
+    
+    # Resize the video tensor
+    # F.interpolate expects input of shape [N, C, H, W], so it works with [T, C, H, W]
+    video_resized = F.interpolate(
+        video, 
+        size=(new_h, new_w), 
+        mode='bilinear', 
+        align_corners=False
+    )
+    
+    # Step 3: Center-pad to make it square
+    max_side = max(new_h, new_w)
+    
+    # Calculate padding: (left, right, top, bottom)
+    pad_h = max_side - new_h
+    pad_w = max_side - new_w
+    
+    # Distribute padding evenly on both sides
+    pad_top = pad_h // 2
+    pad_bottom = pad_h - pad_top
+    pad_left = pad_w // 2
+    pad_right = pad_w - pad_left
+    
+    # Apply padding (padding order in F.pad is: left, right, top, bottom)
+    video_padded = F.pad(
+        video_resized,
+        (pad_left, pad_right, pad_top, pad_bottom),
+        mode='constant',
+        value=0
+    )
+    
+    return video_padded
+
+
+def pad_to_square_then_resize(video: torch.Tensor, resize_to: int) -> torch.Tensor:
+    """
+    Process video tensor by first padding to square, then resizing.
+    
+    Args:
+        video: Input tensor of shape [T, C, H', W']
+        resize_to: Final size to resize both dimensions to (creates square output)
+    
+    Returns:
+        Output tensor of shape [T, C, resize_to, resize_to]
+    """
+    T, C, H, W = video.shape
+    
+    # Step 1: Pad to square by padding the minimum side to match the maximum side
+    max_side = max(H, W)
+    
+    pad_h = max_side - H
+    pad_w = max_side - W
+    
+    # Distribute padding evenly on both sides
+    pad_top = pad_h // 2
+    pad_bottom = pad_h - pad_top
+    pad_left = pad_w // 2
+    pad_right = pad_w - pad_left
+    
+    # Apply padding (padding order in F.pad is: left, right, top, bottom)
+    video_padded = F.pad(
+        video,
+        (pad_left, pad_right, pad_top, pad_bottom),
+        mode='constant',
+        value=0
+    )
+    
+    # Step 2: Resize to target size
+    video_resized = F.interpolate(
+        video_padded,
+        size=(resize_to, resize_to),
+        mode='bilinear',
+        align_corners=False
+    )
+    
+    return video_resized
+
+
+# Example usage
+if __name__ == "__main__":
+    # Example 1: Height < Width
+    # Input: [T=10, C=3, H=240, W=320]
+    video_input = torch.randn(10, 3, 240, 320)
+    video_output = pad_to_square_then_resize(video_input, resize_to=448)
+    
+    print(f"Input shape: {video_input.shape}")
+    print(f"After padding to square: [10, 3, 320, 320]")
+    print(f"After resizing to 448: {video_output.shape}")
+    # Expected: torch.Size([10, 3, 448, 448])
+    
+    # Example 2: Width < Height
+    # Input: [T=5, C=3, H=480, W=320]
+    video_input2 = torch.randn(5, 3, 480, 320)
+    video_output2 = pad_to_square_then_resize(video_input2, resize_to=512)
+    
+    print(f"\nInput shape: {video_input2.shape}")
+    print(f"After padding to square: [5, 3, 480, 480]")
+    print(f"After resizing to 512: {video_output2.shape}")
+    # Expected: torch.Size([5, 3, 512, 512]
+
+
+# Example usage
+if __name__ == "__main__":
+    # Test with the example from the description
+    # Input: [T=10, C=3, H=240, W=320]
+    video_input = torch.randn(10, 3, 240, 320)
+    video_output = make_square_video_tensor(video_input, min_side=336)
+    
+    print(f"Input shape: {video_input.shape}")
+    print(f"Output shape: {video_output.shape}")
+    # Expected: torch.Size([10, 3, 448, 448])
+    
+    # Test with width as minimum side
+    video_input2 = torch.randn(5, 3, 480, 320)
+    video_output2 = make_square_video_tensor(video_input2, min_side=336)
+    
+    print(f"\nInput shape: {video_input2.shape}")
+    print(f"Output shape: {video_output2.shape}")
+    # Expected: torch.Size([5, 3, 504, 504])

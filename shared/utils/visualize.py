@@ -641,7 +641,7 @@ def reduce_dim(X, method="tsne", perplexity=30, n_iter=1000):
         tsne = TSNE(
             n_components=2,
             perplexity=perplexity,
-            n_iter=n_iter,
+            # n_iter=n_iter,
             init='pca',
             random_state=42,
             # learning_rate="auto",
