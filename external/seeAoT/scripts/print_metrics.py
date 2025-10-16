@@ -11,7 +11,7 @@ if __name__ == "__main__":
     repo_path = su.log.repo_path
     data_dir = f"{repo_path}/external/seeAoT/data"
     
-    datasets = ["UCF101", "Rtime_t2v", "ReverseFilm"]
+    datasets = ["UCF101", "Rtime_t2v", "Rtime_v2t","ReverseFilm", "AoTBench_QA"]
     for dataset in datasets:
         print(colored(f"Processing {dataset}...", "yellow"))
         
