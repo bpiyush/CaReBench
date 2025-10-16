@@ -9,12 +9,13 @@ decord.bridge.set_bridge("torch")
 
 def read_frames_decord(
         video_path, num_frames, sample='middle', fix_start=None, 
-        max_num_frames=-1, trimmed30=False
+        max_num_frames=-1, trimmed30=False, height=-1, width=-1
     ):
     decord.bridge.set_bridge('torch')
 
-    num_threads = 1 if video_path.endswith('.webm') else 0 # make ssv2 happy
-    video_reader = VideoReader(video_path, num_threads=num_threads)
+    # num_threads = 1 if video_path.endswith('.webm') else 0 # make ssv2 happy
+    num_threads = 1
+    video_reader = VideoReader(video_path, num_threads=num_threads, height=height, width=width)
     vlen = len(video_reader)
  
     fps = video_reader.get_avg_fps()
