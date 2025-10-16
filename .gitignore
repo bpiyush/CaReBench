@@ -10,3 +10,5 @@ external/seeAoT/data/
 checkpoints
 *.pth
 external/seeAoT/data
+.ipynb_checkpoints
+*.gif
