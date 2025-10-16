@@ -1,3 +1,4 @@
+import decord
 from decord import VideoReader
 import decord
 import random
@@ -10,6 +11,8 @@ def read_frames_decord(
         video_path, num_frames, sample='middle', fix_start=None, 
         max_num_frames=-1, trimmed30=False
     ):
+    decord.bridge.set_bridge('torch')
+
     num_threads = 1 if video_path.endswith('.webm') else 0 # make ssv2 happy
     video_reader = VideoReader(video_path, num_threads=num_threads)
     vlen = len(video_reader)
@@ -28,6 +31,8 @@ def read_frames_decord(
     )
 
     frames = video_reader.get_batch(frame_indices)  # (T, H, W, C), torch.uint8
+    if not isinstance(frames, torch.Tensor):
+        frames = torch.from_numpy(frames.asnumpy())
     frames = frames.permute(0, 3, 1, 2)  # (T, C, H, W), torch.uint8
     return frames
 
