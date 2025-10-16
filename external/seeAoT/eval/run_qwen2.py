@@ -9,7 +9,7 @@ import random
 import torch
 import torch.nn.functional as F
 
-from transformers import Qwen2_5_VLForConditionalGeneration, AutoTokenizer, AutoProcessor
+from transformers import Qwen2VLForConditionalGeneration, AutoTokenizer, AutoProcessor
 from qwen_vl_utils import process_vision_info
 
 
@@ -36,7 +36,7 @@ def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--data_json', type=str, required=True, help='Path to the input JSON file containing video questions')
     parser.add_argument('--video_path', type=str, default='./data', help='Path to the video directory')
-    parser.add_argument('--ckpt', type=str, default="Qwen/Qwen2.5-VL-7B-Instruct", help='Path to model checkpoints')
+    parser.add_argument('--ckpt', type=str, default="Qwen/Qwen2-VL-7B-Instruct", help='Path to model checkpoints')
     parser.add_argument("--nframes", type=int, default=16, help="Number of frames to sample.")
     parser.add_argument("--sample_fps", type=float, default=0.0, help="Sample fps (0 means disable)")
     parser.add_argument("--save_name", type=str, default="", help="Save name")
@@ -62,13 +62,23 @@ def get_video_duration_opencv(video_path):
     return duration
 
 def load_model(ckpt):
-    model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
-        ckpt, 
-        torch_dtype=torch.bfloat16,   
-        attn_implementation="flash_attention_2",
-        device_map="auto" 
-    )
-    base_model = "Qwen/Qwen2.5-VL-7B-Instruct"
+    try:
+        model = Qwen2VLForConditionalGeneration.from_pretrained(
+            ckpt, 
+            torch_dtype=torch.bfloat16,   
+            attn_implementation="flash_attention_2",
+            device_map="auto" 
+        )
+        base_model = "Qwen/Qwen2-VL-7B-Instruct"
+    except RuntimeError as e:
+        if "size mismatch" in str(e):
+            print(f"Warning: Architecture mismatch detected. The checkpoint {ckpt} appears to be from a different model version.")
+            print("This usually means you're trying to load a Qwen2.5-VL checkpoint into a Qwen2-VL model.")
+            print("Please use the correct model class or a compatible checkpoint.")
+            raise e
+        else:
+            raise e
+    
     processor = AutoProcessor.from_pretrained(base_model)
     tokenizer = AutoTokenizer.from_pretrained(base_model)
     return tokenizer, model, processor
@@ -168,3 +178,5 @@ def main(data_json):
 if __name__ == "__main__":
     args = get_args()
     main(args.data_json)
+
+

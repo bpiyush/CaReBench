@@ -5,6 +5,8 @@ thirdparty/
 experiments/
 notebooks/
 __pycache__/
+external/seeAoT/data/
 
 checkpoints
 *.pth
+external/seeAoT/data

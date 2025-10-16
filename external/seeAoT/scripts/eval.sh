@@ -7,13 +7,20 @@ DATA_FILES=(
 ) 
 
 CKPTS=(
-    "Qwen/Qwen2.5-VL-7B-Instruct"
-    "sherryxzh/ArrowRL-Qwen2.5-VL-7B"
+    "/work/piyush/pretrained_checkpoints/Qwen2.5-VL-7B-Instruct"
+    "/work/piyush/pretrained_checkpoints/ArrowRL-Qwen2.5-VL-7B"
+    # "/work/piyush/experiments/CaRe/special_milestones/care-stage2-nli90k-ego4d-10k"
 )
+EVAL_SCRIPTS=(
+    "eval/run_qwen25.py"
+    "eval/run_qwen25.py"
+    # "eval/run_qwen2.py"
+)
+
 
 for DATA_FILE in "${DATA_FILES[@]}"; do
     for CKPT in "${CKPTS[@]}"; do
-        echo "Evaluating $CKPT on $DATA_FILE"
-        python eval/run_qwen25.py --data_json "$DATA_FILE" --ckpt $CKPT
+        echo "Evaluating $CKPT on $DATA_FILE with script ${EVAL_SCRIPTS[$i]}"
+        python ${EVAL_SCRIPTS[$i]} --data_json "$DATA_FILE" --ckpt $CKPT
     done
 done
