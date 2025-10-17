@@ -7,14 +7,16 @@ DATA_FILES=(
 ) 
 
 CKPTS=(
-    "/work/piyush/pretrained_checkpoints/Qwen2.5-VL-7B-Instruct"
-    "/work/piyush/pretrained_checkpoints/ArrowRL-Qwen2.5-VL-7B"
+    # "/work/piyush/pretrained_checkpoints/Qwen2.5-VL-7B-Instruct"
+    # "/work/piyush/pretrained_checkpoints/ArrowRL-Qwen2.5-VL-7B"
     # "/work/piyush/experiments/CaRe/special_milestones/care-stage2-nli90k-ego4d-10k"
+    "/work/piyush/pretrained_checkpoints/CaRe-7B/"
 )
 EVAL_SCRIPTS=(
-    "eval/run_qwen25.py"
-    "eval/run_qwen25.py"
+    # "eval/run_qwen25.py"
+    # "eval/run_qwen25.py"
     # "eval/run_qwen2.py"
+    "eval/run_qwen2.py"
 )
 
 

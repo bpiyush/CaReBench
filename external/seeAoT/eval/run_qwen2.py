@@ -127,7 +127,13 @@ def get_response(model, tokenizer, processor, video_path, query, nframes, sample
     
     temperature = 0
     do_sample = False
-    generated_ids = model.generate(**inputs, temperature=temperature, do_sample=do_sample, max_new_tokens=1024)
+    # generated_ids = model.generate(**inputs, temperature=temperature, do_sample=do_sample, max_new_tokens=1024)
+    generated_ids = model.generate(
+        **inputs,
+        # temperature=temperature,
+        do_sample=do_sample,
+        max_new_tokens=1,
+    )
     generated_ids_trimmed = [
         out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
     ]
