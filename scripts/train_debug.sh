@@ -1,7 +1,9 @@
 #!/bin/bash
 
+split=$1
+
 # OUTPUT_DIR="/work/piyush/experiments/CaRe/debug_run_nli-9k+ego4d-1k"
-OUTPUT_DIR="/work/piyush/experiments/CaRe/debug_run_nli-18k+ego4d-2k"
+OUTPUT_DIR="/work/piyush/experiments/CaRe/debug_run_${split}"
 RUN_NAME=`basename $OUTPUT_DIR`
 
 args=()
@@ -25,7 +27,7 @@ NUM_NODES=1
 # CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli45k+ego4d-5k.csv'
 # CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli-9k+ego4d-1k.csv'
 # CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli-90k+ego4d-10k.csv'
-CSV_PATH='/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/nli-18k+ego4d-2k.csv'
+CSV_PATH="/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/${split}.csv"
 
 echo $BASE_MODEL
 echo $MICRO_BATCH_SIZE $BATCH_SIZE
