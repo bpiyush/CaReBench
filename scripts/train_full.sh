@@ -42,7 +42,7 @@ deepspeed --num_gpus=$GPUS --num_nodes=$NUM_NODES tasks/finetuning.py \
         --cutoff_len $CUTOFF_LEN \
         --output_dir $OUTPUT_DIR  \
         --run_name $RUN_NAME \
-        --use_neg_sentence --save_steps 1000 \
+        --use_neg_sentence --save_steps 100000 \
         --deepspeed ds.config \
         --bf16 \
         --logging_steps 1 --grad_checkpoint
