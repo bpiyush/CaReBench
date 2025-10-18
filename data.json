@@ -15,6 +15,7 @@
     },
     "carebench": {
         "anno_path": "/scratch/shared/beegfs/piyush/datasets/CaReBench/json/metadata.json",
-        "data_root": "/scratch/shared/beegfs/piyush/datasets/CaReBench/videos"
-    },
+        "data_root": "/scratch/shared/beegfs/piyush/datasets/CaReBench/videos",
+        "media_type": "video"
+    }
 }

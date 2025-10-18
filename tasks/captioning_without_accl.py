@@ -2,41 +2,35 @@ import os
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 import logging
-import functools
 from tqdm import tqdm
 from models.modeling_captioners import AutoCaptioner
 from typing import List
 import json
 import os
 from torch.utils.data import DataLoader
-from accelerate import Accelerator
 from dataset.dataset import VideoTextDataset
+import torch
 
-
-accelerator = Accelerator(device_placement=False)
-
-def wrap_main_process(function):
-    @functools.wraps(function)
-    def run(*args, **kwargs):
-        if accelerator.is_main_process:
-            return function(*args, **kwargs)
-        return lambda *args, **kwargs: None
-    return run
-
-def wraped_getLogger(name: str | None = None) -> logging.Logger:
-    logger = logging._getLogger(name)
-    logger.log       = wrap_main_process(logger.log)
-    logger.info      = wrap_main_process(logger.info)
-    logger.error     = wrap_main_process(logger.error)
-    logger.warning   = wrap_main_process(logger.warning)
-    logger.debug     = wrap_main_process(logger.debug)
-    return logger
-
-
-logging._getLogger = logging.getLogger
-logging.getLogger = wraped_getLogger
-
+# Initialize logger at module level
 logger = logging.getLogger(__name__)
+
+def setup_memory_optimization():
+    """Set up memory optimization settings for PyTorch"""
+    # Set memory management environment variables
+    os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
+    
+    # Set memory fraction to use less GPU memory
+    if torch.cuda.is_available():
+        # Use 90% of available memory to leave some headroom
+        torch.cuda.set_per_process_memory_fraction(0.9)
+        logger.info('Set GPU memory fraction to 90%')
+        
+        # Enable memory efficient attention if available
+        try:
+            torch.backends.cuda.enable_flash_sdp(True)
+            logger.info('Enabled Flash Attention')
+        except:
+            logger.info('Flash Attention not available, using standard attention')
 
 
 def get_dataloader(config_path: str, dataset_name: str, num_frames: int) -> DataLoader:
@@ -93,17 +87,96 @@ def gen_description(
         raise ValueError('model_path must be provided if description.json does not exist')
     
     logger.info('Generating descriptions...')
-    captioner = AutoCaptioner.from_pretrained(model_path, is_llm=False)
+    
+    # Clear GPU memory before loading model
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+        logger.info('Cleared GPU cache before model loading')
+    
+    # Load model with device_map='auto' for multi-GPU support
+    logger.info(f'Loading model from {model_path} with device_map="auto"')
+    try:
+        captioner = AutoCaptioner.from_pretrained(
+            model_path, 
+            is_llm=False,
+            device_map='auto',  # Automatically distribute across available GPUs
+            torch_dtype=torch.float16,  # Use half precision to save memory
+            low_cpu_mem_usage=True,  # Reduce CPU memory usage during loading
+            attn_implementation="flash_attention_2" if torch.cuda.is_available() else None  # Use flash attention if available
+        )
+        
+        # Enable gradient checkpointing to save memory
+        if hasattr(captioner, 'gradient_checkpointing_enable'):
+            captioner.gradient_checkpointing_enable()
+            logger.info('Enabled gradient checkpointing for memory efficiency')
+            
+    except Exception as e:
+        logger.error(f'Failed to load model with flash attention, trying without: {e}')
+        # Fallback without flash attention
+        captioner = AutoCaptioner.from_pretrained(
+            model_path, 
+            is_llm=False,
+            device_map='auto',
+            torch_dtype=torch.float16,
+            low_cpu_mem_usage=True
+        )
+        if hasattr(captioner, 'gradient_checkpointing_enable'):
+            captioner.gradient_checkpointing_enable()
+            logger.info('Enabled gradient checkpointing for memory efficiency')
+    
     dataloader = get_dataloader(config_path, dataset_name, num_frames)
-    dataloader = accelerator.prepare(dataloader)
     data = []
-    for batch in tqdm(dataloader):
-        d = []
-        preds = captioner.describe(batch['video'])
-        for idx, gt, pred in zip(batch['idx'], batch['caption'], preds):
-            d.append({'idx': idx.item(), 'pred': pred, 'gt': gt})
-        d = accelerator.gather_for_metrics(d)
-        data += d
+    
+    logger.info(f'Starting inference on {len(dataloader)} samples...')
+    
+    for i, batch in enumerate(tqdm(dataloader, desc="Generating captions")):
+        try:
+            d = []
+            # Move video data to the same device as the model
+            video_data = batch['video']
+            
+            # Determine the device to use (prefer GPU 1 if available to balance load)
+            if torch.cuda.is_available() and torch.cuda.device_count() > 1:
+                device = torch.device(f'cuda:1' if i % 2 == 0 else 'cuda:0')
+            elif torch.cuda.is_available():
+                device = torch.device('cuda:0')
+            else:
+                device = torch.device('cpu')
+            
+            video_data = video_data.to(device)
+            
+            # Clear cache before inference
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+            
+            with torch.no_grad():  # Disable gradient computation to save memory
+                preds = captioner.describe(video_data)
+            
+            for idx, gt, pred in zip(batch['idx'], batch['caption'], preds):
+                d.append({'idx': idx.item(), 'pred': pred, 'gt': gt})
+            data += d
+            
+            # Clear cache after each sample
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+                
+            # Log memory usage every 10 samples
+            if (i + 1) % 10 == 0 and torch.cuda.is_available():
+                for gpu_id in range(torch.cuda.device_count()):
+                    allocated = torch.cuda.memory_allocated(gpu_id) / (1024**3)
+                    reserved = torch.cuda.memory_reserved(gpu_id) / (1024**3)
+                    logger.info(f'GPU {gpu_id} - Allocated: {allocated:.2f}GB, Reserved: {reserved:.2f}GB')
+                    
+        except torch.cuda.OutOfMemoryError as e:
+            logger.error(f'CUDA OOM at sample {i}: {e}')
+            logger.info('Clearing cache and trying again...')
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+            # Skip this sample and continue
+            continue
+        except Exception as e:
+            logger.error(f'Error processing sample {i}: {e}')
+            continue
 
     # NOTE: `data` only contains 'idx', 'pred' and 'gt'
     # since __getitem__ in VideoTextDataset doesn't return events
@@ -211,8 +284,11 @@ def main(
     DESCRIPTION_JSON_PATH = os.path.join(save_dir, 'description.json')
     LOGGING_PATH = os.path.join(save_dir, 'run.log')
     set_logger(LOGGING_PATH)
-
-    logger.info('********** Start Video Captioning Task **********')
+    
+    # Set up memory optimization
+    setup_memory_optimization()
+    
+    logger.info('********** Start Video Captioning Task (Without Accelerate) **********')
     logger.info(f'config_path: {config_path}')
     logger.info(f'dataset_name: {dataset_name}')
     logger.info(f'model_path: {model_path}')
@@ -223,15 +299,25 @@ def main(
     logger.info(f'api_endpoint: {api_endpoint}')
     logger.info(f'api_key: {api_key[:7] + "*" * (len(api_key) - 8) + api_key[-4:]}')
     
+    # Check available GPUs
+    if torch.cuda.is_available():
+        num_gpus = torch.cuda.device_count()
+        logger.info(f'Found {num_gpus} GPU(s) available')
+        for i in range(num_gpus):
+            gpu_name = torch.cuda.get_device_name(i)
+            gpu_memory = torch.cuda.get_device_properties(i).total_memory / (1024**3)
+            logger.info(f'GPU {i}: {gpu_name} ({gpu_memory:.1f} GB)')
+    else:
+        logger.warning('No CUDA GPUs available, will use CPU')
+    
     if evaluate and (api_endpoint is None or api_key is None):
         logger.error('api_endpoint and api_key must be provided')
         return
     
     data = gen_description(config_path, dataset_name, model_path, DESCRIPTION_JSON_PATH, num_frames)
-    if evaluate and accelerator.is_main_process:
+    if evaluate:
         evaluate_gpt(data, save_dir, api_endpoint, api_key, api_model, api_num_worker)
 
 if __name__ == '__main__':
     from fire import Fire
     Fire(main)
-
