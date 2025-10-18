@@ -3,7 +3,7 @@
 split=$1
 
 # OUTPUT_DIR="/work/piyush/experiments/CaRe/debug_run_nli-9k+ego4d-1k"
-OUTPUT_DIR="/work/piyush/experiments/CaRe/debug_run_fractions_${split}"
+OUTPUT_DIR="/work/piyush/experiments/CaRe/fravtions/debug_run_${split}"
 RUN_NAME=`basename $OUTPUT_DIR`
 
 args=()
