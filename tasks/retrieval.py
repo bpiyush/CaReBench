@@ -139,8 +139,9 @@ def main(
     from datasets import disable_caching
     disable_caching()
 
-    assert os.path.exists("data.config"), "data.config not found"
-    with open("data.config") as f:
+    data_path = "data.json"
+    assert os.path.exists(data_path), f"{data_path} not found"
+    with open(data_path) as f:
         data_configs = json.load(f)
 
     metrics = ir(
