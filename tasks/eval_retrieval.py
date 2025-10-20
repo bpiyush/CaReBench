@@ -15,6 +15,8 @@ from models.modeling_encoders import AutoEncoder
 import shared.utils as su
 from models.modeling_basemodels import EOL_PROMPTS
 from qwen_vl_utils import process_vision_info
+from accelerate import Accelerator
+from torch.utils.data import Dataset, DataLoader
 
 
 def recall_at_k(scores, positive_pairs, k):
@@ -66,7 +68,7 @@ def compute_retrieval_metrics(scores, positive_pairs, device, recall_k_list=[1, 
     return metrics
 
 
-def get_video_embedding(duration, video_path, encoder):
+def get_video_embedding(duration, video_path, encoder, device):
     messages = [{
         "role": "user",
         "content": [
@@ -93,7 +95,7 @@ def get_video_embedding(duration, video_path, encoder):
         return_tensors="pt",
         # **video_kwargs,
     )
-    inputs = inputs.to("cuda")
+    inputs = inputs.to(device)
     with torch.inference_mode():
         output = encoder.model.generate(
             **inputs,
@@ -101,8 +103,23 @@ def get_video_embedding(duration, video_path, encoder):
             output_hidden_states=True,
             return_dict_in_generate=True,
         )
-        z = output.hidden_states[0][-1][:, -1, :].cpu().float()
+        z = output.hidden_states[0][-1][:, -1, :].float()
     return z
+
+
+class EvalRetrievalDataset(Dataset):
+    def __init__(self, items, data_root):
+        self.items = items
+        self.data_root = data_root
+
+    def __len__(self):
+        return len(self.items)
+
+    def __getitem__(self, idx):
+        item = self.items[idx]
+        video_path = f"{self.data_root}/{item['video']}"
+        caption = item['caption']
+        return {"video_path": video_path, "caption": caption}
 
 
 def main():
@@ -131,11 +148,13 @@ def main():
     num_frames = 32
     trim30 = False
 
-    # Load model
+    accelerator = Accelerator(device_placement=False)
+
+    # Load model on local process GPU
     encoder = AutoEncoder.from_pretrained(
         args.model_path,
         dtype=torch.float16,
-        device_map='cuda:0',
+        device_map=f"cuda:{accelerator.local_process_index}",
     )
     
     # Load data
@@ -154,25 +173,46 @@ def main():
         data = random.sample(data, min(100, len(data)))
         
     
-    # Compute embeddings
-    video_embs = []
-    text_embs = []
-    iterator = su.log.tqdm_iterator(data, desc='Computing embeddings')
-    for item in iterator:
-        video_path = f"{data_config['data_root']}/{item['video']}"
+    # Build distributed dataloader
+    dataset = EvalRetrievalDataset(data, data_config['data_root'])
+    dataloader = DataLoader(dataset, batch_size=1, shuffle=False, num_workers=2, pin_memory=False)
+    dataloader = accelerator.prepare(dataloader)
+
+    # Compute embeddings (distributed over all available GPUs)
+    device = accelerator.device
+    video_embs_list = []
+    text_embs_list = []
+    progress = tqdm(total=len(dataloader), desc='Computing embeddings', disable=not accelerator.is_local_main_process)
+    for batch in dataloader:
+        video_path = batch['video_path'][0]
+        caption = batch['caption'][0]
+
         assert os.path.exists(video_path)
-        caption = item['caption']
-        
+
         with torch.no_grad():
-            zt = encoder.encode_text(caption).cpu().float()
-        
+            zt = encoder.encode_text(caption)
+
         duration = su.video.get_duration(video_path)
-        zv = get_video_embedding(duration, video_path, encoder)
-        video_embs.append(zv)
-        text_embs.append(zt)
-        
-    video_embs = torch.cat(video_embs)
-    text_embs = torch.cat(text_embs)
+        zv = get_video_embedding(duration, video_path, encoder, device)
+
+        # Gather across processes so main process accumulates full set
+        zt = accelerator.gather_for_metrics(zt)
+        zv = accelerator.gather_for_metrics(zv)
+
+        if accelerator.is_main_process:
+            text_embs_list.append(zt.cpu().float())
+            video_embs_list.append(zv.cpu().float())
+
+        progress.update(1)
+
+    progress.close()
+    accelerator.wait_for_everyone()
+
+    if not accelerator.is_main_process:
+        return
+
+    video_embs = torch.cat(video_embs_list)
+    text_embs = torch.cat(text_embs_list)
     
     # Compute scores
     scores = text_embs @ video_embs.t()

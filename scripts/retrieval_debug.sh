@@ -1,7 +1,10 @@
 #!/bin/bash
 
 MODEL_PATH="/work/piyush/experiments/CaRe/special_milestones/care-stage2-nli-27k-ego4d-3k"
-DATA=carebench
+DATA=didemo
+
+# Try to raise soft file descriptor limit for this session (no-op if not permitted)
+ulimit -n 65535 2>/dev/null || true
 
 accelerate launch \
     --num_machines=1 \

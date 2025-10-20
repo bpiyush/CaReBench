@@ -1,17 +1,18 @@
 {
     "msrvtt": {
-        "anno_path": "/scratch/shared/beegfs/piyush/datasets/MSRVTT/annotation/MSR_VTT.json",
+        "anno_path": "/scratch/shared/beegfs/piyush/datasets/MSRVTT/annotation/msrvtt_test_1k.json",
         "data_root": "/scratch/shared/beegfs/piyush/datasets/MSRVTT/videos/all",
         "media_type": "video"
     },
     "msvd": {
-        "anno_path": "/path/to/anno/json",
-        "data_root": "/path/to/data/root"
+        "anno_path": "/scratch/shared/beegfs/piyush/datasets/MSVD/msvd_test.json",
+        "data_root": "/scratch/shared/beegfs/piyush/datasets/MSVD/raw_videos",
+        "media_type": "video"
     },
     "didemo": {
-        "anno_path": "/path/to/anno/json",
-        "data_root": "/path/to/data/root",
-        "apply_paragraph_retrieval": true,
+        "anno_path": "/scratch/shared/beegfs/piyush/datasets/DiDeMo/didemo_test.json",
+        "data_root": "/scratch/shared/beegfs/piyush/datasets/DiDeMo/videos",
+        "media_type": "video",
         "trim30": true
     },
     "carebench": {

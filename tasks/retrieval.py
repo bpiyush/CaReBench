@@ -65,7 +65,7 @@ def emb_data(encoder, dataset, device,
 
     dataloader = torch.utils.data.DataLoader(
         dataset, batch_size=1,
-        shuffle=False, num_workers=1,
+        shuffle=False, num_workers=0,
         collate_fn=custom_collate_fn
     )
     dataloader = accelerator.prepare(dataloader)

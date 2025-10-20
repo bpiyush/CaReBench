@@ -16,26 +16,30 @@ def read_frames_decord(
     # num_threads = 1 if video_path.endswith('.webm') else 0 # make ssv2 happy
     num_threads = 1
     video_reader = VideoReader(video_path, num_threads=num_threads, height=height, width=width)
-    vlen = len(video_reader)
- 
-    fps = video_reader.get_avg_fps()
-    duration = vlen / float(fps)
+    try:
+        vlen = len(video_reader)
 
-    # only use top 30 seconds
-    if trimmed30 and duration > 30:
-        duration = 30
-        vlen = int(30 * float(fps))
+        fps = video_reader.get_avg_fps()
+        duration = vlen / float(fps)
 
-    frame_indices = get_frame_indices(
-        num_frames, vlen, sample=sample, fix_start=fix_start,
-        input_fps=fps, max_num_frames=max_num_frames
-    )
+        # only use top 30 seconds
+        if trimmed30 and duration > 30:
+            duration = 30
+            vlen = int(30 * float(fps))
 
-    frames = video_reader.get_batch(frame_indices)  # (T, H, W, C), torch.uint8
-    if not isinstance(frames, torch.Tensor):
-        frames = torch.from_numpy(frames.asnumpy())
-    frames = frames.permute(0, 3, 1, 2)  # (T, C, H, W), torch.uint8
-    return frames
+        frame_indices = get_frame_indices(
+            num_frames, vlen, sample=sample, fix_start=fix_start,
+            input_fps=fps, max_num_frames=max_num_frames
+        )
+
+        frames = video_reader.get_batch(frame_indices)  # (T, H, W, C), torch.uint8
+        if not isinstance(frames, torch.Tensor):
+            frames = torch.from_numpy(frames.asnumpy())
+        frames = frames.permute(0, 3, 1, 2)  # (T, C, H, W), torch.uint8
+        return frames
+    finally:
+        # Explicitly release underlying resources to avoid file descriptor leaks
+        del video_reader
 
 def get_frame_indices(num_frames, vlen, sample='rand', fix_start=None, input_fps=1, max_num_frames=-1):
     if sample in ["rand", "middle"]: # uniform sampling
