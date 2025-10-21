@@ -487,3 +487,108 @@ class EncoderForCaRe(BaseModelForCaRe, EncodeMixin):
         with torch.inference_mode():
             output = self.model.generate(**inputs, max_new_tokens=1, output_hidden_states=True, return_dict_in_generate=True)
         return output.hidden_states[0][-1][:, -1, :]
+
+
+from models.modeling_basemodels import BaseModelForQwen25VL
+class EncoderForQwen25VL(BaseModelForQwen25VL, EncodeMixin):
+    
+    def encode_vision(self, video_paths: List[str]) -> torch.Tensor:
+        """
+        Encodes a list of video paths into a tensor representation.
+
+        Args:
+            video_paths: A list of video paths.
+
+        Returns:
+            A tensor representation for each video.
+        """
+        from qwen_vl_utils import process_vision_info
+        
+        if isinstance(video_paths, str):
+            video_paths = [video_paths]
+        
+        from copy import deepcopy
+        base_conversation = self.video_eol_prompt
+        conversations = deepcopy(base_conversation * len(video_paths))
+        for j, video_path in enumerate(video_paths):
+            # Update j'th conversation content
+            conversations[j]['content'] = [
+                {"type": "video", "video": video_path},
+                base_conversation[0]['content'][0],
+            ]
+        
+        prompts = [
+            self.processor.apply_chat_template(
+                [conversation], tokenize=False, add_generation_prompt=True
+            )
+            for conversation in conversations
+        ]
+        image_inputs, video_inputs, video_kwargs = process_vision_info(
+            conversations, return_video_kwargs=True,
+        )
+        
+        inputs = self.processor(
+            text=prompts,
+            images=image_inputs,
+            videos=video_inputs,
+            padding=True,
+            return_tensors="pt",
+            **video_kwargs,
+        )
+        with torch.inference_mode():
+            output = self.model.generate(
+                **inputs, max_new_tokens=1, output_hidden_states=True, return_dict_in_generate=True,
+            )
+        return output.hidden_states[0][-1][:, -1, :]
+    
+    def encode_text(self, text: str | List[str]) -> torch.Tensor:
+        from copy import deepcopy
+
+        if isinstance(text, str):
+            text = [text]
+        base_conversation = self.text_eol_prompt
+        conversations = deepcopy(base_conversation * len(text))
+        for j, t in enumerate(text):
+            # Update j'th conversation content
+            conversations[j]['content'] = [
+                {"type": "text", "text": t},
+                base_conversation[0]['content'][0],
+            ]
+        prompts = [
+            self.processor.apply_chat_template(
+                [conversation], tokenize=False, add_generation_prompt=True
+            )
+            for conversation in conversations
+        ]
+        inputs = self.processor(
+            text=prompts,
+            padding=True,
+            return_tensors="pt",
+        )
+        inputs = inputs.to(self.model.device)
+        with torch.inference_mode():
+            output = self.model.generate(**inputs, max_new_tokens=1, output_hidden_states=True, return_dict_in_generate=True)
+        return output.hidden_states[0][-1][:, -1, :]
+
+
+if __name__ == "__main__":
+    # Test the EncoderForQwen25VL
+    encoder = EncoderForQwen25VL.from_pretrained(
+        "/work/piyush/pretrained_checkpoints/Qwen2.5-VL-7B-Instruct",
+        device_map='auto',
+        load_llm=False,
+        dtype=torch.bfloat16,
+    )
+    video_paths = [
+        "../TimeBound.v1/sample_data/folding_paper.mp4", 
+        "../TimeBound.v1/sample_data/folding_paper.mp4",
+    ]
+    embeddings = encoder.encode_vision(video_paths)
+    print(embeddings.shape)
+    
+    texts = [
+        "A man is slicing tomatoes in the kitchen.",
+        "A woman is folding a paper.",
+    ]
+    embeddings = encoder.encode_text(texts)
+    print(embeddings.shape)

@@ -558,3 +558,88 @@ class BaseModelForQwen2VL(BaseModel):
 class BaseModelForCaRe(BaseModelForQwen2VL):
 
     ARCHITECTURE = "CaReModel"
+
+
+class BaseModelForQwen25VL(BaseModel):
+    from transformers import Qwen2_5_VLModel, Qwen2_5_VLForConditionalGeneration
+    ARCHITECTURE = "Qwen2_5_VLForConditionalGeneration"
+    LLM_CLASS = Qwen2_5_VLModel
+    MLLM_CLASS = Qwen2_5_VLForConditionalGeneration
+
+    @property
+    def describe_prompt(self):
+        return "Describe the video in detail."
+
+    @property
+    def text_eol_prompt(self):
+        messages = [{
+            "role": "user",
+            "content": [{"type": "text", "text": EOL_PROMPTS['text']}],
+        }]
+        return messages
+    
+    @property
+    def image_eol_prompt(self):
+        messages = [{
+            "role": "user",
+            "content": [{"type": "text", "text": EOL_PROMPTS['image']}],
+        }]
+        return messages
+    
+    @property
+    def video_eol_prompt(self):
+        messages = [{
+            "role": "user",
+            "content": [{"type": "text", "text": EOL_PROMPTS['video']}],
+        }]
+        return messages
+
+    def __init__(
+            self, 
+            model_name_or_path: str,
+            load_llm: Optional[bool] = None,
+            device_map: Optional[Union[str, Dict[str, int]]] = None,
+            **kwargs,
+        ):        
+        
+        MODEL_CLASS = self.LLM_CLASS if load_llm else self.MLLM_CLASS
+
+        self.load_llm = load_llm
+
+        if load_llm:
+            self.split_weights(model_name_or_path, model_name_or_path + '-llm')
+            model_name_or_path += '-llm'
+        
+        self.model = MODEL_CLASS.from_pretrained(
+            model_name_or_path,
+            torch_dtype=torch.bfloat16,
+            device_map=device_map,
+        )
+        self.model.eval()
+             
+        self.processor = AutoProcessor.from_pretrained(model_name_or_path)
+        self.tokenizer = self.processor.tokenizer
+
+    def split_weights(self, mllm_path, llm_path):
+        if os.path.exists(llm_path):
+            print(f'{llm_path} already exists. Skip splitting weights.')
+            return
+        print('Splitting LLM weights from MLLM.')
+        model = self.MLLM_CLASS.from_pretrained(mllm_path)
+        llm = model.model
+        processor = AutoProcessor.from_pretrained(mllm_path)
+        tokenizer = AutoTokenizer.from_pretrained(mllm_path)
+        llm.save_pretrained(llm_path)
+        processor.save_pretrained(llm_path)
+        tokenizer.save_pretrained(llm_path)
+
+
+if __name__ == "__main__":
+    # Test the BaseModelForQwen25VL
+    model = BaseModelForQwen25VL.from_pretrained(
+        "/work/piyush/pretrained_checkpoints/Qwen2.5-VL-7B-Instruct",
+    )
+    print(model.describe_prompt)
+    print(model.text_eol_prompt)
+    print(model.image_eol_prompt)
+    print(model.video_eol_prompt)
