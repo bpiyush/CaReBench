@@ -535,6 +535,7 @@ class EncoderForQwen25VL(BaseModelForQwen25VL, EncodeMixin):
             return_tensors="pt",
             **video_kwargs,
         )
+        inputs = inputs.to(self.model.device)
         with torch.inference_mode():
             output = self.model.generate(
                 **inputs, max_new_tokens=1, output_hidden_states=True, return_dict_in_generate=True,
