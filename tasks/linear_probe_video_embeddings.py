@@ -153,12 +153,12 @@ if __name__ == "__main__":
     
     
     # Compute accuracy
-    import ipdb; ipdb.set_trace()
+    id_to_label = {k: v for k, v in zip(df.id, df['class'])}
     train_ids = df[df.split == 'train'].id.unique()
-    valid_ids = df[df.split == 'validation'].id.unique()
+    valid_ids = df[df.split == 'test'].id.unique()
     train_feat = torch.stack([video_feat[k] for k in train_ids])
     valid_feat = torch.stack([video_feat[k] for k in valid_ids])
-    train_labels = df[df.split == 'train']['class'].unique()
-    valid_labels = df[df.split == 'validation']['class'].unique()
+    train_labels = [id_to_label[k] for k in train_ids]
+    valid_labels = [id_to_label[k] for k in valid_ids]
     valid_acc = get_linear_probe_accuracy(train_feat, train_labels, valid_feat, valid_labels)
     print(f"Valid accuracy: {valid_acc:.2f}")
