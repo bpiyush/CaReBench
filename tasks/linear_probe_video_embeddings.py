@@ -19,6 +19,11 @@ DATA_CONFIG = {
         'anno_path': '/scratch/shared/beegfs/piyush/datasets/HMDB51/metadata/all.csv',
         'video_dir': '/scratch/shared/beegfs/piyush/datasets/HMDB51/videos',
         'ext': 'avi',
+    },
+    "ssv2": {
+        "anno_path": "/scratch/shared/beegfs/piyush/datasets/SSv2/labels/all.csv",
+        "video_dir": "/scratch/shared/beegfs/piyush/datasets/SSv2/20bn-something-something-v2",
+        "ext": "webm",
     }
 }
 
@@ -35,10 +40,19 @@ def read_args():
         '-m', '--model_path_or_name', type=str, required=True,
         default="/work/piyush/pretrained_checkpoints/CaRe-7B",
     )
+    parser.add_argument(
+        '-debug', '--debug', action='store_true', default=False,
+    )
+    parser.add_argument(
+        "--batch_size", type=int, default=4,
+    )
+    parser.add_argument(
+        "--num_workers", type=int, default=4,
+    )
     return parser.parse_args()
 
 
-def load_model(model_path_or_name='CaRe-7B'):
+def load_model(model_path_or_name='CaRe-7B', device_map='auto'):
 
     su.log.print_update(f"Loading model ({model_path_or_name}).")
 
@@ -46,8 +60,9 @@ def load_model(model_path_or_name='CaRe-7B'):
     from models.modeling_encoders import AutoEncoder
     encoder = AutoEncoder.from_pretrained(
         model_path_or_name,
-        device_map='auto',
+        device_map=device_map,
         attn_implementation="flash_attention_2",
+        dtype=torch.bfloat16,
     )
     su.misc.num_params(encoder.model)
 
@@ -135,20 +150,28 @@ def get_linear_probe_accuracy(
     return valid_acc
 
 
+def load_data(dataset, debug=False):
+    su.log.print_update(f"Loading dataset: {dataset}")
+    df = pd.read_csv(DATA_CONFIG[dataset]['anno_path'])
+    df['video_path'] = df['id'].apply(
+        lambda x: os.path.join(
+            DATA_CONFIG[dataset]['video_dir'],
+            str(x) + f'.{DATA_CONFIG[dataset]["ext"]}'
+        ),
+    )
+    df = df[df.split.isin(['train', 'test'])]
+    if debug:
+        df = df.head(1000)
+    print("Number of rows: ", len(df))
+    su.log.print_update("")
+    return df
+
+
 if __name__ == "__main__":
     args = read_args()
     
     # Load data
-    su.log.print_update(f"Loading dataset: {args.dataset}")
-    df = pd.read_csv(DATA_CONFIG[args.dataset]['anno_path'])
-    df['video_path'] = df['id'].apply(
-        lambda x: os.path.join(
-            DATA_CONFIG[args.dataset]['video_dir'],
-            x + f'.{DATA_CONFIG[args.dataset]["ext"]}'
-        ),
-    )
-    print("Number of rows: ", len(df))
-    su.log.print_update("")
+    df = load_data(args.dataset, args.debug)
 
     # Load model
     vfc, vp = load_model(args.model_path_or_name)

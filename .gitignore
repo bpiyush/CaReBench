@@ -6,6 +6,7 @@ experiments/
 notebooks/
 __pycache__/
 external/seeAoT/data/
+lightning_logs/
 
 checkpoints
 *.pth
