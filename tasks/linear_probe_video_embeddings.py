@@ -24,6 +24,11 @@ DATA_CONFIG = {
         "anno_path": "/scratch/shared/beegfs/piyush/datasets/SSv2/labels/all.csv",
         "video_dir": "/scratch/shared/beegfs/piyush/datasets/SSv2/20bn-something-something-v2",
         "ext": "webm",
+    },
+    "k400": {
+        "anno_path": "/scratch/shared/beegfs/piyush/datasets/Kinetics400/metadata/all.csv",
+        "video_dir": "/datasets/KineticsClean/",
+        "ext": "mp4",
     }
 }
 
