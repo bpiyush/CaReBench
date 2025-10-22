@@ -561,10 +561,15 @@ class BaseModelForCaRe(BaseModelForQwen2VL):
 
 
 class BaseModelForQwen25VL(BaseModel):
-    from transformers import Qwen2_5_VLModel, Qwen2_5_VLForConditionalGeneration
-    ARCHITECTURE = "Qwen2_5_VLForConditionalGeneration"
-    LLM_CLASS = Qwen2_5_VLModel
-    MLLM_CLASS = Qwen2_5_VLForConditionalGeneration
+    try:
+        from transformers import Qwen2_5_VLModel, Qwen2_5_VLForConditionalGeneration
+        ARCHITECTURE = "Qwen2_5_VLForConditionalGeneration"
+        LLM_CLASS = Qwen2_5_VLModel
+        MLLM_CLASS = Qwen2_5_VLForConditionalGeneration
+    except:
+        ARCHITECTURE = None
+        LLM_CLASS = None
+        MLLM_CLASS = None
 
     @property
     def describe_prompt(self):

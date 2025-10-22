@@ -14,6 +14,11 @@ DATA_CONFIG = {
         'anno_path': '/scratch/shared/beegfs/piyush/datasets/UCF101/metadata/all01.csv',
         'video_dir': '/scratch/shared/beegfs/piyush/datasets/UCF101/videos_mp4',
         'ext': 'mp4',
+    },
+    "hmdb51": {
+        'anno_path': '/scratch/shared/beegfs/piyush/datasets/HMDB51/metadata/all.csv',
+        'video_dir': '/scratch/shared/beegfs/piyush/datasets/HMDB51/videos',
+        'ext': 'avi',
     }
 }
 
