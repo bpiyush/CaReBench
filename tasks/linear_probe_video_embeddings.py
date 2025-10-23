@@ -54,6 +54,9 @@ def read_args():
     parser.add_argument(
         "--num_workers", type=int, default=4,
     )
+    parser.add_argument(
+        "--gpus", type=int, default=torch.cuda.device_count(),
+    )
     return parser.parse_args()
 
 
@@ -166,7 +169,9 @@ def load_data(dataset, debug=False):
     )
     df = df[df.split.isin(['train', 'test'])]
     if debug:
-        df = df.head(1000)
+        indices_train = np.random.choice(np.where(df.split == 'train')[0], 200)
+        indices_test = np.random.choice(np.where(df.split == 'test')[0], 200)
+        df = df.iloc[np.concatenate([indices_train, indices_test])]
     print("Number of rows: ", len(df))
     su.log.print_update("")
     return df

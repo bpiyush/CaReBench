@@ -31,13 +31,18 @@ class VideoDataset(Dataset):
 
         row = self.df.iloc[idx]
         video_path = row['video_path']
-        return self.video_processor(video_path)
+        video = self.video_processor(video_path)
+        _id = row['id']
+        return {
+            'video': video,
+            'id': _id,
+        }
 
 
 class FeatureComputer(L.LightningModule):
     def __init__(self, model_path_or_name):
         super().__init__()
-        self.valid_feats = []
+        self.valid_feats = {}
         self.model_path_or_name = model_path_or_name
     
     def forward(self, x):
@@ -47,17 +52,23 @@ class FeatureComputer(L.LightningModule):
         pass
     
     def validation_step(self, batch, batch_idx):
+        video = batch['video']
+        _id = batch['id']
         with torch.no_grad():
-            features = self.encoder.encode_vision(batch).float()
-        # features = self(batch)
+            features = self.encoder.encode_vision(video).float()
             features = torch.nn.functional.normalize(features, dim=-1).cpu()
-        self.valid_feats.append(features)
-        return {"loss": 0}
+        
+        # Store features for each ID in the batch
+        for i in range(len(_id)):
+            # Convert tensor to Python scalar if needed
+            id_val = _id[i].item() if torch.is_tensor(_id[i]) else _id[i]
+            self.valid_feats[id_val] = features[i]
+        
+        return {"loss": 0, "features": features, "ids": _id}
     
     def on_validation_epoch_end(self):
-        valid_feats = torch.cat(self.valid_feats)
-        self.valid_feats = []
-        return valid_feats
+        # Return features for gathering
+        return self.valid_feats
     
     def configure_model(self):
         model_path_or_name = self.model_path_or_name
@@ -118,20 +129,46 @@ if __name__ == "__main__":
         strategy='ddp',
         # precision='bf16-mixed',
     )
-    feats = trainer.validate(fc, dataloaders=dl)
-    video_feat = {df.iloc[i]['id']: feats[i] for i in range(len(df))}
-
-
-    # Compute accuracy
-    id_to_label = {k: v for k, v in zip(df.id, df['class'])}
-    train_ids = df[df.split == 'train'].id.unique()
-    valid_ids = df[df.split == 'test'].id.unique()
-    train_feat = torch.stack([video_feat[k] for k in train_ids])
-    valid_feat = torch.stack([video_feat[k] for k in valid_ids])
-    train_labels = [id_to_label[k] for k in train_ids]
-    valid_labels = [id_to_label[k] for k in valid_ids]
-    valid_acc = get_linear_probe_accuracy(train_feat, train_labels, valid_feat, valid_labels)
-    print(f"Valid accuracy: {valid_acc:.2f}")
-
-
+    # Get features from validation
+    results = trainer.validate(fc, dataloaders=dl)
     
+    # Handle DDP feature collection
+    if trainer.world_size > 1:
+        # In DDP, we need to gather features from all processes
+        import torch.distributed as dist
+        
+        # Get features from current process
+        local_feats = fc.valid_feats
+        print(f"Rank {trainer.global_rank}: Local features count: {len(local_feats)}")
+        
+        # Gather from all processes to rank 0
+        if trainer.global_rank == 0:
+            gathered_feats = [None] * trainer.world_size
+            dist.gather_object(local_feats, gathered_feats if trainer.global_rank == 0 else None, dst=0)
+            
+            # Combine all features on rank 0
+            video_feat = {}
+            for rank_feats in gathered_feats:
+                video_feat.update(rank_feats)
+            
+            print(f"Rank 0: Total gathered features: {len(video_feat)}")
+        else:
+            dist.gather_object(local_feats, None, dst=0)
+            video_feat = {}
+    else:
+        video_feat = fc.valid_feats
+    
+    # Only rank 0 computes accuracy
+    if trainer.global_rank == 0 or trainer.world_size == 1:
+        print("Number of features: ", len(video_feat))
+
+        # Compute accuracy
+        id_to_label = {k: v for k, v in zip(df.id, df['class'])}
+        train_ids = df[df.split == 'train'].id.unique()
+        valid_ids = df[df.split == 'test'].id.unique()
+        train_feat = torch.stack([video_feat[k] for k in train_ids])
+        valid_feat = torch.stack([video_feat[k] for k in valid_ids])
+        train_labels = [id_to_label[k] for k in train_ids]
+        valid_labels = [id_to_label[k] for k in valid_ids]
+        valid_acc = get_linear_probe_accuracy(train_feat, train_labels, valid_feat, valid_labels)
+        print(f"Valid accuracy: {valid_acc:.2f}")
