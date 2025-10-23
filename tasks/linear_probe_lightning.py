@@ -119,6 +119,19 @@ if __name__ == "__main__":
         # precision='bf16-mixed',
     )
     feats = trainer.validate(fc, dataloaders=dl)
-    import ipdb; ipdb.set_trace()
+    video_feat = {df.iloc[i]['id']: feats[i] for i in range(len(df))}
+
+
+    # Compute accuracy
+    id_to_label = {k: v for k, v in zip(df.id, df['class'])}
+    train_ids = df[df.split == 'train'].id.unique()
+    valid_ids = df[df.split == 'test'].id.unique()
+    train_feat = torch.stack([video_feat[k] for k in train_ids])
+    valid_feat = torch.stack([video_feat[k] for k in valid_ids])
+    train_labels = [id_to_label[k] for k in train_ids]
+    valid_labels = [id_to_label[k] for k in valid_ids]
+    valid_acc = get_linear_probe_accuracy(train_feat, train_labels, valid_feat, valid_labels)
+    print(f"Valid accuracy: {valid_acc:.2f}")
+
 
     
