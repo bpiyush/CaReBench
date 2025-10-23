@@ -26,7 +26,7 @@ DATA_CONFIG = {
         "ext": "webm",
     },
     "k400": {
-        "anno_path": "/scratch/shared/beegfs/piyush/datasets/Kinetics400/metadata/all.csv",
+        "anno_path": "/scratch/shared/beegfs/piyush/datasets/Kinetics400/metadata/all_clean.csv",
         "video_dir": "/datasets/KineticsClean/",
         "ext": "mp4",
     }

@@ -94,7 +94,7 @@ class VideoProcessor:
             video = read_frames_decord(video_path, self.n_frames, width=480, height=270)
         except Exception as e:
             print(f"Error reading video {video_path}: {e}")
-            video = torch.zeros(self.n_frames, 3, 270, 480)
+            video = torch.zeros(self.n_frames, 3, 270, 480).float()
         return video
 
 
@@ -115,6 +115,27 @@ if __name__ == "__main__":
         num_workers=args.num_workers,
     )
     batch = next(iter(dl))
+    
+    test_dl = False
+    if test_dl:
+        prob_index = 659
+        sample_indices = np.arange(
+            prob_index * args.batch_size, (prob_index + 1) * args.batch_size
+        )
+        import ipdb; ipdb.set_trace()
+        for i in sample_indices:
+            item = dl.dataset[i]
+            video = item['video']
+            _id = item['id']
+            print("Successfully processed item ", i, _id)
+        # iterator = su.log.tqdm_iterator(dl, desc='Computing features')
+        # i = 0
+        # for batch in iterator:
+        #     video = batch['video']
+        #     _id = batch['id']
+        #     i += 1
+        #     print("Successfully processed batch ", i)
+    # import ipdb; ipdb.set_trace()
     
     # Compute features
     fc = FeatureComputer(args.model_path_or_name)
