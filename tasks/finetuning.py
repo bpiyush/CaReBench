@@ -438,7 +438,6 @@ def train(
     data_collator = DC_FUN(
         tokenizer, pad_to_multiple_of=8, return_tensors="pt", padding=True
     )
-    print(data_collator)
 
     trainer = SentembTrainer(
         model=model,
