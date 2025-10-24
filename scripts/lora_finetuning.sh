@@ -12,22 +12,23 @@ RUN_NAME=`basename $OUTPUT_DIR`
 args=()
 
 BASE_MODEL="/work/piyush/pretrained_checkpoints/CaRe-7B-Stage-1"
+# BASE_MODEL="/work/piyush/pretrained_checkpoints/CaRe-7B"
 # BASE_MODEL="/work/piyush/pretrained_checkpoints/Qwen2-VL-7B-Instruct"
 
-# BATCH_SIZE=768
-# MICRO_BATCH_SIZE=32
-BATCH_SIZE=32
-MICRO_BATCH_SIZE=4
+BATCH_SIZE=768
+MICRO_BATCH_SIZE=32
+# BATCH_SIZE=32
+# MICRO_BATCH_SIZE=4
 # EPOCH=2
-EPOCH=1
-LR=2e-4
+EPOCH=2
+LR=2e-5
 WARMUP_RATIO=0.1
 CUTOFF_LEN=32
 GPUS=$(nvidia-smi --query-gpu=name --format=csv,noheader | wc -l)
 NUM_NODES=1
 
 # LoRA hyperparameters
-LORA_RANK=8
+LORA_RANK=16
 LORA_ALPHA=16
 LORA_DROPOUT=0.05
 LORA_TARGET_MODULES="q_proj,v_proj"  # Common projection layers to apply LoRA
