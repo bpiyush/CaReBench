@@ -19,6 +19,5 @@ accelerate launch \
     --machine_rank 0 \
     tasks/retrieval.py \
     --model_path $MODEL_PATH \
-    --config_path data.json \
     --num_frames 16 \
     --data $DATA
