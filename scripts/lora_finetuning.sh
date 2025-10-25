@@ -21,7 +21,7 @@ MICRO_BATCH_SIZE=32
 # MICRO_BATCH_SIZE=4
 # EPOCH=2
 EPOCH=2
-LR=2e-5
+LR=2e-4
 WARMUP_RATIO=0.1
 CUTOFF_LEN=32
 GPUS=$(nvidia-smi --query-gpu=name --format=csv,noheader | wc -l)
