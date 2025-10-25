@@ -2,7 +2,7 @@
 
 split=$1
 if [ -z "$split" ]; then
-    split="nli-27k+ego4d-3k"
+    split="nli-90k+ego4d-10k"
 fi
 
 OUTPUT_DIR="/work/piyush/experiments/CaRe/lora/debug_run_${split}"
