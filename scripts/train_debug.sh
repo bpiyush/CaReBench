@@ -16,7 +16,9 @@ echo "Using base model: $BASE_MODEL"
 
 
 # OUTPUT_DIR="/work/piyush/experiments/CaRe/debug_run_nli-9k+ego4d-1k"
-OUTPUT_DIR="/work/piyush/experiments/CaRe/qwen2vl/debug_run_${split}"
+base_model_name=$(basename $BASE_MODEL)
+OUTPUT_DIR="/work/piyush/experiments/CaRe/${base_model_name}/${split}"
+echo "Using output directory: $OUTPUT_DIR"
 RUN_NAME=`basename $OUTPUT_DIR`
 
 args=()
@@ -28,8 +30,8 @@ MICRO_BATCH_SIZE=32
 # MICRO_BATCH_SIZE=4
 EPOCH=2
 # EPOCH=1
-# LR=2e-5
-LR=2e-4 # paper says 2e-4 but the config had 2e-5
+LR=2e-5
+# LR=2e-4 # paper says 2e-4 but the config had 2e-5
 WARMUP_RATIO=0.1
 CUTOFF_LEN=32
 GPUS=8

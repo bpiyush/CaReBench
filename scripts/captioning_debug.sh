@@ -1,7 +1,11 @@
 #!/bin/bash
 
-MODEL_PATH="/work/piyush/experiments/CaRe/special_milestones/care-stage2-nli-27k-ego4d-3k"
-SAVE_DIR="/work/piyush/experiments/CaRe/results/captioning_carebench/care-stage2-nli-27k-ego4d-3k"
+# MODEL_PATH="/work/piyush/experiments/CaRe/special_milestones/care-stage2-nli-27k-ego4d-3k"
+# SAVE_DIR="/work/piyush/experiments/CaRe/results/captioning_carebench/care-stage2-nli-27k-ego4d-3k"
+
+MODEL_PATH=/work/piyush/experiments/CaRe/qwen2vl/debug_run_nli-275k/merged_checkpoint
+SAVE_DIR="/work/piyush/experiments/CaRe/results/captioning_carebench/qwen2vl/debug_run_nli-275k"
+
 mkdir -p $SAVE_DIR
 DATA=carebench
 

@@ -2,6 +2,15 @@
 import os
 from models.modeling_basemodels import AutoBase
 
+# Need to ensure `carebench` conda env is activated.
+import sys
+command = "echo $CONDA_DEFAULT_ENV"
+output = os.popen(command).read().strip()
+if output != "carebench":
+    raise ValueError(
+        "`carebench` conda env is not activated. Please activate it and try again."
+    )
+
 
 if __name__ == "__main__":
     import argparse
@@ -47,6 +56,7 @@ if __name__ == "__main__":
     # Save the merged model
     save_dir = f"{args.fine_tuned_model}/merged_checkpoint"
     os.makedirs(save_dir, exist_ok=True)
+    print(f"Saving the merged model to {save_dir}")
     mllm.model.save_pretrained(save_dir)
     mllm.processor.save_pretrained(save_dir)
     mllm.tokenizer.save_pretrained(save_dir)
