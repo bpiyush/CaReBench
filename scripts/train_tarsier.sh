@@ -6,16 +6,9 @@ if [ -z "$split" ]; then
 fi
 echo "Using split: $split"
 
-# BASE_MODEL="/work/piyush/pretrained_checkpoints/CaRe-7B-Stage-1"
-# BASE_MODEL="/work/piyush/pretrained_checkpoints/Qwen2-VL-7B-Instruct"
-BASE_MODEL=$2
-if [ -z "$BASE_MODEL" ]; then
-    BASE_MODEL="/work/piyush/pretrained_checkpoints/CaRe-7B-Stage-1"
-fi
+BASE_MODEL=/work/piyush/pretrained_checkpoints/Tarsier-7b
 echo "Using base model: $BASE_MODEL"
 
-
-# OUTPUT_DIR="/work/piyush/experiments/CaRe/debug_run_nli-9k+ego4d-1k"
 base_model_name=$(basename $BASE_MODEL)
 OUTPUT_DIR="/work/piyush/experiments/CaRe/${base_model_name}/${split}"
 echo "Using output directory: $OUTPUT_DIR"
