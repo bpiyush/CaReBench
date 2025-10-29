@@ -1,6 +1,6 @@
 import os
 from models.modeling_basemodels import AutoBase
-
+import torch
 
 import argparse
 parser = argparse.ArgumentParser()
@@ -15,7 +15,7 @@ if os.path.isdir(dest_dir):
     os.rmdir(dest_dir)
 
 base_model = AutoBase.from_pretrained(
-    model_name_or_path, load_llm=True, device_map='cuda',
+    model_name_or_path, load_llm=True, device_map='cuda', dtype=torch.bfloat16
 )
 
 # Do a du -sh on the dest_dir
