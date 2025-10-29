@@ -44,7 +44,10 @@ if __name__ == "__main__":
     
     # Replace the weights of LLM in the MLLM with the fine-tuned LLM weights
     print("Copying weights of finetuned LLM into the LLM part of the MLLM:")
-    msg = mllm.model.model.load_state_dict(llm.state_dict())
+    if 'tarsier' in args.base_model.lower():
+        msg = mllm.model.language_model.model.load_state_dict(llm.state_dict())
+    else:
+        msg = mllm.model.model.load_state_dict(llm.state_dict())
     print(msg)
     
     # Replace the tokenizer in the MLLM with the fine-tuned tokenizer
@@ -57,8 +60,11 @@ if __name__ == "__main__":
     save_dir = f"{args.fine_tuned_model}/merged_checkpoint"
     os.makedirs(save_dir, exist_ok=True)
     print(f"Saving the merged model to {save_dir}")
-    mllm.model.save_pretrained(save_dir)
-    mllm.processor.save_pretrained(save_dir)
-    mllm.tokenizer.save_pretrained(save_dir)
-    print(f"Saved the merged model to {save_dir}")
+    if 'tarsier' in args.base_model.lower():
+        import ipdb; ipdb.set_trace()
+    else:
+        mllm.model.save_pretrained(save_dir)
+        mllm.processor.save_pretrained(save_dir)
+        mllm.tokenizer.save_pretrained(save_dir)
+        print(f"Saved the merged model to {save_dir}")
 

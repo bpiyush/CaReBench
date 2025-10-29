@@ -639,12 +639,91 @@ class BaseModelForQwen25VL(BaseModel):
         tokenizer.save_pretrained(llm_path)
 
 
+class BaseModelForTarsier2(BaseModel):
+    from models.tarsier2.modeling_tarsier2 import Tarsier2ForConditionalGeneration
+    from models.tarsier2.modeling_qwen2_vl_fast import Qwen2VLForCausalLM
+    
+    ARCHITECTURE = "Tarsier2ForConditionalGeneration"
+    LLM_CLASS = Qwen2VLForCausalLM
+    MLLM_CLASS = Tarsier2ForConditionalGeneration
+
+    @property
+    def describe_prompt(self):
+        return "Describe the video in detail."
+
+    @property
+    def text_eol_prompt(self):
+        prompt = f'USER: {EOL_PROMPTS["text"]} ASSISTANT: '
+        return prompt
+    
+    @property
+    def image_eol_prompt(self):
+        prompt = f'USER: {EOL_PROMPTS["image"]} ASSISTANT: '
+        return prompt
+    
+    @property
+    def video_eol_prompt(self):
+        prompt = f'USER: {EOL_PROMPTS["video"]} ASSISTANT: '
+        return prompt
+
+    def __init__(
+            self, 
+            model_name_or_path: str,
+            load_llm: Optional[bool] = None,
+            device_map: Optional[Union[str, Dict[str, int]]] = None,
+            **kwargs,
+        ):
+
+        MODEL_CLASS = self.LLM_CLASS if load_llm else self.MLLM_CLASS
+
+        if load_llm:
+            self.split_weights(model_name_or_path, model_name_or_path + '-llm')
+            model_name_or_path += '-llm'
+            model_config = None
+            self.processor = AutoProcessor.from_pretrained(model_name_or_path, use_fast=False)
+        else:
+            model_config = LlavaConfig.from_pretrained(
+                model_name_or_path,
+                trust_remote_code=True,
+            )
+            self.processor = Processor(
+                model_name_or_path,
+                max_n_frames=32,
+            )
+        
+        self.tokenizer = self.processor.tokenizer
+
+        self.model = MODEL_CLASS.from_pretrained(
+            model_name_or_path,
+            config=model_config,
+            attn_implementation=kwargs.get("attn_implementation", "flash_attention_2"),
+            torch_dtype=kwargs.get("torch_dtype", torch.bfloat16),
+            device_map=device_map,
+            trust_remote_code=True
+        )
+        
+        self.model.eval()
+
+    def split_weights(self, mllm_path, llm_path):
+        if os.path.exists(llm_path):
+            print(f'{llm_path} already exists. Skip splitting weights.')
+            return
+        print('Splitting LLM weights from MLLM.')
+        model = self.MLLM_CLASS.from_pretrained(mllm_path)
+        llm = model.language_model
+        processor = AutoProcessor.from_pretrained(mllm_path)
+        tokenizer = AutoTokenizer.from_pretrained(mllm_path)
+        llm.save_pretrained(llm_path)
+        processor.save_pretrained(llm_path)
+        tokenizer.save_pretrained(llm_path)
+
+
 if __name__ == "__main__":
     # Test the BaseModelForQwen25VL
-    model = BaseModelForQwen25VL.from_pretrained(
-        "/work/piyush/pretrained_checkpoints/Qwen2.5-VL-7B-Instruct",
+    model = BaseModelForTarsier2.from_pretrained(
+        "/work/piyush/pretrained_checkpoints/Tarsier2-7b-0115",
+        attn_implementation="flash_attention_2",
+        device_map="auto",
     )
-    print(model.describe_prompt)
-    print(model.text_eol_prompt)
-    print(model.image_eol_prompt)
-    print(model.video_eol_prompt)
+    import shared.utils as su
+    su.misc.num_trainable_params(model.model)
