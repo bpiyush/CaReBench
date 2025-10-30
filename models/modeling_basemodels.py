@@ -686,9 +686,11 @@ class BaseModelForTarsier2(BaseModel):
                 model_name_or_path,
                 trust_remote_code=True,
             )
-            self.processor = Processor(
+            from models.tarsier2.tarsier2_processor import TarsierProcessor
+            self.processor = TarsierProcessor.from_pretrained(
                 model_name_or_path,
-                max_n_frames=32,
+                padding_side='left',
+                trust_remote_code=True,
             )
         
         self.tokenizer = self.processor.tokenizer
@@ -701,6 +703,9 @@ class BaseModelForTarsier2(BaseModel):
             device_map=device_map,
             trust_remote_code=True
         )
+        
+        # self.processor.patch_size = self.model.config.vision_config.patch_size
+        # self.processor.vision_feature_select_strategy = self.model.config.vision_feature_select_strategy
         
         self.model.eval()
 
