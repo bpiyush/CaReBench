@@ -158,3 +158,20 @@ class Processor(object):
 
     def __call__(self, prompt, visual_data_file=None, images=None, n_frames=None, edit_prompt=False, return_prompt=False):
         return self.get_inputs(prompt, visual_data_file, images, n_frames, edit_prompt, return_prompt)
+
+    def to_json_file(self, json_file_path):
+        with open(json_file_path, "w", encoding="utf-8") as writer:
+            writer.write(self.to_json_string())
+
+    def save_pretrained(self, save_directory):
+        import warnings
+        import os
+        if os.path.isfile(save_directory):
+            raise AssertionError(f"Provided path ({save_directory}) should be a directory, not a file")
+        os.makedirs(save_directory, exist_ok=True)
+
+        FEATURE_EXTRACTOR_NAME = "preprocessor_config.json"
+        output_feature_extractor_file = os.path.join(save_directory, FEATURE_EXTRACTOR_NAME)
+        self.to_json_file(output_feature_extractor_file)
+
+        return [output_feature_extractor_file]
