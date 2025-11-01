@@ -49,3 +49,10 @@ deepspeed --num_gpus=$GPUS --num_nodes=$NUM_NODES tasks/finetuning.py \
         --deepspeed ds.config \
         --bf16 \
         --logging_steps 1 --grad_checkpoint
+
+
+# Delete the heavy checkpoint (I anyways save model after training)
+echo "Deleting the heavy checkpoint..."
+rm -rf $OUTPUT_DIR/checkpoint-*
+
+echo "Done!"

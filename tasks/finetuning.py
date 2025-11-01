@@ -455,7 +455,7 @@ def train(
             eval_steps=None,
             save_steps=save_steps,
             output_dir=output_dir,
-            save_total_limit=1,
+            save_total_limit=0,
             load_best_model_at_end=False,
             ddp_find_unused_parameters=False if ddp else None,
             group_by_length=group_by_length,
