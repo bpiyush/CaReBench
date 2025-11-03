@@ -19,5 +19,10 @@
         "anno_path": "/scratch/shared/beegfs/piyush/datasets/CaReBench/json/metadata.json",
         "data_root": "/scratch/shared/beegfs/piyush/datasets/CaReBench/videos",
         "media_type": "video"
+    },
+    "youcook2": {
+        "anno_path": "/scratch/shared/beegfs/piyush/datasets/YouCook2/val.json",
+        "data_root": "/scratch/shared/beegfs/piyush/datasets/YouCook2/YouCookIIVideos/",
+        "media_type": "video"
     }
 }
