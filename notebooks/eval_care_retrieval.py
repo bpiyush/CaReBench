@@ -545,24 +545,37 @@ def load_model(_id='CaRe-7B', device_map='auto'):
     su.misc.num_params(encoder.model)
     
     # Define a video processor: video_path -> video_tensor
-    class VideoProcessor:
-        def __init__(self, n_frames=16):
-            self.n_frames = n_frames
-        
-        def __call__(self, video_path):
-            video = read_frames_decord(video_path, self.n_frames)
-            return video
-    vp = VideoProcessor(n_frames=16)
+    if 'tarsier2' in _id.lower():
+        vp = lambda x: x
+    else:
+        class VideoProcessor:
+            def __init__(self, n_frames=16):
+                self.n_frames = n_frames
+            
+            def __call__(self, video_path):
+                video = read_frames_decord(video_path, self.n_frames)
+                return video
+        vp = VideoProcessor(n_frames=16)
     
     # Define a feature computer: video_tensor -> video_feature
-    class VideoFeatureComputer:
-        def __init__(self, encoder):
-            self.encoder = encoder
-        
-        def __call__(self, video_tensor):
-            with torch.no_grad():
-                vision_emb = encoder.encode_vision(video_tensor.unsqueeze(0)).cpu().squeeze(0).float()
-            return vision_emb
+    if 'tarsier2' in _id.lower():
+        class VideoFeatureComputer:
+            def __init__(self, encoder):
+                self.encoder = encoder
+            
+            def __call__(self, video_path):
+                with torch.no_grad():
+                    vision_emb = self.encoder.encode_vision(video_path).cpu().squeeze(0).float()
+                return vision_emb
+    else:
+        class VideoFeatureComputer:
+            def __init__(self, encoder):
+                self.encoder = encoder
+            
+            def __call__(self, video_tensor):
+                with torch.no_grad():
+                    vision_emb = self.encoder.encode_vision(video_tensor.unsqueeze(0)).cpu().squeeze(0).float()
+                return vision_emb
     vfc = VideoFeatureComputer(encoder)
     
     # Define a text feature computer: text_str -> text_feature
@@ -609,7 +622,17 @@ if __name__ == "__main__":
     # Load data
     df = load_data(dataset=args.dataset)
     df = df.drop_duplicates(subset=['id', 'text_id']).reset_index(drop=True)
-
+    
+    debug = False
+    if debug:
+        row = df.iloc[0]
+        sample_video_path = row.video_path
+        sample_text = row.template
+        zv = vfc(vp(sample_video_path))
+        zt = tfc(sample_text)
+        print(zv.shape)
+        print(zt.shape)
+        import ipdb; ipdb.set_trace()
 
     # Compute text features
     text_ids = df['text_id'].unique()

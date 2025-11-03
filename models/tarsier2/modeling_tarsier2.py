@@ -362,7 +362,6 @@ class Tarsier2ForConditionalGeneration(Tarsier2PreTrainedModel, GenerationMixin)
         bsz, max_seq_len = input_ids.shape[0], input_ids.shape[1]
 
         if max_seq_len > 1:
-            import ipdb; ipdb.set_trace()
             special_image_mask = input_ids == self.config.image_token_index
             print(f'[{input_ids.device}] num_images: {num_images.tolist()} num_image_tokens: {special_image_mask.sum(-1).tolist()}', flush=True)
 

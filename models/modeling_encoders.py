@@ -363,80 +363,55 @@ class EncoderForTarsier(BaseModelForTarsier, EncodeMixin):
 
 
 from models.modeling_basemodels import BaseModelForTarsier2
+from models.tarsier2.dataset.utils import format_one_sample
 class EncoderForTarsier2(BaseModelForTarsier2, EncodeMixin):
     
-    def encode_vision(self, pixel_values: torch.Tensor | List[torch.Tensor]) -> torch.Tensor:
-
-        pixel_values = transform_pixel_values(pixel_values) # [B, T, C, H, W]
-        nframes = pixel_values.shape[1]
-        prompt = self.image_eol_prompt if nframes == 1 else self.video_eol_prompt
+    def encode_vision(self, video_path: str) -> torch.Tensor:
         
-        to_image = ToPILImage()
-        batched_frames = []
-        for batch in pixel_values:
-            frames = [to_image(v) for v in batch]
-            batched_frames.append(frames)
-
-        generate_kwargs = {
-            "max_new_tokens": 1,
-            "output_hidden_states": True,
-            "return_dict_in_generate": True,
-        }
-
-        vision_embs = []
-
-        for frames in batched_frames:
-            input_prompt = prompt.replace("<video>", "<image>"*len(frames))
-            _pixel_values = self.processor.preprocess_image(frames)
-            import ipdb; ipdb.set_trace()
-            input_ids = self.processor.get_text_inputs(input_prompt)
-            
-            inputs = {
-                "input_ids": input_ids,
-                "pixel_values": _pixel_values.unsqueeze(0)
-            }
-            inputs = {k:v.to(self.model.device) for k,v in inputs.items() if v is not None}
-            outputs = self.model.generate(
-                **inputs,
-                **generate_kwargs,
+        ext = video_path.split('.')[-1]
+        if ext in ['mp4', 'avi', 'mov', 'mkv', 'webm']:
+            is_video = True
+        else:
+            is_video = False
+        if is_video:
+            prompt = self.video_eol_prompt
+        else:
+            prompt = self.image_eol_prompt
+        sample = format_one_sample(media_file=video_path, prompt=prompt)
+        sample = self.super_processor(sample)
+        model_inputs = {}
+        for k, v in sample.items():
+            if not isinstance(v, torch.Tensor):
+                continue
+            model_inputs[k] = v.to(self.model.device)
+        with torch.inference_mode():
+            output = self.model.generate(
+                **model_inputs,
+                max_new_tokens=1,
+                output_hidden_states=True,
+                return_dict_in_generate=True,
             )
-            import ipdb; ipdb.set_trace()
-            vision_embs.append(outputs.hidden_states[0][-1][:, -1, :])
-        
-        vision_embs = torch.cat(vision_embs)
-        return vision_embs
+            emb = output.hidden_states[0][-1][:, -1, :]
+        return emb
     
-    def encode_text(self, text: str | List[str]) -> torch.Tensor:
-
+    def encode_text(self, text: str) -> torch.Tensor:
         prompt = self.text_eol_prompt
-
-        if isinstance(text, str):
-            text = [text]
-        
-        prompts = [prompt.replace('<sent>', t) for t in text]
-
-        generate_kwargs = {
-            "max_new_tokens": 1,
-            "output_hidden_states": True,
-            "return_dict_in_generate": True,
-        }
-
-        text_embs = []
-
-        for p in prompts:
-            text_inputs = self.processor.get_text_inputs(p)
-            inputs = {
-                "input_ids": text_inputs,
-            }
-            inputs = {k:v.to(self.model.device) for k,v in inputs.items() if v is not None}
-            outputs = self.model.generate(
-                **inputs,
-                **generate_kwargs,
+        sample = format_one_sample(media_file=None, prompt=prompt)
+        sample = self.super_processor(sample)
+        model_inputs = {}
+        for k, v in sample.items():
+            if not isinstance(v, torch.Tensor):
+                continue
+            model_inputs[k] = v.to(self.model.device)
+        with torch.inference_mode():
+            output = self.model.generate(
+                **model_inputs,
+                max_new_tokens=1,
+                output_hidden_states=True,
+                return_dict_in_generate=True,
             )
-            text_embs.append(outputs.hidden_states[0][-1][:, -1, :])
-        
-        text_embs = torch.cat(text_embs)
-        return text_embs
+            emb = output.hidden_states[0][-1][:, -1, :]
+        return emb
 
 
 class EncoderForQwen2VL(BaseModelForQwen2VL, EncodeMixin):
@@ -666,23 +641,71 @@ if __name__ == "__main__":
         dtype=torch.bfloat16,
         attn_implementation="flash_attention_2",
     )
-    from utils.video import read_frames_decord
-    video_path = "../TimeBound.v1/sample_data/folding_paper.mp4"
-    pixel_values = read_frames_decord(video_path, num_frames=16)
-    embeddings = encoder.encode_vision(pixel_values.unsqueeze(0))
-    print(embeddings.shape)
-    import ipdb; ipdb.set_trace()
+    # video_path = "../TimeBound.v1/sample_data/folding_paper.mp4"
+    video_path ="/scratch/shared/beegfs/piyush/datasets/SSv2/20bn-something-something-v2/69703.webm"
+    emb = encoder.encode_vision(video_path)
+    print(emb.shape)
+    emb = encoder.encode_text("A man is slicing tomatoes in the kitchen.")
+    print(emb.shape)
+
+    # import ipdb; ipdb.set_trace()
+    # from models.tarsier2.dataset.utils import format_one_sample
+    # sample = format_one_sample(
+    #     media_file="../TimeBound.v1/sample_data/folding_paper.mp4",
+    #     prompt="Summary above video in one word:",
+    # )
+    # sample = encoder.processor(sample)
+    # model_inputs = {}
+    # for k, v in sample.items():
+    #     if not isinstance(v, torch.Tensor):
+    #         continue
+    #     model_inputs[k] = v.to(encoder.model.device)
+    # with torch.inference_mode():
+    #     output = encoder.model.generate(
+    #         **model_inputs,
+    #         max_new_tokens=1,
+    #         output_hidden_states=True,
+    #         return_dict_in_generate=True,
+    #     )
+    #     emb = output.hidden_states[0][-1][:, -1, :]
+    # print(emb.shape)
     
-    # video_paths = [
-    #     "../TimeBound.v1/sample_data/folding_paper.mp4", 
-    #     "../TimeBound.v1/sample_data/folding_paper.mp4",
-    # ]
-    # embeddings = encoder.encode_vision(video_paths)
+    # conversation = {
+    #     "messages": [
+    #         {
+    #             "role": "user",
+    #             "content": [
+    #                 {
+    #                     "type": "video",
+    #                     "video_file": "../TimeBound.v1/sample_data/folding_paper.mp4"
+    #                 }
+    #             ]
+    #         },
+    #         {
+    #             "role": "assistant",
+    #             "content": []
+    #         }
+    #     ]
+    # }
+    # prompt = encoder.processor(conversation)
+    
+    # from utils.video import read_frames_decord
+    # video_path = "../TimeBound.v1/sample_data/folding_paper.mp4"
+    # pixel_values = read_frames_decord(video_path, num_frames=16)
+    # embeddings = encoder.encode_vision(pixel_values.unsqueeze(0))
     # print(embeddings.shape)
+    # import ipdb; ipdb.set_trace()
     
-    texts = [
-        "A man is slicing tomatoes in the kitchen.",
-        "A woman is folding a paper.",
-    ]
-    embeddings = encoder.encode_text(texts)
-    print(embeddings.shape)
+    # # video_paths = [
+    # #     "../TimeBound.v1/sample_data/folding_paper.mp4", 
+    # #     "../TimeBound.v1/sample_data/folding_paper.mp4",
+    # # ]
+    # # embeddings = encoder.encode_vision(video_paths)
+    # # print(embeddings.shape)
+    
+    # texts = [
+    #     "A man is slicing tomatoes in the kitchen.",
+    #     "A woman is folding a paper.",
+    # ]
+    # embeddings = encoder.encode_text(texts)
+    # print(embeddings.shape)

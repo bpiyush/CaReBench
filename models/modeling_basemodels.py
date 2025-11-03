@@ -653,17 +653,20 @@ class BaseModelForTarsier2(BaseModel):
 
     @property
     def text_eol_prompt(self):
-        prompt = f'USER: {EOL_PROMPTS["text"]} ASSISTANT: '
+        # prompt = f'USER: {EOL_PROMPTS["text"]} ASSISTANT: '
+        prompt = EOL_PROMPTS["text"]
         return prompt
     
     @property
     def image_eol_prompt(self):
-        prompt = f'USER: {EOL_PROMPTS["image"]} ASSISTANT: '
+        # prompt = f'USER: {EOL_PROMPTS["image"]} ASSISTANT: '
+        prompt = EOL_PROMPTS["image"]
         return prompt
     
     @property
     def video_eol_prompt(self):
-        prompt = f'USER: {EOL_PROMPTS["video"]} ASSISTANT: '
+        # prompt = f'USER: {EOL_PROMPTS["video"]} ASSISTANT: '
+        prompt = EOL_PROMPTS["video"]
         return prompt
 
     def __init__(
@@ -680,26 +683,39 @@ class BaseModelForTarsier2(BaseModel):
             self.split_weights(model_name_or_path, model_name_or_path + '-llm')
             model_name_or_path += '-llm'
             model_config = None
-            self.processor = AutoProcessor.from_pretrained(model_name_or_path, use_fast=False)
+            
+            from models.tarsier2.tarsier2_processor import TarsierProcessor
+            self.processor = TarsierProcessor.from_pretrained(model_name_or_path, use_fast=False)
+            self.tokenizer = self.processor.tokenizer
         else:
             model_config = LlavaConfig.from_pretrained(
                 model_name_or_path,
                 trust_remote_code=True,
             )
-            from models.tarsier2.tarsier2_processor import TarsierProcessor
-            self.processor = TarsierProcessor.from_pretrained(
-                model_name_or_path,
-                padding_side='left',
-                trust_remote_code=True,
+            # from models.tarsier2.tarsier2_processor import TarsierProcessor
+            # self.processor = TarsierProcessor.from_pretrained(
+            #     model_name_or_path,
+            #     padding_side='left',
+            #     trust_remote_code=True,
+            # )
+            # Load base config
+            import shared.utils as su
+            self.base_config = su.io.load_yml(
+                os.path.join(
+                    su.log.repo_path, 'models/tarsier2/default_config.yaml'
+                )
             )
-        
-        self.tokenizer = self.processor.tokenizer
+            from models.tarsier2.dataset.tarsier_datamodule import init_processor
+            self.super_processor = init_processor(model_name_or_path, self.base_config)
+            self.processor = self.super_processor.processor
+            self.tokenizer = self.processor.tokenizer
 
         self.model = MODEL_CLASS.from_pretrained(
             model_name_or_path,
             config=model_config,
             attn_implementation=kwargs.get("attn_implementation", "flash_attention_2"),
-            torch_dtype=kwargs.get("torch_dtype", torch.bfloat16),
+            # torch_dtype=kwargs.get("torch_dtype", torch.bfloat16),
+            torch_dtype=torch.bfloat16,
             device_map=device_map,
             trust_remote_code=True
         )
@@ -714,13 +730,25 @@ class BaseModelForTarsier2(BaseModel):
             print(f'{llm_path} already exists. Skip splitting weights.')
             return
         print('Splitting LLM weights from MLLM.')
-        model = self.MLLM_CLASS.from_pretrained(mllm_path)
+        model = self.MLLM_CLASS.from_pretrained(
+            mllm_path,
+            attn_implementation='flash_attention_2',
+            torch_dtype=torch.bfloat16,
+        )
         llm = model.language_model
-        processor = AutoProcessor.from_pretrained(mllm_path)
-        tokenizer = AutoTokenizer.from_pretrained(mllm_path)
         llm.save_pretrained(llm_path)
-        processor.save_pretrained(llm_path)
-        tokenizer.save_pretrained(llm_path)
+        
+        import shared.utils as su
+        from models.tarsier2.dataset.tarsier_datamodule import init_processor
+        base_config = su.io.load_yml(
+            os.path.join(su.log.repo_path, 'models/tarsier2/default_config.yaml'),
+        )
+        super_processor = init_processor(
+            mllm_path,
+            base_config,
+        )
+        super_processor.processor.save_pretrained(llm_path)
+        super_processor.processor.tokenizer.save_pretrained(llm_path)
 
 
 if __name__ == "__main__":
