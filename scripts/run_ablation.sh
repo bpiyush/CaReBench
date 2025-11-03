@@ -1,0 +1,11 @@
+bash scripts/train_tarsier.sh fractions_10k/nli-0.0+ego-1.0
+bash scripts/train_tarsier.sh fractions_10k/nli-0.1+ego-0.9
+bash scripts/train_tarsier.sh fractions_10k/nli-0.2+ego-0.8
+bash scripts/train_tarsier.sh fractions_10k/nli-0.3+ego-0.7
+bash scripts/train_tarsier.sh fractions_10k/nli-0.4+ego-0.6
+bash scripts/train_tarsier.sh fractions_10k/nli-0.5+ego-0.5
+bash scripts/train_tarsier.sh fractions_10k/nli-0.6+ego-0.4
+bash scripts/train_tarsier.sh fractions_10k/nli-0.7+ego-0.3
+bash scripts/train_tarsier.sh fractions_10k/nli-0.8+ego-0.2
+bash scripts/train_tarsier.sh fractions_10k/nli-0.9+ego-0.1
+bash scripts/train_tarsier.sh fractions_10k/nli-1.0+ego-0.0
