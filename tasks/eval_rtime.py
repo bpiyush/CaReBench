@@ -19,17 +19,23 @@ def compute_video_embeddings(df, vfc, vp, data_dir):
     for i in su.log.tqdm_iterator(range(len(df))):
         row = df.iloc[i].to_dict()
         vid_fwd = f"{data_dir}/videos/{row['video_id']}.mp4"
+        
+        try:
 
-        vid_fwd_tensor = vp(vid_fwd)
-        vid_rev_tensor = torch.flip(vid_fwd_tensor, dims=(0,))
+            vid_fwd_tensor = vp(vid_fwd)
+            vid_rev_tensor = torch.flip(vid_fwd_tensor, dims=(0,))
 
-        zv = vfc(vid_fwd_tensor)
-        zv = torch.nn.functional.normalize(zv, dim=-1).cpu().float()
-        vid_fwd_emb[str(row['video_id'])] = zv
+            zv = vfc(vid_fwd_tensor)
+            zv = torch.nn.functional.normalize(zv, dim=-1).cpu().float()
+            vid_fwd_emb[str(row['video_id'])] = zv
 
-        zv = vfc(vid_rev_tensor)
-        zv = torch.nn.functional.normalize(zv, dim=-1).cpu().float()
-        vid_rev_emb[str(row['video_id'])] = zv
+            zv = vfc(vid_rev_tensor)
+            zv = torch.nn.functional.normalize(zv, dim=-1).cpu().float()
+            vid_rev_emb[str(row['video_id'])] = zv
+        
+        except:
+            print(f"Error computing video embedding for {vid_fwd}")
+            continue
     return vid_fwd_emb, vid_rev_emb
 
 
@@ -99,21 +105,40 @@ def compute_rtime_hard_score(vid_fwd_emb, vid_rev_emb, cap_fwd_emb, cap_rev_emb)
     return metrics
 
 
+def print_metrics(metrics):
+    _list = []
+    for z in ['origin', 'hard']:
+        for y in ['img', 'txt']:
+            for x in ['r1', 'r5', 'r10']:
+                _list.append(np.round(metrics[z][f"{y}_{x}"]))
+    _list.append(np.round(100. * metrics['binary']['t2v_acc'], 1))
+    _list.append(np.round(100. * metrics['binary']['v2t_acc'], 1))
+    _list = np.array(_list).astype(str)
+    print(' & '.join(_list))
+
+
 if __name__ == "__main__":
     data_dir = "/scratch/shared/beegfs/piyush/datasets/ReversedInTime"
     csv_path = f"{data_dir}/splits/all_meta.csv"
     df = pd.read_csv(csv_path)
     df = df[df.split == 'test']
+    df.video_id = df.video_id.astype(str)
     data = su.io.load_json(f"{data_dir}/splits/test.json")
     
     
     from notebooks.eval_care_retrieval import load_model
-    model_path = "/work/piyush/experiments/CaRe/Tarsier-7b/nli-9k+ego4d-1k/merged_checkpoint"
+    # model_path = "/work/piyush/experiments/CaRe/Tarsier-7b/nli-9k+ego4d-1k/merged_checkpoint"
+    # model_name = "tarsier7b+tara"
+    model_path = "/work/piyush/pretrained_checkpoints/Tarsier-7b"
+    model_name = "tarsier7b"
     vfc, tfc, vp  = load_model(_id=model_path)
     
     vid_fwd_emb, vid_rev_emb = compute_video_embeddings(df, vfc, vp, data_dir)
     cap_fwd_emb, cap_rev_emb = compute_text_embeddings(df, tfc, data)
-    import ipdb; ipdb.set_trace()
+    
+    # Only keep the rows with valid video embeddings
+    df = df[df.video_id.isin(list(vid_fwd_emb.keys()))]
+    print(f"Number of rows with valid video embeddings: {len(df)}")
     
     # Compute all metrics
     metrics = {
@@ -121,6 +146,12 @@ if __name__ == "__main__":
         'origin': compute_rtime_origin_score(vid_fwd_emb, cap_fwd_emb),
         'hard': compute_rtime_hard_score(vid_fwd_emb, vid_rev_emb, cap_fwd_emb, cap_rev_emb),
     }
-    print(json.dumps(metrics, indent=4))
-    import ipdb; ipdb.set_trace()
+    # print(json.dumps(metrics, indent=4))
+    print_metrics(metrics)
+    
+    # Save metrics
+    result_dir = "./results"
+    os.makedirs(result_dir, exist_ok=True)
+    with open(os.path.join(result_dir, f"metrics_rtime_{model_name}.json"), "w") as f:
+        json.dump(metrics, f, indent=4)
 
