@@ -3,8 +3,14 @@
 # MODEL_PATH="/work/piyush/experiments/CaRe/special_milestones/care-stage2-nli-27k-ego4d-3k"
 # MODEL_PATH="/work/piyush/pretrained_checkpoints/CaRe-7B"
 # MODEL_PATH="/work/piyush/experiments/CaRe/Tarsier-7b/nli-9k+ego4d-1k/merged_checkpoint/"
-MODEL_PATH=/work/piyush/pretrained_checkpoints/Tarsier-7b
+# MODEL_PATH=/work/piyush/pretrained_checkpoints/Tarsier-7b
 DATA=$1
+
+MODEL_PATH=$2
+if [ -z "$MODEL_PATH" ]; then
+    MODEL_PATH="/work/piyush/experiments/CaRe/special_milestones/care-stage2-nli-27k-ego4d-3k"
+fi
+echo "Using model path: $MODEL_PATH"
 
 if [ -z "$DATA" ]; then
     DATA="didemo"
