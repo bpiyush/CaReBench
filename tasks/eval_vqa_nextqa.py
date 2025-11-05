@@ -185,22 +185,29 @@ if __name__ == "__main__":
     assert os.path.exists(csv_path), f"CSV file not found: {csv_path}"
     df = pd.read_csv(csv_path)
     
-    # Result file
-    result_file = f"{su.log.repo_path}/results/nextqa_mc.json"
+    # Result file (.npy to avoid JSON serialization issues with numpy types)
+    result_file = f"{su.log.repo_path}/results/nextqa_mc.npy"
     os.makedirs(os.path.dirname(result_file), exist_ok=True)
     
     # If result file exists, then drop those rows that are already in the result file
     if os.path.exists(result_file):
         print(f"Result file found: {result_file}")
-        results = su.io.load_json(result_file)
+        # Load existing results from .npy (list of dicts)
+        try:
+            existing_results = np.load(result_file, allow_pickle=True)
+            if isinstance(existing_results, np.ndarray):
+                existing_results = existing_results.tolist()
+        except Exception as e:
+            print(f"Failed to load existing results from npy: {e}")
+            existing_results = []
         # Only need to update these results in the result file
-        df = df[~df['video'].isin([result['video'] for result in results])]
-        print(f"Dropped {len(results)} rows that are already in the result file")
+        df = df[~df['video'].isin([result['video'] for result in existing_results])]
+        print(f"Dropped {len(existing_results)} rows that are already in the result file")
         print(f"Number of rows left: {len(df)}")
         print("=" * 60)
     else:
         print(f"Result file not found: {result_file}")
-        results = []
+        existing_results = []
         print("=" * 60)
     
     # Print number of rows to process
@@ -209,17 +216,23 @@ if __name__ == "__main__":
     # Run on the entire dataset and save outputs as a JSON file (list of dicts)
     iterator = su.log.tqdm_iterator(range(len(df)), desc="Processing rows", total=len(df))
     save_freq = 20
+    # Buffer for newly processed results; we will merge with existing_results on every save
+    results_buffer = []
     for i in iterator:
         try:
             result = process_row_nextqa(df.iloc[i], video_dir, n_frames=16)
-            results.append(result)
+            results_buffer.append(result)
             if (i+1) % save_freq == 0:
-                print(f"Saving results with {len(results)} rows")
-                su.io.save_json(results, result_file)
-                results = []
+                print(f"Saving results with {len(results_buffer)} new rows (total will be {len(existing_results) + len(results_buffer)})")
+                combined_results = existing_results + results_buffer
+                # Save as numpy array of objects (list of dicts)
+                np.save(result_file, np.array(combined_results, dtype=object))
+                existing_results = combined_results
+                results_buffer = []
         except Exception as e:
             print(f"Error processing row {i} of {len(df)}: {e}")
             print("Skipping this row...")
             continue
-    print(f"Saving results with {len(results)} rows")
-    su.io.save_json(results, result_file)
+    print(f"Saving results with {len(results_buffer)} new rows (final total will be {len(existing_results) + len(results_buffer)})")
+    combined_results = existing_results + results_buffer
+    np.save(result_file, np.array(combined_results, dtype=object))
