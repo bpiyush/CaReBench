@@ -1,0 +1,10 @@
+{
+    "std": {
+        "image_retrieval_recall@5": 0.57396000623703,
+        "text_retrieval_recall@5": 0.7487999796867371
+    },
+    "neg": {
+        "image_retrieval_recall@5": 0.45583999156951904,
+        "text_retrieval_recall@5": 0.6424000263214111
+    }
+}

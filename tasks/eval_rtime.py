@@ -118,6 +118,12 @@ def print_metrics(metrics):
 
 
 if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--model_path", type=str, default="/work/piyush/pretrained_checkpoints/Qwen2-VL-7B-Instruct")
+    parser.add_argument("--model_name", type=str, default="qwen2vl7b")
+    args = parser.parse_args()
+    
     data_dir = "/scratch/shared/beegfs/piyush/datasets/ReversedInTime"
     csv_path = f"{data_dir}/splits/all_meta.csv"
     df = pd.read_csv(csv_path)
@@ -129,8 +135,12 @@ if __name__ == "__main__":
     from notebooks.eval_care_retrieval import load_model
     # model_path = "/work/piyush/experiments/CaRe/Tarsier-7b/nli-9k+ego4d-1k/merged_checkpoint"
     # model_name = "tarsier7b+tara"
-    model_path = "/work/piyush/pretrained_checkpoints/Tarsier-7b"
-    model_name = "tarsier7b"
+    # model_path = "/work/piyush/pretrained_checkpoints/Tarsier-7b"
+    # model_name = "tarsier7b"
+    # model_path = "/work/piyush/pretrained_checkpoints/Qwen2-VL-7B-Instruct"
+    # model_name = "qwen2vl7b"
+    model_path = args.model_path
+    model_name = args.model_name
     vfc, tfc, vp  = load_model(_id=model_path)
     
     vid_fwd_emb, vid_rev_emb = compute_video_embeddings(df, vfc, vp, data_dir)
