@@ -171,22 +171,90 @@ def process_row_nextqa(row, video_dir, n_frames=16):
     return result
 
 
+def process_row_tvbench(row, video_dir, n_frames=16):
+    """
+    This function is specialised for TVBench dataset.
+    """
+    video_path = f"{video_dir}/{row['video_file']}"
+    assert os.path.exists(video_path), f"Video file not found: {video_path}"
+    question = row['question']
+    options = row['candidates']
+
+    # Currently, these are hardcoded for TVBench dataset.
+    generate_kwargs = {
+        "do_sample": False,
+        "max_new_tokens": 128,
+        "top_p": 1,
+        "temperature": 0.,
+        "use_cache": True,
+    }
+
+    generated_answer, indexed_options = generate_answer_for_videoqa(
+        encoder=encoder, 
+        video_path=video_path,
+        question=question,
+        options=options,
+        n_frames=n_frames,
+        generate_kwargs=generate_kwargs,
+    )
+    
+    # Return result item as dict
+    result = {
+        'video_file': row['video_file'],
+        'video': row['video'],
+        'video_path': video_path,
+        'n_frames': n_frames,
+        'question': question,
+        'options': options,
+        'generated_answer': generated_answer,
+        'indexed_options': indexed_options,
+        'true_answer': row['answer'],
+    }
+    return result
+
+
 if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-m",
+        "--model_id",
+        type=str,
+        default="/work/piyush/experiments/CaRe/Tarsier-7b/nli-9k+ego4d-1k/merged_checkpoint",
+    )
+    parser.add_argument("-d", "--dataset", type=str, default="nextqa-mc")
+    args = parser.parse_args()
     
     # Load model
-    model_id = "/work/piyush/experiments/CaRe/Tarsier-7b/nli-9k+ego4d-1k/merged_checkpoint"
+    model_id = args.model_id
     encoder = AutoEncoder.from_pretrained(model_id, device_map='auto')
     su.misc.num_params(encoder.model)
     
-    # Load NextQA dataset
-    data_dir = "/scratch/shared/beegfs/piyush/datasets/NExTQA"
-    csv_path = f"{data_dir}/mc.csv"
-    video_dir = f"{data_dir}/NExTVideo"
-    assert os.path.exists(csv_path), f"CSV file not found: {csv_path}"
-    df = pd.read_csv(csv_path)
+    if args.dataset == "nextqa-mc":
+        # Load NextQA dataset
+        data_dir = "/scratch/shared/beegfs/piyush/datasets/NExTQA"
+        csv_path = f"{data_dir}/mc.csv"
+        video_dir = f"{data_dir}/NExTVideo"
+        assert os.path.exists(csv_path), f"CSV file not found: {csv_path}"
+        df = pd.read_csv(csv_path)
+        
+        process_func = process_row_nextqa
+        result_file = f"{su.log.repo_path}/results/nextqa_mc.npy"
+    
+    elif args.dataset == "tvbench":
+        data_dir = "/scratch/shared/beegfs/piyush/datasets/TVBench"
+        video_dir = f"{data_dir}/video"
+        csv_path = f"{data_dir}/all_except_action_antonym.csv"
+        assert os.path.exists(csv_path), f"CSV file not found: {csv_path}"
+        df = pd.read_csv(csv_path)
+        
+        process_func = process_row_tvbench
+        result_file = f"{su.log.repo_path}/results/tvbench.npy"
+    else:
+        raise ValueError(f"Dataset {args.dataset} not supported")
     
     # Result file (.npy to avoid JSON serialization issues with numpy types)
-    result_file = f"{su.log.repo_path}/results/nextqa_mc.npy"
+    # result_file = f"{su.log.repo_path}/results/nextqa_mc.npy"
     os.makedirs(os.path.dirname(result_file), exist_ok=True)
     
     # If result file exists, then drop those rows that are already in the result file
@@ -220,7 +288,7 @@ if __name__ == "__main__":
     results_buffer = []
     for i in iterator:
         try:
-            result = process_row_nextqa(df.iloc[i], video_dir, n_frames=16)
+            result = process_func(df.iloc[i], video_dir, n_frames=16)
             results_buffer.append(result)
             if (i+1) % save_freq == 0:
                 print(f"Saving results with {len(results_buffer)} new rows (total will be {len(existing_results) + len(results_buffer)})")
