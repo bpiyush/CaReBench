@@ -953,6 +953,8 @@ def show_single_image_sequence(
         filepath, n_frames=4, label="Sample image sequence",
         width=480, fix_resolution=True, max_width=1000, reverse=False,
     ):
+    import decord
+    decord.bridge.set_bridge('native')
     # if label is None:
     #     label = "Sample image sequence"
     
@@ -980,7 +982,8 @@ def show_single_image_sequence(
         indices = indices[::-1]
     frames = vr.get_batch(indices).asnumpy()
     frames = [Image.fromarray(f) for f in frames]
-    canvas = concat_images(frames)
+    # canvas = concat_images(frames)
+    canvas = concat_images_with_border(frames)
 
     # Resize canvas to width max_width
     if canvas.size[0] > max_width:
