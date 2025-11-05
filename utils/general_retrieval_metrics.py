@@ -15,6 +15,7 @@ def itm_eval(
     txt2img: Dict[int, Union[int, List[int]]],
     img2txt: Dict[int, Union[int, List[int]]],
     verbose: bool = False,
+    add_50=False,
 ) -> Dict[str, float]:
     """
     Evaluate Image-Text Matching (ITM) performance for bidirectional retrieval tasks.
@@ -126,6 +127,9 @@ def itm_eval(
     i2t_recall_at_5 = 100.0 * np.sum(i2t_ranks < 5) / len(i2t_ranks) 
     i2t_recall_at_10 = 100.0 * np.sum(i2t_ranks < 10) / len(i2t_ranks)
     
+    if add_50:
+        i2t_recall_at_50 = 100.0 * np.sum(i2t_ranks < 50) / len(i2t_ranks)
+    
     if verbose:
         print(f"I2T Results - R@1: {i2t_recall_at_1:.2f}%, R@5: {i2t_recall_at_5:.2f}%, R@10: {i2t_recall_at_10:.2f}%")
     
@@ -179,7 +183,9 @@ def itm_eval(
     t2i_recall_at_1 = 100.0 * np.sum(t2i_ranks < 1) / len(t2i_ranks)
     t2i_recall_at_5 = 100.0 * np.sum(t2i_ranks < 5) / len(t2i_ranks)
     t2i_recall_at_10 = 100.0 * np.sum(t2i_ranks < 10) / len(t2i_ranks)
-    
+    if add_50:
+        t2i_recall_at_50 = 100.0 * np.sum(t2i_ranks < 50) / len(t2i_ranks)
+
     if verbose:
         print(f"T2I Results - R@1: {t2i_recall_at_1:.2f}%, R@5: {t2i_recall_at_5:.2f}%, R@10: {t2i_recall_at_10:.2f}%")
     
@@ -211,6 +217,9 @@ def itm_eval(
         # Overall performance
         "r_mean": overall_mean_recall   # Overall mean across both directions
     }
+    if add_50:
+        eval_results["txt_r50"] = i2t_recall_at_50
+        eval_results["img_r50"] = t2i_recall_at_50
     
     if verbose:
         print(f"Final Results - I2T Mean: {eval_results['txt_r_mean']:.2f}%, "

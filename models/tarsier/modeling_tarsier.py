@@ -399,7 +399,19 @@ class TarsierForConditionalGeneration(TarsierPreTrainedModel):
         self.vision_tower = AutoModel.from_config(config.vision_config, trust_remote_code=True)
         self.multi_modal_projector = LlavaMultiModalProjector(config)
         self.vocab_size = config.vocab_size
-        self.language_model = AutoModelForCausalLM.from_config(config.text_config, attn_implementation="flash_attention_2")
+        
+        use_flash_attn = True
+        attn_implementation = "flash_attention_2"
+        # If GPU is not compatible, then fall back to sdpa
+        from transformers.utils import is_flash_attn_2_available
+        if use_flash_attn and not is_flash_attn_2_available():
+            use_flash_attn = False
+            attn_implementation = "eager"
+            print("Flash Attention 2 is not available on this GPU, falling back to Eager.")
+        
+        self.language_model = AutoModelForCausalLM.from_config(
+            config.text_config, attn_implementation=attn_implementation,
+        )
         image_newline_idx = torch.tensor([config.image_newline_idx], dtype=torch.long)
         image_new_idx = torch.tensor([config.image_new_idx], dtype=torch.long)
         self.register_buffer('image_newline_idx', image_newline_idx, persistent=False)
