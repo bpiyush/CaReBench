@@ -250,7 +250,8 @@ if __name__ == "__main__":
         df = pd.read_csv(csv_path)
         
         process_func = process_row_nextqa
-        result_file = f"{su.log.repo_path}/results/nextqa_mc.npy"
+        # result_file = f"{su.log.repo_path}/results/nextqa_mc.npy"
+        result_file = f"{su.log.repo_path}/results/tarsier7b-nextqa_mc.npy"
     
     elif args.dataset == "tvbench":
         data_dir = "/scratch/shared/beegfs/piyush/datasets/TVBench"
