@@ -82,6 +82,8 @@ def generate_answer_for_videoqa(encoder, video_path, question, options, n_frames
                     "text": f"""Answer the following question by choosing the right option from provided choices. \n
                     Question: {question} \n
                     Options: \n {option_string}
+                    
+                    Please select strictly from the provided options and nothing else.
                     """
                 },
             ],
