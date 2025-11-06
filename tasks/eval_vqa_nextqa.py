@@ -178,7 +178,9 @@ def process_row_tvbench(row, video_dir, n_frames=16):
     video_path = f"{video_dir}/{row['video_file']}"
     assert os.path.exists(video_path), f"Video file not found: {video_path}"
     question = row['question']
-    options = row['candidates']
+    
+    # Need to eval since it is a string like "['a', 'b', 'c', 'd', 'e']"
+    options = eval(row['candidates'])
 
     # Currently, these are hardcoded for TVBench dataset.
     generate_kwargs = {
@@ -234,6 +236,7 @@ if __name__ == "__main__":
         # Load NextQA dataset
         data_dir = "/scratch/shared/beegfs/piyush/datasets/NExTQA"
         csv_path = f"{data_dir}/mc.csv"
+        print(f"CSV file: {csv_path}")
         video_dir = f"{data_dir}/NExTVideo"
         assert os.path.exists(csv_path), f"CSV file not found: {csv_path}"
         df = pd.read_csv(csv_path)
@@ -244,12 +247,13 @@ if __name__ == "__main__":
     elif args.dataset == "tvbench":
         data_dir = "/scratch/shared/beegfs/piyush/datasets/TVBench"
         video_dir = f"{data_dir}/video"
-        csv_path = f"{data_dir}/all_except_action_antonym.csv"
+        csv_path = f"{data_dir}/all_except_ntu120vids.csv"
+        print(f"CSV file: {csv_path}")
         assert os.path.exists(csv_path), f"CSV file not found: {csv_path}"
         df = pd.read_csv(csv_path)
         
         process_func = process_row_tvbench
-        result_file = f"{su.log.repo_path}/results/tvbench.npy"
+        result_file = f"{su.log.repo_path}/results/tvbench_except_ntu120vids.npy"
     else:
         raise ValueError(f"Dataset {args.dataset} not supported")
     
@@ -283,7 +287,7 @@ if __name__ == "__main__":
     
     # Run on the entire dataset and save outputs as a JSON file (list of dicts)
     iterator = su.log.tqdm_iterator(range(len(df)), desc="Processing rows", total=len(df))
-    save_freq = 20
+    save_freq = 100
     # Buffer for newly processed results; we will merge with existing_results on every save
     results_buffer = []
     for i in iterator:
