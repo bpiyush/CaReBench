@@ -21,8 +21,6 @@ from torchvision.transforms.v2 import (
     ToPILImage,
 )
 
-# NOTE: current prompt may be OK for NextQA but not for TVBench.
-
 
 def convert_to_prompt(messages):
     """
@@ -54,7 +52,26 @@ def convert_to_prompt(messages):
     return prompt
 
 
-def generate_answer_for_videoqa(encoder, video_path, question, options, n_frames=16, generate_kwargs={}, verbose=False):
+BASIC_PROMPT = "Answer the following question by choosing the right option from provided choices."
+
+TVBENCH_PROMPT = """
+Carefully watch the video and pay attention to the cause and sequence of events,
+the detail and movement of objects, and the action and pose of persons.
+Based on your observations, select the best option that accurately
+addresses the question.
+"""
+
+
+def generate_answer_for_videoqa(
+    encoder,
+    video_path,
+    question,
+    options,
+    n_frames=16,
+    generate_kwargs={},
+    sys_prompt=BASIC_PROMPT,
+    verbose=False,
+):
     """
     Generates an answer for VideoQA.
 
@@ -72,6 +89,15 @@ def generate_answer_for_videoqa(encoder, video_path, question, options, n_frames
     option_string = '\n'.join(indexed_options)
     messages = [
         {
+            "role": "system",
+            "content": [
+                {
+                    "type": "text",
+                    "text": sys_prompt,
+                },
+            ],
+        },
+        {
             "role": "user",
             "content": [
                 {
@@ -81,9 +107,12 @@ def generate_answer_for_videoqa(encoder, video_path, question, options, n_frames
                 },
                 {
                     "type": "text",
-                    "text": f"""Answer the following question by choosing the right option from provided choices. \n
+                    "text": f"""
+                    Select the best suitable option from the given options and nothing else.
                     Question: {question} \n
                     Options: \n {option_string}
+                    
+                    Answer format: <answer_index>: <answer_text>
                     """
                 },
             ],
@@ -92,6 +121,8 @@ def generate_answer_for_videoqa(encoder, video_path, question, options, n_frames
 
     # Convert into a single string prompt
     prompt = convert_to_prompt(messages)
+    if verbose:
+        print(prompt)
 
     # Prepare video
     pixel_values = read_frames_decord(video_path, n_frames).unsqueeze(0)
@@ -106,9 +137,6 @@ def generate_answer_for_videoqa(encoder, video_path, question, options, n_frames
     # Run through model
     for frames in batched_frames:
         input_prompt = prompt.replace("<video>", "<image>"*len(frames))
-        if verbose:
-            print(input_prompt)
-            print("=" * 60)
         input_ids = encoder.processor.get_text_inputs(input_prompt)
         frames = encoder.processor.get_pixel_values(frames)
         inputs = {
@@ -160,6 +188,7 @@ def process_row_nextqa(row, video_dir, n_frames=16, verbose=False):
         options=options,
         n_frames=n_frames,
         generate_kwargs=generate_kwargs,
+        sys_prompt=TVBENCH_PROMPT,
         verbose=verbose,
     )
     
@@ -204,6 +233,7 @@ def process_row_tvbench(row, video_dir, n_frames=16, verbose=False):
         options=options,
         n_frames=n_frames,
         generate_kwargs=generate_kwargs,
+        sys_prompt=TVBENCH_PROMPT,
         verbose=verbose,
     )
     
@@ -231,8 +261,9 @@ if __name__ == "__main__":
         type=str,
         default="/work/piyush/experiments/CaRe/Tarsier-7b/nli-9k+ego4d-1k/merged_checkpoint",
     )
-    parser.add_argument("-d", "--dataset", type=str, default="nextqa-mc")
     parser.add_argument("--debug", action="store_true")
+    parser.add_argument("--result_fname", type=str, default="nextqa_mc")
+    parser.add_argument("-d", "--dataset", type=str, default="nextqa-mc")
     args = parser.parse_args()
     
     # Load model
@@ -250,7 +281,7 @@ if __name__ == "__main__":
         df = pd.read_csv(csv_path)
         
         process_func = process_row_nextqa
-        result_file = f"{su.log.repo_path}/results/nextqa_mc.npy"
+        result_file = f"{su.log.repo_path}/results/{args.result_fname}.npy"
     
     elif args.dataset == "tvbench":
         data_dir = "/scratch/shared/beegfs/piyush/datasets/TVBench"
@@ -261,19 +292,17 @@ if __name__ == "__main__":
         df = pd.read_csv(csv_path)
         
         process_func = process_row_tvbench
-        result_file = f"{su.log.repo_path}/results/tvbench_except_ntu120vids.npy"
+        result_file = f"{su.log.repo_path}/results/{args.result_fname}.npy"
     else:
         raise ValueError(f"Dataset {args.dataset} not supported")
 
     if args.debug:
-        # Only process one sample and quit
-        i = 0
-        i = np.random.randint(0, len(df))
-        print(f"Processing sample {i} of {len(df)}")
-        result = process_func(df.iloc[i].to_dict(), video_dir, n_frames=16, verbose=True)
+        # Just run on one sample and quit
+        result = process_func(df.iloc[0].to_dict(), video_dir, n_frames=16, verbose=True)
+        import json
         print(json.dumps(result, indent=4))
         sys.exit(0)
-    
+
     # Result file (.npy to avoid JSON serialization issues with numpy types)
     # result_file = f"{su.log.repo_path}/results/nextqa_mc.npy"
     os.makedirs(os.path.dirname(result_file), exist_ok=True)
