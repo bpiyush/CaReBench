@@ -290,8 +290,18 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"Failed to load existing results from npy: {e}")
             existing_results = []
+        
+        # REALLY HACKY BUT WORKS FOR NOW.
+        existing_ids = [
+            su.misc.encode_string(f"{x['video']}-{x['question'][:14]}", num_chars=8) \
+            for x in existing_results
+        ]
+        df['row_id'] = df[['video', 'question']].apply(
+            lambda x: su.misc.encode_string(f"{x[0]}-{x[1][:14]}", num_chars=8), axis=1
+        )
+        df = df[~df['row_id'].isin(existing_ids)]
         # Only need to update these results in the result file
-        df = df[~df['video'].isin([result['video'] for result in existing_results])]
+        df = df[~df['question'].isin([result['question'] for result in existing_results])]
         print(f"Dropped {len(existing_results)} rows that are already in the result file")
         print(f"Number of rows left: {len(df)}")
         print("=" * 60)
