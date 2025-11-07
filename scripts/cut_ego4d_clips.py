@@ -84,6 +84,10 @@ def main():
                         help='Directory to save processed clips')
     parser.add_argument('--debug', action='store_true',
                         help='Process only first 10 clips for debugging')
+    parser.add_argument('--si', type=int, default=0,
+                        help='Start index')
+    parser.add_argument('--ei', type=int, default=None,
+                        help='End index')
     
     args = parser.parse_args()
     
@@ -103,6 +107,11 @@ def main():
     if args.debug:
         clip_ids = clip_ids[:10]
         print(f"Debug mode: Processing only {len(clip_ids)} clips")
+    
+    si = args.si
+    ei = args.ei if args.ei is not None else len(clip_ids)
+    clip_ids = clip_ids[si:ei]
+    print(f"Processing from index {si} to {ei}")
     
     print(f"Processing {len(clip_ids)} clips...")
     
@@ -125,6 +134,10 @@ def main():
             
             # Output path
             output_path = save_dir / f"{clip_id}.mp4"
+            if output_path.exists():
+                print(f"\nOutput path already exists: {output_path}")
+                skipped += 1
+                continue
             
             # Process clip
             if process_clip(video_path, start_time, end_time, output_path, args.width):
