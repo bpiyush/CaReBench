@@ -101,6 +101,66 @@ def load_model_clip(_id="ViT-L/14"):
     return vfc, tfc, vp
 
 
+def load_model_dinotxt(_id='dinov2_vitl14_reg4_dinotxt_tet1280d20h24l'):
+    # Load model first to be able to load the tokenizer
+    model = torch.hub.load(
+        'facebookresearch/dinov2',
+        'dinov2_vitl14_reg4_dinotxt_tet1280d20h24l',
+    )
+    su.misc.num_params(model)
+    from dinov2.hub.dinotxt import get_tokenizer
+    from dinov2.data.transforms import make_classification_eval_transform
+
+    tokenizer = get_tokenizer()
+    preprocess = make_classification_eval_transform()
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    model = model.to(device)
+    
+    class VideoProcessor:
+        def __init__(self, n_frames=16):
+            self.n_frames = n_frames
+            self.preprocess = preprocess
+
+        def __call__(self, video_path):
+            frames = su.video.load_frames_linspace(video_path, n=self.n_frames)
+            x = torch.stack([self.preprocess(f) for f in frames])
+            return x
+    vp = VideoProcessor(n_frames=16)
+    
+    class VideoFeatureComputer:
+        def __init__(self, model, device):
+            self.model = model
+            self.device = device
+        
+        def __call__(self, video_tensor):
+            with torch.autocast(self.device, dtype=torch.float):
+                with torch.no_grad():
+                    z = self.model.encode_image(video_tensor.to(self.device))
+                    z = z.mean(dim=0).cpu().float()
+                z = torch.nn.functional.normalize(z, dim=-1)
+            return z
+    vfc = VideoFeatureComputer(model, device)
+    # vfc(vp('../TimeBound.v1/sample_data/folding_paper.mp4')).shape
+
+    class TextFeatureComputer:
+        def __init__(self, model, tokenizer, device):
+            self.model = model
+            self.device = device
+            self.tokenizer = tokenizer
+            
+        def __call__(self, text_str):
+            # Tokenize text
+            x = self.tokenizer.tokenize([text_str]).to(self.device)
+            with torch.no_grad():
+                z = self.model.encode_text(x).cpu().squeeze(0).float()
+            z = torch.nn.functional.normalize(z, dim=-1)
+            return z
+    tfc = TextFeatureComputer(model, tokenizer, device)
+    # tfc('folding paper').shape
+
+    return vfc, tfc, vp
+
+
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
@@ -125,6 +185,8 @@ if __name__ == "__main__":
         vfc, tfc, vp  = load_model(_id=model_path)
     elif args.model == 'clip':
         vfc, tfc, vp  = load_model_clip(_id=args.model_path)
+    elif args.model == 'dinotxt':
+        vfc, tfc, vp  = load_model_dinotxt()
     else:
         raise ValueError(f"Model {args.model} not supported")
     
