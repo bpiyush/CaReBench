@@ -50,6 +50,57 @@ DATA_CONFIG = {
 }
 
 
+def load_model_clip(_id="ViT-L/14"):
+    import clip
+    
+    assert _id in [
+        "ViT-B/16",
+        "ViT-L/14",
+        "ViT-L/14@336px",
+    ]
+
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    model, preprocess = clip.load(_id, device=device)
+    
+    class VideoProcessor:
+        def __init__(self, n_frames=16):
+            self.n_frames = n_frames
+            self.preprocess = preprocess
+
+        def __call__(self, video_path):
+            frames = su.video.load_frames_linspace(video_path, n=self.n_frames)
+            x = torch.stack([self.preprocess(f) for f in frames])
+            return x
+    vp = VideoProcessor(n_frames=16)
+    
+    class VideoFeatureComputer:
+        def __init__(self, model):
+            self.model = model
+        
+        def __call__(self, video_tensor):
+            with torch.no_grad():
+                z = self.model.encode_image(video_tensor.to(device))
+                z = z.mean(dim=0).cpu().float()
+            z = torch.nn.functional.normalize(z, dim=-1)
+            return z
+    vfc = VideoFeatureComputer(model)
+    
+    class TextFeatureComputer:
+        def __init__(self, model):
+            self.model = model
+            self.device = device
+            
+        def __call__(self, text_str):
+            # Tokenize text
+            x = clip.tokenize([text_str]).to(self.device)
+            with torch.no_grad():
+                z = self.model.encode_text(x).cpu().squeeze(0).float()
+            z = torch.nn.functional.normalize(z, dim=-1)
+            return z
+    tfc = TextFeatureComputer(model)
+    return vfc, tfc, vp
+
+
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
@@ -65,11 +116,17 @@ if __name__ == "__main__":
         choices=DATA_CONFIG.keys(),
     )
     parser.add_argument("--debug", action="store_true")
+    parser.add_argument("--model", type=str, default='tarsier7b+tara')
     args = parser.parse_args()
     
     # model_path = "/work/piyush/pretrained_checkpoints/Tarsier-7b"
-    model_path = args.model_path
-    vfc, tfc, vp  = load_model(_id=model_path)
+    if args.model == 'tarsier7b+tara':
+        model_path = args.model_path
+        vfc, tfc, vp  = load_model(_id=model_path)
+    elif args.model == 'clip':
+        vfc, tfc, vp  = load_model_clip(_id=args.model_path)
+    else:
+        raise ValueError(f"Model {args.model} not supported")
     
     # Load dataset
     dataset = args.dataset
@@ -124,4 +181,4 @@ if __name__ == "__main__":
     true_classes = df[data_config['target']].tolist()
     pred_classes = [true_classes[i] for i in pred_indices]
     accuracy = np.mean([pred_classes[i] == true_classes[i] for i in range(len(df))])
-    print(f"Accuracy: {accuracy:.2f}")
+    print(f"Accuracy: {accuracy*100.:.2f}")
