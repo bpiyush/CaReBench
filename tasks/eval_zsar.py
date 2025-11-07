@@ -32,7 +32,21 @@ DATA_CONFIG = {
         'ext': 'avi',
         'id_col': 'id',
         'target': 'class',
-    }
+    },
+    'epic': {
+        'video_dir': f"{DATA_ROOT}/EPIC-Kitchens-100/cut_clips",
+        'csv': f"{DATA_ROOT}/EPIC-Kitchens-100/epic-kitchens-100-annotations/ek100_validation_clean.csv",
+        'ext': 'MP4',
+        'id_col': 'id',
+        'target': 'verb_noun',
+    },
+    'kinetics-verbs': {
+        'video_dir': f"/datasets/KineticsClean/",
+        'csv': f"{DATA_ROOT}/Kinetics400/metadata/val_vfc.csv",
+        'ext': 'mp4',
+        'id_col': 'id',
+        'target': 'class',
+    },
 }
 
 
@@ -61,6 +75,8 @@ if __name__ == "__main__":
     dataset = args.dataset
     data_config = DATA_CONFIG[dataset]
     df = pd.read_csv(data_config['csv'])
+    if args.dataset == 'epic':
+        df['verb_noun'] = df[['verb', 'noun']].apply(lambda x: f"{x[0]} {x[1]}", axis=1)
     print(f"Number of rows in {dataset}: {len(df)}")
     df['path'] = df[data_config['id_col']].apply(lambda x: f"{data_config['video_dir']}/{x}.{data_config['ext']}")
     df = df[df.path.apply(os.path.exists)]
