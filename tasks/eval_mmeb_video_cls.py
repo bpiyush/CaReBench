@@ -74,7 +74,7 @@ for i in su.log.tqdm_iterator(range(len(df_video)), desc='Computing video embedd
         with torch.no_grad():
             zv = encoder.encode_vision(video_tensor.unsqueeze(0)).cpu().squeeze(0).float()
             zv = torch.nn.functional.normalize(zv, dim=-1)
-        video_embeddings['video_id'] = zv
+        video_embeddings[row['video_id']] = zv
     except:
         print(f"Error computing video embedding for {row['video_id']}")
         continue
