@@ -202,9 +202,9 @@ class BaseModelForInternVL2(BaseModel):
             print(f'{llm_path} already exists. Skip splitting weights.')
             return
         print('Splitting LLM weights from MLLM.')
-        model = self.MLLM_CLASS.from_pretrained(mllm_path)
+        model = self.MLLM_CLASS.from_pretrained(mllm_path, trust_remote_code=True)
         llm = model.language_model
-        tokenizer = AutoTokenizer.from_pretrained(mllm_path)
+        tokenizer = AutoTokenizer.from_pretrained(mllm_path, trust_remote_code=True)
         llm.save_pretrained(llm_path)
         tokenizer.save_pretrained(llm_path)
 

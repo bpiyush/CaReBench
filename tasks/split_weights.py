@@ -15,7 +15,11 @@ if os.path.isdir(dest_dir):
     os.rmdir(dest_dir)
 
 base_model = AutoBase.from_pretrained(
-    model_name_or_path, load_llm=True, device_map='cuda', dtype=torch.bfloat16
+    model_name_or_path,
+    load_llm=True,
+    device_map='cuda',
+    dtype=torch.bfloat16,
+    trust_remote_code=True,
 )
 
 # Do a du -sh on the dest_dir
