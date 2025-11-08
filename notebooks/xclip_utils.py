@@ -48,7 +48,7 @@ def sample_frame_indices(clip_len, frame_sample_rate, seg_len):
     return indices
 
 
-class VideoProcessor:
+class VideoProcessorOld:
     def __init__(self, n_frames=8):
         self.n_frames = n_frames
     
@@ -62,6 +62,16 @@ class VideoProcessor:
         return torch.from_numpy(read_video_pyav(container, indices))
 
 
+from utils.video import read_frames_decord
+class VideoProcessor:
+    def __init__(self, n_frames=8):
+        self.n_frames = n_frames
+    
+    def __call__(self, video_path):
+        video = read_frames_decord(video_path, self.n_frames)
+        return video
+
+
 class VideoFeatureComputer:
     def __init__(self, model, processor, device):
         self.model = model
@@ -71,7 +81,8 @@ class VideoFeatureComputer:
     def __call__(self, video_tensor):
         inputs = self.processor(videos=list(video_tensor), return_tensors="pt")
         inputs = inputs.to(self.device)
-        return self.model.get_video_features(**inputs)
+        with torch.no_grad():
+            return self.model.get_video_features(**inputs).squeeze(0).cpu().float()
 
 
 class TextFeatureComputer:
@@ -83,7 +94,8 @@ class TextFeatureComputer:
     def __call__(self, text_str):
         inputs = self.processor(text=text_str, padding=True, return_tensors="pt")
         inputs = inputs.to(self.device)
-        return self.model.get_text_features(**inputs)
+        with torch.no_grad():
+            return self.model.get_text_features(**inputs).squeeze(0).cpu().float()
 
 
 def load_model_xclip(model_id="microsoft/xclip-base-patch32"):

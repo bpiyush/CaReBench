@@ -599,24 +599,32 @@ if __name__ == "__main__":
     parser.add_argument('--model_id', type=str, default=None)
     parser.add_argument('--device_map', type=str, default='auto')
     parser.add_argument('--dataset', type=str, default='ssv2')
+    parser.add_argument("--model", type=str, default='mllm', choices=['mllm', 'xclip'])
     args = parser.parse_args()
 
 
     # Load model
-    if args.wandb_id is not None:
-        # Model id
-        _id = f"/work/piyush/experiments/care-finetune/checkpoints/pytorch_lightning-{args.wandb_id}/final/"
+    if args.model == 'mllm':
+        if args.wandb_id is not None:
+            # Model id
+            _id = f"/work/piyush/experiments/care-finetune/checkpoints/pytorch_lightning-{args.wandb_id}/final/"
 
-        # Copy preprocessor config
-        src = "/work/piyush/pretrained_checkpoints/CaRe-7B-Stage-1/preprocessor_config.json"
-        dst = f"{_id}/preprocessor_config.json"
-        shutil.copy(src, dst)
+            # Copy preprocessor config
+            src = "/work/piyush/pretrained_checkpoints/CaRe-7B-Stage-1/preprocessor_config.json"
+            dst = f"{_id}/preprocessor_config.json"
+            shutil.copy(src, dst)
 
+        else:
+            assert args.model_id is not None
+            _id = args.model_id
+        vfc, tfc, vp = load_model(_id=_id, device_map=args.device_map)
+        is_qwen25vl = 'qwen2.5' in _id
+    elif args.model == 'xclip':
+        from notebooks.xclip_utils import load_model_xclip
+        vp, vfc, tfc = load_model_xclip()
+        is_qwen25vl = False
     else:
-        assert args.model_id is not None
-        _id = args.model_id
-    vfc, tfc, vp = load_model(_id=_id, device_map=args.device_map)
-    is_qwen25vl = 'qwen2.5' in _id
+        raise ValueError(f"Model {args.model} not supported")
 
 
     # Load data
@@ -649,7 +657,6 @@ if __name__ == "__main__":
     video_feat = {}
     j = 0
     for video_path in su.log.tqdm_iterator(video_paths, desc='Computing video features'):
-        
         if not is_qwen25vl:
             video_tensor = vp(video_path)
             zv = vfc(video_tensor)
