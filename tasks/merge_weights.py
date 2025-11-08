@@ -25,6 +25,7 @@ if __name__ == "__main__":
     
     mllm = AutoBase.from_pretrained(
         args.base_model, load_llm=False, device_map='auto',
+        trust_remote_code=True,
     )
     
     # fine_tuned_model = AutoBase.from_pretrained(
@@ -36,16 +37,20 @@ if __name__ == "__main__":
     llm = AutoModel.from_pretrained(
         args.fine_tuned_model,
         device_map='auto',
+        trust_remote_code=True,
     )
     llm_tokenizer = AutoTokenizer.from_pretrained(
         args.fine_tuned_model,
         device_map='auto',
+        trust_remote_code=True,
     )
     
     # Replace the weights of LLM in the MLLM with the fine-tuned LLM weights
     print("Copying weights of finetuned LLM into the LLM part of the MLLM:")
     if 'tarsier' in args.base_model.lower():
         msg = mllm.model.language_model.model.load_state_dict(llm.state_dict())
+    elif 'internvl2' in args.base_model.lower():
+        msg = mllm.model.language_model.load_state_dict(llm.state_dict())
     else:
         msg = mllm.model.model.load_state_dict(llm.state_dict())
     print(msg)
@@ -53,8 +58,9 @@ if __name__ == "__main__":
     # Replace the tokenizer in the MLLM with the fine-tuned tokenizer
     print("Replacing the tokenizer in the MLLM with the fine-tuned tokenizer:")
     mllm.tokenizer = llm_tokenizer
-    mllm.processor.tokenizer = llm_tokenizer
-    
+    if not 'internvl2' in args.base_model.lower():
+        mllm.processor.tokenizer = llm_tokenizer
+
     
     # Save the merged model
     save_dir = f"{args.fine_tuned_model}/merged_checkpoint"
@@ -64,6 +70,9 @@ if __name__ == "__main__":
     if 'tarsier' in args.base_model.lower():
         mllm.tokenizer.save_pretrained(save_dir)
         mllm.processor.processor.processor.save_pretrained(save_dir)
+    elif 'internvl2' in args.base_model.lower():
+        mllm.tokenizer.save_pretrained(save_dir)
+        # No processor for internvl2
     else:
         mllm.processor.save_pretrained(save_dir)
         mllm.tokenizer.save_pretrained(save_dir)
