@@ -667,7 +667,7 @@ if __name__ == "__main__":
         j += 1
 
     metrics = compute_metrics(df, video_feat, texts_feat, show_metrics=False)
-    print_metrics_as_latex_row(metrics, sep='\t')
+    print_metrics_as_latex_row(metrics, sep='& ')
     
     # Save metrics
     save_dir = os.path.join(os.path.dirname(args.model_id), 'metrics')
