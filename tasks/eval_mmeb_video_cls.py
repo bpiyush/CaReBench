@@ -35,9 +35,16 @@ def read_frames_from_files(
     return frames
 
 
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('--model_id', type=str, default='/work/piyush/experiments/CaRe/Tarsier-7b/nli-9k+ego4d-1k/merged_checkpoint')
+parser.add_argument('--model_name', type=str, default='tarsier7b+tara')
+args = parser.parse_args()
+
 # Load model
 n_frames = 8
-model_id = "/work/piyush/experiments/CaRe/Tarsier-7b/nli-9k+ego4d-1k/merged_checkpoint"
+model_id = args.model_id
+model_name = args.model_name
 encoder = AutoEncoder.from_pretrained(model_id, device_map='auto')
 su.misc.num_params(encoder.model)
 
@@ -79,4 +86,6 @@ for i in su.log.tqdm_iterator(range(len(df_video)), desc='Computing video embedd
         print(f"Error computing video embedding for {row['video_id']}")
         continue
 len(video_embeddings)
-import ipdb; ipdb.set_trace()
+save_dir = "/scratch/shared/beegfs/piyush/datasets/MMEB-V2/features"
+save_name = f"{model_name}_video_embeddings_mmebv2_video_cls.pt"
+torch.save(video_embeddings, os.path.join(save_dir, save_name))
