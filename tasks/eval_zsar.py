@@ -244,3 +244,15 @@ if __name__ == "__main__":
     pred_classes = [true_classes[i] for i in pred_indices]
     accuracy = np.mean([pred_classes[i] == true_classes[i] for i in range(len(df))])
     print(f"Accuracy: {accuracy*100.:.2f}")
+    
+    # Save it as a json file
+    result_dir = "./results"
+    os.makedirs(result_dir, exist_ok=True)
+    result_path = f"{result_dir}/{dataset}_{args.model}.json"
+    with open(result_path, 'w') as f:
+        json.dump({
+            'accuracy': accuracy,
+            'dataset': dataset,
+            'model': args.model,
+        }, f)
+    print(f"Results saved to {result_path}")
