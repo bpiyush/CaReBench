@@ -599,7 +599,7 @@ if __name__ == "__main__":
     parser.add_argument('--model_id', type=str, default=None)
     parser.add_argument('--device_map', type=str, default='auto')
     parser.add_argument('--dataset', type=str, default='ssv2')
-    parser.add_argument("--model", type=str, default='mllm', choices=['mllm', 'xclip', 'viclip'])
+    parser.add_argument("--model", type=str, default='mllm', choices=['mllm', 'xclip', 'viclip', 'gve'])
     args = parser.parse_args()
 
 
@@ -626,6 +626,10 @@ if __name__ == "__main__":
     elif args.model == 'viclip':
         from notebooks.viclip_utils import load_model_viclip
         vp, vfc, tfc = load_model_viclip()
+        is_qwen25vl = False
+    elif args.model == 'gve':
+        from notebooks.gve_utils import load_model_gve
+        vp, vfc, tfc = load_model_gve()
         is_qwen25vl = False
     else:
         raise ValueError(f"Model {args.model} not supported")
