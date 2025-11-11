@@ -78,9 +78,15 @@ def embed_video_text(encoder, video_path, edit_text, n_frames=8, verbose=False):
 
 
 if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--model_id", type=str, default="/work/piyush/experiments/CaRe/Tarsier-7b/nli-9k+ego4d-1k/merged_checkpoint")
+    args = parser.parse_args()
+    model_id = args.model_id
+    
+    
     from models.modeling_encoders import AutoEncoder
-    model_id = "/work/piyush/experiments/CaRe/Tarsier-7b/nli-9k+ego4d-1k/merged_checkpoint"
-    encoder = AutoEncoder.from_pretrained(model_id, device_map='cuda:0')
+    encoder = AutoEncoder.from_pretrained(model_id, device_map='auto')
     su.misc.num_params(encoder.model)
     
     data_dir = "/scratch/shared/beegfs/piyush/datasets/WebVid-CoVR"

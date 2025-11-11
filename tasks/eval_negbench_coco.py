@@ -87,12 +87,17 @@ def compute_metrics(images_emb, texts_emb, text_to_image_index_std):
 
 
 if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--model_path", type=str, default="/work/piyush/pretrained_checkpoints/Tarsier-7b/")
+    parser.add_argument("--model_name", type=str, default="tarsier7b")
+    args = parser.parse_args()
 
     # Load model
     # model_path = "/work/piyush/experiments/CaRe/Tarsier-7b/nli-9k+ego4d-1k/merged_checkpoint/"
     # model_name = "tarsier7b+tara"
-    model_path = "/work/piyush/pretrained_checkpoints/Tarsier-7b/"
-    model_name = "tarsier7b"
+    model_path = args.model_path
+    model_name = args.model_name
     vfc, tfc, vp = load_model(_id=model_path, device_map="auto")
     
     
