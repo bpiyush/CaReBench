@@ -128,6 +128,7 @@ def show_grid_of_images(
         ax.set_xlabel(xlabels[i], fontsize=sizealpha * subtitlesize)
         ax.set_xticks([])
         ax.set_yticks([])
+        ax.axis('off')
 
         col_idx = i % n_cols
         if col_idx == 0:
@@ -140,6 +141,7 @@ def show_grid_of_images(
     if return_as_pil:
         fig.canvas.draw()
         pil_image = Image.frombytes('RGB', fig.canvas.get_width_height(), fig.canvas.tostring_rgb())
+        plt.close()
         return pil_image
 
     # print(f"Saving to {savepath}")
@@ -149,6 +151,15 @@ def show_grid_of_images(
     else:
         if show:
             plt.show()
+        plt.close()
+
+
+def add_frame_around_image(image, color="red", thickness=3):
+    """Add a frame around the image"""
+    image = image.copy().convert("RGB")
+    draw = ImageDraw.Draw(image)
+    draw.rectangle([0, 0, image.size[0] - 1, image.size[1] - 1], outline=color, width=thickness)
+    return image
 
 
 def add_text_to_image(image, text):

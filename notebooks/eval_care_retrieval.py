@@ -534,7 +534,7 @@ def compute_metrics(df, _video_feats, _texts_feats, show_metrics=True):
     )
 
 
-def load_model(_id='CaRe-7B', device_map='auto'):
+def load_model(_id='CaRe-7B', device_map='auto', n_frames=16):
     su.log.print_update(f"Loading CaRe model ({_id}).")
     # sys.path.append(f"{REPO_PATH}/external/CaReBench/")
     from utils.video import read_frames_decord
@@ -555,7 +555,7 @@ def load_model(_id='CaRe-7B', device_map='auto'):
             def __call__(self, video_path):
                 video = read_frames_decord(video_path, self.n_frames)
                 return video
-        vp = VideoProcessor(n_frames=16)
+        vp = VideoProcessor(n_frames=n_frames)
     
     # Define a feature computer: video_tensor -> video_feature
     if 'tarsier2' in _id.lower():
