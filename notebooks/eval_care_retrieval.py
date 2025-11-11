@@ -599,7 +599,7 @@ if __name__ == "__main__":
     parser.add_argument('--model_id', type=str, default=None)
     parser.add_argument('--device_map', type=str, default='auto')
     parser.add_argument('--dataset', type=str, default='ssv2')
-    parser.add_argument("--model", type=str, default='mllm', choices=['mllm', 'xclip', 'viclip', 'gve'])
+    parser.add_argument("--model", type=str, default='mllm', choices=['mllm', 'xclip', 'viclip', 'gve', 'e5v'])
     args = parser.parse_args()
 
 
@@ -630,6 +630,11 @@ if __name__ == "__main__":
     elif args.model == 'gve':
         from notebooks.gve_utils import load_model_gve
         vp, vfc, tfc = load_model_gve()
+        is_qwen25vl = False
+    elif args.model == 'e5v':
+        from notebooks.e5v_utils import load_model_e5v
+        # To avoid GPU memory issues, we use 8 frames.
+        vp, vfc, tfc = load_model_e5v(n_frames=8)
         is_qwen25vl = False
     else:
         raise ValueError(f"Model {args.model} not supported")

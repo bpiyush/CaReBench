@@ -51,12 +51,12 @@ class TextFeatureComputer:
         return output
 
 
-def load_model_e5v():
+def load_model_e5v(n_frames=16):
     model_path = '/work/piyush/pretrained_checkpoints/e5-v'
     processor = LlavaNextProcessor.from_pretrained(model_path)
     model = LlavaNextForConditionalGeneration.from_pretrained(model_path, torch_dtype=torch.float16, device_map="auto")
     
-    vp = VideoProcessor(n_frames=16)
+    vp = VideoProcessor(n_frames=n_frames)
     vfc = VideoFeatureComputer(model, processor)
     tfc = TextFeatureComputer(model, processor)
     return vp, vfc, tfc
