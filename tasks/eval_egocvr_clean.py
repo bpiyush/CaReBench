@@ -119,6 +119,11 @@ def embed_video_text(video_path, edit_text, n_frames=8, verbose=False):
 
 
 if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--si", type=int, default=0)
+    parser.add_argument("--ei", type=int, default=None)
+    args = parser.parse_args()
     
     # Load data
     su.log.print_update('Loading data')
@@ -130,7 +135,9 @@ if __name__ == "__main__":
     
     # [A] Compute candidate embeddings
     _use_candidate_embeddings = True
-    save_name = f"tarsier+tara_local_gallery_candidate_embeddings_egocvr.pt"
+    si = args.si
+    ei = args.ei if args.ei is not None else len(df_base)
+    save_name = f"tarsier+tara_local_gallery_candidate_embeddings_egocvr-{si}-{ei}.pt"
     save_path = os.path.join(save_dir, save_name)
     if _use_candidate_embeddings:
         if os.path.exists(save_path):
@@ -149,6 +156,10 @@ if __name__ == "__main__":
                 local_clip_names.extend(df_local.clip_name.tolist())
             local_clip_names = np.unique(np.array(local_clip_names))
             print("Total number of local clips in gallery: ", len(local_clip_names))
+            
+            # Filter local clip names
+            local_clip_names = local_clip_names[si:ei]
+            print(f"Running from {si} to {ei}.")
 
             # 2. Compute video embeddings for the local clips
             video_embeddings_local_clips = {}
@@ -163,7 +174,6 @@ if __name__ == "__main__":
                 except:
                     print(f"Error computing candidate embedding for {clip_name}. Skipping.")
                     continue
-            import ipdb; ipdb.set_trace()
             torch.save(video_embeddings_local_clips, save_path)
     
     # [B] Compute query embeddings
@@ -189,5 +199,4 @@ if __name__ == "__main__":
                 except:
                     print(f"Error computing query embedding for {i}. Skipping.")
                     continue
-            import ipdb; ipdb.set_trace()
             torch.save(query_embeddings, save_path)
