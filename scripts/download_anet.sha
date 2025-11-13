@@ -1,0 +1,12 @@
+save_dir=/scratch/shared/beegfs/piyush/datasets/ActivityNetCaptions/videos
+base_url=https://huggingface.co/datasets/YimuWang/ActivityNet/resolve/main
+
+mkdir -p "$save_dir"
+cd "$save_dir"
+
+for idx in $(seq -w 0 13); do
+  wget "${base_url}/v1-2_test.tar.gz.${idx}" -O "v1-2_test.tar.gz.${idx}"
+done
+
+cat v1-2_test.tar.gz.* > v1-2_test.tar.gz
+tar -xzvf v1-2_test.tar.gz

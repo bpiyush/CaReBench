@@ -687,3 +687,11 @@ if __name__ == "__main__":
     os.makedirs(save_dir, exist_ok=True)
     with open(os.path.join(save_dir, f'metrics-{args.dataset}.json'), 'w') as f:
         json.dump(metrics, f)
+    
+    save_embs = True
+    if save_embs:
+        save_dir = os.path.join(args.model_id, 'embs')
+        os.makedirs(save_dir, exist_ok=True)
+        print(f"Saving embeddings to {save_dir}")
+        torch.save(video_feat, os.path.join(save_dir, f'video_feat-{args.dataset}.pt'))
+        torch.save(texts_feat, os.path.join(save_dir, f'texts_feat-{args.dataset}.pt'))
