@@ -35,7 +35,7 @@ data_dir = "/scratch/shared/beegfs/piyush/datasets/Ego4D-HCap/egocvr"
 save_dir = f"{data_dir}/embs"
 os.makedirs(save_dir, exist_ok=True)
 clip_dir = f"{data_dir}/clips"
-fullvid_dir = "/scratch/shared/beegfs/shared-datasets/EGO4D/ego4d_data_v1/full_scale"
+# fullvid_dir = "/scratch/shared/beegfs/shared-datasets/EGO4D/ego4d_data_v1/full_scale"
 def load_data():
     df_anno = pd.read_csv(f"{data_dir}/egocvr_annotations.csv")
     df_base = pd.read_csv(f"{data_dir}/egocvr_data.csv")
@@ -45,11 +45,19 @@ def load_data():
 
 def load_local_gallery_video(clip_name, n_frames=8, as_tensor=False):
     video_id, st, et = clip_name.split("_")
-    st = float(st.split('-')[0])
-    et = float(et.split('-')[0])
-    video_path = f"{fullvid_dir}/{video_id}.mp4"
+    # st = float(st.split('-')[0])
+    # et = float(et.split('-')[0])
+    # video_path = f"{fullvid_dir}/{video_id}.mp4"
+    st = int(st.split('-')[0])
+    et = int(et.split('-')[0])
+    
+    clip_name = "_".join([video_id, str(st), str(et)])
+    video_path = f"{clip_dir}/{clip_name}.mp4"
+    # frames = su.video.load_frames_linspace(
+    #     video_path, st=st, et=et, n=n_frames, width=360, height=240,
+    # )
     frames = su.video.load_frames_linspace(
-        video_path, st=st, et=et, n=n_frames, width=360, height=240,
+        video_path, n=n_frames, width=360, height=240,
     )
     if as_tensor:
         frames = torch.from_numpy(np.stack([np.asarray(x) for x in frames]))
@@ -121,7 +129,7 @@ if __name__ == "__main__":
     su.log.print_update('')
     
     # [A] Compute candidate embeddings
-    _use_candidate_embeddings = False
+    _use_candidate_embeddings = True
     save_name = f"tarsier+tara_local_gallery_candidate_embeddings_egocvr.pt"
     save_path = os.path.join(save_dir, save_name)
     if _use_candidate_embeddings:
@@ -159,7 +167,7 @@ if __name__ == "__main__":
             torch.save(video_embeddings_local_clips, save_path)
     
     # [B] Compute query embeddings
-    _use_query_embeddings = True
+    _use_query_embeddings = False
     save_name = f"tarsier+tara_query_embeddings_egocvr.pt"
     save_path = os.path.join(save_dir, save_name)
     if _use_query_embeddings:
