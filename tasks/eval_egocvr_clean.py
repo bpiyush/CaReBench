@@ -125,6 +125,7 @@ if __name__ == "__main__":
     parser.add_argument("--ei", type=int, default=None)
     parser.add_argument('--no_candidate_embeddings', action='store_true')
     parser.add_argument('--no_query_embeddings', action='store_true')
+    parser.add_argument('--no_global_gallery_embeddings', action='store_true')
     parser.add_argument('--n_frames', type=int, default=8)
     args = parser.parse_args()
     
@@ -203,3 +204,46 @@ if __name__ == "__main__":
                     print(f"Error computing query embedding for {i}. Skipping.")
                     continue
             torch.save(query_embeddings, save_path)
+        
+        
+    # [C] Compute embeddings for global gallery videos
+    _use_global_gallery_embeddings = not args.no_global_gallery_embeddings
+    si = args.si
+    ei = args.ei if args.ei is not None else len(df_base)
+    save_name = f"tarsier+tara_global_gallery_embeddings_egocvr-frames_{args.n_frames}-{si}-{ei}.pt"
+    save_path = os.path.join(save_dir, save_name)
+    if _use_global_gallery_embeddings:
+        if os.path.exists(save_path):
+            global_gallery_embeddings = torch.load(save_path)
+            print("Loaded global gallery embeddings from ", save_path)
+        else:
+            su.log.print_update('Computing global candidate embeddings')
+
+            # 1. Collect all clip names in the gallery
+            local_clip_names = []
+            for i in range(len(df_gall)):
+                row = df_gall.iloc[i].to_dict()
+                # local candidates
+                df_local = df_base.iloc[eval(row['global_idx'])]
+                local_clip_names.extend(df_local.clip_name.tolist())
+            local_clip_names = np.unique(np.array(local_clip_names))
+            print("Total number of local clips in gallery: ", len(local_clip_names))
+            
+            # Filter local clip names
+            local_clip_names = local_clip_names[si:ei]
+            print(f"Running from {si} to {ei}.")
+
+            # 2. Compute video embeddings for the global clips
+            video_embeddings_local_clips = {}
+            iterator = su.log.tqdm_iterator(local_clip_names, desc='Computing video features (global clips)')
+            for clip_name in iterator:
+                try:
+                    video_tensor = load_local_gallery_video(clip_name, n_frames=args.n_frames, as_tensor=True)
+                    with torch.no_grad():
+                        zv = encoder.encode_vision(video_tensor.unsqueeze(0))
+                        zv = torch.nn.functional.normalize(zv, dim=-1).cpu().squeeze(0).float()
+                    video_embeddings_local_clips[clip_name] = zv
+                except:
+                    print(f"Error computing candidate embedding for {clip_name}. Skipping.")
+                    continue
+            torch.save(video_embeddings_local_clips, save_path)
