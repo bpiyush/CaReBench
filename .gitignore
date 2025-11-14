@@ -7,6 +7,8 @@ notebooks/
 __pycache__/
 external/seeAoT/data/
 lightning_logs/
+scores/
+external/t2v_metrics/
 
 checkpoints
 *.pth
