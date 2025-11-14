@@ -123,6 +123,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--si", type=int, default=0)
     parser.add_argument("--ei", type=int, default=None)
+    parser.add_argument('--no_candidate_embeddings', action='store_true')
+    parser.add_argument('--no_query_embeddings', action='store_true')
+    parser.add_argument('--n_frames', type=int, default=8)
     args = parser.parse_args()
     
     # Load data
@@ -134,10 +137,10 @@ if __name__ == "__main__":
     su.log.print_update('')
     
     # [A] Compute candidate embeddings
-    _use_candidate_embeddings = True
+    _use_candidate_embeddings = not args.no_candidate_embeddings
     si = args.si
     ei = args.ei if args.ei is not None else len(df_base)
-    save_name = f"tarsier+tara_local_gallery_candidate_embeddings_egocvr-{si}-{ei}.pt"
+    save_name = f"tarsier+tara_local_gallery_candidate_embeddings_egocvr-frames_{args.n_frames}-{si}-{ei}.pt"
     save_path = os.path.join(save_dir, save_name)
     if _use_candidate_embeddings:
         if os.path.exists(save_path):
@@ -166,7 +169,7 @@ if __name__ == "__main__":
             iterator = su.log.tqdm_iterator(local_clip_names, desc='Computing video features (local clips)')
             for clip_name in iterator:
                 try:
-                    video_tensor = load_local_gallery_video(clip_name, as_tensor=True)
+                    video_tensor = load_local_gallery_video(clip_name, n_frames=args.n_frames, as_tensor=True)
                     with torch.no_grad():
                         zv = encoder.encode_vision(video_tensor.unsqueeze(0))
                         zv = torch.nn.functional.normalize(zv, dim=-1).cpu().squeeze(0).float()
@@ -177,8 +180,8 @@ if __name__ == "__main__":
             torch.save(video_embeddings_local_clips, save_path)
     
     # [B] Compute query embeddings
-    _use_query_embeddings = False
-    save_name = f"tarsier+tara_query_embeddings_egocvr.pt"
+    _use_query_embeddings = not args.no_query_embeddings
+    save_name = f"tarsier+tara_query_embeddings_egocvr-frames_{args.n_frames}.pt"
     save_path = os.path.join(save_dir, save_name)
     if _use_query_embeddings:
         if os.path.exists(save_path):
@@ -192,7 +195,7 @@ if __name__ == "__main__":
                 query_video_path = f"{clip_dir}/{row['video_clip_id']}.mp4"
                 edit_instruction = row['instruction']
                 try:
-                    zq = embed_video_text(query_video_path, edit_instruction)
+                    zq = embed_video_text(query_video_path, edit_instruction, n_frames=args.n_frames)
                     zq = torch.nn.functional.normalize(zq, dim=-1)
                     zq = zq.cpu().float()
                     query_embeddings[f"{row['video_clip_id']}|{edit_instruction}"] = zq
