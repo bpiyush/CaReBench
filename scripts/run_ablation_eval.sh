@@ -1,11 +1,10 @@
-bash scripts/eval.sh fractions_10k/nli-0.0+ego-1.0 auto
-bash scripts/eval.sh fractions_10k/nli-0.1+ego-0.9 auto
-bash scripts/eval.sh fractions_10k/nli-0.2+ego-0.8 auto
-bash scripts/eval.sh fractions_10k/nli-0.3+ego-0.7 auto
-bash scripts/eval.sh fractions_10k/nli-0.4+ego-0.6 auto
-bash scripts/eval.sh fractions_10k/nli-0.5+ego-0.5 auto
-bash scripts/eval.sh fractions_10k/nli-0.6+ego-0.4 auto
-bash scripts/eval.sh fractions_10k/nli-0.7+ego-0.3 auto
-bash scripts/eval.sh fractions_10k/nli-0.8+ego-0.2 auto
-bash scripts/eval.sh fractions_10k/nli-0.9+ego-0.1 auto
-bash scripts/eval.sh fractions_10k/nli-1.0+ego-0.0 auto
+CUDA_VISIBLE_DEVICES=0 bash scripts/eval_tarsier.sh final-10112025/nli_0+ego_10000-seed_42 &
+CUDA_VISIBLE_DEVICES=1 bash scripts/eval_tarsier.sh final-10112025/nli_1000+ego_9000-seed_42 &
+CUDA_VISIBLE_DEVICES=2 bash scripts/eval_tarsier.sh final-10112025/nli_2000+ego_8000-seed_42 &
+CUDA_VISIBLE_DEVICES=3 bash scripts/eval_tarsier.sh final-10112025/nli_3000+ego_7000-seed_42 &
+CUDA_VISIBLE_DEVICES=4 bash scripts/eval_tarsier.sh final-10112025/nli_4000+ego_6000-seed_42 &
+CUDA_VISIBLE_DEVICES=5 bash scripts/eval_tarsier.sh final-10112025/nli_5000+ego_5000-seed_42 &
+CUDA_VISIBLE_DEVICES=6 bash scripts/eval_tarsier.sh final-10112025/nli_6000+ego_4000-seed_42 &
+CUDA_VISIBLE_DEVICES=7 bash scripts/eval_tarsier.sh final-10112025/nli_7000+ego_3000-seed_42 & wait
+# CUDA_VISIBLE_DEVICES=8 bash scripts/eval_tarsier.sh final-10112025/nli_8000+ego_2000-seed_42
+# CUDA_VISIBLE_DEVICES=9 bash scripts/eval_tarsier.sh final-10112025/nli_10000+ego_0-seed_42
