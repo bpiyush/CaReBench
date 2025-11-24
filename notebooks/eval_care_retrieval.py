@@ -600,6 +600,8 @@ if __name__ == "__main__":
     parser.add_argument('--device_map', type=str, default='auto')
     parser.add_argument('--dataset', type=str, default='ssv2')
     parser.add_argument("--model", type=str, default='mllm', choices=['mllm', 'xclip', 'viclip', 'gve', 'e5v'])
+    parser.add_argument('--eval_on_subset', action='store_true')
+    parser.add_argument('--no_save_embs', action='store_true')
     args = parser.parse_args()
 
 
@@ -644,6 +646,13 @@ if __name__ == "__main__":
     df = load_data(dataset=args.dataset)
     df = df.drop_duplicates(subset=['id', 'text_id']).reset_index(drop=True)
     
+    eval_on_subset = args.eval_on_subset
+    if eval_on_subset:
+        df = df.sample(frac=0.2, random_state=42).reset_index(drop=True)
+        print(f"Evaluating on {len(df)} samples only.")
+    else:
+        print(f"Evaluating on all {len(df)} samples.")
+
     debug = False
     if debug:
         row = df.iloc[0]
@@ -683,12 +692,17 @@ if __name__ == "__main__":
     print_metrics_as_latex_row(metrics, sep='& ')
     
     # Save metrics
-    save_dir = os.path.join(os.path.dirname(args.model_id), 'metrics')
-    os.makedirs(save_dir, exist_ok=True)
-    with open(os.path.join(save_dir, f'metrics-{args.dataset}.json'), 'w') as f:
-        json.dump(metrics, f)
+    save_metrics = False
+    if save_metrics:
+        save_dir = os.path.join(os.path.dirname(args.model_id), 'metrics')
+        os.makedirs(save_dir, exist_ok=True)
+        with open(os.path.join(save_dir, f'metrics-{args.dataset}.json'), 'w') as f:
+            json.dump(metrics, f)
+    else:
+        print(f"Metrics not saved.")
+        print(json.dumps(metrics, indent=4))
     
-    save_embs = True
+    save_embs = not args.no_save_embs
     if save_embs:
         save_dir = os.path.join(args.model_id, 'embs')
         os.makedirs(save_dir, exist_ok=True)
