@@ -270,8 +270,40 @@ class TARA(BaseModelForTARA, EncodeMixin):
         text_embs = torch.cat(text_embs)
         return text_embs
 
+    def describe(self, pixel_values: torch.Tensor | List[torch.Tensor]) -> List[str]:
 
+        pixel_values = transform_pixel_values(pixel_values) # [B, T, C, H, W]
+        to_image = ToPILImage()
+        batched_frames = []
+        for batch in pixel_values:
+            frames = [to_image(v) for v in batch]
+            batched_frames.append(frames)
+        descriptions = []
+        generate_kwargs = {
+            "do_sample": False,
+            "max_new_tokens": 2048,
+            "top_p": 1,
+            "temperature": 0,
+            "use_cache": True
+        }
 
+        for frames in batched_frames:
+            text_inputs = f"<video>\n{self.describe_prompt}"
+            text_inputs = self.processor.process_prompt(text_inputs, frames)
+            text_inputs = self.processor.get_text_inputs(text_inputs)
+            frames = self.processor.get_pixel_values(frames)
+            inputs = {
+                "input_ids": text_inputs,
+                "pixel_values": frames
+            }
+            inputs = {k:v.to(self.model.device) for k,v in inputs.items() if v is not None}
+            outputs = self.model.generate(
+                **inputs,
+                **generate_kwargs,
+            )
+            output_text = self.processor.tokenizer.decode(outputs[0][inputs['input_ids'][0].shape[0]:], skip_special_tokens=True)
+            descriptions.append(output_text)
+        return descriptions
 
 
 def get_frame_indices(num_frames, vlen, sample='rand', fix_start=None, input_fps=1, max_num_frames=-1):

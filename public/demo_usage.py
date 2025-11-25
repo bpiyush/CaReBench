@@ -31,10 +31,14 @@ def main(model_path: str = "."):
         
         with torch.no_grad():
             video_emb = model.encode_vision(video_tensor).cpu().squeeze(0).float()
+            
+            # Get caption for the video
+            video_caption = model.describe(video_tensor)[0]
         
         print(colored("✓ Video encoded successfully!", 'green'))
         print(f"Video shape: {video_tensor.shape}")  # torch.Size([1, 16, 3, 240, 426])
         print(f"Video embedding shape: {video_emb.shape}")  # torch.Size([4096])
+        print(colored(f"Video caption: {video_caption}", 'magenta'))
     except FileNotFoundError:
         print(colored(f"⚠ Video file not found: {video_path}", 'red'))
         print(colored("  Please add a video file or update the path in demo_usage.py", 'yellow'))
