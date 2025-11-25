@@ -374,7 +374,7 @@ if __name__ == "__main__":
     
     # Let's encode a sample text
     print(colored("Testing text encoding...", 'cyan'))
-    text = ['someone is folding a paper', 'cutting a paper', 'someone is folding a paper']
+    text = ['someone is folding a paper', 'cutting a paper', 'someone is unfolding a paper']
     # NOTE: It can also take a single string
     with torch.no_grad():
         text_emb = model.encode_text(text).cpu().float()

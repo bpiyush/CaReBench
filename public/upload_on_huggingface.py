@@ -9,7 +9,8 @@ def upload_model_to_hf(
     repo_id: str,
     model_path: str,
     code_path: str = None,
-    private: bool = False
+    private: bool = False,
+    update_weights: bool = False
 ):
     """
     Upload model checkpoint and code to Hugging Face Hub.
@@ -19,6 +20,7 @@ def upload_model_to_hf(
         model_path: Path to the model checkpoint directory
         code_path: Path to the code directory (defaults to current directory's public folder)
         private: Whether the repository should be private (default: False, i.e., public)
+        update_weights: Whether to upload model checkpoint files (default: False, skips large weight files)
     """
     # Check if user is logged in and get username
     try:
@@ -48,6 +50,7 @@ def upload_model_to_hf(
     print(colored(f"📁 Model path: {model_path}", 'white'))
     print(colored(f"📂 Code path: {code_path if code_path else 'public/ (default)'}", 'white'))
     print(colored(f"🔒 Private: {private}", 'white'))
+    print(colored(f"⚖️  Update weights: {update_weights}", 'white'))
     
     # Create repository if it doesn't exist
     print(colored(f"[1/4] Creating/checking repository: {repo_id}", 'cyan'))
@@ -57,31 +60,34 @@ def upload_model_to_hf(
     except Exception as e:
         print(colored(f"⚠ Error creating repo (might already exist): {e}", 'yellow'))
     
-    # Upload model checkpoint files
-    print(colored(f"[2/4] Uploading model checkpoint from {model_path}", 'cyan'))
-    if not os.path.exists(model_path):
-        raise ValueError(f"Model path does not exist: {model_path}")
-    
-    try:
-        # Folders to ignore during upload
-        ignore_folders = ["embs", "metadata_results", "metrics", "__pycache__", ".git"]
-        ignore_patterns = ["*.git*", "*.ipynb_checkpoints*"]
+    # Upload model checkpoint files (only if update_weights is True)
+    if update_weights:
+        print(colored(f"[2/4] Uploading model checkpoint from {model_path}", 'cyan'))
+        if not os.path.exists(model_path):
+            raise ValueError(f"Model path does not exist: {model_path}")
         
-        # Add folder ignore patterns
-        for folder in ignore_folders:
-            ignore_patterns.append(f"**/{folder}/**")
-            ignore_patterns.append(f"{folder}/**")
-        
-        upload_folder(
-            folder_path=model_path,
-            repo_id=repo_id,
-            repo_type="model",
-            ignore_patterns=ignore_patterns,
-        )
-        print(colored("✓ Model checkpoint uploaded successfully", 'green'))
-    except Exception as e:
-        print(colored(f"✗ Error uploading checkpoint: {e}", 'red'))
-        raise
+        try:
+            # Folders to ignore during upload
+            ignore_folders = ["embs", "metadata_results", "metrics", "__pycache__", ".git"]
+            ignore_patterns = ["*.git*", "*.ipynb_checkpoints*"]
+            
+            # Add folder ignore patterns
+            for folder in ignore_folders:
+                ignore_patterns.append(f"**/{folder}/**")
+                ignore_patterns.append(f"{folder}/**")
+            
+            upload_folder(
+                folder_path=model_path,
+                repo_id=repo_id,
+                repo_type="model",
+                ignore_patterns=ignore_patterns,
+            )
+            print(colored("✓ Model checkpoint uploaded successfully", 'green'))
+        except Exception as e:
+            print(colored(f"✗ Error uploading checkpoint: {e}", 'red'))
+            raise
+    else:
+        print(colored("[2/4] Skipping model checkpoint upload (use --update_weights to upload)", 'yellow'))
     
     # Upload code files
     if code_path is None:
@@ -100,9 +106,6 @@ def upload_model_to_hf(
             file_path = os.path.join(root, file)
             # Skip certain files
             if file.endswith('.pyc') or file.startswith('.'):
-                continue
-            # Skip assets folder (videos/images)
-            if 'assets' in file_path:
                 continue
             # Skip the upload script itself
             if file == 'upload_on_huggingface.py':
@@ -281,6 +284,11 @@ if __name__ == "__main__":
         metavar="PATH",
         help="Delete files/folders from the REMOTE Hugging Face repository only (NOT local files). Example: --delete embs/ metadata_results/ metrics/"
     )
+    parser.add_argument(
+        "--update_weights",
+        action="store_true",
+        help="Upload model checkpoint files (large weight files). If not set, only code and README will be uploaded."
+    )
     
     args = parser.parse_args()
     
@@ -322,7 +330,8 @@ if __name__ == "__main__":
         repo_id=args.repo_id,
         model_path=args.model_path,
         code_path=args.code_path,
-        private=args.private
+        private=args.private,
+        update_weights=args.update_weights
     )
     
     # Delete files if specified
