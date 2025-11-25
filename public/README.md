@@ -15,7 +15,8 @@ tags:
 - video-models
 ---
 
-# TARA Model
+# ![](assets/tara-logo.png) TARA: Time-Aware Retrieval Adaptation for Video Understanding
+<!-- # <img src="./assets/logo.png" width="24"> TARA: Time-Aware Retrieval Adaptation for Video Understanding -->
 
 TARA (Time-Aware Retrieval Adaptation) is a multimodal model for video and text understanding.
 
