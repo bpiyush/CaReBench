@@ -2,6 +2,9 @@ import torch
 from termcolor import colored
 from modeling_tara import TARA, read_frames_decord, read_images_decord
 
+import warnings
+warnings.filterwarnings("ignore")
+
 
 def main(model_path: str = "."):
     print(colored("="*60, 'yellow'))
@@ -9,7 +12,7 @@ def main(model_path: str = "."):
     print(colored("="*60, 'yellow'))
     
     # Load model from current directory
-    print(colored("\n[1/3] Loading model...", 'cyan'))
+    print(colored("\n[1/6] Loading model...", 'cyan'))
     model = TARA.from_pretrained(
         model_path,  # Load from current directory
         device_map='auto',
@@ -19,11 +22,11 @@ def main(model_path: str = "."):
     n_params = sum(p.numel() for p in model.model.parameters())
     print(colored(f"✓ Model loaded successfully!", 'green'))
     print(f"Number of parameters: {round(n_params/1e9, 3)}B")
+    print("-" * 100)
     
     # Encode a sample video
-    print(colored("\n[2/3] Testing video encoding...", 'cyan'))
+    print(colored("\n[2/6] Testing video encoding and captioning ...", 'cyan'))
     video_path = "./assets/folding_paper.mp4"
-    
     try:
         video_tensor = read_frames_decord(video_path, num_frames=16)
         video_tensor = video_tensor.unsqueeze(0)
@@ -43,9 +46,10 @@ def main(model_path: str = "."):
         print(colored(f"⚠ Video file not found: {video_path}", 'red'))
         print(colored("  Please add a video file or update the path in demo_usage.py", 'yellow'))
         video_emb = None
+    print("-" * 100)
     
     # Encode sample texts
-    print(colored("\n[3/3] Testing text encoding...", 'cyan'))
+    print(colored("\n[3/6] Testing text encoding...", 'cyan'))
     text = ['someone is folding a paper', 'cutting a paper', 'someone is unfolding a paper']
     # NOTE: It can also take a single string
     
@@ -58,7 +62,7 @@ def main(model_path: str = "."):
     
     # Compute similarities if video was encoded
     if video_emb is not None:
-        print(colored("\n[Bonus] Computing video-text similarities...", 'cyan'))
+        print(colored("\n[4/6] Computing video-text similarities...", 'cyan'))
         similarities = torch.cosine_similarity(
             video_emb.unsqueeze(0).unsqueeze(0),  # [1, 1, 4096]
             text_emb.unsqueeze(0),                # [1, 3, 4096]
@@ -72,6 +76,7 @@ def main(model_path: str = "."):
     
     # Negation example: a negation in text query should result
     # in retrieval of images without the neg. object in the query
+    print(colored("\n[5/6] Testing negation example...", 'cyan'))
     image_paths = [
         './assets/cat.png',
         './assets/dog+cat.png',
@@ -89,7 +94,7 @@ def main(model_path: str = "."):
     print("Text query: ", texts)
     sim = text_embs @ image_embs.t()
     print(f"Text-Image similarity: {sim}")
-    print("-" * 100)
+    print("- " * 50)
     
     texts = ['an image of a cat and a dog together']
     with torch.no_grad():
@@ -99,8 +104,26 @@ def main(model_path: str = "."):
     sim = text_embs @ image_embs.t()
     print(f"Text-Image similarity: {sim}")
     print("-" * 100)
-    import ipdb; ipdb.set_trace()
     
+    
+    # Composed video retrieval example
+    print(colored("\n[6/6] Testing composed video retrieval...", 'cyan'))
+    # source_video_path = './assets/source-27375787.mp4'
+    # target_video_path = './assets/target-27387901.mp4'
+    # edit_text = "Make the billboard blank"
+    source_video_path = "./assets/5369546.mp4"
+    target_video_path = "./assets/1006630957.mp4"
+    edit_text ="make the tree lit up"
+    source_video_tensor = read_frames_decord(source_video_path, num_frames=4)
+    target_video_tensor = read_frames_decord(target_video_path, num_frames=16)
+    with torch.no_grad():
+        source_video_emb = model.encode_vision(source_video_tensor.unsqueeze(0), edit_text).cpu().squeeze(0).float()
+        source_video_emb = torch.nn.functional.normalize(source_video_emb, dim=-1)
+        target_video_emb = model.encode_vision(target_video_tensor.unsqueeze(0)).cpu().squeeze(0).float()
+        target_video_emb = torch.nn.functional.normalize(target_video_emb, dim=-1)
+    sim_with_edit = source_video_emb @ target_video_emb.t()
+    print(f"Source-Target similarity with edit: {sim_with_edit}")
+
     
     print(colored("\n" + "="*60, 'yellow'))
     print(colored("Demo completed successfully! 🎉", 'green', attrs=['bold']))

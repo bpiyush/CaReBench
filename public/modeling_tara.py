@@ -97,6 +97,15 @@ class BaseModelForTARA(BaseModel):
         prompt = f'USER: {EOL_PROMPTS["video"]} ASSISTANT: '
         return prompt
 
+    @property
+    def video_edit_eol_prompt(self):
+        prompt = "Source video: <video>\nEdit instruction: <sent>\n"\
+        "Look at the attached video carefully. The provided text is instruction to edit the video. "\
+        "Imagine this edit instruction being applied to the provided video frame.\n"\
+        "Summarize the resulting edited video in one word:"
+        prompt = f"USER: {prompt} ASSISTANT: "
+        return prompt
+
     def __init__(
             self, 
             model_name_or_path: str,
@@ -200,11 +209,16 @@ class EncodeMixin(metaclass=ABCMeta):
 
 class TARA(BaseModelForTARA, EncodeMixin):
 
-    def encode_vision(self, pixel_values: torch.Tensor | List[torch.Tensor]) -> torch.Tensor:
+    def encode_vision(self, pixel_values: torch.Tensor | List[torch.Tensor], edit_text: Optional[str] = None) -> torch.Tensor:
 
         pixel_values = transform_pixel_values(pixel_values) # [B, T, C, H, W]
         nframes = pixel_values.shape[1]
-        prompt = self.image_eol_prompt if nframes == 1 else self.video_eol_prompt
+        
+        if edit_text is not None:
+            # For composed video retrieval, we need to embed a video with the given text
+            prompt = self.video_edit_eol_prompt.replace('<sent>', edit_text)
+        else:
+            prompt = self.image_eol_prompt if nframes == 1 else self.video_eol_prompt
         
         to_image = ToPILImage()
         batched_frames = []

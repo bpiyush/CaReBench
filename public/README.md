@@ -81,6 +81,58 @@ See the script at [demo_usage.py](demo_usage.py) for a quick start. You can run 
 ```sh
 python demo_usage.py
 ```
+The output should look something like this:
+
+```sh
+============================================================
+TARA Model Demo
+============================================================
+
+[1/6] Loading model...
+[ MODEL ] Loading TARA from /work/piyush/pretrained_checkpoints/TARA/ [..............]
+### do_image_padding is set as False, images will be resized directly!
+The model weights are not tied. Please use the `tie_weights` method before using the `infer_auto_device` function.
+Loading checkpoint shards: 100%|██████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:03<00:00,  1.05s/it]
+✓ Model loaded successfully!
+Number of parameters: 7.063B
+----------------------------------------------------------------------------------------------------
+
+[2/6] Testing video encoding and captioning ...
+✓ Video encoded successfully!
+Video shape: torch.Size([1, 16, 3, 240, 426])
+Video embedding shape: torch.Size([4096])
+Video caption: A hand is seen folding a white paper on a gray carpeted floor. The paper is opened flat on the surface, and then the hand folds it in half vertically, creating a crease in the middle. The hand continues to fold the paper further, resulting in a smaller, more compact size. The background remains a consistent gray carpet throughout the video.
+----------------------------------------------------------------------------------------------------
+
+[3/6] Testing text encoding...
+✓ Text encoded successfully!
+Text: ['someone is folding a paper', 'cutting a paper', 'someone is unfolding a paper']
+Text embedding shape: torch.Size([3, 4096])
+
+[4/6] Computing video-text similarities...
+✓ Similarities computed!
+  'someone is folding a paper': 0.5039
+  'cutting a paper': 0.3022
+  'someone is unfolding a paper': 0.3877
+----------------------------------------------------------------------------------------------------
+
+[5/6] Testing negation example...
+Image embedding shape: torch.Size([2, 4096])
+Text query:  ['an image of a cat but there is no dog in it']
+Text-Image similarity: tensor([[0.2585, 0.1449]])
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Text query:  ['an image of a cat and a dog together']
+Text-Image similarity: tensor([[0.2815, 0.4399]])
+----------------------------------------------------------------------------------------------------
+
+[6/6] Testing composed video retrieval...
+Source-Target similarity with edit: 0.6476313471794128
+
+============================================================
+Demo completed successfully! 🎉
+============================================================
+```
+
 
 OR use the snippet below:
 
