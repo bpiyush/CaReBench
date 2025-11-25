@@ -1,9 +1,9 @@
 import torch
 from termcolor import colored
-from modeling_tara import TARA, read_frames_decord
+from modeling_tara import TARA, read_frames_decord, read_images_decord
 
 
-def main():
+def main(model_path: str = "."):
     print(colored("="*60, 'yellow'))
     print(colored("TARA Model Demo", 'yellow', attrs=['bold']))
     print(colored("="*60, 'yellow'))
@@ -11,7 +11,7 @@ def main():
     # Load model from current directory
     print(colored("\n[1/3] Loading model...", 'cyan'))
     model = TARA.from_pretrained(
-        ".",  # Load from current directory
+        model_path,  # Load from current directory
         device_map='auto',
         torch_dtype=torch.bfloat16,
     )
@@ -63,6 +63,40 @@ def main():
         print(colored("✓ Similarities computed!", 'green'))
         for i, txt in enumerate(text):
             print(f"  '{txt}': {similarities[0, i].item():.4f}")
+    print("-" * 100)
+    
+    
+    # Negation example: a negation in text query should result
+    # in retrieval of images without the neg. object in the query
+    image_paths = [
+        './assets/cat.png',
+        './assets/dog+cat.png',
+    ]
+    image_tensors = read_images_decord(image_paths)
+    with torch.no_grad():
+        image_embs = model.encode_vision(image_tensors.to(model.model.device)).cpu().float()
+        image_embs = torch.nn.functional.normalize(image_embs, dim=-1)
+    print(f"Image embedding shape: {image_embs.shape}")
+    
+    texts = ['an image of a cat but there is no dog in it']
+    with torch.no_grad():
+        text_embs = model.encode_text(texts).cpu().float()
+        text_embs = torch.nn.functional.normalize(text_embs, dim=-1)
+    print("Text query: ", texts)
+    sim = text_embs @ image_embs.t()
+    print(f"Text-Image similarity: {sim}")
+    print("-" * 100)
+    
+    texts = ['an image of a cat and a dog together']
+    with torch.no_grad():
+        text_embs = model.encode_text(texts).cpu().float()
+        text_embs = torch.nn.functional.normalize(text_embs, dim=-1)
+    print("Text query: ", texts)
+    sim = text_embs @ image_embs.t()
+    print(f"Text-Image similarity: {sim}")
+    print("-" * 100)
+    import ipdb; ipdb.set_trace()
+    
     
     print(colored("\n" + "="*60, 'yellow'))
     print(colored("Demo completed successfully! 🎉", 'green', attrs=['bold']))
@@ -70,4 +104,9 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--model_path", type=str, default=".")
+    args = parser.parse_args()
+
+    main(args.model_path)

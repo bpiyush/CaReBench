@@ -350,6 +350,26 @@ def read_frames_decord(
         del video_reader
 
 
+import PIL.Image
+def read_image_decord(image_path):
+    image = PIL.Image.open(image_path)
+    image = image.convert('RGB')
+    image = np.array(image)
+    image = image.transpose(2, 0, 1)
+    image = torch.from_numpy(image)
+    image = image.unsqueeze(0)
+    return image
+
+
+def read_images_decord(image_paths):
+    images = []
+    for image_path in image_paths:
+        image = read_image_decord(image_path)
+        images.append(image)
+    images = torch.cat(images)
+    return images
+
+
 if __name__ == "__main__":
 
     # Load model
