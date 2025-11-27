@@ -1325,7 +1325,11 @@ def show_small_clips_in_a_video(
         show_spec=False,
         resize=False,
     ):
-    from moviepy.editor import VideoFileClip
+    try:
+        from moviepy.editor import VideoFileClip
+    except:
+        from moviepy import VideoFileClip
+
     from ipywidgets import Layout
 
     video = VideoFileClip(video_path)
