@@ -412,7 +412,8 @@ class BaseModelForTarsier(BaseModel):
             config=model_config,
             torch_dtype=kwargs.get("torch_dtype", torch.bfloat16),
             device_map=device_map,
-            trust_remote_code=True
+            trust_remote_code=True,
+            attn_implementation=kwargs.get("attn_implementation", "sdpa"),
         )
         
         self.model.eval()
