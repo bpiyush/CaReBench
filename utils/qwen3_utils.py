@@ -8,14 +8,14 @@ from torch.utils.data import Dataset
 import shared.utils as su
 
 
-def load_model(model_name="Qwen/Qwen3-8B"):
+def load_model(model_name="Qwen/Qwen3-8B", attn_implementation='flash_attention_2'):
     # load the tokenizer and the model
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
         torch_dtype="auto",
         device_map="auto",
-        attn_implementation="flash_attention_2",
+        attn_implementation=attn_implementation,
     )
     su.misc.num_params(model)
     return model, tokenizer
@@ -63,9 +63,9 @@ def generate_answer(
 
 
 class QwenWrapper:
-    def __init__(self, model_name="Qwen/Qwen3-8B", enable_thinking=False):
+    def __init__(self, model_name="Qwen/Qwen3-8B", enable_thinking=False, attn_implementation='flash_attention_2'):
         su.log.print_update(f"Loading model {model_name}")
-        self.model, self.tokenizer = load_model(model_name)
+        self.model, self.tokenizer = load_model(model_name, attn_implementation)
         self.enable_thinking = enable_thinking
     
     def generate_answer(self, prompt, max_new_tokens=2048):

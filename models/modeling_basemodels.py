@@ -380,6 +380,33 @@ class BaseModelForTarsier(BaseModel):
         prompt = f'USER: {EOL_PROMPTS["video"]} ASSISTANT: '
         return prompt
 
+    @property
+    def video_edit_eol_prompt(self):
+        prompt = "Source video: <video>\nEdit instruction: <sent>\n"\
+        "Look at the attached video carefully. The provided text is instruction to edit the video. "\
+        "Imagine this edit instruction being applied to the provided video frame.\n"\
+        "Summarize the resulting edited video in one word:"
+        prompt = f"USER: {prompt} ASSISTANT: "
+        return prompt
+
+    @property
+    def image_edit_eol_prompt(self):
+        prompt = "Source image: <image>\nEdit instruction: <sent>\n"\
+        "Look at the attached image carefully. The provided text is instruction to edit the image to a video. "\
+        "Imagine this edit instruction being applied to the provided image.\n"\
+        "Summarize the resulting video in one word:"
+        prompt = f"USER: {prompt} ASSISTANT: "
+        return prompt
+    
+    @property
+    def text_edit_eol_prompt(self):
+        prompt = "Source text: <text>\nEdit instruction: <sent>\n"\
+        "Look at the attached text carefully. The provided text is instruction to edit the text to a new sentence. "\
+        "Imagine this edit instruction being applied to the provided text.\n"\
+        "Summarize the resulting edited text in one word:"
+        prompt = f"USER: {prompt} ASSISTANT: "
+        return prompt
+
     def __init__(
             self, 
             model_name_or_path: str,
