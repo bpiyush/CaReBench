@@ -208,79 +208,53 @@ class SentembTrainer(Trainer):
 # class ImgembTrainer(Trainer):
     
 
-def generate_sentemb_prompt(data_point, tokenizer, cutoff_len, template, prefix='input'):
-    sp = f's{prefix}'
-    if sp not in data_point:
-        # Extract string value - handle cases where CSV might return lists
-        def get_string_value(value):
-            if isinstance(value, list):
-                return value[0] if len(value) > 0 else ""
-            if isinstance(value, (int, float)):
-                return str(value)
-            return str(value) if value is not None else ""
-        
-        input_value = get_string_value(data_point.get(prefix, ''))
-        input = tokenizer(
-            input_value,
-            truncation=True,
-            max_length=cutoff_len,
-            padding=False,
-            return_tensors=None,
-            add_special_tokens=False,
-        )
-        input = tokenizer.decode(input['input_ids'])
-        data_point[sp] = input
-    else:
-        input = data_point[sp]
+def get_string_value(value):
+    """Extract string value - handle cases where CSV might return lists or other types."""
+    if isinstance(value, list):
+        return value[0] if len(value) > 0 else ""
+    if isinstance(value, (int, float)):
+        return str(value)
+    return str(value) if value is not None else ""
 
-    # template = template.replace('_', ' ').replace('*sep+*', '')\
-    #                                      .replace('*cls*', '').replace('\\n', '\n')
-    return template.replace('<sent>', input).strip()
+def generate_sentemb_prompt(text, tokenizer, cutoff_len, template):
+    """Generate prompt by truncating text and inserting into template."""
+    tokens = tokenizer(
+        text,
+        truncation=True,
+        max_length=cutoff_len,
+        padding=False,
+        return_tensors=None,
+        add_special_tokens=False,
+    )
+    truncated_text = tokenizer.decode(tokens['input_ids'])
+    return template.replace('<sent>', truncated_text).strip()
 
-def generate_edit_prompt(data_point, tokenizer, cutoff_len, template):
+def generate_edit_prompt(source_caption, edit_instruction, tokenizer, cutoff_len, template):
     """
     Generate prompt for composed retrieval using text_edit_eol_prompt.
     Replaces <text> with source_caption and <sent> with edit_instruction.
     """
-    # Extract string values - handle cases where CSV might return lists
-    def get_string_value(value):
-        if isinstance(value, list):
-            return value[0] if len(value) > 0 else ""
-        if isinstance(value, (int, float)):
-            return str(value)
-        return str(value) if value is not None else ""
-    
     # Process source_caption
-    if 'ssource_caption' not in data_point:
-        source_caption = get_string_value(data_point.get('source_caption', ''))
-        source = tokenizer(
-            source_caption,
-            truncation=True,
-            max_length=cutoff_len,
-            padding=False,
-            return_tensors=None,
-            add_special_tokens=False,
-        )
-        source = tokenizer.decode(source['input_ids'])
-        data_point['ssource_caption'] = source
-    else:
-        source = data_point['ssource_caption']
+    source_tokens = tokenizer(
+        source_caption,
+        truncation=True,
+        max_length=cutoff_len,
+        padding=False,
+        return_tensors=None,
+        add_special_tokens=False,
+    )
+    source = tokenizer.decode(source_tokens['input_ids'])
     
     # Process edit_instruction
-    if 'sedit_instruction' not in data_point:
-        edit_instruction = get_string_value(data_point.get('edit_instruction', ''))
-        edit = tokenizer(
-            edit_instruction,
-            truncation=True,
-            max_length=cutoff_len,
-            padding=False,
-            return_tensors=None,
-            add_special_tokens=False,
-        )
-        edit = tokenizer.decode(edit['input_ids'])
-        data_point['sedit_instruction'] = edit
-    else:
-        edit = data_point['sedit_instruction']
+    edit_tokens = tokenizer(
+        edit_instruction,
+        truncation=True,
+        max_length=cutoff_len,
+        padding=False,
+        return_tensors=None,
+        add_special_tokens=False,
+    )
+    edit = tokenizer.decode(edit_tokens['input_ids'])
     
     # Replace both <text> and <sent> in the template
     prompt = template.replace('<text>', source).replace('<sent>', edit).strip()
@@ -405,16 +379,24 @@ def train(
         Args:
         data_point: Dict with keys 'source_caption', 'target_caption', 'edit_instruction'
         """
+        # Extract string values from data point
+        source_caption = get_string_value(data_point.get('source_caption', ''))
+        target_caption = get_string_value(data_point.get('target_caption', ''))
+        edit_instruction = get_string_value(data_point.get('edit_instruction', ''))
+        
         # Generate prompt for source + edit using text_edit_eol_prompt
-        edit_prompt = generate_edit_prompt(data_point, tokenizer, cutoff_len, text_edit_eol_template)
+        edit_prompt = generate_edit_prompt(
+            source_caption, edit_instruction, tokenizer, cutoff_len, text_edit_eol_template
+        )
         
         # Generate prompt for target using text_eol_prompt
-        target_prompt = generate_sentemb_prompt(data_point, tokenizer, cutoff_len,
-                                                 text_eol_template, prefix='target_caption')
+        target_prompt = generate_sentemb_prompt(
+            target_caption, tokenizer, cutoff_len, text_eol_template
+        )
 
         tokenized_prompt = tokenize(edit_prompt, False, label_prompt=target_prompt)
         
-        # Only return the tokenized fields - remove original CSV columns to avoid data collator issues
+        # Only return the tokenized fields
         return {
             'input_ids': tokenized_prompt['input_ids'],
             'attention_mask': tokenized_prompt['attention_mask'],
