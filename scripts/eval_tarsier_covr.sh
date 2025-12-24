@@ -10,7 +10,7 @@ fi
 
 BASE_MODEL=/work/piyush/pretrained_checkpoints/Tarsier-7b
 base_model_name=$(basename $BASE_MODEL)
-OUTPUT_DIR="/work/piyush/experiments/CaRe/${base_model_name}/${split}"
+OUTPUT_DIR="/work/piyush/experiments/CaRe-CoVR/${base_model_name}/${split}"
 echo "Using output directory: $OUTPUT_DIR"
 
 # Merge weights

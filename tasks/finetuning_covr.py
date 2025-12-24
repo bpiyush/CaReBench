@@ -237,12 +237,12 @@ def generate_edit_prompt(source_caption, edit_instruction, tokenizer, cutoff_len
     # Process source_caption
     source_tokens = tokenizer(
         source_caption,
-        truncation=True,
-        max_length=cutoff_len,
-        padding=False,
-        return_tensors=None,
-        add_special_tokens=False,
-    )
+            truncation=True,
+            max_length=cutoff_len,
+            padding=False,
+            return_tensors=None,
+            add_special_tokens=False,
+        )
     source = tokenizer.decode(source_tokens['input_ids'])
     
     # Process edit_instruction
@@ -417,7 +417,7 @@ def train(
 
     # Get original column names to remove after tokenization
     original_columns = data["train"].column_names
-    
+
     # train_data = data["train"].shuffle().map(generate_and_tokenize_prompt, num_proc=25)
     train_data = data["train"].shuffle().map(
         generate_and_tokenize_prompt, 
@@ -454,6 +454,7 @@ def train(
             deepspeed=deepspeed,
             gradient_checkpointing=grad_checkpoint,
             remove_unused_columns=False,
+            dataloader_drop_last=True,  # Avoid uneven batches causing NCCL hangs
         ),
         data_collator=data_collator,
     )
