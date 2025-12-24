@@ -6,7 +6,8 @@ if [ -z "$split" ]; then
 fi
 echo "Using split: $split"
 
-BASE_MODEL=/work/piyush/pretrained_checkpoints/Tarsier-7b
+# BASE_MODEL=/work/piyush/pretrained_checkpoints/Tarsier-7b
+BASE_MODEL=/work/piyush/pretrained_checkpoints/TARA
 echo "Using base model: $BASE_MODEL"
 
 base_model_name=$(basename $BASE_MODEL)
