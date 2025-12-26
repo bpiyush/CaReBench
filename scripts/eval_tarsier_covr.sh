@@ -8,7 +8,8 @@ if [ -z "$device_map" ]; then
     device_map="cuda:0"
 fi
 
-BASE_MODEL=/work/piyush/pretrained_checkpoints/Tarsier-7b
+# BASE_MODEL=/work/piyush/pretrained_checkpoints/Tarsier-7b
+BASE_MODEL=/work/piyush/pretrained_checkpoints/TARA
 base_model_name=$(basename $BASE_MODEL)
 OUTPUT_DIR="/work/piyush/experiments/CaRe-CoVR/${base_model_name}/${split}"
 echo "Using output directory: $OUTPUT_DIR"
@@ -16,7 +17,7 @@ echo "Using output directory: $OUTPUT_DIR"
 # Merge weights
 echo "Merging weights..."
 python tasks/merge_weights.py \
-    -b $BASE_MODEL \
+    -b /work/piyush/pretrained_checkpoints/Tarsier-7b \
     -f $OUTPUT_DIR
 
 # Evaluate on SSv2
