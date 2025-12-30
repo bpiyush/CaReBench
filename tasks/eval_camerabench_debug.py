@@ -26,7 +26,8 @@ from torchvision.transforms.v2 import (
 # Load model
 from models.modeling_encoders import AutoEncoder
 # model_id = "/work/piyush/experiments/CaRe/Tarsier-7b/final-10112025/nli_9000+ego_1000+subj_replaced-seed_42/merged_checkpoint"
-model_id = "/work/piyush/pretrained_checkpoints/Tarsier-7b"
+# model_id = "/work/piyush/pretrained_checkpoints/Tarsier-7b"
+model_id = "/work/piyush/experiments/CaRe/Tarsier-7b/cameramotion/debug-8500/merged_checkpoint"
 print(f"Loading model from {model_id}")
 encoder = AutoEncoder.from_pretrained(model_id, device_map='auto')
 su.misc.num_params(encoder.model)

@@ -27,18 +27,18 @@ python notebooks/eval_care_retrieval.py \
     --dataset ssv2
 echo "[:::::::::::::::::::::::::::::::]"
 
-# Evaluate on epic
-echo "[::::::] Evaluating EPIC [::::::]"
-python notebooks/eval_care_retrieval.py \
-    --model_id $OUTPUT_DIR/merged_checkpoint \
-    --device_map $device_map \
-    --dataset epic
-echo "[:::::::::::::::::::::::::::::::]"
+# # Evaluate on epic
+# echo "[::::::] Evaluating EPIC [::::::]"
+# python notebooks/eval_care_retrieval.py \
+#     --model_id $OUTPUT_DIR/merged_checkpoint \
+#     --device_map $device_map \
+#     --dataset epic
+# echo "[:::::::::::::::::::::::::::::::]"
 
-# Evaluate on charades
-echo "[::::::] Evaluating Charades [::::::]"
-python notebooks/eval_care_retrieval.py \
-    --model_id $OUTPUT_DIR/merged_checkpoint \
-    --device_map $device_map \
-    --dataset charades
-echo "[:::::::::::::::::::::::::::::::]"
+# # Evaluate on charades
+# echo "[::::::] Evaluating Charades [::::::]"
+# python notebooks/eval_care_retrieval.py \
+#     --model_id $OUTPUT_DIR/merged_checkpoint \
+#     --device_map $device_map \
+#     --dataset charades
+# echo "[:::::::::::::::::::::::::::::::]"
