@@ -441,6 +441,8 @@ class BaseModelForTarsier(BaseModel):
             device_map=device_map,
             trust_remote_code=True,
             attn_implementation=kwargs.get("attn_implementation", "sdpa"),
+            low_cpu_mem_usage=kwargs.get("low_cpu_mem_usage", True),  # Default to True for large models
+            max_memory=kwargs.get("max_memory", None),  # Allow limiting CPU/GPU memory usage
         )
         
         self.model.eval()
@@ -449,14 +451,21 @@ class BaseModelForTarsier(BaseModel):
         if os.path.exists(llm_path):
             print(f'{llm_path} already exists. Skip splitting weights.')
             return
-        print('Splitting LLM weights from MLLM.')
-        model = self.MLLM_CLASS.from_pretrained(mllm_path)
+        print('Splitting LLM weights from MLLM in bfloat16...')
+        # Load in bfloat16 to save memory and ensure weights are saved in bfloat16
+        model = self.MLLM_CLASS.from_pretrained(
+            mllm_path,
+            torch_dtype=torch.bfloat16,
+            low_cpu_mem_usage=True,
+        )
         llm = model.language_model
         processor = AutoProcessor.from_pretrained(mllm_path)
         tokenizer = AutoTokenizer.from_pretrained(mllm_path)
-        llm.save_pretrained(llm_path)
+        # Save in bfloat16 - halves disk space and memory needed for loading
+        llm.save_pretrained(llm_path, safe_serialization=True)
         processor.save_pretrained(llm_path)
         tokenizer.save_pretrained(llm_path)
+        print(f'Saved LLM weights to {llm_path} in bfloat16')
 
 class BaseModelForQwen2VL(BaseModel):
 
@@ -745,7 +754,8 @@ class BaseModelForTarsier2(BaseModel):
             # torch_dtype=kwargs.get("torch_dtype", torch.bfloat16),
             torch_dtype=torch.bfloat16,
             device_map=device_map,
-            trust_remote_code=True
+            trust_remote_code=True,
+            low_cpu_mem_usage=kwargs.get("low_cpu_mem_usage", True),  # Default to True for large models
         )
         
         # self.processor.patch_size = self.model.config.vision_config.patch_size
