@@ -667,11 +667,15 @@ if __name__ == "__main__":
     # Compute text features
     text_ids = df['text_id'].unique()
     texts_feat = {}
+    j = 0
     for text_id in su.log.tqdm_iterator(text_ids, desc='Computing text features'):
         text = df[df.text_id == text_id].template.unique()[0]
         zt = tfc(text)
         zt = torch.nn.functional.normalize(zt, dim=-1)
         texts_feat[text_id] = zt.cpu().float()
+        if j == 0:
+            print("Text embedding: ", zt.shape)
+        j += 1
 
     # Compute video features
     video_paths = df.video_path.unique()
@@ -686,6 +690,8 @@ if __name__ == "__main__":
             zv = vfc.encoder.encode_vision([video_path])[0]
         zv = torch.nn.functional.normalize(zv, dim=-1)
         video_feat[video_ids[j]] = zv.cpu().float()
+        if j == 0:
+            print("Video embedding: ", zv.shape)
         j += 1
 
     metrics = compute_metrics(df, video_feat, texts_feat, show_metrics=False)

@@ -311,6 +311,7 @@ def train(
     fix_attention_mask: bool = False,
     set_pad_to_unk: bool = False,
     bf16: bool = False,
+    architecture: str = None,
     # make fire happy
     local_rank: int = 0,
 ):
@@ -331,7 +332,7 @@ def train(
 
     set_seed(seed)
 
-    base_model = AutoBase.from_pretrained(model_name_or_path, load_llm=True, device_map='cuda')
+    base_model = AutoBase.from_pretrained(model_name_or_path, load_llm=True, device_map='cuda', architecture=architecture)
     model = base_model.model
     tokenizer = base_model.tokenizer
 

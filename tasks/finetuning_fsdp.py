@@ -15,6 +15,9 @@ import os
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
+# Fix for OOM error: Set expandable_segments to True to avoid fragmentation
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
@@ -484,6 +487,7 @@ def train(
             "xla_fsdp_v2": False,
             "xla_fsdp_grad_ckpt": False,
         },
+        optim="adamw_bnb_8bit",
     )
     
     trainer = FSDPCompatibleSentembTrainer(

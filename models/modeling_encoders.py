@@ -9,11 +9,13 @@ from typing import Dict, List, Optional, Union
 import os
 
 from abc import ABCMeta, abstractmethod
+import einops
 
 from models.modeling_basemodels import (
     BaseModelForMiniCPMV,
     BaseModelForLlavaNextVideo,
     BaseModelForTarsier,
+    BaseModelForTarsierTwoTokens,
     BaseModelForQwen2VL,
     BaseModelForInternVL2,
     BaseModelForCaRe,
@@ -357,6 +359,85 @@ class EncoderForTarsier(BaseModelForTarsier, EncodeMixin):
                 **generate_kwargs,
             )
             text_embs.append(outputs.hidden_states[0][-1][:, -1, :])
+        
+        text_embs = torch.cat(text_embs)
+        return text_embs
+
+
+class EncoderForTarsierTwoTokens(BaseModelForTarsierTwoTokens, EncodeMixin):
+
+    def encode_vision(self, pixel_values: torch.Tensor | List[torch.Tensor]) -> torch.Tensor:
+
+        pixel_values = transform_pixel_values(pixel_values) # [B, T, C, H, W]
+        nframes = pixel_values.shape[1]
+        prompt = self.image_eol_prompt if nframes == 1 else self.video_eol_prompt
+        
+        to_image = ToPILImage()
+        batched_frames = []
+        for batch in pixel_values:
+            frames = [to_image(v) for v in batch]
+            batched_frames.append(frames)
+
+        generate_kwargs = {
+            "max_new_tokens": 2, # Generate two tokens and concatenate them
+            "output_hidden_states": True,
+            "return_dict_in_generate": True,
+        }
+
+        vision_embs = []
+
+        for frames in batched_frames:
+            input_prompt = prompt.replace("<video>", "<image>"*len(frames))
+            input_ids = self.processor.get_text_inputs(input_prompt)
+            frames = self.processor.get_pixel_values(frames)
+            inputs = {
+                "input_ids": input_ids,
+                "pixel_values": frames
+            }
+            inputs = {k:v.to(self.model.device) for k,v in inputs.items() if v is not None}
+            outputs = self.model.generate(
+                **inputs,
+                **generate_kwargs,
+            )
+            # First, get the token embeddings
+            z = outputs.hidden_states[0][-1][:, -2:, :]
+            # Concatenate them to get the final embedding
+            z = einops.rearrange(z, "b t c -> b (t c)")
+            vision_embs.append(z)
+        
+        vision_embs = torch.cat(vision_embs)
+        return vision_embs
+    
+    def encode_text(self, text: str | List[str]) -> torch.Tensor:
+
+        prompt = self.text_eol_prompt
+
+        if isinstance(text, str):
+            text = [text]
+        
+        prompts = [prompt.replace('<sent>', t) for t in text]
+
+        generate_kwargs = {
+            "max_new_tokens": 2,
+            "output_hidden_states": True,
+            "return_dict_in_generate": True,
+        }
+
+        text_embs = []
+
+        for p in prompts:
+            text_inputs = self.processor.get_text_inputs(p)
+            inputs = {
+                "input_ids": text_inputs,
+            }
+            inputs = {k:v.to(self.model.device) for k,v in inputs.items() if v is not None}
+            outputs = self.model.generate(
+                **inputs,
+                **generate_kwargs,
+            )
+            z = outputs.hidden_states[0][-1][:, -2:, :]
+            z = einops.rearrange(z, "b t c -> b (t c)")
+            text_embs.append(z)
         
         text_embs = torch.cat(text_embs)
         return text_embs

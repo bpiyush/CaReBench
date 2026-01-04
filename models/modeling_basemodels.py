@@ -467,6 +467,94 @@ class BaseModelForTarsier(BaseModel):
         tokenizer.save_pretrained(llm_path)
         print(f'Saved LLM weights to {llm_path} in bfloat16')
 
+
+from utils.model import TWO_EOL_PROMPTS
+class BaseModelForTarsierTwoTokens(BaseModel):
+    
+    ARCHITECTURE = "TarsierTwoTokenForConditionalGeneration"
+    LLM_CLASS = LlamaForCausalLM
+    MLLM_CLASS = TarsierForConditionalGeneration
+
+    @property
+    def describe_prompt(self):
+        return "Describe the video in detail."
+
+    @property
+    def text_eol_prompt(self):
+        prompt = f'USER: {TWO_EOL_PROMPTS["text"]} ASSISTANT: '
+        return prompt
+    
+    @property
+    def image_eol_prompt(self):
+        prompt = f'USER: {TWO_EOL_PROMPTS["image"]} ASSISTANT: '
+        return prompt
+    
+    @property
+    def video_eol_prompt(self):
+        prompt = f'USER: {TWO_EOL_PROMPTS["video"]} ASSISTANT: '
+        return prompt
+
+    def __init__(
+            self, 
+            model_name_or_path: str,
+            load_llm: Optional[bool] = None,
+            device_map: Optional[Union[str, Dict[str, int]]] = None,
+            **kwargs,
+        ):
+
+        MODEL_CLASS = self.LLM_CLASS if load_llm else self.MLLM_CLASS
+
+        if load_llm:
+            self.split_weights(model_name_or_path, model_name_or_path + '-llm')
+            model_name_or_path += '-llm'
+            model_config = None
+            self.processor = AutoProcessor.from_pretrained(model_name_or_path, use_fast=False)
+        else:
+            model_config = LlavaConfig.from_pretrained(
+                model_name_or_path,
+                trust_remote_code=True,
+            )
+            self.processor = Processor(
+                model_name_or_path,
+                max_n_frames=32,
+            )
+        
+        self.tokenizer = self.processor.tokenizer
+
+        self.model = MODEL_CLASS.from_pretrained(
+            model_name_or_path,
+            config=model_config,
+            torch_dtype=kwargs.get("torch_dtype", torch.bfloat16),
+            device_map=device_map,
+            trust_remote_code=True,
+            attn_implementation=kwargs.get("attn_implementation", "sdpa"),
+            low_cpu_mem_usage=kwargs.get("low_cpu_mem_usage", True),  # Default to True for large models
+            max_memory=kwargs.get("max_memory", None),  # Allow limiting CPU/GPU memory usage
+        )
+        
+        self.model.eval()
+
+    def split_weights(self, mllm_path, llm_path):
+        if os.path.exists(llm_path):
+            print(f'{llm_path} already exists. Skip splitting weights.')
+            return
+        print('Splitting LLM weights from MLLM in bfloat16...')
+        # Load in bfloat16 to save memory and ensure weights are saved in bfloat16
+        model = self.MLLM_CLASS.from_pretrained(
+            mllm_path,
+            torch_dtype=torch.bfloat16,
+            low_cpu_mem_usage=True,
+        )
+        llm = model.language_model
+        processor = AutoProcessor.from_pretrained(mllm_path)
+        tokenizer = AutoTokenizer.from_pretrained(mllm_path)
+        # Save in bfloat16 - halves disk space and memory needed for loading
+        llm.save_pretrained(llm_path, safe_serialization=True)
+        processor.save_pretrained(llm_path)
+        tokenizer.save_pretrained(llm_path)
+        print(f'Saved LLM weights to {llm_path} in bfloat16')
+
+
 class BaseModelForQwen2VL(BaseModel):
 
     ARCHITECTURE = "Qwen2VLForConditionalGeneration"

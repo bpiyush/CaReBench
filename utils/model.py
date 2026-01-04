@@ -43,3 +43,9 @@ EOL_PROMPTS = {
     'image': '<image>\nSummary above image in one word:',
     'video': '<video>\nSummary above video in one word:',
 }
+
+TWO_EOL_PROMPTS = {
+    'text': '<sent>\nSummary above sentence in two words:',
+    'image': '<image>\nSummary above image in two words:',
+    'video': '<video>\nSummary above video in two words:',
+}
