@@ -9,7 +9,8 @@ decord.bridge.set_bridge("torch")
 
 def read_frames_decord(
         video_path, num_frames, sample='middle', fix_start=None, 
-        max_num_frames=-1, trimmed30=False, height=-1, width=-1
+        max_num_frames=-1, trimmed30=False, height=-1, width=-1,
+        start=None, end=None,
     ):
     decord.bridge.set_bridge('torch')
 
@@ -26,11 +27,18 @@ def read_frames_decord(
         if trimmed30 and duration > 30:
             duration = 30
             vlen = int(30 * float(fps))
-
-        frame_indices = get_frame_indices(
-            num_frames, vlen, sample=sample, fix_start=fix_start,
-            input_fps=fps, max_num_frames=max_num_frames
-        )
+        
+        if start is not None and end is not None:
+            start = int(start * fps)
+            end = min(int(end * fps), vlen - 1)
+            # Only sample frames between start and end
+            frame_indices = np.linspace(start, end, num=num_frames).astype(int)
+        else:
+            # Retain the usual frame sampling logic
+            frame_indices = get_frame_indices(
+                num_frames, vlen, sample=sample, fix_start=fix_start,
+                input_fps=fps, max_num_frames=max_num_frames
+            )
 
         frames = video_reader.get_batch(frame_indices)  # (T, H, W, C), torch.uint8
         if not isinstance(frames, torch.Tensor):
