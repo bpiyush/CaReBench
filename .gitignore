@@ -16,3 +16,4 @@ external/seeAoT/data
 .ipynb_checkpoints
 *.gif
 assets/ego4d*.txt
+temp.csv
