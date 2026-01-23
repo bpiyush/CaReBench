@@ -22,6 +22,7 @@ import numpy as np
 import json
 from torch.nn.functional import cosine_similarity
 import argparse
+import PIL, PIL.Image
 
 # Add parent directory to path for imports
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -29,6 +30,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import shared.utils as su
 from notebooks.eval_care_retrieval import load_model
 from utils.video import read_frames_decord
+from shared.utils.visualize import concat_images_with_border
 
 
 # Default paths
@@ -141,6 +143,7 @@ def evaluate_testoftime(
     
     for i in su.log.tqdm_iterator(range(len(df)), desc='Evaluating TestOfTime'):
         row = df.iloc[i]
+        import ipdb; ipdb.set_trace()
         
         try:
             # Load frames from both events

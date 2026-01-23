@@ -1,0 +1,6 @@
+{
+  "accuracy": 0.513677811550152,
+  "total": 987,
+  "correct": 507,
+  "model_path": "/work/piyush/pretrained_checkpoints/Tarsier-7b"
+}

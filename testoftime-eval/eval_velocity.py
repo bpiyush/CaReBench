@@ -113,13 +113,6 @@ def get_data_local(dataset_path, frames_root, test_name=None, batch_size=1, num_
     return dataset, dataloader
 
 
-# Load model
-# model_id = "/work/piyush/pretrained_checkpoints/Tarsier-7b"
-model_id = "/work/piyush/pretrained_checkpoints/TARA"
-encoder = AutoEncoder.from_pretrained(model_id, device_map='cuda:0')
-su.misc.num_params(encoder.model)
-
-
 def get_prompt(type='entailment'):
 
     entail_prompt = "Carefully watch the video and pay attention to the sequence of events, the details and actions of persons.\nHere is a caption that describes the video: {caption}\nBased on your observation, does the given video entail the caption? Just answer with either Yes or No. "
@@ -144,7 +137,7 @@ def entail_score(logits, processor):
 
 
 
-def generate_logits(prompt, video_path, processor, n_frames=16, verbose=False):
+def generate_logits(prompt, video_path, encoder, n_frames=16, verbose=False):
     generate_kwargs = {
         "max_new_tokens": 1,
         "output_hidden_states": True,
@@ -184,7 +177,7 @@ def generate_logits(prompt, video_path, processor, n_frames=16, verbose=False):
             **generate_kwargs,
         )
         # scores = processor.decode(outputs['sequences'][0][-1], skip_special_tokens=True)
-        entailment_scores = entail_score(outputs['scores'][0], processor)
+        entailment_scores = entail_score(outputs['scores'][0], encoder.processor)
         return entailment_scores
 
 
@@ -218,7 +211,7 @@ def convert_to_prompt(messages):
     return prompt
 
 
-def eval_on_dataset(dataset, prompt, test_name):
+def eval_on_dataset(dataset, prompt, test_name, encoder):
     df = pd.DataFrame(
         columns=[
             "test_name",
@@ -244,7 +237,7 @@ def eval_on_dataset(dataset, prompt, test_name):
             }
         ]
         input_prompt = convert_to_prompt(messages)
-        pos_score = generate_logits(input_prompt, video_path, encoder.processor, n_frames=16)
+        pos_score = generate_logits(input_prompt, video_path, encoder, n_frames=16)
         
         # Run on negative prompt
         messages = [
@@ -254,7 +247,7 @@ def eval_on_dataset(dataset, prompt, test_name):
             }
         ]
         input_prompt = convert_to_prompt(messages)
-        neg_score = generate_logits(input_prompt, video_path, encoder.processor, n_frames=16)
+        neg_score = generate_logits(input_prompt, video_path, encoder, n_frames=16)
 
         cnt += (pos_score > neg_score).sum().item()
         tot += 1
@@ -274,27 +267,34 @@ def eval_on_dataset(dataset, prompt, test_name):
     return (cnt / tot), df
 
 
-tests = {'action_adv', 'action_bind', 'action_manner', 'agent_bind', 'agent_random', 'chrono', 'control', 'coref'}
-dataset_path = "/scratch/shared/beegfs/piyush/datasets/VELOCITI"
-frames_root = "/scratch/shared/beegfs/piyush/datasets/VELOCITI/velociti_videos"
-batch_size = 1
-num_workers = 0
-pin_memory = True
-prompt = get_prompt()
-for test_name in tests:
-    print('Evaluating', test_name)
-    dataset, dataloader = get_data_local(
-        dataset_path, 
-        frames_root, 
-        test_name=test_name,
-        batch_size=batch_size,
-        num_workers=num_workers,
-        pin_memory=pin_memory
-    )
+if __name__ == "__main__":
+    # Load model
+    # model_id = "/work/piyush/pretrained_checkpoints/Tarsier-7b"
+    model_id = "/work/piyush/pretrained_checkpoints/TARA"
+    encoder = AutoEncoder.from_pretrained(model_id, device_map='cuda:0')
+    su.misc.num_params(encoder.model)
 
-    acc, df = eval_on_dataset(dataset, prompt, test_name)
-    print("Test Name: ", test_name)
-    print("Accuracy: ", acc)
-    print("-" * 100)
-    os.makedirs('./testoftime-eval/outputs/tara-entail', exist_ok=True)
-    df.to_csv(f'./testoftime-eval/outputs/tara-entail/velocity_{test_name}.csv', index=False)
+    tests = {'action_adv', 'action_bind', 'action_manner', 'agent_bind', 'agent_random', 'chrono', 'control', 'coref'}
+    dataset_path = "/scratch/shared/beegfs/piyush/datasets/VELOCITI"
+    frames_root = "/scratch/shared/beegfs/piyush/datasets/VELOCITI/velociti_videos"
+    batch_size = 1
+    num_workers = 0
+    pin_memory = True
+    prompt = get_prompt()
+    for test_name in tests:
+        print('Evaluating', test_name)
+        dataset, dataloader = get_data_local(
+            dataset_path, 
+            frames_root, 
+            test_name=test_name,
+            batch_size=batch_size,
+            num_workers=num_workers,
+            pin_memory=pin_memory
+        )
+
+        acc, df = eval_on_dataset(dataset, prompt, test_name, encoder)
+        print("Test Name: ", test_name)
+        print("Accuracy: ", acc)
+        print("-" * 100)
+        os.makedirs('./testoftime-eval/outputs/tara-entail', exist_ok=True)
+        df.to_csv(f'./testoftime-eval/outputs/tara-entail/velocity_{test_name}.csv', index=False)
