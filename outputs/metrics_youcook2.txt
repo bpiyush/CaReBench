@@ -1,0 +1,29 @@
+chance_metrics = {
+    "kendall_tau": 0.0,
+    "spearman_rho": 0.0,
+    "mrr": 0.1573,          # H_24 / 24 ≈ 3.776 / 24
+    "recall@1": 1 / 24,     # ≈ 0.0417
+    "recall@3": 3 / 24,     # = 0.125
+    "recall@5": 5 / 24,     # ≈ 0.2083
+    "ndcg@k": 0.5           # approx random baseline for graded relevance
+}
+
+tara = {
+    "mean_kendall_tau": 0.1768004172720838,
+    "mean_spearman_rho": 0.24287694199172902,
+    "mean_mrr": 0.24861363733136482,
+    "mean_ndcg@k": 0.675149014202318,
+    "mean_recall@1": 0.09768637532133675,
+    "mean_recall@3": 0.2596401028277635,
+    "mean_recall@5": 0.38046272493573263
+}
+
+{
+    "mean_kendall_tau": -0.047800007451287214,
+    "mean_spearman_rho": -0.06456912931708952,
+    "mean_mrr": 0.13343385829596766,
+    "mean_ndcg@k": 0.5463544700578762,
+    "mean_recall@1": 0.028277634961439587,
+    "mean_recall@3": 0.09254498714652956,
+    "mean_recall@5": 0.16966580976863754
+}
