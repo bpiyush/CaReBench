@@ -25,6 +25,7 @@ video_features = None
 video_names = None
 faiss_index = None
 VIDEO_DIR = None
+NUM_VIDEOS_TO_RETRIEVE = 20
 
 
 def load_model(model_id):
@@ -93,7 +94,8 @@ def search():
     try:
         data = request.get_json()
         query = data.get('query', '')
-        top_k = data.get('top_k', 200)
+        # Cap top_k at NUM_VIDEOS_TO_RETRIEVE to limit rendering time
+        top_k = min(data.get('top_k', NUM_VIDEOS_TO_RETRIEVE), NUM_VIDEOS_TO_RETRIEVE)
         
         if not query:
             return jsonify({'error': 'No query provided'}), 400

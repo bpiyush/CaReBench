@@ -11,6 +11,8 @@ You're getting "Search request failed" because the Python dependencies aren't in
 ```bash
 cd /users/piyush/projects/CaReBench/search_demo
 pip install -r requirements.txt
+
+# Note: use carebench conda environment
 ```
 
 **Note:** The requirements.txt contains:

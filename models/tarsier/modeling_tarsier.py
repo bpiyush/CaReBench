@@ -400,7 +400,7 @@ class TarsierForConditionalGeneration(TarsierPreTrainedModel):
         self.multi_modal_projector = LlavaMultiModalProjector(config)
         self.vocab_size = config.vocab_size
         
-        use_flash_attn = False
+        use_flash_attn = True
         attn_implementation = "flash_attention_2"
         # If GPU is not compatible, then fall back to sdpa
         from transformers.utils import is_flash_attn_2_available

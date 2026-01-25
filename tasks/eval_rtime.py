@@ -131,6 +131,13 @@ if __name__ == "__main__":
     df.video_id = df.video_id.astype(str)
     data = su.io.load_json(f"{data_dir}/splits/test.json")
     
+    # Filter to only keep IDs that have verbs substantially different from the our Ego4D set.
+    filter_ids = su.io.load_txt("testoftime_eval/rtime_non_matching_ids.txt")
+    df = df[~df.video_id.isin(filter_ids)]
+    data = {k: v for k, v in data.items() if k not in filter_ids}
+    assert len(data) == len(df)
+    print(f"Number of rows after filtering: {len(df)}")
+    
     
     from notebooks.eval_care_retrieval import load_model
     # model_path = "/work/piyush/experiments/CaRe/Tarsier-7b/nli-9k+ego4d-1k/merged_checkpoint"
@@ -162,6 +169,6 @@ if __name__ == "__main__":
     # Save metrics
     result_dir = "./results"
     os.makedirs(result_dir, exist_ok=True)
-    with open(os.path.join(result_dir, f"metrics_rtime_{model_name}.json"), "w") as f:
+    with open(os.path.join(result_dir, f"metrics_rtime_{model_name}-filtered.json"), "w") as f:
         json.dump(metrics, f, indent=4)
 
