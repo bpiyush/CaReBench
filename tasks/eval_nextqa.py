@@ -30,6 +30,28 @@ from models.modeling_encoders import AutoEncoder
 from notebooks.eval_care_retrieval import load_model
 
 
+def compute_metrics(df, video_feat, tfc, norm):
+    iterator = su.log.tqdm_iterator(range(len(df)), desc='Gathering results')
+    correct = []
+    for i in iterator:
+        row = df.iloc[i].to_dict()
+
+        # Convert QA into sentences:
+        sentences = [
+            f"Question: {row['question']}?\nAnswer: {row[x]}" for x in ['a0', 'a1', 'a2', 'a3']
+        ]
+        zt = norm(tfc(sentences))
+
+        zv = video_feat[row['video']]
+        sims = zv @ zt.T
+        pred_index = sims.argmax()
+        true_index = row['answer']
+        correct.append(pred_index == true_index)
+    correct = np.array(correct).astype(int)
+    accuracy = np.mean(correct)
+    return correct, accuracy
+
+
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
@@ -59,4 +81,17 @@ if __name__ == "__main__":
         except:
             print(f"Failed for {video_id}.")
             continue
-    import ipdb; ipdb.set_trace()
+    
+    # Compute metrics
+    correct, accuracy = compute_metrics(df, video_feat, tfc, norm)
+    print(f"Accuracy: {accuracy*100:.2f}")
+    
+    # Save results
+    df['correct'] = correct
+    print(df.groupby('type')['correct'].mean() * 100.)
+    df['category'] = df['type'].apply(lambda x: x[0])
+    print(df.groupby('category')['correct'].mean() * 100.)
+    df['accuracy'] = accuracy
+    model_name = model_path.split("/")[-1]
+    df.to_csv(f"{data_dir}/mc_metrics-{model_name}.csv", index=False)
+    print(f"Results saved to {data_dir}/mc_metrics-{model_name}.csv")
