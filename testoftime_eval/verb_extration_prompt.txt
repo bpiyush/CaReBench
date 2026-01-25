@@ -1,0 +1,106 @@
+## Temporal Antonym Verb-Object Extraction Prompt
+
+---
+
+**TASK:**
+Given a pair of sentences describing actions, extract the temporally opposite verbs and the common object they act upon.
+
+**DEFINITION OF TEMPORAL ANTONYMS:**
+Two verbs are temporal antonyms if reversing a video of one action would visually resemble the other action. For example:
+- "lift" ↔ "lower" (reversing a lift looks like lowering)
+- "open" ↔ "close" (reversing an open looks like closing)
+- "push" ↔ "pull" (reversing a push looks like pulling)
+- "pick" ↔ "drop" (reversing a pick looks like dropping)
+- "fold" ↔ "unfold" (reversing a fold looks like unfolding)
+- "fill" ↔ "empty" (reversing a fill looks like emptying)
+
+**INSTRUCTIONS:**
+1. Read both sentences carefully.
+2. Identify the common object mentioned or implied in both sentences.
+3. Extract the verb acting on that object in each sentence.
+4. Determine if the two verbs are temporal antonyms.
+5. Note: Verbs may be implicit (e.g., "walking with a cart" implies "pushing").
+
+**OUTPUT FORMAT:**
+Return a JSON object with the following structure:
+```json
+{
+  "object": "<common object>",
+  "verb_1": "<verb from sentence 1>",
+  "verb_2": "<verb from sentence 2>",
+  "is_temporal_antonym": true/false,
+  "confidence": "high/medium/low",
+  "reasoning": "<brief explanation>"
+}
+```
+
+If no temporal antonym pair is found, return:
+```json
+{
+  "object": null,
+  "verb_1": null,
+  "verb_2": null,
+  "is_temporal_antonym": false,
+  "confidence": "high/medium/low",
+  "reasoning": "<explanation of why no pair was found>"
+}
+```
+
+**EXAMPLES:**
+
+Example 1:
+Sentence 1: "A man wearing a yellow helmet and a mask is walking around the warehouse with a small cart with cardboard boxes."
+Sentence 2: "A man in a yellow helmet is pulling a small cart full of cardboard boxes upside down and greeting the two people next to him."
+
+Output:
+```json
+{
+  "object": "small cart",
+  "verb_1": "push",
+  "verb_2": "pull",
+  "is_temporal_antonym": true,
+  "confidence": "medium",
+  "reasoning": "Walking with a cart implies pushing it forward. The second sentence explicitly mentions pulling. Push and pull are temporal antonyms."
+}
+```
+
+Example 2:
+Sentence 1: "A woman opens the refrigerator door and looks inside."
+Sentence 2: "A woman closes the refrigerator door after taking out a bottle."
+
+Output:
+```json
+{
+  "object": "refrigerator door",
+  "verb_1": "open",
+  "verb_2": "close",
+  "is_temporal_antonym": true,
+  "confidence": "high",
+  "reasoning": "Open and close are explicit temporal antonyms - reversing a video of opening a door looks like closing it."
+}
+```
+
+Example 3:
+Sentence 1: "A chef picks up a knife from the counter."
+Sentence 2: "A chef chops vegetables with a knife."
+
+Output:
+```json
+{
+  "object": "knife",
+  "verb_1": "pick",
+  "verb_2": "chop",
+  "is_temporal_antonym": false,
+  "confidence": "high",
+  "reasoning": "Pick and chop are not temporal antonyms. Reversing a chopping action does not look like picking up."
+}
+```
+
+---
+
+**NOW PROCESS THE FOLLOWING SENTENCE PAIR:**
+
+Sentence 1: "{sentence_1}"
+Sentence 2: "{sentence_2}"
+
+Output:

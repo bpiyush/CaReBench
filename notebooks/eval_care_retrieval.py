@@ -534,14 +534,14 @@ def compute_metrics(df, _video_feats, _texts_feats, show_metrics=True):
     )
 
 
-def load_model(_id='CaRe-7B', device_map='auto', n_frames=16):
+def load_model(_id='CaRe-7B', device_map='auto', n_frames=16, attn_implementation="flash_attention_2"):
     su.log.print_update(f"Loading CaRe model ({_id}).")
     # sys.path.append(f"{REPO_PATH}/external/CaReBench/")
     from utils.video import read_frames_decord
     from models.modeling_encoders import AutoEncoder
     
     # ckpt_dir = f"/work/piyush/pretrained_checkpoints/{_id}"
-    encoder = AutoEncoder.from_pretrained(_id, device_map=device_map)
+    encoder = AutoEncoder.from_pretrained(_id, device_map=device_map, attn_implementation=attn_implementation)
     su.misc.num_params(encoder.model)
     
     # Define a video processor: video_path -> video_tensor
