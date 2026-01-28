@@ -45,7 +45,11 @@ def generate_answer(d, n_frames=4, verbose=False):
     
     
     prompt_template = f"<video>\n<question>\nAnswer: ("
-    frames_raw = read_frames_decord(video_path, n_frames)
+    try:
+        frames_raw = read_frames_decord(video_path, n_frames)
+    except:
+        print("Error reading frames for video: ", video_path)
+        return "<video_read_error>", d['ans']
     prompt = prompt_template.replace("<question>", d['question'])
     true_answer = d['ans']
     
@@ -108,15 +112,16 @@ if __name__ == "__main__":
     parser.add_argument('--debug', action='store_true')
     parser.add_argument('--dry_run', action='store_true')
     parser.add_argument('--n_frames', type=int, default=8)
+    parser.add_argument("--split", type=str, default="UCF101")
     args = parser.parse_args()
     
     data_dir = "/scratch/shared/beegfs/piyush/datasets/AoTBench"
     # import ipdb; ipdb.set_trace()
     # files = glob(f"{data_dir}/AoTBench/data_files/*.json")
     # Just run on UCF file for now
-    data_file = '/scratch/shared/beegfs/piyush/datasets/AoTBench/AoTBench/data_files/UCF101.json'
+    data_file = f'/scratch/shared/beegfs/piyush/datasets/AoTBench/AoTBench/data_files/{args.split}.json'
     data = su.io.load_json(data_file)
-    data_name = data_file.split("/")[-1].split(".")[0]
+    data_name = args.split
 
 
     # Load model

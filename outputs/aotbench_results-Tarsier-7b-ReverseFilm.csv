@@ -1,0 +1,721 @@
+a_pred,a_true,idx,qa_idx,video_name,question,ans
+B,B,0000,00000_0,videos/ReverseFilm_timeconcat/1_13_0.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0001,00000_1,videos/ReverseFilm_timeconcat/1_13_0.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0002,00000_2,videos/ReverseFilm_timeconcat/1_13_0_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0003,00000_3,videos/ReverseFilm_timeconcat/1_13_0_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0004,00001_0,videos/ReverseFilm_timeconcat/1_13_1.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0005,00001_1,videos/ReverseFilm_timeconcat/1_13_1.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0006,00001_2,videos/ReverseFilm_timeconcat/1_13_1_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0007,00001_3,videos/ReverseFilm_timeconcat/1_13_1_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0008,00002_0,videos/ReverseFilm_timeconcat/1_13_10.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0009,00002_1,videos/ReverseFilm_timeconcat/1_13_10.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0010,00002_2,videos/ReverseFilm_timeconcat/1_13_10_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0011,00002_3,videos/ReverseFilm_timeconcat/1_13_10_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0012,00003_0,videos/ReverseFilm_timeconcat/1_13_13.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0013,00003_1,videos/ReverseFilm_timeconcat/1_13_13.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0014,00003_2,videos/ReverseFilm_timeconcat/1_13_13_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0015,00003_3,videos/ReverseFilm_timeconcat/1_13_13_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0016,00004_0,videos/ReverseFilm_timeconcat/1_13_20.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0017,00004_1,videos/ReverseFilm_timeconcat/1_13_20.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0018,00004_2,videos/ReverseFilm_timeconcat/1_13_20_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0019,00004_3,videos/ReverseFilm_timeconcat/1_13_20_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0020,00005_0,videos/ReverseFilm_timeconcat/1_13_7.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0021,00005_1,videos/ReverseFilm_timeconcat/1_13_7.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0022,00005_2,videos/ReverseFilm_timeconcat/1_13_7_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0023,00005_3,videos/ReverseFilm_timeconcat/1_13_7_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0024,00006_0,videos/ReverseFilm_timeconcat/1_13_8.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0025,00006_1,videos/ReverseFilm_timeconcat/1_13_8.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0026,00006_2,videos/ReverseFilm_timeconcat/1_13_8_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0027,00006_3,videos/ReverseFilm_timeconcat/1_13_8_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0028,00007_0,videos/ReverseFilm_timeconcat/0_2_0.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0029,00007_1,videos/ReverseFilm_timeconcat/0_2_0.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0030,00007_2,videos/ReverseFilm_timeconcat/0_2_0_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0031,00007_3,videos/ReverseFilm_timeconcat/0_2_0_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0032,00008_0,videos/ReverseFilm_timeconcat/0_1_20.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0033,00008_1,videos/ReverseFilm_timeconcat/0_1_20.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0034,00008_2,videos/ReverseFilm_timeconcat/0_1_20_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0035,00008_3,videos/ReverseFilm_timeconcat/0_1_20_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0036,00009_0,videos/ReverseFilm_timeconcat/0_1_7.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0037,00009_1,videos/ReverseFilm_timeconcat/0_1_7.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0038,00009_2,videos/ReverseFilm_timeconcat/0_1_7_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0039,00009_3,videos/ReverseFilm_timeconcat/0_1_7_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0040,00010_0,videos/ReverseFilm_timeconcat/0_2_30.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0041,00010_1,videos/ReverseFilm_timeconcat/0_2_30.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0042,00010_2,videos/ReverseFilm_timeconcat/0_2_30_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0043,00010_3,videos/ReverseFilm_timeconcat/0_2_30_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0044,00011_0,videos/ReverseFilm_timeconcat/0_2_31.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0045,00011_1,videos/ReverseFilm_timeconcat/0_2_31.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0046,00011_2,videos/ReverseFilm_timeconcat/0_2_31_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0047,00011_3,videos/ReverseFilm_timeconcat/0_2_31_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0048,00012_0,videos/ReverseFilm_timeconcat/0_0_0.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0049,00012_1,videos/ReverseFilm_timeconcat/0_0_0.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0050,00012_2,videos/ReverseFilm_timeconcat/0_0_0_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0051,00012_3,videos/ReverseFilm_timeconcat/0_0_0_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0052,00013_0,videos/ReverseFilm_timeconcat/0_0_9.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0053,00013_1,videos/ReverseFilm_timeconcat/0_0_9.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0054,00013_2,videos/ReverseFilm_timeconcat/0_0_9_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0055,00013_3,videos/ReverseFilm_timeconcat/0_0_9_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0056,00014_0,videos/ReverseFilm_timeconcat/0_1_2.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0057,00014_1,videos/ReverseFilm_timeconcat/0_1_2.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0058,00014_2,videos/ReverseFilm_timeconcat/0_1_2_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0059,00014_3,videos/ReverseFilm_timeconcat/0_1_2_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0060,00015_0,videos/ReverseFilm_timeconcat/0_1_28.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0061,00015_1,videos/ReverseFilm_timeconcat/0_1_28.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0062,00015_2,videos/ReverseFilm_timeconcat/0_1_28_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0063,00015_3,videos/ReverseFilm_timeconcat/0_1_28_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0064,00016_0,videos/ReverseFilm_timeconcat/0_0_44.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0065,00016_1,videos/ReverseFilm_timeconcat/0_0_44.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0066,00016_2,videos/ReverseFilm_timeconcat/0_0_44_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0067,00016_3,videos/ReverseFilm_timeconcat/0_0_44_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0068,00017_0,videos/ReverseFilm_timeconcat/0_0_56.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0069,00017_1,videos/ReverseFilm_timeconcat/0_0_56.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0070,00017_2,videos/ReverseFilm_timeconcat/0_0_56_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0071,00017_3,videos/ReverseFilm_timeconcat/0_0_56_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0072,00019_0,videos/ReverseFilm_timeconcat/0_1_43.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0073,00019_1,videos/ReverseFilm_timeconcat/0_1_43.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0074,00019_2,videos/ReverseFilm_timeconcat/0_1_43_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0075,00019_3,videos/ReverseFilm_timeconcat/0_1_43_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0076,00020_0,videos/ReverseFilm_timeconcat/0_1_47.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0077,00020_1,videos/ReverseFilm_timeconcat/0_1_47.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0078,00020_2,videos/ReverseFilm_timeconcat/0_1_47_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0079,00020_3,videos/ReverseFilm_timeconcat/0_1_47_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0080,00021_0,videos/ReverseFilm_timeconcat/0_1_59.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0081,00021_1,videos/ReverseFilm_timeconcat/0_1_59.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0082,00021_2,videos/ReverseFilm_timeconcat/0_1_59_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0083,00021_3,videos/ReverseFilm_timeconcat/0_1_59_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0084,00022_0,videos/ReverseFilm_timeconcat/0_2_4.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0085,00022_1,videos/ReverseFilm_timeconcat/0_2_4.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0086,00022_2,videos/ReverseFilm_timeconcat/0_2_4_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0087,00022_3,videos/ReverseFilm_timeconcat/0_2_4_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0088,00023_0,videos/ReverseFilm_timeconcat/0_2_19.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0089,00023_1,videos/ReverseFilm_timeconcat/0_2_19.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0090,00023_2,videos/ReverseFilm_timeconcat/0_2_19_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0091,00023_3,videos/ReverseFilm_timeconcat/0_2_19_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0092,00024_0,videos/ReverseFilm_timeconcat/0_2_27.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0093,00024_1,videos/ReverseFilm_timeconcat/0_2_27.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0094,00024_2,videos/ReverseFilm_timeconcat/0_2_27_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0095,00024_3,videos/ReverseFilm_timeconcat/0_2_27_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0096,00025_0,videos/ReverseFilm_timeconcat/0_0_43.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0097,00025_1,videos/ReverseFilm_timeconcat/0_0_43.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0098,00025_2,videos/ReverseFilm_timeconcat/0_0_43_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0099,00025_3,videos/ReverseFilm_timeconcat/0_0_43_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0100,00026_0,videos/ReverseFilm_timeconcat/1_11_22.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0101,00026_1,videos/ReverseFilm_timeconcat/1_11_22.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0102,00026_2,videos/ReverseFilm_timeconcat/1_11_22_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0103,00026_3,videos/ReverseFilm_timeconcat/1_11_22_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0104,00027_0,videos/ReverseFilm_timeconcat/1_13_4.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0105,00027_1,videos/ReverseFilm_timeconcat/1_13_4.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0106,00027_2,videos/ReverseFilm_timeconcat/1_13_4_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0107,00027_3,videos/ReverseFilm_timeconcat/1_13_4_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0108,00028_0,videos/ReverseFilm_timeconcat/1_13_5.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0109,00028_1,videos/ReverseFilm_timeconcat/1_13_5.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0110,00028_2,videos/ReverseFilm_timeconcat/1_13_5_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0111,00028_3,videos/ReverseFilm_timeconcat/1_13_5_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0112,00029_0,videos/ReverseFilm_timeconcat/1_13_6.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0113,00029_1,videos/ReverseFilm_timeconcat/1_13_6.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0114,00029_2,videos/ReverseFilm_timeconcat/1_13_6_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0115,00029_3,videos/ReverseFilm_timeconcat/1_13_6_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0116,00030_0,videos/ReverseFilm_timeconcat/1_13_11.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0117,00030_1,videos/ReverseFilm_timeconcat/1_13_11.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0118,00030_2,videos/ReverseFilm_timeconcat/1_13_11_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0119,00030_3,videos/ReverseFilm_timeconcat/1_13_11_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0120,00031_0,videos/ReverseFilm_timeconcat/1_13_12.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0121,00031_1,videos/ReverseFilm_timeconcat/1_13_12.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0122,00031_2,videos/ReverseFilm_timeconcat/1_13_12_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0123,00031_3,videos/ReverseFilm_timeconcat/1_13_12_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0124,00032_0,videos/ReverseFilm_timeconcat/1_13_14.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0125,00032_1,videos/ReverseFilm_timeconcat/1_13_14.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0126,00032_2,videos/ReverseFilm_timeconcat/1_13_14_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0127,00032_3,videos/ReverseFilm_timeconcat/1_13_14_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0128,00033_0,videos/ReverseFilm_timeconcat/1_13_15.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0129,00033_1,videos/ReverseFilm_timeconcat/1_13_15.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0130,00033_2,videos/ReverseFilm_timeconcat/1_13_15_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0131,00033_3,videos/ReverseFilm_timeconcat/1_13_15_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0132,00034_0,videos/ReverseFilm_timeconcat/1_13_16.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0133,00034_1,videos/ReverseFilm_timeconcat/1_13_16.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0134,00034_2,videos/ReverseFilm_timeconcat/1_13_16_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0135,00034_3,videos/ReverseFilm_timeconcat/1_13_16_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0136,00035_0,videos/ReverseFilm_timeconcat/1_13_17.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0137,00035_1,videos/ReverseFilm_timeconcat/1_13_17.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0138,00035_2,videos/ReverseFilm_timeconcat/1_13_17_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0139,00035_3,videos/ReverseFilm_timeconcat/1_13_17_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,B,0140,00036_0,videos/ReverseFilm_timeconcat/1_13_18.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,A,0141,00036_1,videos/ReverseFilm_timeconcat/1_13_18.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0142,00036_2,videos/ReverseFilm_timeconcat/1_13_18_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0143,00036_3,videos/ReverseFilm_timeconcat/1_13_18_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
