@@ -1,0 +1,31 @@
+a_pred,a_true,idx,qa_idx,video_name,question,ans
+A,B,0000,01197_3,videos/UCF101_timeconcat/v_FloorGymnastics_g01_c01_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+A,B,0001,00884_3,videos/UCF101_timeconcat/v_Skijet_g05_c02_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,A,0002,00807_2,videos/UCF101_timeconcat/v_FrontCrawl_g04_c01_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+A,B,0003,00842_3,videos/UCF101_timeconcat/v_VolleyballSpiking_g04_c06_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The second segment (after the black frame)
+B. The first segment (before the black frame)
+Answer with the option's letter from the given choices directly.",B
+B,A,0004,00821_2,videos/UCF101_timeconcat/v_WalkingWithDog_g07_c02_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
+B,A,0005,00756_2,videos/UCF101_timeconcat/v_BaseballPitch_g03_c07_revorder.mp4,"This video contains two segments showing the same action, separated by a 2-second black frame. One segment is played forwards, and the other is played in reverse.
+Which video segment is played in reverse?
+A. The first segment (before the black frame)
+B. The second segment (after the black frame)
+Answer with the option's letter from the given choices directly.",A
