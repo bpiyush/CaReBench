@@ -1,0 +1,2588 @@
+a_pred,a_true,question,demonstration_type,variation,motion_type,answer,note,key,options,video_source_url,question_formatted,answer_formatted,video_name
+F,C,How many trapezoid(s) does the person draw in the air throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,2,Eason drawing trapezoid,0209-03,['2' '1' '3' '4' '5' '0'],,"How many trapezoid(s) does the person draw in the air throughout the entire video?
+Options: 
+A: 2
+B: 1
+C: 3
+D: 4
+E: 5
+F: 0 
+Pick the best suited option.",C,videos/human/0209-03.mp4
+F,C,How many triangle(s) does the person draw in the air throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,2,Eason drawing triangle,0210-03,['3' '5' '4' '1' '2' '0'],,"How many triangle(s) does the person draw in the air throughout the entire video?
+Options: 
+A: 3
+B: 5
+C: 4
+D: 1
+E: 2
+F: 0 
+Pick the best suited option.",C,videos/human/0210-03.mp4
+B,D,How many square(s) does the person draw in the air throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,3,Eason drawing square,0211-03,['1' '0' '3' '2' '5' '4'],,"How many square(s) does the person draw in the air throughout the entire video?
+Options: 
+A: 1
+B: 0
+C: 3
+D: 2
+E: 5
+F: 4 
+Pick the best suited option.",D,videos/human/0211-03.mp4
+B,D,How many infinity-shaped curve(s) does the person draw in the air throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,3,Eason drawing infinity-shaped curve,0212-03,['1' '0' '6' '7' '2' '4'],,"How many infinity-shaped curve(s) does the person draw in the air throughout the entire video?
+Options: 
+A: 1
+B: 0
+C: 6
+D: 7
+E: 2
+F: 4 
+Pick the best suited option.",D,videos/human/0212-03.mp4
+B,A,How many diamond shape(s) does the person draw in the air throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,0,Eason drawing diamond,0213-03,['3' '0' '1' '5' '4' '2'],,"How many diamond shape(s) does the person draw in the air throughout the entire video?
+Options: 
+A: 3
+B: 0
+C: 1
+D: 5
+E: 4
+F: 2 
+Pick the best suited option.",A,videos/human/0213-03.mp4
+C,E,How many figure-eight shape(s) does the person draw in the air throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,4,Eason drawing figure-eight,0214-03,['2' '3' '0' '1' '6' '5'],,"How many figure-eight shape(s) does the person draw in the air throughout the entire video?
+Options: 
+A: 2
+B: 3
+C: 0
+D: 1
+E: 6
+F: 5 
+Pick the best suited option.",E,videos/human/0214-03.mp4
+E,B,How many circle(s)) does the person draw in the air throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,1,Eason drawing circle,0215-05,['5' '6' '3' '2' '0' '1'],,"How many circle(s)) does the person draw in the air throughout the entire video?
+Options: 
+A: 5
+B: 6
+C: 3
+D: 2
+E: 0
+F: 1 
+Pick the best suited option.",B,videos/human/0215-05.mp4
+F,A,How many spin(s) does the person make throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,0,Eason spinning,0216-06,['4' '5' '3' '1' '2' '0'],,"How many spin(s) does the person make throughout the entire video?
+Options: 
+A: 4
+B: 5
+C: 3
+D: 1
+E: 2
+F: 0 
+Pick the best suited option.",A,videos/human/0216-06.mp4
+D,F,How many spin(s) does the person make throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,5,Eason spinning,0216-07,['5' '1' '3' '0' '2' '4'],,"How many spin(s) does the person make throughout the entire video?
+Options: 
+A: 5
+B: 1
+C: 3
+D: 0
+E: 2
+F: 4 
+Pick the best suited option.",F,videos/human/0216-07.mp4
+B,F,How many circle(s)) does the person's hand trace in the air throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,5,Eason tracing circle(s),0218-06,['5' '0' '1' '7' '3' '8'],,"How many circle(s)) does the person's hand trace in the air throughout the entire video?
+Options: 
+A: 5
+B: 0
+C: 1
+D: 7
+E: 3
+F: 8 
+Pick the best suited option.",F,videos/human/0218-06.mp4
+C,D,How many circle(s)) does the person's hand trace in the air throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,3,Eason tracing circle(s),0218-07,['4' '2' '0' '3' '5' '1'],,"How many circle(s)) does the person's hand trace in the air throughout the entire video?
+Options: 
+A: 4
+B: 2
+C: 0
+D: 3
+E: 5
+F: 1 
+Pick the best suited option.",D,videos/human/0218-07.mp4
+E,F,How many times does the person swing their hand upward throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,5,Eason swinging hand upward,0220-01,['1' '3' '2' '4' '0' '5'],,"How many times does the person swing their hand upward throughout the entire video?
+Options: 
+A: 1
+B: 3
+C: 2
+D: 4
+E: 0
+F: 5 
+Pick the best suited option.",F,videos/human/0220-01.mp4
+B,E,How many times does the person swing their hand to the right throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,4,Eason swinging hand to the right,0221-03,['2' '0' '1' '5' '6' '4'],,"How many times does the person swing their hand to the right throughout the entire video?
+Options: 
+A: 2
+B: 0
+C: 1
+D: 5
+E: 6
+F: 4 
+Pick the best suited option.",E,videos/human/0221-03.mp4
+B,E,How many times does the person swing their hand to the right throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,4,Eason swinging hand to the right,0222-01,['1' '0' '5' '8' '9' '3'],,"How many times does the person swing their hand to the right throughout the entire video?
+Options: 
+A: 1
+B: 0
+C: 5
+D: 8
+E: 9
+F: 3 
+Pick the best suited option.",E,videos/human/0222-01.mp4
+F,A,How many times does the person swing their hand to the right throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,0,Eason swinging hand to the right,0223-03,['6' '8' '5' '7' '3' '0'],,"How many times does the person swing their hand to the right throughout the entire video?
+Options: 
+A: 6
+B: 8
+C: 5
+D: 7
+E: 3
+F: 0 
+Pick the best suited option.",A,videos/human/0223-03.mp4
+E,A,How many times does the person swing their hand to the right throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,0,Eason swinging hand to the right with markerpen,0224-03,['7' '6' '3' '5' '0' '8'],,"How many times does the person swing their hand to the right throughout the entire video?
+Options: 
+A: 7
+B: 6
+C: 3
+D: 5
+E: 0
+F: 8 
+Pick the best suited option.",A,videos/human/0224-03.mp4
+A,E,How many times does the person swing their hand downward throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,4,Eason swinging hand downward with markerpen,0225-03,['0' '5' '3' '10' '9' '7'],,"How many times does the person swing their hand downward throughout the entire video?
+Options: 
+A: 0
+B: 5
+C: 3
+D: 10
+E: 9
+F: 7 
+Pick the best suited option.",E,videos/human/0225-03.mp4
+D,A,How many times does the person swing their hand to the left throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,0,Eason swinging hand to the left with markerpen,0226-02,['7' '5' '10' '0' '9' '3'],,"How many times does the person swing their hand to the left throughout the entire video?
+Options: 
+A: 7
+B: 5
+C: 10
+D: 0
+E: 9
+F: 3 
+Pick the best suited option.",A,videos/human/0226-02.mp4
+B,E,How many times does the person swing their hand to the left throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,4,Eason swinging hand to the left,0227-03,['5' '1' '4' '3' '2' '0'],,"How many times does the person swing their hand to the left throughout the entire video?
+Options: 
+A: 5
+B: 1
+C: 4
+D: 3
+E: 2
+F: 0 
+Pick the best suited option.",E,videos/human/0227-03.mp4
+F,A,How many times does the person swing their hand downward throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,0,Eason swinging hand downward,0228-03,['4' '5' '2' '3' '1' '0'],,"How many times does the person swing their hand downward throughout the entire video?
+Options: 
+A: 4
+B: 5
+C: 2
+D: 3
+E: 1
+F: 0 
+Pick the best suited option.",A,videos/human/0228-03.mp4
+F,A,How many times does the person swing their hand upward throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,0,Eason swinging hand upward,0229-03,['4' '3' '5' '2' '1' '0'],,"How many times does the person swing their hand upward throughout the entire video?
+Options: 
+A: 4
+B: 3
+C: 5
+D: 2
+E: 1
+F: 0 
+Pick the best suited option.",A,videos/human/0229-03.mp4
+A,E,How many circle(s)) does the person's hand trace in the air throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,4,Eason tracing circle(s),0230-07,['1' '3' '0' '4' '5' '2'],,"How many circle(s)) does the person's hand trace in the air throughout the entire video?
+Options: 
+A: 1
+B: 3
+C: 0
+D: 4
+E: 5
+F: 2 
+Pick the best suited option.",E,videos/human/0230-07.mp4
+A,A,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,Simulated objects colliding,0000-00,['2' '6' '3' '4' '7' '5'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 2
+B: 6
+C: 3
+D: 4
+E: 7
+F: 5 
+Pick the best suited option.",A,videos/simulated/0000-00.mp4
+D,A,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,Simulated objects colliding,0001-00,['3' '5' '6' '2' '7' '4'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 3
+B: 5
+C: 6
+D: 2
+E: 7
+F: 4 
+Pick the best suited option.",A,videos/simulated/0001-00.mp4
+B,C,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,Simulated objects colliding,0002-00,['2' '1' '4' '6' '7' '5'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 2
+B: 1
+C: 4
+D: 6
+E: 7
+F: 5 
+Pick the best suited option.",C,videos/simulated/0002-00.mp4
+B,E,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,Simulated objects colliding,0003-00,['5' '1' '4' '3' '2' '6'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 5
+B: 1
+C: 4
+D: 3
+E: 2
+F: 6 
+Pick the best suited option.",E,videos/simulated/0003-00.mp4
+E,E,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,Simulated objects colliding,0004-00,['4' '1' '0' '2' '3' '5'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 4
+B: 1
+C: 0
+D: 2
+E: 3
+F: 5 
+Pick the best suited option.",E,videos/simulated/0004-00.mp4
+E,E,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,Simulated objects colliding,0005-00,['5' '3' '4' '7' '2' '6'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 5
+B: 3
+C: 4
+D: 7
+E: 2
+F: 6 
+Pick the best suited option.",E,videos/simulated/0005-00.mp4
+C,C,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,Simulated objects colliding,0006-00,['4' '3' '1' '6' '2' '5'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 4
+B: 3
+C: 1
+D: 6
+E: 2
+F: 5 
+Pick the best suited option.",C,videos/simulated/0006-00.mp4
+C,C,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,Simulated objects colliding,0007-00,['5' '0' '2' '4' '3' '1'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 5
+B: 0
+C: 2
+D: 4
+E: 3
+F: 1 
+Pick the best suited option.",C,videos/simulated/0007-00.mp4
+E,E,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,Simulated objects colliding,0008-00,['8' '1' '10' '4' '2' '3'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 8
+B: 1
+C: 10
+D: 4
+E: 2
+F: 3 
+Pick the best suited option.",E,videos/simulated/0008-00.mp4
+F,B,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,Simulated objects colliding,0009-00,['7' '3' '11' '5' '9' '1'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 7
+B: 3
+C: 11
+D: 5
+E: 9
+F: 1 
+Pick the best suited option.",B,videos/simulated/0009-00.mp4
+A,A,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,Simulated objects colliding,0010-00,['3' '4' '6' '1' '5' '2'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 3
+B: 4
+C: 6
+D: 1
+E: 5
+F: 2 
+Pick the best suited option.",A,videos/simulated/0010-00.mp4
+B,A,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,Simulated objects colliding,0011-00,['3' '4' '6' '5' '8' '7'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 3
+B: 4
+C: 6
+D: 5
+E: 8
+F: 7 
+Pick the best suited option.",A,videos/simulated/0011-00.mp4
+C,C,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,Simulated objects colliding,0012-00,['4' '3' '2' '1' '6' '5'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 4
+B: 3
+C: 2
+D: 1
+E: 6
+F: 5 
+Pick the best suited option.",C,videos/simulated/0012-00.mp4
+C,F,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,Simulated objects colliding,0013-00,['6' '8' '2' '5' '4' '3'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 6
+B: 8
+C: 2
+D: 5
+E: 4
+F: 3 
+Pick the best suited option.",F,videos/simulated/0013-00.mp4
+D,C,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,Simulated objects colliding,0014-00,['4' '6' '3' '1' '2' '5'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 4
+B: 6
+C: 3
+D: 1
+E: 2
+F: 5 
+Pick the best suited option.",C,videos/simulated/0014-00.mp4
+D,D,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,Simulated objects colliding,0015-00,['4' '6' '1' '2' '5' '3'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 4
+B: 6
+C: 1
+D: 2
+E: 5
+F: 3 
+Pick the best suited option.",D,videos/simulated/0015-00.mp4
+A,A,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,Simulated objects colliding,0016-00,['3' '5' '7' '6' '4' '8'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 3
+B: 5
+C: 7
+D: 6
+E: 4
+F: 8 
+Pick the best suited option.",A,videos/simulated/0016-00.mp4
+C,F,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,Simulated objects colliding,0017-00,['5' '9' '1' '4' '0' '3'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 5
+B: 9
+C: 1
+D: 4
+E: 0
+F: 3 
+Pick the best suited option.",F,videos/simulated/0017-00.mp4
+A,D,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,Simulated objects colliding,0018-00,['2' '4' '6' '3' '5' '0'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 2
+B: 4
+C: 6
+D: 3
+E: 5
+F: 0 
+Pick the best suited option.",D,videos/simulated/0018-00.mp4
+F,B,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,Simulated objects colliding,0019-00,['0' '2' '5' '1' '4' '3'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 0
+B: 2
+C: 5
+D: 1
+E: 4
+F: 3 
+Pick the best suited option.",B,videos/simulated/0019-00.mp4
+A,F,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,Simulated objects colliding,0020-00,['2' '3' '5' '0' '1' '4'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 2
+B: 3
+C: 5
+D: 0
+E: 1
+F: 4 
+Pick the best suited option.",F,videos/simulated/0020-00.mp4
+D,F,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,Simulated objects colliding,0021-00,['3' '5' '4' '1' '6' '2'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 3
+B: 5
+C: 4
+D: 1
+E: 6
+F: 2 
+Pick the best suited option.",F,videos/simulated/0021-00.mp4
+C,C,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,Simulated objects colliding,0022-00,['1' '0' '2' '4' '3' '5'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 1
+B: 0
+C: 2
+D: 4
+E: 3
+F: 5 
+Pick the best suited option.",C,videos/simulated/0022-00.mp4
+C,F,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,Simulated objects colliding,0023-00,['0' '3' '1' '4' '5' '2'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 0
+B: 3
+C: 1
+D: 4
+E: 5
+F: 2 
+Pick the best suited option.",F,videos/simulated/0023-00.mp4
+F,A,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,Simulated objects colliding,0024-00,['3' '1' '5' '0' '4' '2'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 3
+B: 1
+C: 5
+D: 0
+E: 4
+F: 2 
+Pick the best suited option.",A,videos/simulated/0024-00.mp4
+B,A,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,Simulated objects colliding,0025-00,['3' '1' '4' '5' '2' '0'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 3
+B: 1
+C: 4
+D: 5
+E: 2
+F: 0 
+Pick the best suited option.",A,videos/simulated/0025-00.mp4
+C,F,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,Simulated objects colliding,0026-00,['4' '6' '3' '7' '5' '2'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 4
+B: 6
+C: 3
+D: 7
+E: 5
+F: 2 
+Pick the best suited option.",F,videos/simulated/0026-00.mp4
+D,B,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,Simulated objects colliding,0027-00,['0' '3' '8' '2' '1' '4'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 0
+B: 3
+C: 8
+D: 2
+E: 1
+F: 4 
+Pick the best suited option.",B,videos/simulated/0027-00.mp4
+B,A,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,Simulated objects colliding,0028-00,['3' '2' '6' '0' '4' '1'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 3
+B: 2
+C: 6
+D: 0
+E: 4
+F: 1 
+Pick the best suited option.",A,videos/simulated/0028-00.mp4
+E,E,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,Simulated objects colliding,0029-00,['3' '6' '4' '7' '2' '5'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 3
+B: 6
+C: 4
+D: 7
+E: 2
+F: 5 
+Pick the best suited option.",E,videos/simulated/0029-00.mp4
+E,A,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,Simulated objects colliding,0030-00,['4' '1' '0' '2' '3' '8'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 4
+B: 1
+C: 0
+D: 2
+E: 3
+F: 8 
+Pick the best suited option.",A,videos/simulated/0030-00.mp4
+F,F,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,Simulated objects colliding,0031-00,['0' '5' '3' '4' '1' '2'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 0
+B: 5
+C: 3
+D: 4
+E: 1
+F: 2 
+Pick the best suited option.",F,videos/simulated/0031-00.mp4
+B,A,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,Simulated objects colliding,0032-00,['3' '2' '0' '4' '5' '1'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 3
+B: 2
+C: 0
+D: 4
+E: 5
+F: 1 
+Pick the best suited option.",A,videos/simulated/0032-00.mp4
+B,F,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,Simulated objects colliding,0033-00,['3' '1' '5' '4' '0' '2'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 3
+B: 1
+C: 5
+D: 4
+E: 0
+F: 2 
+Pick the best suited option.",F,videos/simulated/0033-00.mp4
+B,D,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,Simulated objects colliding,0034-00,['5' '2' '0' '3' '1' '4'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 5
+B: 2
+C: 0
+D: 3
+E: 1
+F: 4 
+Pick the best suited option.",D,videos/simulated/0034-00.mp4
+C,C,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,Simulated objects colliding,0035-00,['0' '3' '2' '5' '4' '1'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 0
+B: 3
+C: 2
+D: 5
+E: 4
+F: 1 
+Pick the best suited option.",C,videos/simulated/0035-00.mp4
+D,E,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,Simulated objects colliding,0036-00,['1' '5' '4' '2' '3' '6'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 1
+B: 5
+C: 4
+D: 2
+E: 3
+F: 6 
+Pick the best suited option.",E,videos/simulated/0036-00.mp4
+B,E,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,Simulated objects colliding,0037-00,['0' '1' '5' '2' '4' '3'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 0
+B: 1
+C: 5
+D: 2
+E: 4
+F: 3 
+Pick the best suited option.",E,videos/simulated/0037-00.mp4
+F,C,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,Simulated objects colliding,0038-00,['0' '2' '3' '5' '4' '1'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 0
+B: 2
+C: 3
+D: 5
+E: 4
+F: 1 
+Pick the best suited option.",C,videos/simulated/0038-00.mp4
+E,E,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,Simulated objects colliding,0039-00,['0' '4' '5' '3' '2' '1'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 0
+B: 4
+C: 5
+D: 3
+E: 2
+F: 1 
+Pick the best suited option.",E,videos/simulated/0039-00.mp4
+F,F,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,Simulated objects colliding,0040-00,['7' '8' '6' '5' '4' '3'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 7
+B: 8
+C: 6
+D: 5
+E: 4
+F: 3 
+Pick the best suited option.",F,videos/simulated/0040-00.mp4
+E,D,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,Simulated objects colliding,0041-00,['3' '5' '0' '2' '1' '4'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 3
+B: 5
+C: 0
+D: 2
+E: 1
+F: 4 
+Pick the best suited option.",D,videos/simulated/0041-00.mp4
+F,B,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,Simulated objects colliding,0042-00,['1' '3' '5' '0' '4' '2'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 1
+B: 3
+C: 5
+D: 0
+E: 4
+F: 2 
+Pick the best suited option.",B,videos/simulated/0042-00.mp4
+C,C,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,Simulated objects colliding,0043-00,['4' '5' '3' '1' '0' '2'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 4
+B: 5
+C: 3
+D: 1
+E: 0
+F: 2 
+Pick the best suited option.",C,videos/simulated/0043-00.mp4
+B,B,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,Simulated objects colliding,0044-00,['8' '2' '0' '3' '1' '4'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 8
+B: 2
+C: 0
+D: 3
+E: 1
+F: 4 
+Pick the best suited option.",B,videos/simulated/0044-00.mp4
+E,F,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,Simulated objects colliding,0045-00,['10' '12' '1' '8' '2' '3'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 10
+B: 12
+C: 1
+D: 8
+E: 2
+F: 3 
+Pick the best suited option.",F,videos/simulated/0045-00.mp4
+B,F,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,Simulated objects colliding,0046-00,['5' '1' '0' '2' '4' '3'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 5
+B: 1
+C: 0
+D: 2
+E: 4
+F: 3 
+Pick the best suited option.",F,videos/simulated/0046-00.mp4
+E,B,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,Simulated objects colliding,0047-00,['4' '3' '5' '1' '2' '0'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 4
+B: 3
+C: 5
+D: 1
+E: 2
+F: 0 
+Pick the best suited option.",B,videos/simulated/0047-00.mp4
+E,E,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,Simulated objects colliding,0048-00,['3' '4' '5' '1' '2' '0'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 3
+B: 4
+C: 5
+D: 1
+E: 2
+F: 0 
+Pick the best suited option.",E,videos/simulated/0048-00.mp4
+E,F,How many distinct collision(s) occur throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,Simulated objects colliding,0049-00,['7' '4' '5' '1' '3' '2'],CLEVRER,"How many distinct collision(s) occur throughout the entire video?
+Options: 
+A: 7
+B: 4
+C: 5
+D: 1
+E: 3
+F: 2 
+Pick the best suited option.",F,videos/simulated/0049-00.mp4
+D,E,How many complete circle(s)) does the car make throughout the entire video?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,car;rotation,0200-00,['1' '2' '5' '0' '4' '3'],,"How many complete circle(s)) does the car make throughout the entire video?
+Options: 
+A: 1
+B: 2
+C: 5
+D: 0
+E: 4
+F: 3 
+Pick the best suited option.",E,videos/object/0200-00.mp4
+A,A,How many complete circle(s) does the car make throughout the entire video?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,car;static,0201-00,['0' '3' '5' '4' '1' '2'],,"How many complete circle(s) does the car make throughout the entire video?
+Options: 
+A: 0
+B: 3
+C: 5
+D: 4
+E: 1
+F: 2 
+Pick the best suited option.",A,videos/object/0201-00.mp4
+F,D,How many complete circle(s) does the car make throughout the entire video?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,car;rotation,0202-00,['4' '5' '3' '1' '2' '0'],,"How many complete circle(s) does the car make throughout the entire video?
+Options: 
+A: 4
+B: 5
+C: 3
+D: 1
+E: 2
+F: 0 
+Pick the best suited option.",D,videos/object/0202-00.mp4
+F,B,How many complete circle(s) does the car make throughout the entire video?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,car;rotation,0203-00,['5' '4' '2' '3' '1' '0'],,"How many complete circle(s) does the car make throughout the entire video?
+Options: 
+A: 5
+B: 4
+C: 2
+D: 3
+E: 1
+F: 0 
+Pick the best suited option.",B,videos/object/0203-00.mp4
+F,E,How many complete circle(s) does the car make throughout the entire video?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,car;rotation,0204-00,['1' '4' '2' '3' '5' '0'],,"How many complete circle(s) does the car make throughout the entire video?
+Options: 
+A: 1
+B: 4
+C: 2
+D: 3
+E: 5
+F: 0 
+Pick the best suited option.",E,videos/object/0204-00.mp4
+B,E,How many spin(s) does the car make throughout the entire video?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,car;rotation,0205-00,['4' '0' '3' '2' '6' '8'],,"How many spin(s) does the car make throughout the entire video?
+Options: 
+A: 4
+B: 0
+C: 3
+D: 2
+E: 6
+F: 8 
+Pick the best suited option.",E,videos/object/0205-00.mp4
+D,A,How many spin(s) does the car make throughout the entire video?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,car;rotation,0206-00,['7' '2' '9' '0' '5' '3'],,"How many spin(s) does the car make throughout the entire video?
+Options: 
+A: 7
+B: 2
+C: 9
+D: 0
+E: 5
+F: 3 
+Pick the best suited option.",A,videos/object/0206-00.mp4
+C,B,"From the person's perspective, how many spin(s) do they make throughout the entire video?",human,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",count,1,human;rotation,0207-00,['5' '2' '0' '3' '4' '1'],,"From the person's perspective, how many spin(s) do they make throughout the entire video?
+Options: 
+A: 5
+B: 2
+C: 0
+D: 3
+E: 4
+F: 1 
+Pick the best suited option.",B,videos/human/0207-00.mp4
+D,E,"From the person's perspective, how many spin(s) do they make throughout the entire video?",human,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",count,4,human;rotation,0208-00,['1' '3' '5' '0' '2' '4'],,"From the person's perspective, how many spin(s) do they make throughout the entire video?
+Options: 
+A: 1
+B: 3
+C: 5
+D: 0
+E: 2
+F: 4 
+Pick the best suited option.",E,videos/human/0208-00.mp4
+D,F,How many trapezoid(s) does the person draw in the air throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,human;drawing,0209-00,['4' '1' '2' '0' '5' '3'],,"How many trapezoid(s) does the person draw in the air throughout the entire video?
+Options: 
+A: 4
+B: 1
+C: 2
+D: 0
+E: 5
+F: 3 
+Pick the best suited option.",F,videos/human/0209-00.mp4
+D,A,How many triangle(s) does the person draw in the air throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,human;drawing,0210-00,['4' '3' '1' '0' '5' '2'],,"How many triangle(s) does the person draw in the air throughout the entire video?
+Options: 
+A: 4
+B: 3
+C: 1
+D: 0
+E: 5
+F: 2 
+Pick the best suited option.",A,videos/human/0210-00.mp4
+D,F,How many square(s) does the person draw in the air throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,human;drawing,0211-00,['3' '4' '5' '0' '1' '2'],,"How many square(s) does the person draw in the air throughout the entire video?
+Options: 
+A: 3
+B: 4
+C: 5
+D: 0
+E: 1
+F: 2 
+Pick the best suited option.",F,videos/human/0211-00.mp4
+E,B,How many infinity-shaped curve(s) does the person draw in the air throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,human;drawing,0212-00,['6' '7' '4' '2' '0' '1'],,"How many infinity-shaped curve(s) does the person draw in the air throughout the entire video?
+Options: 
+A: 6
+B: 7
+C: 4
+D: 2
+E: 0
+F: 1 
+Pick the best suited option.",B,videos/human/0212-00.mp4
+A,D,How many diamond shape(s) does the person draw in the air throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,human;drawing,0213-00,['0' '4' '2' '3' '1' '5'],,"How many diamond shape(s) does the person draw in the air throughout the entire video?
+Options: 
+A: 0
+B: 4
+C: 2
+D: 3
+E: 1
+F: 5 
+Pick the best suited option.",D,videos/human/0213-00.mp4
+C,F,How many figure-eight shape(s) does the person draw in the air throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,human;drawing,0214-00,['2' '3' '0' '5' '1' '6'],,"How many figure-eight shape(s) does the person draw in the air throughout the entire video?
+Options: 
+A: 2
+B: 3
+C: 0
+D: 5
+E: 1
+F: 6 
+Pick the best suited option.",F,videos/human/0214-00.mp4
+F,C,How many circle(s) does the person's hand trace in the air throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,human;rotation,0215-00,['3' '5' '6' '1' '2' '0'],,"How many circle(s) does the person's hand trace in the air throughout the entire video?
+Options: 
+A: 3
+B: 5
+C: 6
+D: 1
+E: 2
+F: 0 
+Pick the best suited option.",C,videos/human/0215-00.mp4
+F,D,How many spin(s) does the person make throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,human;rotation,0216-00,['5' '1' '3' '4' '2' '0'],,"How many spin(s) does the person make throughout the entire video?
+Options: 
+A: 5
+B: 1
+C: 3
+D: 4
+E: 2
+F: 0 
+Pick the best suited option.",D,videos/human/0216-00.mp4
+C,F,How many spin(s) does the person make throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,human;rotation,0216-05,['1' '5' '0' '2' '3' '4'],,"How many spin(s) does the person make throughout the entire video?
+Options: 
+A: 1
+B: 5
+C: 0
+D: 2
+E: 3
+F: 4 
+Pick the best suited option.",F,videos/human/0216-05.mp4
+D,E,How many circle(s) does the person's hand trace in the air throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,human;rotation,0218-00,['5' '1' '7' '0' '8' '3'],,"How many circle(s) does the person's hand trace in the air throughout the entire video?
+Options: 
+A: 5
+B: 1
+C: 7
+D: 0
+E: 8
+F: 3 
+Pick the best suited option.",E,videos/human/0218-00.mp4
+E,B,How many circle(s) does the person's hand trace in the air throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,human;rotation,0218-01,['4' '3' '1' '5' '0' '2'],,"How many circle(s) does the person's hand trace in the air throughout the entire video?
+Options: 
+A: 4
+B: 3
+C: 1
+D: 5
+E: 0
+F: 2 
+Pick the best suited option.",B,videos/human/0218-01.mp4
+B,F,How many times does the person swing their hand upward throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,human;linear;markerpen,0220-00,['2' '0' '1' '4' '3' '5'],,"How many times does the person swing their hand upward throughout the entire video?
+Options: 
+A: 2
+B: 0
+C: 1
+D: 4
+E: 3
+F: 5 
+Pick the best suited option.",F,videos/human/0220-00.mp4
+B,E,How many times does the person swing their hand to the right throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,human;linear,0221-00,['0' '1' '5' '2' '6' '4'],,"How many times does the person swing their hand to the right throughout the entire video?
+Options: 
+A: 0
+B: 1
+C: 5
+D: 2
+E: 6
+F: 4 
+Pick the best suited option.",E,videos/human/0221-00.mp4
+C,D,How many times does the person swing their hand to the right throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,human;linear,0222-00,['3' '8' '1' '9' '5' '0'],,"How many times does the person swing their hand to the right throughout the entire video?
+Options: 
+A: 3
+B: 8
+C: 1
+D: 9
+E: 5
+F: 0 
+Pick the best suited option.",D,videos/human/0222-00.mp4
+C,B,How many times does the person swing their hand to the right throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,human;linear,0223-00,['3' '6' '0' '8' '5' '7'],,"How many times does the person swing their hand to the right throughout the entire video?
+Options: 
+A: 3
+B: 6
+C: 0
+D: 8
+E: 5
+F: 7 
+Pick the best suited option.",B,videos/human/0223-00.mp4
+A,D,How many times does the person swing their hand to the right throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,human;linear;markerpen,0224-00,['0' '6' '3' '7' '8' '5'],,"How many times does the person swing their hand to the right throughout the entire video?
+Options: 
+A: 0
+B: 6
+C: 3
+D: 7
+E: 8
+F: 5 
+Pick the best suited option.",D,videos/human/0224-00.mp4
+B,A,How many times does the person swing their hand downward throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,human;linear;markerpen,0225-00,['9' '0' '10' '5' '7' '3'],,"How many times does the person swing their hand downward throughout the entire video?
+Options: 
+A: 9
+B: 0
+C: 10
+D: 5
+E: 7
+F: 3 
+Pick the best suited option.",A,videos/human/0225-00.mp4
+B,D,How many times does the person swing their hand to the left throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,human;linear;markerpen,0226-00,['9' '0' '3' '7' '5' '10'],,"How many times does the person swing their hand to the left throughout the entire video?
+Options: 
+A: 9
+B: 0
+C: 3
+D: 7
+E: 5
+F: 10 
+Pick the best suited option.",D,videos/human/0226-00.mp4
+A,D,How many times does the person swing their hand to the left throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,human;linear,0227-00,['1' '5' '4' '2' '3' '0'],,"How many times does the person swing their hand to the left throughout the entire video?
+Options: 
+A: 1
+B: 5
+C: 4
+D: 2
+E: 3
+F: 0 
+Pick the best suited option.",D,videos/human/0227-00.mp4
+F,A,How many times does the person swing their hand downward throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,human;linear,0228-00,['4' '2' '5' '3' '1' '0'],,"How many times does the person swing their hand downward throughout the entire video?
+Options: 
+A: 4
+B: 2
+C: 5
+D: 3
+E: 1
+F: 0 
+Pick the best suited option.",A,videos/human/0228-00.mp4
+F,C,How many times does the person swing their hand upward throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,human;linear,0229-00,['5' '3' '4' '2' '1' '0'],,"How many times does the person swing their hand upward throughout the entire video?
+Options: 
+A: 5
+B: 3
+C: 4
+D: 2
+E: 1
+F: 0 
+Pick the best suited option.",C,videos/human/0229-00.mp4
+E,A,How many circle(s) does the person's hand trace in the air throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,human;rotation,0230-00,['5' '3' '2' '1' '0' '4'],,"How many circle(s) does the person's hand trace in the air throughout the entire video?
+Options: 
+A: 5
+B: 3
+C: 2
+D: 1
+E: 0
+F: 4 
+Pick the best suited option.",A,videos/human/0230-00.mp4
+A,D,How many times does the person launch the object on the slanted plane?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0864-00,['0' '6' '10' '3' '4' '2'],,"How many times does the person launch the object on the slanted plane?
+Options: 
+A: 0
+B: 6
+C: 10
+D: 3
+E: 4
+F: 2 
+Pick the best suited option.",D,videos/object/0864-00.mp4
+B,A,How many times does the person launch the object on the slanted plane?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0865-00,['3' '2' '4' '10' '9' '7'],,"How many times does the person launch the object on the slanted plane?
+Options: 
+A: 3
+B: 2
+C: 4
+D: 10
+E: 9
+F: 7 
+Pick the best suited option.",A,videos/object/0865-00.mp4
+D,C,How many times does the person launch the object on the slanted plane?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0866-00,['0' '8' '3' '1' '9' '7'],,"How many times does the person launch the object on the slanted plane?
+Options: 
+A: 0
+B: 8
+C: 3
+D: 1
+E: 9
+F: 7 
+Pick the best suited option.",C,videos/object/0866-00.mp4
+A,A,How many times does the person launch objects on the table?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0867-00,['2' '0' '4' '7' '10' '1'],,"How many times does the person launch objects on the table?
+Options: 
+A: 2
+B: 0
+C: 4
+D: 7
+E: 10
+F: 1 
+Pick the best suited option.",A,videos/object/0867-00.mp4
+D,D,How many times does the person launch objects on the table?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0868-00,['5' '1' '9' '2' '3' '8'],,"How many times does the person launch objects on the table?
+Options: 
+A: 5
+B: 1
+C: 9
+D: 2
+E: 3
+F: 8 
+Pick the best suited option.",D,videos/object/0868-00.mp4
+B,D,How many times does the person launch objects on the table?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0869-00,['0' '1' '3' '2' '9' '8'],,"How many times does the person launch objects on the table?
+Options: 
+A: 0
+B: 1
+C: 3
+D: 2
+E: 9
+F: 8 
+Pick the best suited option.",D,videos/object/0869-00.mp4
+E,D,How many containers does the person try to cover?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0870-00,['2' '9' '7' '3' '4' '5'],,"How many containers does the person try to cover?
+Options: 
+A: 2
+B: 9
+C: 7
+D: 3
+E: 4
+F: 5 
+Pick the best suited option.",D,videos/object/0870-00.mp4
+E,E,How many containers does the person try to cover?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0871-00,['0' '10' '5' '1' '3' '9'],,"How many containers does the person try to cover?
+Options: 
+A: 0
+B: 10
+C: 5
+D: 1
+E: 3
+F: 9 
+Pick the best suited option.",E,videos/object/0871-00.mp4
+A,B,How many containers does the person try to cover?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0872-00,['0' '3' '5' '6' '2' '9'],,"How many containers does the person try to cover?
+Options: 
+A: 0
+B: 3
+C: 5
+D: 6
+E: 2
+F: 9 
+Pick the best suited option.",B,videos/object/0872-00.mp4
+D,F,How many containers does the person try to cover?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0873-00,['7' '4' '6' '0' '2' '3'],,"How many containers does the person try to cover?
+Options: 
+A: 7
+B: 4
+C: 6
+D: 0
+E: 2
+F: 3 
+Pick the best suited option.",F,videos/object/0873-00.mp4
+C,A,How many containers does the person try to cover?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0874-00,['3' '1' '0' '9' '10' '8'],,"How many containers does the person try to cover?
+Options: 
+A: 3
+B: 1
+C: 0
+D: 9
+E: 10
+F: 8 
+Pick the best suited option.",A,videos/object/0874-00.mp4
+F,C,How many containers does the person try to cover?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0875-00,['5' '8' '3' '7' '6' '2'],,"How many containers does the person try to cover?
+Options: 
+A: 5
+B: 8
+C: 3
+D: 7
+E: 6
+F: 2 
+Pick the best suited option.",C,videos/object/0875-00.mp4
+E,E,How many containers does the person try to cover?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0876-00,['1' '2' '7' '8' '3' '6'],,"How many containers does the person try to cover?
+Options: 
+A: 1
+B: 2
+C: 7
+D: 8
+E: 3
+F: 6 
+Pick the best suited option.",E,videos/object/0876-00.mp4
+D,D,How many containers does the person try to cover?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0877-00,['7' '6' '10' '3' '0' '5'],,"How many containers does the person try to cover?
+Options: 
+A: 7
+B: 6
+C: 10
+D: 3
+E: 0
+F: 5 
+Pick the best suited option.",D,videos/object/0877-00.mp4
+E,D,How many buttons does you see the person buttoning up?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0878-00,['0' '10' '6' '4' '2' '7'],,"How many buttons does you see the person buttoning up?
+Options: 
+A: 0
+B: 10
+C: 6
+D: 4
+E: 2
+F: 7 
+Pick the best suited option.",D,videos/object/0878-00.mp4
+A,D,How many buttons does you see the person successfully buttoning up and correctly aligning the buttons with the holes?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0878-00,['3' '7' '9' '4' '10' '8'],,"How many buttons does you see the person successfully buttoning up and correctly aligning the buttons with the holes?
+Options: 
+A: 3
+B: 7
+C: 9
+D: 4
+E: 10
+F: 8 
+Pick the best suited option.",D,videos/object/0878-00.mp4
+B,E,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0879-00,['8' '1' '3' '7' '4' '0'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 8
+B: 1
+C: 3
+D: 7
+E: 4
+F: 0 
+Pick the best suited option.",E,videos/object/0879-00.mp4
+E,D,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0879-00,['4' '6' '9' '5' '3' '8'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 4
+B: 6
+C: 9
+D: 5
+E: 3
+F: 8 
+Pick the best suited option.",D,videos/object/0879-00.mp4
+D,D,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0879-00,['10' '9' '5' '2' '3' '8'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 10
+B: 9
+C: 5
+D: 2
+E: 3
+F: 8 
+Pick the best suited option.",D,videos/object/0879-00.mp4
+B,B,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0880-00,['5' '4' '0' '8' '6' '7'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 5
+B: 4
+C: 0
+D: 8
+E: 6
+F: 7 
+Pick the best suited option.",B,videos/object/0880-00.mp4
+C,F,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0880-00,['2' '10' '1' '3' '8' '5'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 2
+B: 10
+C: 1
+D: 3
+E: 8
+F: 5 
+Pick the best suited option.",F,videos/object/0880-00.mp4
+D,D,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0880-00,['9' '3' '5' '2' '8' '4'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 9
+B: 3
+C: 5
+D: 2
+E: 8
+F: 4 
+Pick the best suited option.",D,videos/object/0880-00.mp4
+E,D,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0881-00,['9' '0' '10' '6' '5' '4'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 9
+B: 0
+C: 10
+D: 6
+E: 5
+F: 4 
+Pick the best suited option.",D,videos/object/0881-00.mp4
+D,A,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0881-00,['6' '10' '5' '1' '2' '9'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 6
+B: 10
+C: 5
+D: 1
+E: 2
+F: 9 
+Pick the best suited option.",A,videos/object/0881-00.mp4
+D,D,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0881-00,['9' '6' '10' '2' '7' '5'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 9
+B: 6
+C: 10
+D: 2
+E: 7
+F: 5 
+Pick the best suited option.",D,videos/object/0881-00.mp4
+C,B,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0882-00,['1' '6' '2' '8' '4' '9'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 1
+B: 6
+C: 2
+D: 8
+E: 4
+F: 9 
+Pick the best suited option.",B,videos/object/0882-00.mp4
+B,C,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0882-00,['9' '1' '4' '0' '10' '6'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 9
+B: 1
+C: 4
+D: 0
+E: 10
+F: 6 
+Pick the best suited option.",C,videos/object/0882-00.mp4
+D,D,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0882-00,['5' '3' '9' '2' '10' '1'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 5
+B: 3
+C: 9
+D: 2
+E: 10
+F: 1 
+Pick the best suited option.",D,videos/object/0882-00.mp4
+F,D,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0883-00,['10' '0' '7' '2' '5' '1'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 10
+B: 0
+C: 7
+D: 2
+E: 5
+F: 1 
+Pick the best suited option.",D,videos/object/0883-00.mp4
+A,D,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0884-00,['2' '10' '3' '5' '1' '0'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 2
+B: 10
+C: 3
+D: 5
+E: 1
+F: 0 
+Pick the best suited option.",D,videos/object/0884-00.mp4
+E,E,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0884-00,['7' '9' '6' '2' '4' '10'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 7
+B: 9
+C: 6
+D: 2
+E: 4
+F: 10 
+Pick the best suited option.",E,videos/object/0884-00.mp4
+E,B,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0884-00,['6' '2' '0' '4' '1' '9'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 6
+B: 2
+C: 0
+D: 4
+E: 1
+F: 9 
+Pick the best suited option.",B,videos/object/0884-00.mp4
+E,C,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0885-00,['5' '10' '6' '4' '1' '8'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 5
+B: 10
+C: 6
+D: 4
+E: 1
+F: 8 
+Pick the best suited option.",C,videos/object/0885-00.mp4
+E,F,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0885-00,['6' '3' '7' '0' '2' '4'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 6
+B: 3
+C: 7
+D: 0
+E: 2
+F: 4 
+Pick the best suited option.",F,videos/object/0885-00.mp4
+E,C,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0885-00,['6' '5' '2' '0' '1' '8'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 6
+B: 5
+C: 2
+D: 0
+E: 1
+F: 8 
+Pick the best suited option.",C,videos/object/0885-00.mp4
+E,A,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0886-00,['6' '9' '8' '2' '4' '5'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 6
+B: 9
+C: 8
+D: 2
+E: 4
+F: 5 
+Pick the best suited option.",A,videos/object/0886-00.mp4
+B,F,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0886-00,['9' '1' '4' '7' '0' '6'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 9
+B: 1
+C: 4
+D: 7
+E: 0
+F: 6 
+Pick the best suited option.",F,videos/object/0886-00.mp4
+F,D,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0886-00,['10' '4' '0' '2' '9' '3'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 10
+B: 4
+C: 0
+D: 2
+E: 9
+F: 3 
+Pick the best suited option.",D,videos/object/0886-00.mp4
+B,F,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0887-00,['5' '1' '4' '3' '7' '6'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 5
+B: 1
+C: 4
+D: 3
+E: 7
+F: 6 
+Pick the best suited option.",F,videos/object/0887-00.mp4
+D,F,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0887-00,['2' '8' '9' '1' '6' '4'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 2
+B: 8
+C: 9
+D: 1
+E: 6
+F: 4 
+Pick the best suited option.",F,videos/object/0887-00.mp4
+E,E,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0887-00,['0' '8' '5' '6' '2' '7'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 0
+B: 8
+C: 5
+D: 6
+E: 2
+F: 7 
+Pick the best suited option.",E,videos/object/0887-00.mp4
+E,F,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0888-00,['7' '4' '3' '10' '2' '6'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 7
+B: 4
+C: 3
+D: 10
+E: 2
+F: 6 
+Pick the best suited option.",F,videos/object/0888-00.mp4
+E,D,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0888-00,['0' '8' '6' '4' '3' '5'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 0
+B: 8
+C: 6
+D: 4
+E: 3
+F: 5 
+Pick the best suited option.",D,videos/object/0888-00.mp4
+C,C,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0888-00,['8' '9' '2' '0' '3' '10'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 8
+B: 9
+C: 2
+D: 0
+E: 3
+F: 10 
+Pick the best suited option.",C,videos/object/0888-00.mp4
+F,A,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0889-00,['6' '1' '5' '8' '10' '3'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 6
+B: 1
+C: 5
+D: 8
+E: 10
+F: 3 
+Pick the best suited option.",A,videos/object/0889-00.mp4
+B,C,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0889-00,['7' '2' '4' '5' '0' '9'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 7
+B: 2
+C: 4
+D: 5
+E: 0
+F: 9 
+Pick the best suited option.",C,videos/object/0889-00.mp4
+E,E,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0889-00,['4' '9' '8' '6' '2' '1'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 4
+B: 9
+C: 8
+D: 6
+E: 2
+F: 1 
+Pick the best suited option.",E,videos/object/0889-00.mp4
+C,E,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0890-00,['8' '7' '4' '5' '6' '0'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 8
+B: 7
+C: 4
+D: 5
+E: 6
+F: 0 
+Pick the best suited option.",E,videos/object/0890-00.mp4
+F,E,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0890-00,['8' '10' '2' '0' '4' '1'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 8
+B: 10
+C: 2
+D: 0
+E: 4
+F: 1 
+Pick the best suited option.",E,videos/object/0890-00.mp4
+F,F,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0890-00,['4' '8' '6' '3' '5' '2'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 4
+B: 8
+C: 6
+D: 3
+E: 5
+F: 2 
+Pick the best suited option.",F,videos/object/0890-00.mp4
+F,B,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0891-00,['8' '5' '4' '9' '6' '3'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 8
+B: 5
+C: 4
+D: 9
+E: 6
+F: 3 
+Pick the best suited option.",B,videos/object/0891-00.mp4
+C,E,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0891-00,['2' '7' '1' '10' '5' '3'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 2
+B: 7
+C: 1
+D: 10
+E: 5
+F: 3 
+Pick the best suited option.",E,videos/object/0891-00.mp4
+F,A,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0891-00,['2' '6' '0' '3' '9' '1'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 2
+B: 6
+C: 0
+D: 3
+E: 9
+F: 1 
+Pick the best suited option.",A,videos/object/0891-00.mp4
+A,F,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0892-00,['2' '7' '4' '10' '9' '6'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 2
+B: 7
+C: 4
+D: 10
+E: 9
+F: 6 
+Pick the best suited option.",F,videos/object/0892-00.mp4
+C,B,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0892-00,['9' '4' '2' '5' '6' '10'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 9
+B: 4
+C: 2
+D: 5
+E: 6
+F: 10 
+Pick the best suited option.",B,videos/object/0892-00.mp4
+B,B,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0892-00,['4' '2' '10' '8' '0' '7'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 4
+B: 2
+C: 10
+D: 8
+E: 0
+F: 7 
+Pick the best suited option.",B,videos/object/0892-00.mp4
+A,D,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0893-00,['3' '9' '10' '6' '8' '4'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 3
+B: 9
+C: 10
+D: 6
+E: 8
+F: 4 
+Pick the best suited option.",D,videos/object/0893-00.mp4
+F,C,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0893-00,['3' '9' '4' '7' '5' '2'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 3
+B: 9
+C: 4
+D: 7
+E: 5
+F: 2 
+Pick the best suited option.",C,videos/object/0893-00.mp4
+F,F,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0893-00,['10' '5' '9' '4' '8' '2'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 10
+B: 5
+C: 9
+D: 4
+E: 8
+F: 2 
+Pick the best suited option.",F,videos/object/0893-00.mp4
+B,C,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0894-00,['5' '1' '6' '8' '4' '9'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 5
+B: 1
+C: 6
+D: 8
+E: 4
+F: 9 
+Pick the best suited option.",C,videos/object/0894-00.mp4
+F,F,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0894-00,['6' '10' '0' '5' '9' '4'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 6
+B: 10
+C: 0
+D: 5
+E: 9
+F: 4 
+Pick the best suited option.",F,videos/object/0894-00.mp4
+E,D,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0894-00,['10' '0' '4' '2' '3' '8'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 10
+B: 0
+C: 4
+D: 2
+E: 3
+F: 8 
+Pick the best suited option.",D,videos/object/0894-00.mp4
+A,F,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0895-00,['10' '4' '8' '2' '5' '6'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 10
+B: 4
+C: 8
+D: 2
+E: 5
+F: 6 
+Pick the best suited option.",F,videos/object/0895-00.mp4
+D,A,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0895-00,['4' '0' '7' '1' '9' '5'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 4
+B: 0
+C: 7
+D: 1
+E: 9
+F: 5 
+Pick the best suited option.",A,videos/object/0895-00.mp4
+E,C,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0895-00,['5' '10' '2' '4' '3' '8'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 5
+B: 10
+C: 2
+D: 4
+E: 3
+F: 8 
+Pick the best suited option.",C,videos/object/0895-00.mp4
+D,A,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0896-00,['6' '7' '0' '2' '5' '9'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 6
+B: 7
+C: 0
+D: 2
+E: 5
+F: 9 
+Pick the best suited option.",A,videos/object/0896-00.mp4
+B,F,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0896-00,['6' '3' '7' '1' '0' '4'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 6
+B: 3
+C: 7
+D: 1
+E: 0
+F: 4 
+Pick the best suited option.",F,videos/object/0896-00.mp4
+D,D,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0896-00,['7' '8' '9' '2' '1' '4'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 7
+B: 8
+C: 9
+D: 2
+E: 1
+F: 4 
+Pick the best suited option.",D,videos/object/0896-00.mp4
+A,F,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0897-00,['3' '2' '0' '10' '8' '5'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 3
+B: 2
+C: 0
+D: 10
+E: 8
+F: 5 
+Pick the best suited option.",F,videos/object/0897-00.mp4
+A,F,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0897-00,['3' '10' '8' '9' '0' '5'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 3
+B: 10
+C: 8
+D: 9
+E: 0
+F: 5 
+Pick the best suited option.",F,videos/object/0897-00.mp4
+A,A,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0897-00,['2' '9' '3' '5' '1' '0'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 2
+B: 9
+C: 3
+D: 5
+E: 1
+F: 0 
+Pick the best suited option.",A,videos/object/0897-00.mp4
+F,E,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0898-00,['10' '4' '8' '0' '6' '1'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 10
+B: 4
+C: 8
+D: 0
+E: 6
+F: 1 
+Pick the best suited option.",E,videos/object/0898-00.mp4
+E,A,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0898-00,['4' '0' '9' '5' '8' '7'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 4
+B: 0
+C: 9
+D: 5
+E: 8
+F: 7 
+Pick the best suited option.",A,videos/object/0898-00.mp4
+D,C,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0898-00,['3' '0' '2' '1' '5' '9'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 3
+B: 0
+C: 2
+D: 1
+E: 5
+F: 9 
+Pick the best suited option.",C,videos/object/0898-00.mp4
+E,C,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0900-00,['4' '7' '6' '0' '8' '10'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 4
+B: 7
+C: 6
+D: 0
+E: 8
+F: 10 
+Pick the best suited option.",C,videos/object/0900-00.mp4
+B,F,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0900-00,['7' '1' '8' '5' '2' '4'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 7
+B: 1
+C: 8
+D: 5
+E: 2
+F: 4 
+Pick the best suited option.",F,videos/object/0900-00.mp4
+F,F,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0900-00,['3' '0' '10' '4' '8' '2'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 3
+B: 0
+C: 10
+D: 4
+E: 8
+F: 2 
+Pick the best suited option.",F,videos/object/0900-00.mp4
+F,B,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0901-00,['4' '6' '9' '8' '0' '1'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 4
+B: 6
+C: 9
+D: 8
+E: 0
+F: 1 
+Pick the best suited option.",B,videos/object/0901-00.mp4
+F,F,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0901-00,['9' '3' '7' '10' '6' '4'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 9
+B: 3
+C: 7
+D: 10
+E: 6
+F: 4 
+Pick the best suited option.",F,videos/object/0901-00.mp4
+F,C,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0901-00,['1' '9' '2' '8' '7' '3'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 1
+B: 9
+C: 2
+D: 8
+E: 7
+F: 3 
+Pick the best suited option.",C,videos/object/0901-00.mp4
+D,C,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0902-00,['10' '0' '6' '1' '8' '4'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 10
+B: 0
+C: 6
+D: 1
+E: 8
+F: 4 
+Pick the best suited option.",C,videos/object/0902-00.mp4
+C,B,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0902-00,['7' '4' '1' '6' '2' '10'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 7
+B: 4
+C: 1
+D: 6
+E: 2
+F: 10 
+Pick the best suited option.",B,videos/object/0902-00.mp4
+C,C,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0902-00,['1' '4' '2' '3' '7' '10'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 1
+B: 4
+C: 2
+D: 3
+E: 7
+F: 10 
+Pick the best suited option.",C,videos/object/0902-00.mp4
+E,C,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0903-00,['7' '0' '6' '9' '1' '4'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 7
+B: 0
+C: 6
+D: 9
+E: 1
+F: 4 
+Pick the best suited option.",C,videos/object/0903-00.mp4
+A,D,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0903-00,['3' '7' '0' '4' '5' '8'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 3
+B: 7
+C: 0
+D: 4
+E: 5
+F: 8 
+Pick the best suited option.",D,videos/object/0903-00.mp4
+E,E,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0903-00,['10' '5' '3' '4' '2' '8'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 10
+B: 5
+C: 3
+D: 4
+E: 2
+F: 8 
+Pick the best suited option.",E,videos/object/0903-00.mp4
+B,D,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0904-00,['4' '3' '10' '6' '9' '7'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 4
+B: 3
+C: 10
+D: 6
+E: 9
+F: 7 
+Pick the best suited option.",D,videos/object/0904-00.mp4
+C,A,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0904-00,['4' '6' '1' '0' '2' '3'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 4
+B: 6
+C: 1
+D: 0
+E: 2
+F: 3 
+Pick the best suited option.",A,videos/object/0904-00.mp4
+E,E,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0904-00,['9' '10' '8' '7' '2' '6'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 9
+B: 10
+C: 8
+D: 7
+E: 2
+F: 6 
+Pick the best suited option.",E,videos/object/0904-00.mp4
+B,E,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0905-00,['1' '2' '7' '0' '6' '5'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 1
+B: 2
+C: 7
+D: 0
+E: 6
+F: 5 
+Pick the best suited option.",E,videos/object/0905-00.mp4
+C,E,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0905-00,['5' '1' '3' '6' '4' '7'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 5
+B: 1
+C: 3
+D: 6
+E: 4
+F: 7 
+Pick the best suited option.",E,videos/object/0905-00.mp4
+F,B,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0905-00,['9' '2' '0' '10' '4' '3'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 9
+B: 2
+C: 0
+D: 10
+E: 4
+F: 3 
+Pick the best suited option.",B,videos/object/0905-00.mp4
+A,B,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0906-00,['3' '5' '0' '10' '4' '9'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 3
+B: 5
+C: 0
+D: 10
+E: 4
+F: 9 
+Pick the best suited option.",B,videos/object/0906-00.mp4
+E,D,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0906-00,['10' '9' '6' '3' '1' '8'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 10
+B: 9
+C: 6
+D: 3
+E: 1
+F: 8 
+Pick the best suited option.",D,videos/object/0906-00.mp4
+C,E,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0906-00,['10' '2' '1' '7' '3' '9'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 10
+B: 2
+C: 1
+D: 7
+E: 3
+F: 9 
+Pick the best suited option.",E,videos/object/0906-00.mp4
+F,F,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0907-00,['5' '6' '0' '9' '7' '2'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 5
+B: 6
+C: 0
+D: 9
+E: 7
+F: 2 
+Pick the best suited option.",F,videos/object/0907-00.mp4
+B,A,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0907-00,['4' '1' '6' '3' '9' '0'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 4
+B: 1
+C: 6
+D: 3
+E: 9
+F: 0 
+Pick the best suited option.",A,videos/object/0907-00.mp4
+A,A,The person makes sets of repeated actions. How many distinct repeated actions does the person do?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0907-00,['2' '5' '7' '3' '9' '6'],,"The person makes sets of repeated actions. How many distinct repeated actions does the person do?
+Options: 
+A: 2
+B: 5
+C: 7
+D: 3
+E: 9
+F: 6 
+Pick the best suited option.",A,videos/object/0907-00.mp4
+C,A,The person makes sets of repeated actions. How many times does the person repeat the action in the first set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0908-00,['4' '0' '10' '8' '7' '6'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the first set?
+Options: 
+A: 4
+B: 0
+C: 10
+D: 8
+E: 7
+F: 6 
+Pick the best suited option.",A,videos/object/0908-00.mp4
+D,B,The person makes sets of repeated actions. How many times does the person repeat the action in the last set?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0908-00,['9' '3' '6' '1' '5' '4'],,"The person makes sets of repeated actions. How many times does the person repeat the action in the last set?
+Options: 
+A: 9
+B: 3
+C: 6
+D: 1
+E: 5
+F: 4 
+Pick the best suited option.",B,videos/object/0908-00.mp4
+E,C,How many times does the hammer's handle hit the floor throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,2,Eason using a hammer to hit the ground,0303-00,['2' '4' '3' '5' '1' '0'],,"How many times does the hammer's handle hit the floor throughout the video?
+Options: 
+A: 2
+B: 4
+C: 3
+D: 5
+E: 1
+F: 0 
+Pick the best suited option.",C,videos/human/0303-00.mp4
+E,D,How many times does the hammer's handle hit the floor throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,3,Eason using a hammer to hit the ground,0307-00,['5' '1' '3' '4' '0' '2'],,"How many times does the hammer's handle hit the floor throughout the video?
+Options: 
+A: 5
+B: 1
+C: 3
+D: 4
+E: 0
+F: 2 
+Pick the best suited option.",D,videos/human/0307-00.mp4
+F,A,How many times does the person clap throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,0,Eason clapping,0310-00,['1' '4' '5' '3' '2' '0'],,"How many times does the person clap throughout the video?
+Options: 
+A: 1
+B: 4
+C: 5
+D: 3
+E: 2
+F: 0 
+Pick the best suited option.",A,videos/human/0310-00.mp4
+C,E,How many times does the hammer hit the floor throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,4,Eason using a hammer to hit the ground,0320-00,['0' '4' '1' '2' '3' '5'],,"How many times does the hammer hit the floor throughout the video?
+Options: 
+A: 0
+B: 4
+C: 1
+D: 2
+E: 3
+F: 5 
+Pick the best suited option.",E,videos/human/0320-00.mp4
+A,E,How many times does the person rub their hand?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0415-00,['1' '2' '4' '5' '3'],tgif,"How many times does the person rub their hand?
+Options: 
+A: 1
+B: 2
+C: 4
+D: 5
+E: 3 
+Pick the best suited option.",E,videos/object/0415-00.mp4
+D,A,How many times does the cat move upward with rod?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0416-00,['4' '3' '6' '2' '5'],tgif,"How many times does the cat move upward with rod?
+Options: 
+A: 4
+B: 3
+C: 6
+D: 2
+E: 5 
+Pick the best suited option.",A,videos/object/0416-00.mp4
+E,C,How many times does the person rub hair?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0417-00,['3' '4' '2' '6' '1' '5'],tgif,"How many times does the person rub hair?
+Options: 
+A: 3
+B: 4
+C: 2
+D: 6
+E: 1
+F: 5 
+Pick the best suited option.",C,videos/object/0417-00.mp4
+F,D,How many times does the person on front turn around?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0418-00,['6' '4' '5' '2' '3' '1'],tgif,"How many times does the person on front turn around?
+Options: 
+A: 6
+B: 4
+C: 5
+D: 2
+E: 3
+F: 1 
+Pick the best suited option.",D,videos/object/0418-00.mp4
+A,B,How many times does the person blow smoke?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0419-00,['1' '2' '5' '6' '3' '4'],tgif,"How many times does the person blow smoke?
+Options: 
+A: 1
+B: 2
+C: 5
+D: 6
+E: 3
+F: 4 
+Pick the best suited option.",B,videos/object/0419-00.mp4
+D,E,How many times does the person open mouth wide?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0420-00,['3' '5' '4' '1' '2' '6'],tgif,"How many times does the person open mouth wide?
+Options: 
+A: 3
+B: 5
+C: 4
+D: 1
+E: 2
+F: 6 
+Pick the best suited option.",E,videos/object/0420-00.mp4
+E,F,How many times does the person shake their hips?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0421-00,['4' '5' '1' '6' '3' '2'],tgif,"How many times does the person shake their hips?
+Options: 
+A: 4
+B: 5
+C: 1
+D: 6
+E: 3
+F: 2 
+Pick the best suited option.",F,videos/object/0421-00.mp4
+C,B,How many times does the person raise body?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0422-00,['4' '3' '1' '2' '5'],tgif,"How many times does the person raise body?
+Options: 
+A: 4
+B: 3
+C: 1
+D: 2
+E: 5 
+Pick the best suited option.",B,videos/object/0422-00.mp4
+C,A,How many times does the person blink their eyes?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0423-00,['3' '4' '1' '5' '2'],tgif,"How many times does the person blink their eyes?
+Options: 
+A: 3
+B: 4
+C: 1
+D: 5
+E: 2 
+Pick the best suited option.",A,videos/object/0423-00.mp4
+D,E,How many times does the person blink?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0424-00,['5' '4' '1' '2' '3'],tgif,"How many times does the person blink?
+Options: 
+A: 5
+B: 4
+C: 1
+D: 2
+E: 3 
+Pick the best suited option.",E,videos/object/0424-00.mp4
+E,A,How many times does the person grab hand?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0425-00,['2' '6' '3' '5' '1' '4'],tgif,"How many times does the person grab hand?
+Options: 
+A: 2
+B: 6
+C: 3
+D: 5
+E: 1
+F: 4 
+Pick the best suited option.",A,videos/object/0425-00.mp4
+A,C,How many times does the mpersonan fold their arms?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0426-00,['1' '5' '3' '4' '2'],tgif,"How many times does the mpersonan fold their arms?
+Options: 
+A: 1
+B: 5
+C: 3
+D: 4
+E: 2 
+Pick the best suited option.",C,videos/object/0426-00.mp4
+E,B,How many times does the person blink?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0427-00,['6' '2' '4' '5' '1' '3'],tgif,"How many times does the person blink?
+Options: 
+A: 6
+B: 2
+C: 4
+D: 5
+E: 1
+F: 3 
+Pick the best suited option.",B,videos/object/0427-00.mp4
+A,B,How many times does the person wipe paw of the monkey?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0428-00,['1' '3' '2' '5' '4'],tgif,"How many times does the person wipe paw of the monkey?
+Options: 
+A: 1
+B: 3
+C: 2
+D: 5
+E: 4 
+Pick the best suited option.",B,videos/object/0428-00.mp4
+C,B,How many times does the cat fall?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0429-00,['5' '2' '1' '6' '4' '3'],tgif,"How many times does the cat fall?
+Options: 
+A: 5
+B: 2
+C: 1
+D: 6
+E: 4
+F: 3 
+Pick the best suited option.",B,videos/object/0429-00.mp4
+E,D,How many times does the person point to themselves?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0430-00,['6' '5' '3' '2' '1' '4'],tgif,"How many times does the person point to themselves?
+Options: 
+A: 6
+B: 5
+C: 3
+D: 2
+E: 1
+F: 4 
+Pick the best suited option.",D,videos/object/0430-00.mp4
+B,D,How many times does the person take steps?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0431-00,['3' '1' '4' '2' '5' '6'],tgif,"How many times does the person take steps?
+Options: 
+A: 3
+B: 1
+C: 4
+D: 2
+E: 5
+F: 6 
+Pick the best suited option.",D,videos/object/0431-00.mp4
+A,E,How many times does the person chew?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0432-00,['2' '1' '4' '5' '3'],tgif,"How many times does the person chew?
+Options: 
+A: 2
+B: 1
+C: 4
+D: 5
+E: 3 
+Pick the best suited option.",E,videos/object/0432-00.mp4
+B,C,How many times does the person step?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0433-00,['5' '1' '3' '4' '2'],tgif,"How many times does the person step?
+Options: 
+A: 5
+B: 1
+C: 3
+D: 4
+E: 2 
+Pick the best suited option.",C,videos/object/0433-00.mp4
+E,A,How many times does the person blink their eyes?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0434-00,['3' '4' '2' '5' '1'],tgif,"How many times does the person blink their eyes?
+Options: 
+A: 3
+B: 4
+C: 2
+D: 5
+E: 1 
+Pick the best suited option.",A,videos/object/0434-00.mp4
+C,D,How many times does the dog sticks out tongue?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0435-00,['5' '4' '8' '6' '7'],tgif,"How many times does the dog sticks out tongue?
+Options: 
+A: 5
+B: 4
+C: 8
+D: 6
+E: 7 
+Pick the best suited option.",D,videos/object/0435-00.mp4
+D,A,How many times does the person push a cat?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0436-00,['3' '5' '4' '1' '2'],tgif,"How many times does the person push a cat?
+Options: 
+A: 3
+B: 5
+C: 4
+D: 1
+E: 2 
+Pick the best suited option.",A,videos/object/0436-00.mp4
+C,B,How many times does the person clap their hand?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0437-00,['7' '8' '10' '9' '6'],tgif,"How many times does the person clap their hand?
+Options: 
+A: 7
+B: 8
+C: 10
+D: 9
+E: 6 
+Pick the best suited option.",B,videos/object/0437-00.mp4
+F,C,How many times does the person gyrate hip?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0438-00,['6' '4' '2' '5' '3' '1'],tgif,"How many times does the person gyrate hip?
+Options: 
+A: 6
+B: 4
+C: 2
+D: 5
+E: 3
+F: 1 
+Pick the best suited option.",C,videos/object/0438-00.mp4
+D,F,How many times does the person turn their head?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,5,,0439-00,['3' '4' '6' '1' '5' '2'],tgif,"How many times does the person turn their head?
+Options: 
+A: 3
+B: 4
+C: 6
+D: 1
+E: 5
+F: 2 
+Pick the best suited option.",F,videos/object/0439-00.mp4
+D,D,How many times does the person pump both hands upward?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0440-00,['4' '2' '5' '3' '1'],tgif,"How many times does the person pump both hands upward?
+Options: 
+A: 4
+B: 2
+C: 5
+D: 3
+E: 1 
+Pick the best suited option.",D,videos/object/0440-00.mp4
+A,C,How many times does the person straighten necktie?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0441-00,['2' '4' '3' '5' '1'],tgif,"How many times does the person straighten necktie?
+Options: 
+A: 2
+B: 4
+C: 3
+D: 5
+E: 1 
+Pick the best suited option.",C,videos/object/0441-00.mp4
+C,E,How many times does the person chew?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0442-00,['2' '4' '1' '5' '3'],tgif,"How many times does the person chew?
+Options: 
+A: 2
+B: 4
+C: 1
+D: 5
+E: 3 
+Pick the best suited option.",E,videos/object/0442-00.mp4
+B,C,How many times does the dog touch tablet?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0443-00,['8' '11' '9' '10' '7'],tgif,"How many times does the dog touch tablet?
+Options: 
+A: 8
+B: 11
+C: 9
+D: 10
+E: 7 
+Pick the best suited option.",C,videos/object/0443-00.mp4
+F,D,How many times does the person exhale smoke?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0444-00,['5' '4' '6' '2' '3' '1'],tgif,"How many times does the person exhale smoke?
+Options: 
+A: 5
+B: 4
+C: 6
+D: 2
+E: 3
+F: 1 
+Pick the best suited option.",D,videos/object/0444-00.mp4
+F,B,How many times does the singer swing?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0445-00,['4' '2' '6' '3' '5' '1'],tgif,"How many times does the singer swing?
+Options: 
+A: 4
+B: 2
+C: 6
+D: 3
+E: 5
+F: 1 
+Pick the best suited option.",B,videos/object/0445-00.mp4
+A,E,How many times does the person with no shirt punch?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0446-00,['2' '6' '5' '3' '4'],tgif,"How many times does the person with no shirt punch?
+Options: 
+A: 2
+B: 6
+C: 5
+D: 3
+E: 4 
+Pick the best suited option.",E,videos/object/0446-00.mp4
+C,E,How many times does the person bounce?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0447-00,['4' '8' '5' '7' '6'],tgif,"How many times does the person bounce?
+Options: 
+A: 4
+B: 8
+C: 5
+D: 7
+E: 6 
+Pick the best suited option.",E,videos/object/0447-00.mp4
+B,E,How many times does the person drum?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0448-00,['7' '4' '8' '5' '6'],tgif,"How many times does the person drum?
+Options: 
+A: 7
+B: 4
+C: 8
+D: 5
+E: 6 
+Pick the best suited option.",E,videos/object/0448-00.mp4
+E,D,How many times does the person eat a corn?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0449-00,['4' '7' '5' '6' '8'],tgif,"How many times does the person eat a corn?
+Options: 
+A: 4
+B: 7
+C: 5
+D: 6
+E: 8 
+Pick the best suited option.",D,videos/object/0449-00.mp4
+C,E,How many times does the person kick legs?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0450-00,['7' '5' '4' '8' '6'],tgif,"How many times does the person kick legs?
+Options: 
+A: 7
+B: 5
+C: 4
+D: 8
+E: 6 
+Pick the best suited option.",E,videos/object/0450-00.mp4
+A,E,How many times does the person shake their butt?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0451-00,['1' '4' '5' '2' '3'],tgif,"How many times does the person shake their butt?
+Options: 
+A: 1
+B: 4
+C: 5
+D: 2
+E: 3 
+Pick the best suited option.",E,videos/object/0451-00.mp4
+E,E,How many times does the person shuffle?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0452-00,['1' '4' '5' '2' '3'],tgif,"How many times does the person shuffle?
+Options: 
+A: 1
+B: 4
+C: 5
+D: 2
+E: 3 
+Pick the best suited option.",E,videos/object/0452-00.mp4
+E,B,How many times does the person gyrate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0453-00,['3' '2' '5' '6' '1' '4'],tgif,"How many times does the person gyrate?
+Options: 
+A: 3
+B: 2
+C: 5
+D: 6
+E: 1
+F: 4 
+Pick the best suited option.",B,videos/object/0453-00.mp4
+D,C,How many times does the person shake shirt?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0454-00,['4' '6' '2' '1' '3' '5'],tgif,"How many times does the person shake shirt?
+Options: 
+A: 4
+B: 6
+C: 2
+D: 1
+E: 3
+F: 5 
+Pick the best suited option.",C,videos/object/0454-00.mp4
+E,C,How many times does the cat paw at a bean?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0455-00,['6' '5' '4' '3' '2'],tgif,"How many times does the cat paw at a bean?
+Options: 
+A: 6
+B: 5
+C: 4
+D: 3
+E: 2 
+Pick the best suited option.",C,videos/object/0455-00.mp4
+D,A,How many times does the person scoop ice cream?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0456-00,['2' '5' '3' '1' '4' '6'],tgif,"How many times does the person scoop ice cream?
+Options: 
+A: 2
+B: 5
+C: 3
+D: 1
+E: 4
+F: 6 
+Pick the best suited option.",A,videos/object/0456-00.mp4
+A,E,How many times does the person pick at a glacier?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0457-00,['1' '4' '3' '5' '2' '6'],tgif,"How many times does the person pick at a glacier?
+Options: 
+A: 1
+B: 4
+C: 3
+D: 5
+E: 2
+F: 6 
+Pick the best suited option.",E,videos/object/0457-00.mp4
+D,D,How many times does the person blink their eyes?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0458-00,['1' '5' '4' '2' '6' '3'],tgif,"How many times does the person blink their eyes?
+Options: 
+A: 1
+B: 5
+C: 4
+D: 2
+E: 6
+F: 3 
+Pick the best suited option.",D,videos/object/0458-00.mp4
+B,B,How many times does the person clap hands?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0459-00,['3' '2' '6' '5' '1' '4'],tgif,"How many times does the person clap hands?
+Options: 
+A: 3
+B: 2
+C: 6
+D: 5
+E: 1
+F: 4 
+Pick the best suited option.",B,videos/object/0459-00.mp4
+B,B,How many times does the person turn head?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0460-00,['6' '2' '3' '4' '5' '1'],tgif,"How many times does the person turn head?
+Options: 
+A: 6
+B: 2
+C: 3
+D: 4
+E: 5
+F: 1 
+Pick the best suited option.",B,videos/object/0460-00.mp4
+C,A,How many times does the person blink eyes?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0461-00,['3' '2' '1' '5' '4'],tgif,"How many times does the person blink eyes?
+Options: 
+A: 3
+B: 2
+C: 1
+D: 5
+E: 4 
+Pick the best suited option.",A,videos/object/0461-00.mp4
+D,A,How many times does the dog turn around?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0462-00,['2' '6' '5' '1' '3' '4'],tgif,"How many times does the dog turn around?
+Options: 
+A: 2
+B: 6
+C: 5
+D: 1
+E: 3
+F: 4 
+Pick the best suited option.",A,videos/object/0462-00.mp4
+E,C,How many times does the cat turn head?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0463-00,['4' '6' '2' '5' '1' '3'],tgif,"How many times does the cat turn head?
+Options: 
+A: 4
+B: 6
+C: 2
+D: 5
+E: 1
+F: 3 
+Pick the best suited option.",C,videos/object/0463-00.mp4
+C,A,How many times does the person pet koala?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0464-00,['3' '4' '1' '2' '5'],tgif,"How many times does the person pet koala?
+Options: 
+A: 3
+B: 4
+C: 1
+D: 2
+E: 5 
+Pick the best suited option.",A,videos/object/0464-00.mp4
+A,C,How many times does the person draw triangle?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0941-03,['1' '5' '3' '4' '2'],,"How many times does the person draw triangle?
+Options: 
+A: 1
+B: 5
+C: 3
+D: 4
+E: 2 
+Pick the best suited option.",C,videos/human/0941-03.mp4
+C,E,How many times does the person draw circle?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0939-03,['4' '5' '1' '3' '2'],,"How many times does the person draw circle?
+Options: 
+A: 4
+B: 5
+C: 1
+D: 3
+E: 2 
+Pick the best suited option.",E,videos/human/0939-03.mp4
+D,D,How many times does the person draw square?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0924-06,['3' '5' '2' '1' '4'],,"How many times does the person draw square?
+Options: 
+A: 3
+B: 5
+C: 2
+D: 1
+E: 4 
+Pick the best suited option.",D,videos/human/0924-06.mp4
+E,A,How many times does the person draw trapezoid?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0923-02,['4' '3' '2' '5' '1'],,"How many times does the person draw trapezoid?
+Options: 
+A: 4
+B: 3
+C: 2
+D: 5
+E: 1 
+Pick the best suited option.",A,videos/human/0923-02.mp4
+C,A,How many times does the person draw diamond?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0922-02,['5' '3' '1' '2' '4'],,"How many times does the person draw diamond?
+Options: 
+A: 5
+B: 3
+C: 1
+D: 2
+E: 4 
+Pick the best suited option.",A,videos/human/0922-02.mp4
+E,C,How many times does the person draw eight-shape?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0921-02,['2' '4' '3' '5' '1'],,"How many times does the person draw eight-shape?
+Options: 
+A: 2
+B: 4
+C: 3
+D: 5
+E: 1 
+Pick the best suited option.",C,videos/human/0921-02.mp4
+A,E,How many times does the person draw infinity-shape?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,4,,0920-02,['1' '4' '3' '5' '2'],,"How many times does the person draw infinity-shape?
+Options: 
+A: 1
+B: 4
+C: 3
+D: 5
+E: 2 
+Pick the best suited option.",E,videos/human/0920-02.mp4
+C,D,How many times does the laser draw triangle?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0915-02,['3' '4' '1' '2' '5'],,"How many times does the laser draw triangle?
+Options: 
+A: 3
+B: 4
+C: 1
+D: 2
+E: 5 
+Pick the best suited option.",D,videos/object/0915-02.mp4
+A,A,How many times does the laser draw triangle?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0914-02,['1' '4' '2' '5' '3'],,"How many times does the laser draw triangle?
+Options: 
+A: 1
+B: 4
+C: 2
+D: 5
+E: 3 
+Pick the best suited option.",A,videos/object/0914-02.mp4
+C,B,How many times does the laser draw rectangle?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0913-02,['5' '3' '1' '2' '4'],,"How many times does the laser draw rectangle?
+Options: 
+A: 5
+B: 3
+C: 1
+D: 2
+E: 4 
+Pick the best suited option.",B,videos/object/0913-02.mp4
+C,C,How many times does the laser draw trapezoid?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,2,,0912-05,['3' '5' '1' '2' '4'],,"How many times does the laser draw trapezoid?
+Options: 
+A: 3
+B: 5
+C: 1
+D: 2
+E: 4 
+Pick the best suited option.",C,videos/object/0912-05.mp4
+A,D,How many times does the laser draw diamond?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,3,,0911-04,['1' '3' '4' '2' '5'],,"How many times does the laser draw diamond?
+Options: 
+A: 1
+B: 3
+C: 4
+D: 2
+E: 5 
+Pick the best suited option.",D,videos/object/0911-04.mp4
+D,B,How many times does the laser draw infinity-shape?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,1,,0910-02,['2' '3' '5' '1' '4'],,"How many times does the laser draw infinity-shape?
+Options: 
+A: 2
+B: 3
+C: 5
+D: 1
+E: 4 
+Pick the best suited option.",B,videos/object/0910-02.mp4
+C,A,How many times does the laser draw eight-shape?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",count,0,,0909-02,['2' '5' '1' '4' '3'],,"How many times does the laser draw eight-shape?
+Options: 
+A: 2
+B: 5
+C: 1
+D: 4
+E: 3 
+Pick the best suited option.",A,videos/object/0909-02.mp4
+D,C,How many trapezoid(s) does the person draw in the air throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,2,synthetic human; Eason drawing trapezoid,0209-06,['5' '2' '3' '0' '1' '4'],,"How many trapezoid(s) does the person draw in the air throughout the entire video?
+Options: 
+A: 5
+B: 2
+C: 3
+D: 0
+E: 1
+F: 4 
+Pick the best suited option.",C,videos/simulated/0209-06.mp4
+E,C,How many triangle(s) does the person draw in the air throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,2,synthetic human; Eason drawing triangle,0210-06,['5' '3' '4' '1' '0' '2'],,"How many triangle(s) does the person draw in the air throughout the entire video?
+Options: 
+A: 5
+B: 3
+C: 4
+D: 1
+E: 0
+F: 2 
+Pick the best suited option.",C,videos/simulated/0210-06.mp4
+C,F,How many square(s) does the person draw in the air throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,5,synthetic human; Eason drawing square,0211-06,['4' '1' '0' '5' '3' '2'],,"How many square(s) does the person draw in the air throughout the entire video?
+Options: 
+A: 4
+B: 1
+C: 0
+D: 5
+E: 3
+F: 2 
+Pick the best suited option.",F,videos/simulated/0211-06.mp4
+B,D,How many infinity-shaped curve(s) does the person draw in the air throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,3,synthetic human; Eason drawing infinity-shaped curve,0212-06,['6' '0' '4' '7' '1' '2'],,"How many infinity-shaped curve(s) does the person draw in the air throughout the entire video?
+Options: 
+A: 6
+B: 0
+C: 4
+D: 7
+E: 1
+F: 2 
+Pick the best suited option.",D,videos/simulated/0212-06.mp4
+C,B,How many diamond shape(s) does the person draw in the air throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,1,synthetic human; Eason drawing diamond,0213-06,['2' '3' '0' '5' '1' '4'],,"How many diamond shape(s) does the person draw in the air throughout the entire video?
+Options: 
+A: 2
+B: 3
+C: 0
+D: 5
+E: 1
+F: 4 
+Pick the best suited option.",B,videos/simulated/0213-06.mp4
+A,B,How many figure-eight shape(s) does the person draw in the air throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,1,synthetic human; Eason drawing figure-eight,0214-06,['0' '6' '5' '1' '2' '3'],,"How many figure-eight shape(s) does the person draw in the air throughout the entire video?
+Options: 
+A: 0
+B: 6
+C: 5
+D: 1
+E: 2
+F: 3 
+Pick the best suited option.",B,videos/simulated/0214-06.mp4
+F,C,How many spin(s) does the person make throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,2,synthetic human; Eason spinning,0216-16,['3' '2' '4' '5' '1' '0'],,"How many spin(s) does the person make throughout the entire video?
+Options: 
+A: 3
+B: 2
+C: 4
+D: 5
+E: 1
+F: 0 
+Pick the best suited option.",C,videos/simulated/0216-16.mp4
+E,A,How many spin(s) does the person make throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,0,synthetic human; Eason spinning,0216-17,['4' '3' '5' '1' '0' '2'],,"How many spin(s) does the person make throughout the entire video?
+Options: 
+A: 4
+B: 3
+C: 5
+D: 1
+E: 0
+F: 2 
+Pick the best suited option.",A,videos/simulated/0216-17.mp4
+A,E,How many circle(s)) does the person's hand trace in the air throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,4,synthetic human; Eason tracing circle(s),0218-14,['0' '5' '2' '4' '3' '1'],,"How many circle(s)) does the person's hand trace in the air throughout the entire video?
+Options: 
+A: 0
+B: 5
+C: 2
+D: 4
+E: 3
+F: 1 
+Pick the best suited option.",E,videos/simulated/0218-14.mp4
+C,D,How many times does the person swing their hand upward throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,3,synthetic human; Eason swinging hand upward,0220-02,['4' '3' '0' '5' '2' '1'],,"How many times does the person swing their hand upward throughout the entire video?
+Options: 
+A: 4
+B: 3
+C: 0
+D: 5
+E: 2
+F: 1 
+Pick the best suited option.",D,videos/simulated/0220-02.mp4
+A,F,How many times does the person swing their hand to the right throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,5,synthetic human; Eason swinging hand to the right,0221-06,['0' '1' '2' '4' '5' '6'],,"How many times does the person swing their hand to the right throughout the entire video?
+Options: 
+A: 0
+B: 1
+C: 2
+D: 4
+E: 5
+F: 6 
+Pick the best suited option.",F,videos/simulated/0221-06.mp4
+A,C,How many times does the person swing their hand to the right throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,2,synthetic human; Eason swinging hand to the right,0222-02,['0' '5' '9' '8' '1' '3'],,"How many times does the person swing their hand to the right throughout the entire video?
+Options: 
+A: 0
+B: 5
+C: 9
+D: 8
+E: 1
+F: 3 
+Pick the best suited option.",C,videos/simulated/0222-02.mp4
+F,C,How many times does the person swing their hand to the right throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,2,synthetic human; Eason swinging hand to the right,0223-06,['3' '5' '6' '7' '8' '0'],,"How many times does the person swing their hand to the right throughout the entire video?
+Options: 
+A: 3
+B: 5
+C: 6
+D: 7
+E: 8
+F: 0 
+Pick the best suited option.",C,videos/simulated/0223-06.mp4
+D,A,How many times does the person swing their hand to the right throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,0,synthetic human; Eason swinging hand to the right with markerpen,0224-06,['7' '5' '3' '0' '6' '8'],,"How many times does the person swing their hand to the right throughout the entire video?
+Options: 
+A: 7
+B: 5
+C: 3
+D: 0
+E: 6
+F: 8 
+Pick the best suited option.",A,videos/simulated/0224-06.mp4
+B,F,How many times does the person swing their hand downward throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,5,synthetic human; Eason swinging hand downward with markerpen,0225-06,['3' '0' '10' '5' '7' '9'],,"How many times does the person swing their hand downward throughout the entire video?
+Options: 
+A: 3
+B: 0
+C: 10
+D: 5
+E: 7
+F: 9 
+Pick the best suited option.",F,videos/simulated/0225-06.mp4
+E,C,How many times does the person swing their hand to the left throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,2,synthetic human; Eason swinging hand to the left with markerpen,0226-04,['9' '3' '7' '5' '0' '10'],,"How many times does the person swing their hand to the left throughout the entire video?
+Options: 
+A: 9
+B: 3
+C: 7
+D: 5
+E: 0
+F: 10 
+Pick the best suited option.",C,videos/simulated/0226-04.mp4
+F,E,How many times does the person swing their hand to the left throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,4,synthetic human; Eason swinging hand to the left,0227-06,['4' '1' '5' '3' '2' '0'],,"How many times does the person swing their hand to the left throughout the entire video?
+Options: 
+A: 4
+B: 1
+C: 5
+D: 3
+E: 2
+F: 0 
+Pick the best suited option.",E,videos/simulated/0227-06.mp4
+D,C,How many times does the person swing their hand downward throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,2,synthetic human; Eason swinging hand downward,0228-06,['3' '5' '4' '1' '2' '0'],,"How many times does the person swing their hand downward throughout the entire video?
+Options: 
+A: 3
+B: 5
+C: 4
+D: 1
+E: 2
+F: 0 
+Pick the best suited option.",C,videos/simulated/0228-06.mp4
+C,A,How many times does the person swing their hand upward throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,0,synthetic human; Eason swinging hand upward,0229-06,['4' '3' '0' '1' '2' '5'],,"How many times does the person swing their hand upward throughout the entire video?
+Options: 
+A: 4
+B: 3
+C: 0
+D: 1
+E: 2
+F: 5 
+Pick the best suited option.",A,videos/simulated/0229-06.mp4
+D,B,How many circle(s)) does the person's hand trace in the air throughout the entire video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,1,synthetic human; Eason tracing circle(s),0230-18,['3' '5' '2' '0' '4' '1'],,"How many circle(s)) does the person's hand trace in the air throughout the entire video?
+Options: 
+A: 3
+B: 5
+C: 2
+D: 0
+E: 4
+F: 1 
+Pick the best suited option.",B,videos/simulated/0230-18.mp4
+E,C,How many times does the person clap throughout the video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",count,2,synthetic human; Eason clapping,0310-01,['5' '2' '1' '4' '0' '3'],,"How many times does the person clap throughout the video?
+Options: 
+A: 5
+B: 2
+C: 1
+D: 4
+E: 0
+F: 3 
+Pick the best suited option.",C,videos/simulated/0310-01.mp4

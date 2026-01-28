@@ -1,0 +1,2804 @@
+a_pred,a_true,question,demonstration_type,variation,motion_type,answer,note,key,options,video_source_url,question_formatted,answer_formatted,video_name
+E,D,Which direction(s) does the person's hand rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",rotation,3,Eason rotating hand clockwise,0215-06,"['No rotation.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise throughout.']",,"Which direction(s) does the person's hand rotate in?
+Options: 
+A: No rotation.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise then clockwise.
+D: Clockwise throughout.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",D,videos/human/0215-06.mp4
+B,A,Which direction(s) does the person's hand rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",rotation,0,Eason rotating hand counter-clockwise,0215-07,"['Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'No rotation.']",,"Which direction(s) does the person's hand rotate in?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise then clockwise.
+E: No rotation. 
+Pick the best suited option.",A,videos/human/0215-07.mp4
+A,D,Which direction(s) does the person rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",rotation,3,Eason rotating clockwise,0216-08,"['No rotation.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",,"Which direction(s) does the person rotate in?
+Options: 
+A: No rotation.
+B: Counter-clockwise then clockwise.
+C: Counter-clockwise throughout.
+D: Clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",D,videos/human/0216-08.mp4
+C,E,Which direction(s) does the person rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",rotation,4,Eason rotating counter-clockwise,0216-09,"['Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'No rotation.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.']",,"Which direction(s) does the person rotate in?
+Options: 
+A: Clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: No rotation.
+D: Counter-clockwise then clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",E,videos/human/0216-09.mp4
+B,E,Which direction(s) does the person's hand rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",rotation,4,Eason rotating hand counter-clockwise,0218-08,"['Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.' 'No rotation.' 'Counter-clockwise throughout.']",,"Which direction(s) does the person's hand rotate in?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise then clockwise.
+C: Clockwise throughout.
+D: No rotation.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",E,videos/human/0218-08.mp4
+D,D,Which direction(s) does the person's hand rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",rotation,3,Eason rotating hand clockwise,0218-09,"['Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'No rotation.']",,"Which direction(s) does the person's hand rotate in?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",D,videos/human/0218-09.mp4
+C,C,Which direction(s) does the person's hand rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",rotation,2,Eason rotating hand counter-clockwise,0230-08,"['Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise throughout.' 'No rotation.'
+ 'Counter-clockwise then clockwise.']",,"Which direction(s) does the person's hand rotate in?
+Options: 
+A: Clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise throughout.
+D: No rotation.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",C,videos/human/0230-08.mp4
+C,A,Which direction(s) does the person's hand rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",rotation,0,Eason rotating hand clockwise,0230-09,"['Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.']",,"Which direction(s) does the person's hand rotate in?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",A,videos/human/0230-09.mp4
+C,C,Which direction(s) does the person's hand rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,Chuhan drawing shapes,0621-00,"['Counter-clockwise throughout.' 'No rotation.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.']",,"Which direction(s) does the person's hand rotate in?
+Options: 
+A: Counter-clockwise throughout.
+B: No rotation.
+C: Clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",C,videos/human/0621-00.mp4
+C,D,Which direction(s) does the person's hand rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,Chuhan drawing shapes,0621-01,"['No rotation.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",,"Which direction(s) does the person's hand rotate in?
+Options: 
+A: No rotation.
+B: Counter-clockwise then clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",D,videos/human/0621-01.mp4
+C,C,Which direction(s) does the charger rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,Chuhan rotating charger,0622-00,"['Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise throughout.' 'No rotation.'
+ 'Clockwise then counter-clockwise.']",,"Which direction(s) does the charger rotate in?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Counter-clockwise throughout.
+C: Clockwise throughout.
+D: No rotation.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",C,videos/human/0622-00.mp4
+C,C,Which direction(s) does the charger rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,Chuhan rotating charger,0622-01,"['Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise throughout.' 'No rotation.'
+ 'Counter-clockwise then clockwise.']",,"Which direction(s) does the charger rotate in?
+Options: 
+A: Clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise throughout.
+D: No rotation.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",C,videos/human/0622-01.mp4
+E,B,Which direction(s) does the charger rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,Chuhan rotating charger,0623-00,"['Counter-clockwise throughout.' 'Clockwise throughout.' 'No rotation.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.']",,"Which direction(s) does the charger rotate in?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise throughout.
+C: No rotation.
+D: Counter-clockwise then clockwise.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",B,videos/human/0623-00.mp4
+B,E,Which direction(s) does the charger rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,Chuhan rotating charger,0623-01,"['Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'No rotation.' 'Clockwise throughout.' 'Counter-clockwise throughout.']",,"Which direction(s) does the charger rotate in?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise then clockwise.
+C: No rotation.
+D: Clockwise throughout.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",E,videos/human/0623-01.mp4
+C,B,Which direction(s) does the person's hand rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,Ziyao drawing with bare hand,0653-00,"['Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.']",,"Which direction(s) does the person's hand rotate in?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",B,videos/human/0653-00.mp4
+C,A,Which direction(s) does the person's hand rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,Ziyao drawing with bare hand,0653-01,"['Counter-clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Clockwise then counter-clockwise.' 'No rotation.'
+ 'Clockwise throughout.']",,"Which direction(s) does the person's hand rotate in?
+Options: 
+A: Counter-clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Clockwise then counter-clockwise.
+D: No rotation.
+E: Clockwise throughout. 
+Pick the best suited option.",A,videos/human/0653-01.mp4
+D,A,Which direction(s) does the person's hand rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,Ziyao drawing with bare hand,0654-00,"['Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'No rotation.']",,"Which direction(s) does the person's hand rotate in?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise then clockwise.
+E: No rotation. 
+Pick the best suited option.",A,videos/human/0654-00.mp4
+D,E,Which direction(s) does the person's hand rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,Ziyao drawing with bare hand,0654-01,"['No rotation.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.']",,"Which direction(s) does the person's hand rotate in?
+Options: 
+A: No rotation.
+B: Counter-clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Clockwise then counter-clockwise.
+E: Clockwise throughout. 
+Pick the best suited option.",E,videos/human/0654-01.mp4
+D,B,Which direction(s) does the person's hand rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,Chuhan drawing shapes,0699-00,"['Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'No rotation.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise throughout.']",,"Which direction(s) does the person's hand rotate in?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise throughout.
+C: No rotation.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",B,videos/human/0699-00.mp4
+C,B,Which direction(s) does the person's hand rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,Chuhan drawing shapes,0699-01,"['Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'No rotation.']",,"Which direction(s) does the person's hand rotate in?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Counter-clockwise throughout.
+C: Clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: No rotation. 
+Pick the best suited option.",B,videos/human/0699-01.mp4
+B,C,In which direction(s) does the person's hand rotate?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,Chuhan drawing shapes,0700-00,"['Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise throughout.' 'Clockwise throughout.' 'No rotation.']",,"In which direction(s) does the person's hand rotate?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise throughout.
+D: Clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",C,videos/human/0700-00.mp4
+C,D,In which direction(s) does the person's hand rotate?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,Chuhan drawing shapes,0700-01,"['Counter-clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'No rotation.']",,"In which direction(s) does the person's hand rotate?
+Options: 
+A: Counter-clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Clockwise then counter-clockwise.
+D: Clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",D,videos/human/0700-01.mp4
+C,D,What direction(s) does the ballet dancer rotate in?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0253-01,"['Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=5nBEyVZUrk8,"What direction(s) does the ballet dancer rotate in?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",D,videos/object/0253-01.mp4
+B,D,In which direction(s) does the blue circle rotate relative to the red circle?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0272-00,"['No rotation.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=AToXA0Molig&t=777s,"In which direction(s) does the blue circle rotate relative to the red circle?
+Options: 
+A: No rotation.
+B: Clockwise then counter-clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",D,videos/simulated/0272-00.mp4
+E,C,What direction(s) does the moon rotate relative to the Earth?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0273-00,"['Counter-clockwise throughout.' 'No rotation.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=MrzWzMUhQfw,"What direction(s) does the moon rotate relative to the Earth?
+Options: 
+A: Counter-clockwise throughout.
+B: No rotation.
+C: Clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",C,videos/object/0273-00.mp4
+D,D,What direction(s) does the car move?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0274-00,"['Clockwise then counter-clockwise.' 'No rotation.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=NsFYcy3X_dg,"What direction(s) does the car move?
+Options: 
+A: Clockwise then counter-clockwise.
+B: No rotation.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",D,videos/simulated/0274-00.mp4
+E,C,What direction(s) does the roller coaster move?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0275-00,"['Counter-clockwise then clockwise.' 'No rotation.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=NsFYcy3X_dg,"What direction(s) does the roller coaster move?
+Options: 
+A: Counter-clockwise then clockwise.
+B: No rotation.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",C,videos/object/0275-00.mp4
+C,A,What direction(s) does the Ferris wheel rotate in?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0276-00,"['Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'No rotation.']",https://www.youtube.com/watch?v=NsFYcy3X_dg,"What direction(s) does the Ferris wheel rotate in?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Counter-clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: No rotation. 
+Pick the best suited option.",A,videos/object/0276-00.mp4
+D,B,What direction(s) does the satellite rotate relative to the Earch?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0277-00,"['Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=NsFYcy3X_dg,"What direction(s) does the satellite rotate relative to the Earch?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise throughout.
+C: No rotation.
+D: Clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",B,videos/simulated/0277-00.mp4
+D,E,What direction(s) does the stone rotate in?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0278-00,"['No rotation.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.']",https://www.youtube.com/watch?v=COHi3qWME0M,"What direction(s) does the stone rotate in?
+Options: 
+A: No rotation.
+B: Counter-clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Clockwise then counter-clockwise.
+E: Clockwise throughout. 
+Pick the best suited option.",E,videos/simulated/0278-00.mp4
+A,A,What direction(s) does the stone rotate in?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0279-00,"['Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=COHi3qWME0M,"What direction(s) does the stone rotate in?
+Options: 
+A: Clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise then clockwise.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",A,videos/simulated/0279-00.mp4
+A,B,What direction(s) does the pendulum rotate in?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0254-01,"['Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=QA1ZAMtxbBA,"What direction(s) does the pendulum rotate in?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Counter-clockwise throughout.
+C: No rotation.
+D: Clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",B,videos/object/0254-01.mp4
+E,D,What direction(s) does the Ping Pong ball rotate in?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0255-01,"['Clockwise throughout.' 'No rotation.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=ApO6V_oetVI,"What direction(s) does the Ping Pong ball rotate in?
+Options: 
+A: Clockwise throughout.
+B: No rotation.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",D,videos/object/0255-01.mp4
+C,A,What direction(s) does the Ping Pong ball rotate in?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0255-02,"['Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.' 'No rotation.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=ApO6V_oetVI,"What direction(s) does the Ping Pong ball rotate in?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Counter-clockwise throughout.
+D: No rotation.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",A,videos/object/0255-02.mp4
+D,A,What direction(s) does the steel ball rotate in?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0255-03,"['Counter-clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=ApO6V_oetVI,"What direction(s) does the steel ball rotate in?
+Options: 
+A: Counter-clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Clockwise then counter-clockwise.
+D: Clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",A,videos/object/0255-03.mp4
+B,C,What direction(s) does the Ferris wheel rotate in?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0284-00,"['No rotation.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=H3086qmGyRc,"What direction(s) does the Ferris wheel rotate in?
+Options: 
+A: No rotation.
+B: Clockwise then counter-clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",C,videos/object/0284-00.mp4
+C,A,What direction(s) does the diving athlete rotate in?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0285-00,"['Counter-clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'No rotation.']",https://www.youtube.com/watch?v=8VPiqCCOPWg&t=78s,"What direction(s) does the diving athlete rotate in?
+Options: 
+A: Counter-clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: No rotation. 
+Pick the best suited option.",A,videos/object/0285-00.mp4
+E,E,What direction(s) does the diving athlete rotate in?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0286-00,"['Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'No rotation.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=l-CAWDgHVzs,"What direction(s) does the diving athlete rotate in?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: No rotation.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",E,videos/object/0286-00.mp4
+D,B,What direction(s) does the gymnastic athlete rotate in?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0287-00,"['Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'No rotation.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=6Buahh-pcuQ,"What direction(s) does the gymnastic athlete rotate in?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Clockwise throughout.
+C: No rotation.
+D: Counter-clockwise then clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",B,videos/object/0287-00.mp4
+C,B,In which direction(s) does the person rotate on the horizontal bar?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0288-00,"['Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise throughout.' 'No rotation.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=zji3Cm_k7go,"In which direction(s) does the person rotate on the horizontal bar?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Clockwise throughout.
+C: Counter-clockwise throughout.
+D: No rotation.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",B,videos/object/0288-00.mp4
+C,A,In which direction(s) does the gymnastic athlete rotate on the horizontal bar?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0289-00,"['Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=x1uOtX8mYJo,"In which direction(s) does the gymnastic athlete rotate on the horizontal bar?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",A,videos/object/0289-00.mp4
+B,D,In which direction(s) does the gymnastic athlete rotate on the horizontal bar?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0290-00,"['Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'No rotation.' 'Counter-clockwise throughout.' 'Clockwise throughout.']",https://www.youtube.com/watch?v=jHMGaWn-DSU,"In which direction(s) does the gymnastic athlete rotate on the horizontal bar?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise then counter-clockwise.
+C: No rotation.
+D: Counter-clockwise throughout.
+E: Clockwise throughout. 
+Pick the best suited option.",D,videos/object/0290-00.mp4
+B,C,What is the rotation direction(s) of the second hand on the watch?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0291-00,"['Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.' 'No rotation.']",https://www.youtube.com/watch?v=xyCQFLOSWGc,"What is the rotation direction(s) of the second hand on the watch?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise then counter-clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",C,videos/object/0291-00.mp4
+B,C,What is the rotation direction(s) of the second hand on the watch?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,2,,0291-01,"['Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.' 'No rotation.']",https://www.youtube.com/watch?v=xyCQFLOSWGc,"What is the rotation direction(s) of the second hand on the watch?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise then counter-clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",C,videos/object/0291-01.mp4
+B,D,In what direction(s) does the minute hand move on the clock face?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0293-00,"['Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'No rotation.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=JEJqy1Wlovw,"In what direction(s) does the minute hand move on the clock face?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: No rotation.
+D: Counter-clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",D,videos/simulated/0293-00.mp4
+C,B,In what direction(s) does the person rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0256-01,"['Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=_eMH07Tghs0,"In what direction(s) does the person rotate?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Counter-clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",B,videos/object/0256-01.mp4
+C,E,In what direction(s) does the person rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0257-01,"['No rotation.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise throughout.']",https://www.youtube.com/watch?v=iaauRiRX4do&t=24s,"In what direction(s) does the person rotate?
+Options: 
+A: No rotation.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise then clockwise.
+D: Counter-clockwise throughout.
+E: Clockwise throughout. 
+Pick the best suited option.",E,videos/object/0257-01.mp4
+D,D,In what direction(s) does the wheel rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0257-02,"['Clockwise then counter-clockwise.' 'No rotation.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=iaauRiRX4do&t=24s,"In what direction(s) does the wheel rotate?
+Options: 
+A: Clockwise then counter-clockwise.
+B: No rotation.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",D,videos/object/0257-02.mp4
+D,E,In what direction(s) does the main rotor blades rotate?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,4,,0297-00,"['Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=3ZnjtdFWO3E,"In what direction(s) does the main rotor blades rotate?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",E,videos/object/0297-00.mp4
+E,E,In what direction(s) does the pendulum rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0298-00,"['Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Rotating back and forth']",https://www.youtube.com/watch?v=1l01DyhZezw,"In what direction(s) does the pendulum rotate?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Counter-clockwise throughout.
+C: Clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: Rotating back and forth 
+Pick the best suited option.",E,videos/object/0298-00.mp4
+D,B,In what direction(s) do the skating athletes move?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0299-00,"['Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=I5Khj2QcEtI,"In what direction(s) do the skating athletes move?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise throughout.
+C: No rotation.
+D: Clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",B,videos/object/0299-00.mp4
+B,D,In what direction(s) do the speed skaters move?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0300-00,"['No rotation.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=shjn4IGNobY,"In what direction(s) do the speed skaters move?
+Options: 
+A: No rotation.
+B: Clockwise then counter-clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",D,videos/object/0300-00.mp4
+E,E,In which direction(s) does the bicyclist move?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0301-00,"['No rotation.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=HfpzjbvE9s8,"In which direction(s) does the bicyclist move?
+Options: 
+A: No rotation.
+B: Clockwise then counter-clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",E,videos/object/0301-00.mp4
+E,B,In which direction(s) does the disk rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0302-00,"['No rotation.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=CHQOctEvtTY,"In which direction(s) does the disk rotate?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise then clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",B,videos/object/0302-00.mp4
+C,B,In which direction(s) does the hula hoop rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0258-01,"['Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=oyvYvruZfmw,"In which direction(s) does the hula hoop rotate?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",B,videos/object/0258-01.mp4
+C,D,In which direction(s) does the jump rope rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0259-01,"['Counter-clockwise then clockwise.' 'No rotation.'
+ 'Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=FJmRQ5iTXKE,"In which direction(s) does the jump rope rotate?
+Options: 
+A: Counter-clockwise then clockwise.
+B: No rotation.
+C: Clockwise then counter-clockwise.
+D: Clockwise throughout.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",D,videos/object/0259-01.mp4
+C,C,In which direction(s) does the rope rotate?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,2,,0259-02,"['Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'No rotation.']",https://www.youtube.com/watch?v=FJmRQ5iTXKE,"In which direction(s) does the rope rotate?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Clockwise throughout.
+C: Counter-clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: No rotation. 
+Pick the best suited option.",C,videos/object/0259-02.mp4
+D,B,What is the rotation direction(s) of the rope?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,1,,0306-00,"['Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'No rotation.']",https://www.youtube.com/watch?v=BtwnIgwQ-Eg,"What is the rotation direction(s) of the rope?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise throughout.
+C: Clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: No rotation. 
+Pick the best suited option.",B,videos/object/0306-00.mp4
+E,B,In which direction(s) does the disk rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0260-01,"['Counter-clockwise throughout.' 'Clockwise throughout.' 'No rotation.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=Bs5iqJEQl80,"In which direction(s) does the disk rotate?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise throughout.
+C: No rotation.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",B,videos/object/0260-01.mp4
+D,A,In which direction(s) does the disk rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0260-02,"['Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'No rotation.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=Bs5iqJEQl80,"In which direction(s) does the disk rotate?
+Options: 
+A: Clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: No rotation.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",A,videos/object/0260-02.mp4
+B,D,In which direction(s) does the ball move?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0309-00,"['Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'No rotation.' 'Clockwise throughout.' 'Counter-clockwise throughout.']",https://ezgif.com/video-speed/ezgif-1-4760472110.mp4,"In which direction(s) does the ball move?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise then counter-clockwise.
+C: No rotation.
+D: Clockwise throughout.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",D,videos/object/0309-00.mp4
+D,D,In which direction(s) does the hammer throw athlete rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0261-01,"['Counter-clockwise then clockwise.' 'No rotation.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=P6UwokP8BEg,"In which direction(s) does the hammer throw athlete rotate?
+Options: 
+A: Counter-clockwise then clockwise.
+B: No rotation.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",D,videos/object/0261-01.mp4
+C,A,In which direction(s) does the hammer rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0311-00,"['Counter-clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=uE5o92zMeyE,"In which direction(s) does the hammer rotate?
+Options: 
+A: Counter-clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Clockwise then counter-clockwise.
+D: Clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",A,videos/object/0311-00.mp4
+C,D,In which direction(s) does the athlete rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0312-00,"['Clockwise throughout.' 'No rotation.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=sSky3elPONY,"In which direction(s) does the athlete rotate?
+Options: 
+A: Clockwise throughout.
+B: No rotation.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",D,videos/object/0312-00.mp4
+C,B,In which direction(s) does rotary engine rotate?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,1,,0313-00,"['Counter-clockwise throughout.' 'No rotation.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=D3_0-QpavbI,"In which direction(s) does rotary engine rotate?
+Options: 
+A: Counter-clockwise throughout.
+B: No rotation.
+C: Clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",B,videos/object/0313-00.mp4
+C,A,In which direction(s) does the wheel rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0314-00,"['Clockwise throughout.' 'No rotation.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=O1Htq-vrm6A,"In which direction(s) does the wheel rotate?
+Options: 
+A: Clockwise throughout.
+B: No rotation.
+C: Counter-clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",A,videos/object/0314-00.mp4
+B,B,In which direction(s) does the wheel rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0314-01,"['Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'No rotation.']",https://www.youtube.com/watch?v=O1Htq-vrm6A,"In which direction(s) does the wheel rotate?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Clockwise then counter-clockwise.
+E: No rotation. 
+Pick the best suited option.",B,videos/object/0314-01.mp4
+D,A,In which direction(s) does the wheel rotate?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0316-00,"['Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'No rotation.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=-g0deygZrmY,"In which direction(s) does the wheel rotate?
+Options: 
+A: Clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: No rotation.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",A,videos/simulated/0316-00.mp4
+D,A,In which direction(s) does the wind turbine blade rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0317-00,"['Clockwise throughout.' 'No rotation.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=DL-096hzPfA,"In which direction(s) does the wind turbine blade rotate?
+Options: 
+A: Clockwise throughout.
+B: No rotation.
+C: Counter-clockwise then clockwise.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",A,videos/object/0317-00.mp4
+E,B,In which direction(s) does the drone rotate around the wind turbine?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0318-00,"['Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'No rotation.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=DL-096hzPfA,"In which direction(s) does the drone rotate around the wind turbine?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: No rotation.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",B,videos/object/0318-00.mp4
+D,B,In which direction(s) is the school of fish swimming?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0319-00,"['No rotation.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=3oMFX_2IG8U,"In which direction(s) is the school of fish swimming?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",B,videos/object/0319-00.mp4
+E,E,In which direction(s) is the school of fish swimming?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,4,,0319-01,"['No rotation.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=3oMFX_2IG8U,"In which direction(s) is the school of fish swimming?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise then clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",E,videos/object/0319-01.mp4
+E,D,In which direction(s) does the object rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0262-01,"['No rotation.' 'Counter-clockwise then clockwise.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise throughout.']",https://www.youtube.com/watch?v=mu9jAHgDjQg,"In which direction(s) does the object rotate?
+Options: 
+A: No rotation.
+B: Counter-clockwise then clockwise.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise throughout.
+E: Clockwise throughout. 
+Pick the best suited option.",D,videos/object/0262-01.mp4
+D,D,In which direction(s) does the object rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,reverse,0262-02,"['No rotation.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=mu9jAHgDjQg,"In which direction(s) does the object rotate?
+Options: 
+A: No rotation.
+B: Counter-clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",D,videos/object/0262-02.mp4
+D,B,In which direction(s) is the blue circle moving?,simulated,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,1,,0323-00,"['Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'No rotation.'
+ 'Clockwise throughout.']",https://www.youtube.com/watch?v=bxhdxLerP9Q,"In which direction(s) is the blue circle moving?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: No rotation.
+E: Clockwise throughout. 
+Pick the best suited option.",B,videos/simulated/0323-00.mp4
+D,A,In which direction(s) does the object rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0263-01,"['Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'No rotation.']",https://www.youtube.com/watch?v=sqk4SNdnjRk,"In which direction(s) does the object rotate?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: No rotation. 
+Pick the best suited option.",A,videos/object/0263-01.mp4
+D,B,In which direction(s) does the object rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,reverse,0263-02,"['No rotation.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=sqk4SNdnjRk,"In which direction(s) does the object rotate?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Counter-clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",B,videos/object/0263-02.mp4
+D,B,In which direction(s) does the disk rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0326-00,"['Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=VOOVtEjHqjw,"In which direction(s) does the disk rotate?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Counter-clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",B,videos/object/0326-00.mp4
+C,B,In which direction(s) does the disk rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,reverse,0326-01,"['Counter-clockwise throughout.' 'Clockwise throughout.' 'No rotation.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=VOOVtEjHqjw,"In which direction(s) does the disk rotate?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise throughout.
+C: No rotation.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",B,videos/object/0326-01.mp4
+D,B,In what direction(s) do the children on the merry-go-round rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0264-01,"['Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'No rotation.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=7Da7b4gyRp4,"In what direction(s) do the children on the merry-go-round rotate?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Clockwise throughout.
+C: No rotation.
+D: Counter-clockwise then clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",B,videos/object/0264-01.mp4
+E,C,In what direction(s) does the small metal ball rotate?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,2,,0329-00,"['No rotation.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=aAB77W9ERCM,"In what direction(s) does the small metal ball rotate?
+Options: 
+A: No rotation.
+B: Counter-clockwise then clockwise.
+C: Clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",C,videos/object/0329-00.mp4
+D,D,In what direction(s) does the plus sign rotate around the Earch?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0330-00,"['Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=pCGNUz9OrtE,"In what direction(s) does the plus sign rotate around the Earch?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",D,videos/simulated/0330-00.mp4
+D,A,In which direction(s) does the object rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0265-01,"['Counter-clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'No rotation.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.']",https://www.youtube.com/watch?v=2xZLqW4iH7A,"In which direction(s) does the object rotate?
+Options: 
+A: Counter-clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: No rotation.
+D: Clockwise then counter-clockwise.
+E: Clockwise throughout. 
+Pick the best suited option.",A,videos/object/0265-01.mp4
+B,D,In which direction(s) does the object rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,reverse,0265-02,"['Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'No rotation.' 'Clockwise throughout.' 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=2xZLqW4iH7A,"In which direction(s) does the object rotate?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise then counter-clockwise.
+C: No rotation.
+D: Clockwise throughout.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",D,videos/object/0265-02.mp4
+C,C,In what direction(s) is the green cirle rotating?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0333-00,"['No rotation.' 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.']",,"In what direction(s) is the green cirle rotating?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Counter-clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",C,videos/simulated/0333-00.mp4
+D,D,In what direction(s) is the wheel rotating?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0334-00,"['Counter-clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=R0xqQ0HNdgc,"In what direction(s) is the wheel rotating?
+Options: 
+A: Counter-clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Clockwise then counter-clockwise.
+D: Clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",D,videos/simulated/0334-00.mp4
+E,B,In what direction(s) is the wheel rotating?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0334-01,"['No rotation.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.']",https://www.youtube.com/watch?v=R0xqQ0HNdgc,"In what direction(s) is the wheel rotating?
+Options: 
+A: No rotation.
+B: Counter-clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Clockwise then counter-clockwise.
+E: Clockwise throughout. 
+Pick the best suited option.",B,videos/simulated/0334-01.mp4
+C,A,In which direction(s) is the ball rotating?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0266-01,"['Counter-clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.' 'No rotation.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=QUS5BuJsqEo,"In which direction(s) is the ball rotating?
+Options: 
+A: Counter-clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Clockwise throughout.
+D: No rotation.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",A,videos/object/0266-01.mp4
+E,B,In what direction(s) is the person rotating?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0267-01,"['Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'No rotation.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=K8fGcX9vUrk,"In what direction(s) is the person rotating?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: No rotation.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",B,videos/object/0267-01.mp4
+D,D,In what direction(s) is the person rotating?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0267-02,"['No rotation.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=K8fGcX9vUrk,"In what direction(s) is the person rotating?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Counter-clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",D,videos/object/0267-02.mp4
+E,D,In what direction(s) is the disk rotating?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0268-01,"['Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=WdcfWf07UIg,"In what direction(s) is the disk rotating?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Counter-clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",D,videos/object/0268-01.mp4
+E,B,In what direction(s) is the dancer rotating?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0340-00,"['Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=ZKSK9dM6fgY,"In what direction(s) is the dancer rotating?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Counter-clockwise throughout.
+C: No rotation.
+D: Clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",B,videos/object/0340-00.mp4
+B,B,In what direction(s) is the ball moving on the track?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0269-01,"['Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'No rotation.']",https://www.youtube.com/watch?v=8hZIDDmsXFM,"In what direction(s) is the ball moving on the track?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Clockwise then counter-clockwise.
+E: No rotation. 
+Pick the best suited option.",B,videos/object/0269-01.mp4
+E,B,In what direction(s) is the blue block rotating?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0342-00,"['Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise throughout.' 'No rotation.'
+ 'Counter-clockwise then clockwise.']",,"In what direction(s) is the blue block rotating?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise throughout.
+C: Clockwise throughout.
+D: No rotation.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",B,videos/simulated/0342-00.mp4
+B,A,In what direction(s) is the wheel rotating?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0270-01,"['Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'No rotation.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=HWpYlNDlzK4,"In what direction(s) is the wheel rotating?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: No rotation.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",A,videos/object/0270-01.mp4
+D,C,In what direction(s) is the tripod rotating?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0344-00,"['Clockwise then counter-clockwise.' 'No rotation.'
+ 'Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=oCg1tK4arNM,"In what direction(s) is the tripod rotating?
+Options: 
+A: Clockwise then counter-clockwise.
+B: No rotation.
+C: Counter-clockwise throughout.
+D: Clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",C,videos/object/0344-00.mp4
+B,D,In what direction(s) is the disk rotating?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0345-00,"['No rotation.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=oCg1tK4arNM,"In what direction(s) is the disk rotating?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",D,videos/object/0345-00.mp4
+E,B,In what direction(s) is the gymnastic athlete rotating?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,slow motion,0346-00,"['No rotation.' 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=IDkGYF-11BI,"In what direction(s) is the gymnastic athlete rotating?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Counter-clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",B,videos/object/0346-00.mp4
+D,D,In what direction(s) is the gymnastic's leg rotating?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,slow motion,0347-00,"['No rotation.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=RTqZ8Pr91tg,"In what direction(s) is the gymnastic's leg rotating?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Counter-clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",D,videos/object/0347-00.mp4
+C,C,In what direction(s) is the gymnastic's leg rotating?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,2,,0347-01,"['Counter-clockwise throughout.' 'No rotation.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=RTqZ8Pr91tg,"In what direction(s) is the gymnastic's leg rotating?
+Options: 
+A: Counter-clockwise throughout.
+B: No rotation.
+C: Clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",C,videos/object/0347-01.mp4
+E,B,In what direction(s) is the gymnastic rotating?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,slow motion,0349-00,"['No rotation.' 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=RTqZ8Pr91tg,"In what direction(s) is the gymnastic rotating?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Counter-clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",B,videos/object/0349-00.mp4
+C,A,In what direction(s) is the wheel rotating?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,slow motion,0350-00,"['Counter-clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'No rotation.']",https://www.youtube.com/watch?v=thTAGT4pwzM,"In what direction(s) is the wheel rotating?
+Options: 
+A: Counter-clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: No rotation. 
+Pick the best suited option.",A,videos/object/0350-00.mp4
+B,D,In what direction(s) is the pen rotating?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,slow motion,0351-00,"['No rotation.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=dYY01xeIhRE,"In what direction(s) is the pen rotating?
+Options: 
+A: No rotation.
+B: Clockwise then counter-clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",D,videos/object/0351-00.mp4
+C,D,In what direction(s) is the pointer rotating?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,slow motion,0352-00,"['Counter-clockwise then clockwise.' 'No rotation.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=_09N0X8P9WM,"In what direction(s) is the pointer rotating?
+Options: 
+A: Counter-clockwise then clockwise.
+B: No rotation.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",D,videos/object/0352-00.mp4
+E,C,In what direction(s) is the pointer rotating?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,2,,0352-01,"['No rotation.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=_09N0X8P9WM,"In what direction(s) is the pointer rotating?
+Options: 
+A: No rotation.
+B: Counter-clockwise then clockwise.
+C: Clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",C,videos/object/0352-01.mp4
+E,E,In what direction(s) is the galaxy rotating?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,fast motion,0354-00,"['Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'No rotation.'
+ 'Clockwise throughout.']",https://www.youtube.com/watch?v=SDxmkJwrbno,"In what direction(s) is the galaxy rotating?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Counter-clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: No rotation.
+E: Clockwise throughout. 
+Pick the best suited option.",E,videos/simulated/0354-00.mp4
+D,D,In what direction(s) is the washing machine drum rotating?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,slow motion,0355-00,"['Counter-clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=9ZhmyAFFp-M,"In what direction(s) is the washing machine drum rotating?
+Options: 
+A: Counter-clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Clockwise then counter-clockwise.
+D: Clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",D,videos/object/0355-00.mp4
+A,B,In what direction(s) is the washing machine drum rotating?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,1,slow motion,0355-01,"['Clockwise throughout.' 'Counter-clockwise throughout.' 'No rotation.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=9ZhmyAFFp-M,"In what direction(s) is the washing machine drum rotating?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise throughout.
+C: No rotation.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",B,videos/object/0355-01.mp4
+B,A,In what direction(s) is the washing machine agitator rotating?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0357-00,"['No rotation.' 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=_OwoQEl_ii0,"In what direction(s) is the washing machine agitator rotating?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Counter-clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",A,videos/object/0357-00.mp4
+E,C,In what direction(s) is the blue rectangle rotating?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0358-00,"['Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'No rotation.']",,"In what direction(s) is the blue rectangle rotating?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise throughout.
+C: Counter-clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: No rotation. 
+Pick the best suited option.",C,videos/simulated/0358-00.mp4
+E,D,In what direction(s) is the orange star rotating?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0359-00,"['Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.' 'No rotation.']",,"In what direction(s) is the orange star rotating?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise then clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",D,videos/simulated/0359-00.mp4
+D,B,The yellow circle is attached to the black circle. In what direction(s) is the black circle rotating?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0360-00,"['No rotation.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",,"The yellow circle is attached to the black circle. In what direction(s) is the black circle rotating?
+Options: 
+A: No rotation.
+B: Counter-clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",B,videos/simulated/0360-00.mp4
+C,B,In what direction(s) is the pink circle rotating?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0361-00,"['Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'No rotation.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",,"In what direction(s) is the pink circle rotating?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Clockwise throughout.
+C: No rotation.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",B,videos/simulated/0361-00.mp4
+E,B,In what direction(s) is the figure rotating?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0362-00,"['Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'No rotation.']",,"In what direction(s) is the figure rotating?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Clockwise throughout.
+C: Counter-clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: No rotation. 
+Pick the best suited option.",B,videos/simulated/0362-00.mp4
+D,D,What is the object's direction(s) of rotation?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0363-00,"['Clockwise then counter-clockwise.' 'No rotation.'
+ 'Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise throughout.']",,"What is the object's direction(s) of rotation?
+Options: 
+A: Clockwise then counter-clockwise.
+B: No rotation.
+C: Counter-clockwise then clockwise.
+D: Counter-clockwise throughout.
+E: Clockwise throughout. 
+Pick the best suited option.",D,videos/simulated/0363-00.mp4
+D,B,What is the red line's direction(s) of rotation?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0364-00,"['Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'No rotation.'
+ 'Clockwise then counter-clockwise.']",,"What is the red line's direction(s) of rotation?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: No rotation.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",B,videos/simulated/0364-00.mp4
+E,C,In which direction(s) does pen rotate around the red center?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,slow motion,0365-00,"['Counter-clockwise then clockwise.' 'No rotation.'
+ 'Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise throughout.']",,"In which direction(s) does pen rotate around the red center?
+Options: 
+A: Counter-clockwise then clockwise.
+B: No rotation.
+C: Clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",C,videos/object/0365-00.mp4
+C,B,In which direction(s) does the pointer rotate on the speedometer?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0366-00,"['No rotation.' 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=tvFPcQ_4BqQ,"In which direction(s) does the pointer rotate on the speedometer?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Counter-clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",B,videos/simulated/0366-00.mp4
+C,C,In which direction(s) does the shadow of the fan blade rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0367-00,"['Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise throughout.' 'No rotation.'
+ 'Counter-clockwise then clockwise.']",,"In which direction(s) does the shadow of the fan blade rotate?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise throughout.
+C: Clockwise throughout.
+D: No rotation.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",C,videos/object/0367-00.mp4
+C,C,In which direction(s) does the fan blade rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0368-00,"['Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.' 'No rotation.'
+ 'Clockwise then counter-clockwise.']",,"In which direction(s) does the fan blade rotate?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Counter-clockwise throughout.
+D: No rotation.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",C,videos/object/0368-00.mp4
+E,E,In which direction(s) does the wheel rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0257-03,"['No rotation.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=iaauRiRX4do&t=24s,"In which direction(s) does the wheel rotate?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",E,videos/object/0257-03.mp4
+C,D,In which direction(s) does the dog walk?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0217-00,"['Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.' 'No rotation.']",https://www.youtube.com/watch?v=cyaRkOXDhOk,"In which direction(s) does the dog walk?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise then clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",D,videos/object/0217-00.mp4
+B,B,In which direction(s) does the dog walk?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,1,,0217-01,"['Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'No rotation.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=cyaRkOXDhOk,"In which direction(s) does the dog walk?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Clockwise throughout.
+C: No rotation.
+D: Counter-clockwise then clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",B,videos/object/0217-01.mp4
+E,E,In which direction(s) does cube rotate?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0219-00,"['Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'No rotation.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=fZYfX9VvN8M,"In which direction(s) does cube rotate?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: No rotation.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",E,videos/simulated/0219-00.mp4
+B,B,In which direction(s) does cube rotate?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0219-01,"['Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'No rotation.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=fZYfX9VvN8M,"In which direction(s) does cube rotate?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Clockwise throughout.
+C: No rotation.
+D: Counter-clockwise then clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",B,videos/simulated/0219-01.mp4
+C,C,In which direction(s) does the toy car move?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0801-00,"['Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'No rotation.']",https://www.youtube.com/results?search_query=omni+wheel&sp=EgIwAQ%253D%253D,"In which direction(s) does the toy car move?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Counter-clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: No rotation. 
+Pick the best suited option.",C,videos/object/0801-00.mp4
+D,D,In which direction(s) does the car move?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0801-01,"['No rotation.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/results?search_query=omni+wheel&sp=EgIwAQ%253D%253D,"In which direction(s) does the car move?
+Options: 
+A: No rotation.
+B: Counter-clockwise then clockwise.
+C: Counter-clockwise throughout.
+D: Clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",D,videos/object/0801-01.mp4
+E,D,What is the ball-wheel's direction(s) of rotation?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0803-00,"['Clockwise then counter-clockwise.' 'No rotation.'
+ 'Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=h1DwaOv8jcg,"What is the ball-wheel's direction(s) of rotation?
+Options: 
+A: Clockwise then counter-clockwise.
+B: No rotation.
+C: Counter-clockwise then clockwise.
+D: Clockwise throughout.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",D,videos/object/0803-00.mp4
+D,C,What is the car's direction(s) of rotation?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0804-00,"['No rotation.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=ZrvqwkFwUSc,"What is the car's direction(s) of rotation?
+Options: 
+A: No rotation.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise throughout.
+D: Clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",C,videos/object/0804-00.mp4
+C,A,In which direction(s) does the toy car move?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0804-01,"['Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.' 'No rotation.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=ZrvqwkFwUSc,"In which direction(s) does the toy car move?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Counter-clockwise throughout.
+D: No rotation.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",A,videos/object/0804-01.mp4
+D,C,What is the toy car's direction(s) of rotation?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0806-00,"['No rotation.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=nvL9_OthABs,"What is the toy car's direction(s) of rotation?
+Options: 
+A: No rotation.
+B: Counter-clockwise then clockwise.
+C: Counter-clockwise throughout.
+D: Clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",C,videos/object/0806-00.mp4
+E,B,What is the toy car's direction(s) of rotation?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0806-01,"['Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'No rotation.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=nvL9_OthABs,"What is the toy car's direction(s) of rotation?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise throughout.
+C: No rotation.
+D: Counter-clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",B,videos/object/0806-01.mp4
+C,A,In which direction(s) does the toy car rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0808-00,"['Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.' 'No rotation.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=ziDyUn1uNus,"In which direction(s) does the toy car rotate?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Counter-clockwise throughout.
+D: No rotation.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",A,videos/object/0808-00.mp4
+E,C,In which direction(s) does the toy car rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0808-01,"['No rotation.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=ziDyUn1uNus,"In which direction(s) does the toy car rotate?
+Options: 
+A: No rotation.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise throughout.
+D: Clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",C,videos/object/0808-01.mp4
+E,C,In which direction(s) does the toy car rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0810-00,"['Clockwise then counter-clockwise.' 'No rotation.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=ziDyUn1uNus,"In which direction(s) does the toy car rotate?
+Options: 
+A: Clockwise then counter-clockwise.
+B: No rotation.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",C,videos/object/0810-00.mp4
+C,A,In which direction(s) does the toy car rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0810-01,"['Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.' 'No rotation.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=ziDyUn1uNus,"In which direction(s) does the toy car rotate?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: Clockwise throughout.
+D: No rotation.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",A,videos/object/0810-01.mp4
+B,B,What direction(s) is the wheel rotating?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0812-00,"['Counter-clockwise then clockwise.' 'No rotation.'
+ 'Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise throughout.']",https://systemsorienteddesign.net/reinventing-the-wheel/,"What direction(s) is the wheel rotating?
+Options: 
+A: Counter-clockwise then clockwise.
+B: No rotation.
+C: Clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",B,videos/object/0812-00.mp4
+B,A,What is the wheel's direction(s) of rotation?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0813-00,"['Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'No rotation.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=3n3-twoG644,"What is the wheel's direction(s) of rotation?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: No rotation.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",A,videos/simulated/0813-00.mp4
+E,C,What is the toy car's direction(s) of rotation?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0814-00,"['Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'No rotation.']",https://www.youtube.com/watch?v=h-HGBsZkFu8,"What is the toy car's direction(s) of rotation?
+Options: 
+A: Clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: No rotation. 
+Pick the best suited option.",C,videos/object/0814-00.mp4
+C,B,In which direction(s) does the toy car rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0814-01,"['No rotation.' 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=h-HGBsZkFu8,"In which direction(s) does the toy car rotate?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Counter-clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",B,videos/object/0814-01.mp4
+D,E,In which direction(s) does wheel rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0816-00,"['No rotation.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=o_AefREq5jk,"In which direction(s) does wheel rotate?
+Options: 
+A: No rotation.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise then clockwise.
+D: Clockwise throughout.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",E,videos/object/0816-00.mp4
+D,D,What is the wheel's direction(s) of rotation?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0816-01,"['Counter-clockwise throughout.' 'No rotation.'
+ 'Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=o_AefREq5jk,"What is the wheel's direction(s) of rotation?
+Options: 
+A: Counter-clockwise throughout.
+B: No rotation.
+C: Counter-clockwise then clockwise.
+D: Clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",D,videos/object/0816-01.mp4
+D,A,What is the wheel's direction(s) of rotation?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0818-00,"['Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'No rotation.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=o_AefREq5jk,"What is the wheel's direction(s) of rotation?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: No rotation.
+D: Clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",A,videos/object/0818-00.mp4
+D,E,Which direction(s) does the ballet dancer rotate in?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0253-02,"['Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=5nBEyVZUrk8,"Which direction(s) does the ballet dancer rotate in?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise throughout.
+C: No rotation.
+D: Clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",E,videos/object/0253-02.mp4
+E,C,In which direction(s) does the blue circle rotate relative to the red circle?,simulated,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0272-01,"['Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=AToXA0Molig&t=777s,"In which direction(s) does the blue circle rotate relative to the red circle?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",C,videos/simulated/0272-01.mp4
+B,A,In which direction(s) does the moon rotate relative to the Earth?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0273-01,"['Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.' 'No rotation.']",https://www.youtube.com/watch?v=MrzWzMUhQfw,"In which direction(s) does the moon rotate relative to the Earth?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise then clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",A,videos/object/0273-01.mp4
+B,B,In which direction(s) does the car move?,simulated,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0274-01,"['No rotation.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=NsFYcy3X_dg,"In which direction(s) does the car move?
+Options: 
+A: No rotation.
+B: Counter-clockwise then clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",B,videos/simulated/0274-01.mp4
+C,B,What is the Ferris wheel's direction(s) of rotation?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0276-01,"['No rotation.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=NsFYcy3X_dg,"What is the Ferris wheel's direction(s) of rotation?
+Options: 
+A: No rotation.
+B: Clockwise then counter-clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",B,videos/object/0276-01.mp4
+E,A,In which direction(s) does the satellite rotate relative to the Earth?,simulated,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0277-01,"['Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'No rotation.'
+ 'Clockwise throughout.']",https://www.youtube.com/watch?v=NsFYcy3X_dg,"In which direction(s) does the satellite rotate relative to the Earth?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Counter-clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: No rotation.
+E: Clockwise throughout. 
+Pick the best suited option.",A,videos/simulated/0277-01.mp4
+C,E,In which direction(s) does the stone rotate?,simulated,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0278-01,"['Clockwise throughout.' 'No rotation.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=COHi3qWME0M,"In which direction(s) does the stone rotate?
+Options: 
+A: Clockwise throughout.
+B: No rotation.
+C: Counter-clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",E,videos/simulated/0278-01.mp4
+C,B,In which direction(s) does the stone rotate?,simulated,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0279-01,"['Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'No rotation.']",https://www.youtube.com/watch?v=COHi3qWME0M,"In which direction(s) does the stone rotate?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: No rotation. 
+Pick the best suited option.",B,videos/simulated/0279-01.mp4
+B,D,Which direction(s) does the pendulum rotate in?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0254-02,"['Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'No rotation.']",https://www.youtube.com/watch?v=QA1ZAMtxbBA,"Which direction(s) does the pendulum rotate in?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise then clockwise.
+E: No rotation. 
+Pick the best suited option.",D,videos/object/0254-02.mp4
+C,B,Which direction(s) does the Ping Pong ball rotate in?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0255-08,"['Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'No rotation.']",https://www.youtube.com/watch?v=ApO6V_oetVI,"Which direction(s) does the Ping Pong ball rotate in?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Counter-clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: No rotation. 
+Pick the best suited option.",B,videos/object/0255-08.mp4
+B,A,In which direction(s) does the Ping Pong ball rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0255-09,"['Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.' 'No rotation.']",https://www.youtube.com/watch?v=ApO6V_oetVI,"In which direction(s) does the Ping Pong ball rotate?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise then clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",A,videos/object/0255-09.mp4
+C,B,Which direction(s) does the steel ball rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0255-10,"['Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.' 'No rotation.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=ApO6V_oetVI,"Which direction(s) does the steel ball rotate?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Counter-clockwise throughout.
+D: No rotation.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",B,videos/object/0255-10.mp4
+B,D,In which direction(s) does the Ferris wheel rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0284-01,"['No rotation.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=H3086qmGyRc,"In which direction(s) does the Ferris wheel rotate?
+Options: 
+A: No rotation.
+B: Counter-clockwise then clockwise.
+C: Clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",D,videos/object/0284-01.mp4
+C,B,In which direction(s) does the gymnastic athlete rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0287-01,"['Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=6Buahh-pcuQ,"In which direction(s) does the gymnastic athlete rotate?
+Options: 
+A: Clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise then clockwise.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",B,videos/object/0287-01.mp4
+D,C,What is the man's direction(s) of rotation on the horizontal bar?,object,"{'composite': 1, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,2,,0288-01,"['No rotation.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=zji3Cm_k7go,"What is the man's direction(s) of rotation on the horizontal bar?
+Options: 
+A: No rotation.
+B: Counter-clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",C,videos/object/0288-01.mp4
+E,D,In which direction(s) does the gymnastic athlete rotate on the horizontal bar?,object,"{'composite': 1, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,3,,0289-01,"['No rotation.' 'Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=x1uOtX8mYJo,"In which direction(s) does the gymnastic athlete rotate on the horizontal bar?
+Options: 
+A: No rotation.
+B: Counter-clockwise throughout.
+C: Clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",D,videos/object/0289-01.mp4
+E,B,In which direction(s) does the gymnastic athlete rotate on the horizontal bar?,object,"{'composite': 1, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,1,,0290-01,"['No rotation.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=jHMGaWn-DSU,"In which direction(s) does the gymnastic athlete rotate on the horizontal bar?
+Options: 
+A: No rotation.
+B: Counter-clockwise then clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",B,videos/object/0290-01.mp4
+D,C,What is the rotation direction(s) of the second hand on the watch?,object,"{'composite': 1, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,2,,0291-02,"['Clockwise throughout.' 'No rotation.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=xyCQFLOSWGc,"What is the rotation direction(s) of the second hand on the watch?
+Options: 
+A: Clockwise throughout.
+B: No rotation.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise then clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",C,videos/object/0291-02.mp4
+E,A,What is the rotation direction(s) of the second hand on the watch?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0291-03,"['Clockwise then counter-clockwise.' 'No rotation.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=xyCQFLOSWGc,"What is the rotation direction(s) of the second hand on the watch?
+Options: 
+A: Clockwise then counter-clockwise.
+B: No rotation.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",A,videos/object/0291-03.mp4
+B,E,In which direction(s) does the minute hand move on the clock face?,simulated,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0293-01,"['Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'No rotation.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=JEJqy1Wlovw,"In which direction(s) does the minute hand move on the clock face?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Clockwise throughout.
+C: No rotation.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",E,videos/simulated/0293-01.mp4
+E,E,What is the man's direction(s) of rotation?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0256-02,"['Clockwise throughout.' 'No rotation.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=_eMH07Tghs0,"What is the man's direction(s) of rotation?
+Options: 
+A: Clockwise throughout.
+B: No rotation.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",E,videos/object/0256-02.mp4
+D,E,In which direction(s) does the person rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0257-04,"['Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise throughout.' 'No rotation.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=iaauRiRX4do&t=24s,"In which direction(s) does the person rotate?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise throughout.
+C: Counter-clockwise throughout.
+D: No rotation.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",E,videos/object/0257-04.mp4
+B,B,Which direction(s) is the wheel rotating in?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0257-05,"['Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'No rotation.' 'Counter-clockwise throughout.' 'Clockwise throughout.']",https://www.youtube.com/watch?v=iaauRiRX4do&t=24s,"Which direction(s) is the wheel rotating in?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise then clockwise.
+C: No rotation.
+D: Counter-clockwise throughout.
+E: Clockwise throughout. 
+Pick the best suited option.",B,videos/object/0257-05.mp4
+E,D,In which direction(s) do the skating athletes move?,object,"{'composite': 1, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,3,,0299-01,"['No rotation.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.']",https://www.youtube.com/watch?v=I5Khj2QcEtI,"In which direction(s) do the skating athletes move?
+Options: 
+A: No rotation.
+B: Counter-clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise then clockwise.
+E: Clockwise throughout. 
+Pick the best suited option.",D,videos/object/0299-01.mp4
+E,D,In which direction(s) do the speed skaters move?,object,"{'composite': 1, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,3,,0300-01,"['No rotation.' 'Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=shjn4IGNobY,"In which direction(s) do the speed skaters move?
+Options: 
+A: No rotation.
+B: Counter-clockwise throughout.
+C: Clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",D,videos/object/0300-01.mp4
+E,B,In which direction(s) does the disk rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0844-00,"['Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'No rotation.' 'Counter-clockwise throughout.' 'Clockwise throughout.']",https://www.youtube.com/watch?v=CHQOctEvtTY,"In which direction(s) does the disk rotate?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise then counter-clockwise.
+C: No rotation.
+D: Counter-clockwise throughout.
+E: Clockwise throughout. 
+Pick the best suited option.",B,videos/object/0844-00.mp4
+B,A,Which direction(s) does the hula hoop rotate in?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0258-02,"['Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'No rotation.' 'Clockwise throughout.' 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=oyvYvruZfmw,"Which direction(s) does the hula hoop rotate in?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise then counter-clockwise.
+C: No rotation.
+D: Clockwise throughout.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",A,videos/object/0258-02.mp4
+D,C,What is the rotation direction(s) of the jump rope?,object,"{'composite': 1, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,2,,0259-03,"['No rotation.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=FJmRQ5iTXKE,"What is the rotation direction(s) of the jump rope?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise then clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",C,videos/object/0259-03.mp4
+C,C,What is the rotation direction(s) of the jump rope?,object,"{'composite': 1, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,2,,0259-04,"['No rotation.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=FJmRQ5iTXKE,"What is the rotation direction(s) of the jump rope?
+Options: 
+A: No rotation.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise then clockwise.
+D: Clockwise throughout.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",C,videos/object/0259-04.mp4
+D,E,What is the rotation direction(s) of the jump rope?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0306-01,"['Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'No rotation.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=BtwnIgwQ-Eg,"What is the rotation direction(s) of the jump rope?
+Options: 
+A: Clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: No rotation.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",E,videos/object/0306-01.mp4
+C,E,What is the disk's direction(s) of rotation?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0260-03,"['Clockwise throughout.' 'No rotation.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=Bs5iqJEQl80,"What is the disk's direction(s) of rotation?
+Options: 
+A: Clockwise throughout.
+B: No rotation.
+C: Counter-clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",E,videos/object/0260-03.mp4
+E,D,What is the disk's direction(s) of rotation?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0260-04,"['Counter-clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'No rotation.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.']",https://www.youtube.com/watch?v=Bs5iqJEQl80,"What is the disk's direction(s) of rotation?
+Options: 
+A: Counter-clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: No rotation.
+D: Clockwise then counter-clockwise.
+E: Clockwise throughout. 
+Pick the best suited option.",D,videos/object/0260-04.mp4
+E,D,In which direction(s) does the ball move?,object,"{'composite': 1, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,3,,0309-01,"['Counter-clockwise then clockwise.' 'No rotation.'
+ 'Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.']",https://ezgif.com/video-speed/ezgif-1-4760472110.mp4,"In which direction(s) does the ball move?
+Options: 
+A: Counter-clockwise then clockwise.
+B: No rotation.
+C: Counter-clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: Clockwise throughout. 
+Pick the best suited option.",D,videos/object/0309-01.mp4
+C,D,What direction(s) does the hammer throw athlete rotate in?,object,"{'composite': 1, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,3,,0261-02,"['Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'No rotation.']",https://www.youtube.com/watch?v=P6UwokP8BEg,"What direction(s) does the hammer throw athlete rotate in?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: No rotation. 
+Pick the best suited option.",D,videos/object/0261-02.mp4
+C,D,In which direction(s) does the hammer move?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0311-01,"['Counter-clockwise throughout.' 'No rotation.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=uE5o92zMeyE,"In which direction(s) does the hammer move?
+Options: 
+A: Counter-clockwise throughout.
+B: No rotation.
+C: Clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",D,videos/object/0311-01.mp4
+E,D,What direction(s) does the athlete rotate in?,object,"{'composite': 1, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,3,,0312-01,"['Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'No rotation.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=sSky3elPONY,"What direction(s) does the athlete rotate in?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Clockwise throughout.
+C: No rotation.
+D: Counter-clockwise then clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",D,videos/object/0312-01.mp4
+C,A,In which direction(s) does the wheel rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0314-02,"['Clockwise then counter-clockwise.' 'No rotation.'
+ 'Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise throughout.']",https://www.youtube.com/watch?v=O1Htq-vrm6A,"In which direction(s) does the wheel rotate?
+Options: 
+A: Clockwise then counter-clockwise.
+B: No rotation.
+C: Counter-clockwise then clockwise.
+D: Counter-clockwise throughout.
+E: Clockwise throughout. 
+Pick the best suited option.",A,videos/object/0314-02.mp4
+D,C,Which direction(s) does the wheel rotate in?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0314-03,"['Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=O1Htq-vrm6A,"Which direction(s) does the wheel rotate in?
+Options: 
+A: Clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise then clockwise.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",C,videos/object/0314-03.mp4
+C,E,In what direction(s) does the wheel rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0316-01,"['Counter-clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.' 'No rotation.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=-g0deygZrmY,"In what direction(s) does the wheel rotate?
+Options: 
+A: Counter-clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Clockwise throughout.
+D: No rotation.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",E,videos/object/0316-01.mp4
+B,B,In which direction(s) does the wind turbine blade rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0317-01,"['Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise throughout.' 'Clockwise throughout.' 'No rotation.']",https://www.youtube.com/watch?v=DL-096hzPfA,"In which direction(s) does the wind turbine blade rotate?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise throughout.
+D: Clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",B,videos/object/0317-01.mp4
+C,C,In which direction(s) does the drone rotate around the wind turbine?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0318-01,"['No rotation.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=DL-096hzPfA,"In which direction(s) does the drone rotate around the wind turbine?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Counter-clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",C,videos/object/0318-01.mp4
+C,A,In which direction(s) is the school of fish swimming?,object,"{'composite': 1, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,0,,0319-02,"['Clockwise then counter-clockwise.' 'No rotation.'
+ 'Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=3oMFX_2IG8U,"In which direction(s) is the school of fish swimming?
+Options: 
+A: Clockwise then counter-clockwise.
+B: No rotation.
+C: Counter-clockwise then clockwise.
+D: Clockwise throughout.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",A,videos/object/0319-02.mp4
+D,C,In which direction(s) is the school of fish swimming?,object,"{'composite': 1, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,2,,0319-03,"['No rotation.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=3oMFX_2IG8U,"In which direction(s) is the school of fish swimming?
+Options: 
+A: No rotation.
+B: Counter-clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",C,videos/object/0319-03.mp4
+B,B,What is the object's direction(s) of rotation?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0262-03,"['Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.' 'Clockwise throughout.' 'No rotation.']",https://www.youtube.com/watch?v=mu9jAHgDjQg,"What is the object's direction(s) of rotation?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise then clockwise.
+C: Counter-clockwise throughout.
+D: Clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",B,videos/object/0262-03.mp4
+D,C,In which direction(s) does the object rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0262-04,"['Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'No rotation.'
+ 'Clockwise throughout.']",https://www.youtube.com/watch?v=mu9jAHgDjQg,"In which direction(s) does the object rotate?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Counter-clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: No rotation.
+E: Clockwise throughout. 
+Pick the best suited option.",C,videos/object/0262-04.mp4
+E,C,What direction(s) is the blue circle moving in?,simulated,"{'composite': 1, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,2,,0323-01,"['Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=bxhdxLerP9Q,"What direction(s) is the blue circle moving in?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",C,videos/simulated/0323-01.mp4
+E,C,In which direction(s) does the object move?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0263-03,"['Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'No rotation.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=sqk4SNdnjRk,"In which direction(s) does the object move?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: No rotation.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",C,videos/object/0263-03.mp4
+C,D,Which direction(s) does the object move in?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0263-04,"['Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'No rotation.']",https://www.youtube.com/watch?v=sqk4SNdnjRk,"Which direction(s) does the object move in?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Clockwise then counter-clockwise.
+E: No rotation. 
+Pick the best suited option.",D,videos/object/0263-04.mp4
+D,C,In which direction(s) does the disk rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0326-03,"['Counter-clockwise throughout.' 'No rotation.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.']",https://www.youtube.com/watch?v=VOOVtEjHqjw,"In which direction(s) does the disk rotate?
+Options: 
+A: Counter-clockwise throughout.
+B: No rotation.
+C: Counter-clockwise then clockwise.
+D: Clockwise then counter-clockwise.
+E: Clockwise throughout. 
+Pick the best suited option.",C,videos/object/0326-03.mp4
+D,A,Which direction(s) does the disk rotate in?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0326-04,"['Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=VOOVtEjHqjw,"Which direction(s) does the disk rotate in?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",A,videos/object/0326-04.mp4
+D,D,What direction(s) do the children on the merry-go-round rotate in?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0264-02,"['Clockwise throughout.' 'No rotation.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=7Da7b4gyRp4,"What direction(s) do the children on the merry-go-round rotate in?
+Options: 
+A: Clockwise throughout.
+B: No rotation.
+C: Counter-clockwise then clockwise.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",D,videos/object/0264-02.mp4
+E,A,In which direction(s) does the small metal ball rotate?,object,"{'composite': 1, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,0,,0329-01,"['Clockwise then counter-clockwise.' 'No rotation.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=aAB77W9ERCM,"In which direction(s) does the small metal ball rotate?
+Options: 
+A: Clockwise then counter-clockwise.
+B: No rotation.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",A,videos/object/0329-01.mp4
+D,C,In which direction(s) does the plus sign rotate around the Earth?,simulated,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0330-01,"['No rotation.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=pCGNUz9OrtE,"In which direction(s) does the plus sign rotate around the Earth?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Counter-clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",C,videos/simulated/0330-01.mp4
+D,E,In which direction(s) does the object rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0265-03,"['Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'No rotation.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=2xZLqW4iH7A,"In which direction(s) does the object rotate?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: No rotation.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",E,videos/object/0265-03.mp4
+E,B,Which direction(s) does the object rotate in?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0265-04,"['Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'No rotation.']",https://www.youtube.com/watch?v=2xZLqW4iH7A,"Which direction(s) does the object rotate in?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: No rotation. 
+Pick the best suited option.",B,videos/object/0265-04.mp4
+C,B,What direction(s) does the green cirle rotate in?,simulated,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0333-01,"['Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'No rotation.']",,"What direction(s) does the green cirle rotate in?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Counter-clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: No rotation. 
+Pick the best suited option.",B,videos/simulated/0333-01.mp4
+E,E,In which direction(s) does the wheel rotate?,simulated,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0334-02,"['Counter-clockwise then clockwise.' 'No rotation.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=R0xqQ0HNdgc,"In which direction(s) does the wheel rotate?
+Options: 
+A: Counter-clockwise then clockwise.
+B: No rotation.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",E,videos/simulated/0334-02.mp4
+C,E,In which direction(s) does the wheel rotate?,simulated,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0334-03,"['Clockwise throughout.' 'No rotation.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=R0xqQ0HNdgc,"In which direction(s) does the wheel rotate?
+Options: 
+A: Clockwise throughout.
+B: No rotation.
+C: Counter-clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",E,videos/simulated/0334-03.mp4
+D,E,In which direction(s) does the ball rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0266-02,"['No rotation.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=QUS5BuJsqEo,"In which direction(s) does the ball rotate?
+Options: 
+A: No rotation.
+B: Counter-clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",E,videos/object/0266-02.mp4
+C,C,What direction(s) does the person rotate in?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0267-03,"['Counter-clockwise then clockwise.' 'No rotation.'
+ 'Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=K8fGcX9vUrk,"What direction(s) does the person rotate in?
+Options: 
+A: Counter-clockwise then clockwise.
+B: No rotation.
+C: Clockwise then counter-clockwise.
+D: Clockwise throughout.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",C,videos/object/0267-03.mp4
+C,C,What direction(s) does the person rotate in?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0267-04,"['Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=K8fGcX9vUrk,"What direction(s) does the person rotate in?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",C,videos/object/0267-04.mp4
+C,A,In which direction(s) does the disk rotate?,object,"{'composite': 1, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,0,,0268-02,"['Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'No rotation.']",https://www.youtube.com/watch?v=WdcfWf07UIg,"In which direction(s) does the disk rotate?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise throughout.
+C: Clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: No rotation. 
+Pick the best suited option.",A,videos/object/0268-02.mp4
+C,B,What is the dancer's direction(s) of rotation?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0340-01,"['Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=ZKSK9dM6fgY,"What is the dancer's direction(s) of rotation?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",B,videos/object/0340-01.mp4
+B,D,In which direction(s) does the ball move on the track?,object,"{'composite': 1, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,3,,0269-02,"['Clockwise throughout.' 'Counter-clockwise throughout.' 'No rotation.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=8hZIDDmsXFM,"In which direction(s) does the ball move on the track?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise throughout.
+C: No rotation.
+D: Counter-clockwise then clockwise.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",D,videos/object/0269-02.mp4
+E,B,In which direction(s) does the disk rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0345-01,"['Counter-clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Clockwise then counter-clockwise.' 'No rotation.'
+ 'Clockwise throughout.']",https://www.youtube.com/watch?v=oCg1tK4arNM,"In which direction(s) does the disk rotate?
+Options: 
+A: Counter-clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Clockwise then counter-clockwise.
+D: No rotation.
+E: Clockwise throughout. 
+Pick the best suited option.",B,videos/object/0345-01.mp4
+B,B,In which direction(s) does the gymnastic athlete rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0346-01,"['Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'No rotation.' 'Counter-clockwise throughout.' 'Clockwise throughout.']",https://www.youtube.com/watch?v=IDkGYF-11BI,"In which direction(s) does the gymnastic athlete rotate?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise then counter-clockwise.
+C: No rotation.
+D: Counter-clockwise throughout.
+E: Clockwise throughout. 
+Pick the best suited option.",B,videos/object/0346-01.mp4
+B,B,In which direction(s) does the gymnastic's leg rotate in?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0347-02,"['Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'No rotation.' 'Clockwise throughout.' 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=RTqZ8Pr91tg,"In which direction(s) does the gymnastic's leg rotate in?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise then clockwise.
+C: No rotation.
+D: Clockwise throughout.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",B,videos/object/0347-02.mp4
+C,C,In which direction(s) does the gymnastic's leg rotate in?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0347-03,"['Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'No rotation.'
+ 'Clockwise throughout.']",https://www.youtube.com/watch?v=RTqZ8Pr91tg,"In which direction(s) does the gymnastic's leg rotate in?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Counter-clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: No rotation.
+E: Clockwise throughout. 
+Pick the best suited option.",C,videos/object/0347-03.mp4
+E,D,In which direction(s) does the gymnastic rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0349-01,"['No rotation.' 'Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=RTqZ8Pr91tg,"In which direction(s) does the gymnastic rotate?
+Options: 
+A: No rotation.
+B: Counter-clockwise throughout.
+C: Clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",D,videos/object/0349-01.mp4
+E,C,In which direction(s) does the wheel rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0350-01,"['No rotation.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=thTAGT4pwzM,"In which direction(s) does the wheel rotate?
+Options: 
+A: No rotation.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise then clockwise.
+D: Clockwise throughout.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",C,videos/object/0350-01.mp4
+E,E,What is the pen's direction(s) of rotation?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0351-01,"['Clockwise then counter-clockwise.' 'No rotation.'
+ 'Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=dYY01xeIhRE,"What is the pen's direction(s) of rotation?
+Options: 
+A: Clockwise then counter-clockwise.
+B: No rotation.
+C: Counter-clockwise throughout.
+D: Clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",E,videos/object/0351-01.mp4
+C,D,In which direction(s) does the pointer rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0352-02,"['No rotation.' 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=_09N0X8P9WM,"In which direction(s) does the pointer rotate?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Counter-clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",D,videos/object/0352-02.mp4
+B,D,In which direction(s) does the pointer rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0352-03,"['Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'No rotation.']",https://www.youtube.com/watch?v=_09N0X8P9WM,"In which direction(s) does the pointer rotate?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Clockwise then counter-clockwise.
+E: No rotation. 
+Pick the best suited option.",D,videos/object/0352-03.mp4
+A,D,In which direction(s) does the galaxy spin?,simulated,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0354-01,"['Counter-clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'No rotation.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.']",https://www.youtube.com/watch?v=SDxmkJwrbno,"In which direction(s) does the galaxy spin?
+Options: 
+A: Counter-clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: No rotation.
+D: Clockwise then counter-clockwise.
+E: Clockwise throughout. 
+Pick the best suited option.",D,videos/simulated/0354-01.mp4
+C,B,In which direction(s) does the washing machine drum rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0355-02,"['Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=9ZhmyAFFp-M,"In which direction(s) does the washing machine drum rotate?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise then clockwise.
+D: Clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",B,videos/object/0355-02.mp4
+C,D,In which direction(s) does the washing machine drum rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0355-03,"['Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'No rotation.']",https://www.youtube.com/watch?v=9ZhmyAFFp-M,"In which direction(s) does the washing machine drum rotate?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: No rotation. 
+Pick the best suited option.",D,videos/object/0355-03.mp4
+B,A,Which direction(s) does the orange star rotate in?,simulated,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0359-01,"['Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.']",,"Which direction(s) does the orange star rotate in?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",A,videos/simulated/0359-01.mp4
+B,D,The yellow circle is attached to the black circle. Which direction(s) does the black circle rotate? ,simulated,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0360-01,"['Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'No rotation.']",,"The yellow circle is attached to the black circle. Which direction(s) does the black circle rotate? 
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise then clockwise.
+E: No rotation. 
+Pick the best suited option.",D,videos/simulated/0360-01.mp4
+B,D,What is the figure's direction(s) of rotation?,simulated,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0362-01,"['Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'No rotation.']",,"What is the figure's direction(s) of rotation?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Clockwise then counter-clockwise.
+E: No rotation. 
+Pick the best suited option.",D,videos/simulated/0362-01.mp4
+C,E,What is the object's direction(s) of rotation,simulated,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0363-01,"['Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'No rotation.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",,"What is the object's direction(s) of rotation
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: No rotation.
+D: Clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",E,videos/simulated/0363-01.mp4
+A,D,In which direction(s) does red line rotate?,simulated,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0364-01,"['Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'No rotation.']",,"In which direction(s) does red line rotate?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise then clockwise.
+E: No rotation. 
+Pick the best suited option.",D,videos/simulated/0364-01.mp4
+A,B,In which direction(s) does pen rotate around the red center?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0365-01,"['Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'No rotation.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.']",,"In which direction(s) does pen rotate around the red center?
+Options: 
+A: Clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: No rotation.
+D: Counter-clockwise then clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",B,videos/object/0365-01.mp4
+C,D,In which direction(s) does the pointer rotate in the speedometer?,simulated,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0366-01,"['Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'No rotation.']",https://www.youtube.com/watch?v=tvFPcQ_4BqQ,"In which direction(s) does the pointer rotate in the speedometer?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Counter-clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: No rotation. 
+Pick the best suited option.",D,videos/simulated/0366-01.mp4
+E,D,In which direction(s) does the shadow of the fan blade rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0367-01,"['Counter-clockwise throughout.' 'Clockwise throughout.' 'No rotation.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.']",,"In which direction(s) does the shadow of the fan blade rotate?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise throughout.
+C: No rotation.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",D,videos/object/0367-01.mp4
+C,C,Which direction(s) does the fan blade rotate in?,object,"{'composite': 1, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,2,,0368-01,"['Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.']",,"Which direction(s) does the fan blade rotate in?
+Options: 
+A: Clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise then clockwise.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",C,videos/object/0368-01.mp4
+E,D,Which direction(s) does the dog move in?,object,"{'composite': 1, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,3,,0217-02,"['Clockwise throughout.' 'No rotation.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=cyaRkOXDhOk,"Which direction(s) does the dog move in?
+Options: 
+A: Clockwise throughout.
+B: No rotation.
+C: Counter-clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",D,videos/object/0217-02.mp4
+B,A,In which direction(s) does the dog move in?,object,"{'composite': 1, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",rotation,0,,0217-03,"['Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.' 'No rotation.' 'Clockwise throughout.']",https://www.youtube.com/watch?v=cyaRkOXDhOk,"In which direction(s) does the dog move in?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise then clockwise.
+C: Counter-clockwise throughout.
+D: No rotation.
+E: Clockwise throughout. 
+Pick the best suited option.",A,videos/object/0217-03.mp4
+D,C,In which direction(s) does cube rotate?,simulated,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0219-02,"['Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=fZYfX9VvN8M,"In which direction(s) does cube rotate?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",C,videos/simulated/0219-02.mp4
+B,E,Which direction(s) does cube rotate in?,simulated,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0219-03,"['No rotation.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=fZYfX9VvN8M,"Which direction(s) does cube rotate in?
+Options: 
+A: No rotation.
+B: Counter-clockwise then clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",E,videos/simulated/0219-03.mp4
+E,C,Which direction(s) does the toy car move?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0801-02,"['Counter-clockwise throughout.' 'No rotation.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.']",https://www.youtube.com/results?search_query=omni+wheel&sp=EgIwAQ%253D%253D,"Which direction(s) does the toy car move?
+Options: 
+A: Counter-clockwise throughout.
+B: No rotation.
+C: Counter-clockwise then clockwise.
+D: Clockwise then counter-clockwise.
+E: Clockwise throughout. 
+Pick the best suited option.",C,videos/object/0801-02.mp4
+E,B,In which direction(s) does the car move?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0801-03,"['Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise throughout.' 'No rotation.' 'Clockwise throughout.']",https://www.youtube.com/results?search_query=omni+wheel&sp=EgIwAQ%253D%253D,"In which direction(s) does the car move?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise throughout.
+D: No rotation.
+E: Clockwise throughout. 
+Pick the best suited option.",B,videos/object/0801-03.mp4
+E,B,What direction(s) does the ball wheel rotate in?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0803-01,"['Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise then clockwise.' 'No rotation.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=h1DwaOv8jcg,"What direction(s) does the ball wheel rotate in?
+Options: 
+A: Clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise then clockwise.
+D: No rotation.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",B,videos/object/0803-01.mp4
+D,B,In which direction(s) does the car move?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0804-02,"['Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.' 'No rotation.']",https://www.youtube.com/watch?v=ZrvqwkFwUSc,"In which direction(s) does the car move?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise then clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",B,videos/object/0804-02.mp4
+D,E,In which direction(s) does the toy car move?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0804-03,"['Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=ZrvqwkFwUSc,"In which direction(s) does the toy car move?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Counter-clockwise throughout.
+C: No rotation.
+D: Clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",E,videos/object/0804-03.mp4
+C,A,In which direction(s) does the toy car rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0806-02,"['Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=nvL9_OthABs,"In which direction(s) does the toy car rotate?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",A,videos/object/0806-02.mp4
+C,E,In which direction(s) does the toy car rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0806-03,"['No rotation.' 'Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=nvL9_OthABs,"In which direction(s) does the toy car rotate?
+Options: 
+A: No rotation.
+B: Counter-clockwise throughout.
+C: Clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",E,videos/object/0806-03.mp4
+D,C,In which direction(s) does the toy car rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0808-02,"['Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'No rotation.']",https://www.youtube.com/watch?v=ziDyUn1uNus,"In which direction(s) does the toy car rotate?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Counter-clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",C,videos/object/0808-02.mp4
+D,D,In which direction(s) does the toy car rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,,0808-03,"['Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'No rotation.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.']",https://www.youtube.com/watch?v=ziDyUn1uNus,"In which direction(s) does the toy car rotate?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: No rotation.
+D: Counter-clockwise then clockwise.
+E: Clockwise throughout. 
+Pick the best suited option.",D,videos/object/0808-03.mp4
+C,E,In which direction(s) does the toy car rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0810-02,"['Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.' 'No rotation.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=ziDyUn1uNus,"In which direction(s) does the toy car rotate?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Counter-clockwise throughout.
+D: No rotation.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",E,videos/object/0810-02.mp4
+C,A,In which direction(s) does the toy car rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0810-03,"['Counter-clockwise then clockwise.' 'No rotation.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise throughout.']",https://www.youtube.com/watch?v=ziDyUn1uNus,"In which direction(s) does the toy car rotate?
+Options: 
+A: Counter-clockwise then clockwise.
+B: No rotation.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise throughout.
+E: Clockwise throughout. 
+Pick the best suited option.",A,videos/object/0810-03.mp4
+D,A,What direction(s) is the wheel rotating?,simulated,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,,0813-01,"['Clockwise then counter-clockwise.' 'No rotation.'
+ 'Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=3n3-twoG644,"What direction(s) is the wheel rotating?
+Options: 
+A: Clockwise then counter-clockwise.
+B: No rotation.
+C: Counter-clockwise throughout.
+D: Clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",A,videos/simulated/0813-01.mp4
+D,C,In which direction(s) does the toy car rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0814-02,"['No rotation.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=h-HGBsZkFu8,"In which direction(s) does the toy car rotate?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Counter-clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",C,videos/object/0814-02.mp4
+C,C,In which direction(s) does the toy car rotate?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,,0814-03,"['Counter-clockwise then clockwise.' 'No rotation.'
+ 'Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise throughout.']",https://www.youtube.com/watch?v=h-HGBsZkFu8,"In which direction(s) does the toy car rotate?
+Options: 
+A: Counter-clockwise then clockwise.
+B: No rotation.
+C: Clockwise then counter-clockwise.
+D: Clockwise throughout.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",C,videos/object/0814-03.mp4
+D,E,Which direction(s) does wheel rotate in?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0816-02,"['Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",https://www.youtube.com/watch?v=o_AefREq5jk,"Which direction(s) does wheel rotate in?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise throughout.
+C: No rotation.
+D: Clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",E,videos/object/0816-02.mp4
+B,E,What direction(s) is the wheel rotating in?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,,0816-03,"['Counter-clockwise throughout.' 'No rotation.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=o_AefREq5jk,"What direction(s) is the wheel rotating in?
+Options: 
+A: Counter-clockwise throughout.
+B: No rotation.
+C: Clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",E,videos/object/0816-03.mp4
+A,B,What direction(s) is the wheel rotating in?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,,0818-01,"['No rotation.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",https://www.youtube.com/watch?v=o_AefREq5jk,"What direction(s) is the wheel rotating in?
+Options: 
+A: No rotation.
+B: Counter-clockwise then clockwise.
+C: Counter-clockwise throughout.
+D: Clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",B,videos/object/0818-01.mp4
+C,B,What direction(s) does the car rotate in?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,car;rotation,0200-01,"['Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'No rotation.']",,"What direction(s) does the car rotate in?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Clockwise throughout.
+C: Counter-clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: No rotation. 
+Pick the best suited option.",B,videos/object/0200-01.mp4
+B,A,What direction(s) does the car rotate in?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,car;rotation,0200-02,"['Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'No rotation.'
+ 'Counter-clockwise then clockwise.']",,"What direction(s) does the car rotate in?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: No rotation.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",A,videos/object/0200-02.mp4
+E,E,Which direction(s) does the car rotate in?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,car;rotation,0202-01,"['No rotation.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.']",,"Which direction(s) does the car rotate in?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise then clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",E,videos/object/0202-01.mp4
+B,B,Which direction(s) does the car rotate in?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,car;rotation,0202-02,"['Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'No rotation.'
+ 'Counter-clockwise then clockwise.']",,"Which direction(s) does the car rotate in?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: No rotation.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",B,videos/object/0202-02.mp4
+B,C,In which direction(s) does the car rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,car;rotation;normal speed,0204-01,"['Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.' 'No rotation.']",,"In which direction(s) does the car rotate?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise then counter-clockwise.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",C,videos/object/0204-01.mp4
+C,C,What direction(s) did the car rotate in?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,car;rotation;normal speed,0203-01,"['No rotation.' 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.']",,"What direction(s) did the car rotate in?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Counter-clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",C,videos/object/0203-01.mp4
+B,E,In what direction(s) does the car rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,car;rotation;slowed,0206-01,"['No rotation.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.']",,"In what direction(s) does the car rotate?
+Options: 
+A: No rotation.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: Clockwise throughout. 
+Pick the best suited option.",E,videos/object/0206-01.mp4
+D,D,In which direction(s) does the car rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,car;rotation;slowed,0206-02,"['Clockwise throughout.' 'No rotation.'
+ 'Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",,"In which direction(s) does the car rotate?
+Options: 
+A: Clockwise throughout.
+B: No rotation.
+C: Counter-clockwise then clockwise.
+D: Counter-clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",D,videos/object/0206-02.mp4
+C,D,In which direction(s) does the car's wheels rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,wheel;rotation;slowed,0378-00,"['Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.' 'Clockwise throughout.' 'No rotation.']",,"In which direction(s) does the car's wheels rotate?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Counter-clockwise then clockwise.
+C: Counter-clockwise throughout.
+D: Clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",D,videos/object/0378-00.mp4
+E,A,In which direction(s) does the car's wheels rotate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,wheel;rotation;slowed,0379-00,"['Counter-clockwise throughout.' 'Clockwise throughout.' 'No rotation.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.']",,"In which direction(s) does the car's wheels rotate?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise throughout.
+C: No rotation.
+D: Counter-clockwise then clockwise.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",A,videos/object/0379-00.mp4
+C,D,Which direction(s) does the person who films this video rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",rotation,3,human;rotation,0207-01,"['Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'No rotation.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",,"Which direction(s) does the person who films this video rotate in?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: No rotation.
+D: Clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",D,videos/human/0207-01.mp4
+E,D,Which direction(s) does the person who films this video rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",rotation,3,human;rotation,0207-02,"['Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'No rotation.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",,"Which direction(s) does the person who films this video rotate in?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise throughout.
+C: No rotation.
+D: Counter-clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",D,videos/human/0207-02.mp4
+D,A,What direction(s) does the objects in the scene rotate in?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",rotation,0,rotation,0207-03,"['Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise then clockwise.' 'No rotation.'
+ 'Clockwise throughout.']",,"What direction(s) does the objects in the scene rotate in?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise then clockwise.
+D: No rotation.
+E: Clockwise throughout. 
+Pick the best suited option.",A,videos/object/0207-03.mp4
+B,D,What direction(s) does the objects in the scene rotate in?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",rotation,3,rotation,0207-04,"['No rotation.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",,"What direction(s) does the objects in the scene rotate in?
+Options: 
+A: No rotation.
+B: Counter-clockwise then clockwise.
+C: Counter-clockwise throughout.
+D: Clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",D,videos/object/0207-04.mp4
+E,B,In which direction(s) does the person's hand rotate?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,human;rotation;slowed,0215-01,"['No rotation.' 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.']",,"In which direction(s) does the person's hand rotate?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Counter-clockwise throughout.
+D: Counter-clockwise then clockwise.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",B,videos/human/0215-01.mp4
+E,D,Which direction(s) does the person's hand rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,human;rotation;slowed,0215-02,"['Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'No rotation.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",,"Which direction(s) does the person's hand rotate in?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise throughout.
+C: No rotation.
+D: Counter-clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",D,videos/human/0215-02.mp4
+B,A,Which direction(s) does the person rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,human;rotation,0216-01,"['Clockwise throughout.' 'No rotation.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise throughout.']",,"Which direction(s) does the person rotate in?
+Options: 
+A: Clockwise throughout.
+B: No rotation.
+C: Counter-clockwise then clockwise.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",A,videos/human/0216-01.mp4
+E,D,Which direction(s) does the person rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,human;rotation,0216-02,"['Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.']",,"Which direction(s) does the person rotate in?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",D,videos/human/0216-02.mp4
+D,C,Which direction(s) does the person's hand rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,human;rotation;slowed,0218-02,"['Clockwise then counter-clockwise.' 'No rotation.'
+ 'Counter-clockwise throughout.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",,"Which direction(s) does the person's hand rotate in?
+Options: 
+A: Clockwise then counter-clockwise.
+B: No rotation.
+C: Counter-clockwise throughout.
+D: Clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",C,videos/human/0218-02.mp4
+E,E,In what direction(s) does the person's hand rotate?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,human;rotation;slowed,0218-03,"['Counter-clockwise then clockwise.' 'Counter-clockwise throughout.'
+ 'No rotation.' 'Clockwise then counter-clockwise.'
+ 'Clockwise throughout.']",,"In what direction(s) does the person's hand rotate?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Counter-clockwise throughout.
+C: No rotation.
+D: Clockwise then counter-clockwise.
+E: Clockwise throughout. 
+Pick the best suited option.",E,videos/human/0218-03.mp4
+D,A,What direction(s) does the person's hand rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,human;rotation;slowed,0230-05,"['Counter-clockwise throughout.' 'No rotation.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.']",,"What direction(s) does the person's hand rotate in?
+Options: 
+A: Counter-clockwise throughout.
+B: No rotation.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise then clockwise.
+E: Clockwise throughout. 
+Pick the best suited option.",A,videos/human/0230-05.mp4
+D,E,Which direction(s) does the person's hand rotate in?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,human;rotation;slowed,0230-06,"['No rotation.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.'
+ 'Clockwise throughout.']",,"Which direction(s) does the person's hand rotate in?
+Options: 
+A: No rotation.
+B: Counter-clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Counter-clockwise then clockwise.
+E: Clockwise throughout. 
+Pick the best suited option.",E,videos/human/0230-06.mp4
+D,B,In which direction(s) does the laser pointer move?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,object;rotation,0911-02,"['No rotation.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'Clockwise then counter-clockwise.']",,"In which direction(s) does the laser pointer move?
+Options: 
+A: No rotation.
+B: Counter-clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: Clockwise throughout.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",B,videos/object/0911-02.mp4
+E,B,In which direction(s) does the laser pointer move?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,object;rotation,0911-03,"['Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'No rotation.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",,"In which direction(s) does the laser pointer move?
+Options: 
+A: Clockwise then counter-clockwise.
+B: Clockwise throughout.
+C: No rotation.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",B,videos/object/0911-03.mp4
+E,A,In which direction(s) does the laser pointer move?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,object;rotation,0912-02,"['Counter-clockwise throughout.' 'Clockwise throughout.' 'No rotation.'
+ 'Counter-clockwise then clockwise.' 'Clockwise then counter-clockwise.']",,"In which direction(s) does the laser pointer move?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise throughout.
+C: No rotation.
+D: Counter-clockwise then clockwise.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",A,videos/object/0912-02.mp4
+C,A,In which direction(s) does the laser pointer move?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,object;rotation,0912-03,"['Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Clockwise then counter-clockwise.' 'No rotation.'
+ 'Counter-clockwise throughout.']",,"In which direction(s) does the laser pointer move?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Clockwise then counter-clockwise.
+D: No rotation.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",A,videos/object/0912-03.mp4
+C,B,In which direction(s) does the laser pointer move?,object,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,object;rotation,0912-04,"['Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'No rotation.']",,"In which direction(s) does the laser pointer move?
+Options: 
+A: Counter-clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise then clockwise.
+D: Clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",B,videos/object/0912-04.mp4
+C,C,In which direction(s) does the laser pointer move?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,2,human;rotation,0924-02,"['Clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Counter-clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'No rotation.']",,"In which direction(s) does the laser pointer move?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Counter-clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: No rotation. 
+Pick the best suited option.",C,videos/human/0924-02.mp4
+C,D,In which direction(s) does the laser pointer move?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,3,human;rotation,0924-03,"['Clockwise then counter-clockwise.' 'No rotation.'
+ 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",,"In which direction(s) does the laser pointer move?
+Options: 
+A: Clockwise then counter-clockwise.
+B: No rotation.
+C: Clockwise throughout.
+D: Counter-clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",D,videos/human/0924-03.mp4
+B,E,In which direction(s) does the laser pointer move?,human,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,human;rotation,0924-04,"['Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Counter-clockwise then clockwise.' 'No rotation.'
+ 'Clockwise then counter-clockwise.']",,"In which direction(s) does the laser pointer move?
+Options: 
+A: Clockwise throughout.
+B: Counter-clockwise throughout.
+C: Counter-clockwise then clockwise.
+D: No rotation.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",E,videos/human/0924-04.mp4
+D,A,In which direction(s) does the laser pointer move?,human,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,0,human;rotation,0924-05,"['Counter-clockwise then clockwise.' 'No rotation.'
+ 'Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise throughout.']",,"In which direction(s) does the laser pointer move?
+Options: 
+A: Counter-clockwise then clockwise.
+B: No rotation.
+C: Clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",A,videos/human/0924-05.mp4
+D,B,In which direction(s) does the laser pointer move?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,1,human;rotation,0941-02,"['No rotation.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise then clockwise.']",,"In which direction(s) does the laser pointer move?
+Options: 
+A: No rotation.
+B: Counter-clockwise throughout.
+C: Clockwise then counter-clockwise.
+D: Clockwise throughout.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",B,videos/human/0941-02.mp4
+E,E,In which direction(s) does the laser pointer move?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",rotation,4,human;rotation,0939-02,"['Clockwise throughout.' 'Clockwise then counter-clockwise.'
+ 'Counter-clockwise then clockwise.' 'No rotation.'
+ 'Counter-clockwise throughout.']",,"In which direction(s) does the laser pointer move?
+Options: 
+A: Clockwise throughout.
+B: Clockwise then counter-clockwise.
+C: Counter-clockwise then clockwise.
+D: No rotation.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",E,videos/human/0939-02.mp4
+D,B,Which direction(s) does the person rotate in?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",rotation,1,synthetic human; Eason rotating clockwise,0216-12,"['Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise throughout.' 'No rotation.'
+ 'Clockwise then counter-clockwise.']",,"Which direction(s) does the person rotate in?
+Options: 
+A: Counter-clockwise then clockwise.
+B: Clockwise throughout.
+C: Counter-clockwise throughout.
+D: No rotation.
+E: Clockwise then counter-clockwise. 
+Pick the best suited option.",B,videos/simulated/0216-12.mp4
+E,A,Which direction(s) does the person rotate in?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",rotation,0,synthetic human; Eason rotating counter-clockwise,0216-13,"['Counter-clockwise throughout.' 'Counter-clockwise then clockwise.'
+ 'Clockwise then counter-clockwise.' 'Clockwise throughout.'
+ 'No rotation.']",,"Which direction(s) does the person rotate in?
+Options: 
+A: Counter-clockwise throughout.
+B: Counter-clockwise then clockwise.
+C: Clockwise then counter-clockwise.
+D: Clockwise throughout.
+E: No rotation. 
+Pick the best suited option.",A,videos/simulated/0216-13.mp4
+C,E,Which direction(s) does the person's hand rotate in?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",rotation,4,synthetic human; Eason rotating hand counter-clockwise,0230-14,"['Clockwise then counter-clockwise.' 'No rotation.'
+ 'Counter-clockwise then clockwise.' 'Clockwise throughout.'
+ 'Counter-clockwise throughout.']",,"Which direction(s) does the person's hand rotate in?
+Options: 
+A: Clockwise then counter-clockwise.
+B: No rotation.
+C: Counter-clockwise then clockwise.
+D: Clockwise throughout.
+E: Counter-clockwise throughout. 
+Pick the best suited option.",E,videos/simulated/0230-14.mp4
+C,B,Which direction(s) does the person's hand rotate in?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",rotation,1,synthetic human; Eason rotating hand clockwise,0230-15,"['No rotation.' 'Clockwise throughout.' 'Counter-clockwise throughout.'
+ 'Clockwise then counter-clockwise.' 'Counter-clockwise then clockwise.']",,"Which direction(s) does the person's hand rotate in?
+Options: 
+A: No rotation.
+B: Clockwise throughout.
+C: Counter-clockwise throughout.
+D: Clockwise then counter-clockwise.
+E: Counter-clockwise then clockwise. 
+Pick the best suited option.",B,videos/simulated/0230-15.mp4

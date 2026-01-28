@@ -1,0 +1,1549 @@
+a_pred,a_true,question,demonstration_type,variation,motion_type,answer,note,key,options,video_source_url,question_formatted,answer_formatted,video_name
+D,C,What is the pattern of the person's hand's rotation speed?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,2,Eason rotating hand with accelerating speed,0215-08,['Decelerating.' 'Constant speed.' 'Accelerating.' 'Not moving at all.'],,"What is the pattern of the person's hand's rotation speed?
+Options: 
+A: Decelerating.
+B: Constant speed.
+C: Accelerating.
+D: Not moving at all. 
+Pick the best suited option.",C,videos/human/0215-08.mp4
+D,B,What is the pattern of the person's hand's rotation speed?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,1,Eason rotating hand with decelerating speed,0215-09,['Not moving at all.' 'Decelerating.' 'Constant speed.' 'Accelerating.'],,"What is the pattern of the person's hand's rotation speed?
+Options: 
+A: Not moving at all.
+B: Decelerating.
+C: Constant speed.
+D: Accelerating. 
+Pick the best suited option.",B,videos/human/0215-09.mp4
+A,C,What is the pattern of the person's rotation speed?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,2,Eason rotating with accelerating speed,0216-10,['Not moving at all.' 'Decelerating.' 'Accelerating.' 'Constant speed.'],,"What is the pattern of the person's rotation speed?
+Options: 
+A: Not moving at all.
+B: Decelerating.
+C: Accelerating.
+D: Constant speed. 
+Pick the best suited option.",C,videos/human/0216-10.mp4
+A,A,What is the pattern of the person's rotation speed?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,0,Eason rotating with decelerating speed,0216-11,['Decelerating.' 'Accelerating.' 'Constant speed.' 'Not moving at all.'],,"What is the pattern of the person's rotation speed?
+Options: 
+A: Decelerating.
+B: Accelerating.
+C: Constant speed.
+D: Not moving at all. 
+Pick the best suited option.",A,videos/human/0216-11.mp4
+D,A,What is the pattern of the person's hand's rotation speed?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,0,Eason rotating hand with accelerating speed,0218-10,['Accelerating.' 'Constant speed.' 'Decelerating.' 'Not moving at all.'],,"What is the pattern of the person's hand's rotation speed?
+Options: 
+A: Accelerating.
+B: Constant speed.
+C: Decelerating.
+D: Not moving at all. 
+Pick the best suited option.",A,videos/human/0218-10.mp4
+B,A,What is the pattern of the person's hand's rotation speed?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,0,Eason rotating hand with decelerating speed,0218-11,['Decelerating.' 'Accelerating.' 'Constant speed.' 'Not moving at all.'],,"What is the pattern of the person's hand's rotation speed?
+Options: 
+A: Decelerating.
+B: Accelerating.
+C: Constant speed.
+D: Not moving at all. 
+Pick the best suited option.",A,videos/human/0218-11.mp4
+D,C,What is the pattern of the person's hand's rotation speed?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,2,Eason rotating hand with accelerating speed,0230-12,['Constant speed.' 'Not moving at all.' 'Accelerating.' 'Decelerating.'],,"What is the pattern of the person's hand's rotation speed?
+Options: 
+A: Constant speed.
+B: Not moving at all.
+C: Accelerating.
+D: Decelerating. 
+Pick the best suited option.",C,videos/human/0230-12.mp4
+D,B,What is the pattern of the person's hand's rotation speed?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,1,Eason rotating hand with decelerating speed,0230-13,['Constant speed.' 'Decelerating.' 'Accelerating.' 'Not moving at all.'],,"What is the pattern of the person's hand's rotation speed?
+Options: 
+A: Constant speed.
+B: Decelerating.
+C: Accelerating.
+D: Not moving at all. 
+Pick the best suited option.",B,videos/human/0230-13.mp4
+C,B,How does the frequency of clapping change throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,Ziyao clapping,0652-00,"['Decreasing gradually then speeds up.' 'Increasing gradually.'
+ 'Decreasing gradually.' 'Remains Constant.'
+ 'Increasing gradually then slows down.']",,"How does the frequency of clapping change throughout the video?
+Options: 
+A: Decreasing gradually then speeds up.
+B: Increasing gradually.
+C: Decreasing gradually.
+D: Remains Constant.
+E: Increasing gradually then slows down. 
+Pick the best suited option.",B,videos/human/0652-00.mp4
+E,B,How does the frequency of clapping change throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,Ziyao clapping,0652-01,"['Remains Constant.' 'Decreasing gradually.'
+ 'Decreasing gradually then speeds up.'
+ 'Increasing gradually then slows down.' 'Increasing gradually.']",,"How does the frequency of clapping change throughout the video?
+Options: 
+A: Remains Constant.
+B: Decreasing gradually.
+C: Decreasing gradually then speeds up.
+D: Increasing gradually then slows down.
+E: Increasing gradually. 
+Pick the best suited option.",B,videos/human/0652-01.mp4
+C,A,How does the frequency of clapping change throughout the video?,human,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,Ziyao clapping,0652-02,"['Increasing gradually then slows down.' 'Remains Constant.'
+ 'Decreasing gradually.' 'Decreasing gradually then speeds up.'
+ 'Increasing gradually.']",,"How does the frequency of clapping change throughout the video?
+Options: 
+A: Increasing gradually then slows down.
+B: Remains Constant.
+C: Decreasing gradually.
+D: Decreasing gradually then speeds up.
+E: Increasing gradually. 
+Pick the best suited option.",A,videos/human/0652-02.mp4
+E,B,How does the frequency of clapping change throughout the video?,human,"{'composite': 1, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,Ziyao clapping,0652-03,"['Increasing gradually then slows down.'
+ 'Decreasing gradually then speeds up.' 'Remains Constant.'
+ 'Increasing gradually.' 'Decreasing gradually.']",,"How does the frequency of clapping change throughout the video?
+Options: 
+A: Increasing gradually then slows down.
+B: Decreasing gradually then speeds up.
+C: Remains Constant.
+D: Increasing gradually.
+E: Decreasing gradually. 
+Pick the best suited option.",B,videos/human/0652-03.mp4
+D,A,What is the pattern of the camera's movement speed throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,0,Ziyao running in hallway,0236-02,['Accelerating.' 'Decelerating.' 'Not moving at all.' 'Constant speed.'],,"What is the pattern of the camera's movement speed throughout the entire video?
+Options: 
+A: Accelerating.
+B: Decelerating.
+C: Not moving at all.
+D: Constant speed. 
+Pick the best suited option.",A,videos/human/0236-02.mp4
+C,B,What is the trend in the camera's movement speed across the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,1,Ziyao running in hallway,0236-03,['Not moving at all.' 'Decelerating.' 'Constant speed.' 'Accelerating.'],,"What is the trend in the camera's movement speed across the entire video?
+Options: 
+A: Not moving at all.
+B: Decelerating.
+C: Constant speed.
+D: Accelerating. 
+Pick the best suited option.",B,videos/human/0236-03.mp4
+A,C,What is the pattern of the camera's movement speed throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,2,Ziyao running in hallway,0240-02,['Constant speed.' 'Decelerating.' 'Accelerating.' 'Not moving at all.'],,"What is the pattern of the camera's movement speed throughout the entire video?
+Options: 
+A: Constant speed.
+B: Decelerating.
+C: Accelerating.
+D: Not moving at all. 
+Pick the best suited option.",C,videos/human/0240-02.mp4
+B,D,What is the trend in the camera's movement speed across the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,3,Ziyao running in hallway,0240-03,['Not moving at all.' 'Constant speed.' 'Accelerating.' 'Decelerating.'],,"What is the trend in the camera's movement speed across the entire video?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Accelerating.
+D: Decelerating. 
+Pick the best suited option.",D,videos/human/0240-03.mp4
+D,C,What is the pattern of the camera's movement speed throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,2,Ziyao running in hallway,0242-02,['Not moving at all.' 'Constant speed.' 'Accelerating.' 'Decelerating.'],,"What is the pattern of the camera's movement speed throughout the entire video?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Accelerating.
+D: Decelerating. 
+Pick the best suited option.",C,videos/human/0242-02.mp4
+C,C,What is the trend in the camera's movement speed across the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,2,Ziyao running in hallway,0242-03,['Constant speed.' 'Accelerating.' 'Decelerating.' 'Not moving at all.'],,"What is the trend in the camera's movement speed across the entire video?
+Options: 
+A: Constant speed.
+B: Accelerating.
+C: Decelerating.
+D: Not moving at all. 
+Pick the best suited option.",C,videos/human/0242-03.mp4
+D,A,What is the pattern of the camera's movement speed throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,0,Ziyao running in hallway,0245-02,['Accelerating.' 'Not moving at all.' 'Decelerating.' 'Constant speed.'],,"What is the pattern of the camera's movement speed throughout the entire video?
+Options: 
+A: Accelerating.
+B: Not moving at all.
+C: Decelerating.
+D: Constant speed. 
+Pick the best suited option.",A,videos/human/0245-02.mp4
+B,B,What is the trend in the camera's movement speed across the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,1,Ziyao running in hallway,0245-03,['Constant speed.' 'Decelerating.' 'Not moving at all.' 'Accelerating.'],,"What is the trend in the camera's movement speed across the entire video?
+Options: 
+A: Constant speed.
+B: Decelerating.
+C: Not moving at all.
+D: Accelerating. 
+Pick the best suited option.",B,videos/human/0245-03.mp4
+A,D,What is the pattern of the camera's movement speed throughout the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,3,Ziyao running in hallway,0281-02,['Constant speed.' 'Not moving at all.' 'Decelerating.' 'Accelerating.'],,"What is the pattern of the camera's movement speed throughout the entire video?
+Options: 
+A: Constant speed.
+B: Not moving at all.
+C: Decelerating.
+D: Accelerating. 
+Pick the best suited option.",D,videos/human/0281-02.mp4
+A,A,What is the trend in the camera's movement speed across the entire video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,0,Ziyao running in hallway,0281-03,['Decelerating.' 'Constant speed.' 'Accelerating.' 'Not moving at all.'],,"What is the trend in the camera's movement speed across the entire video?
+Options: 
+A: Decelerating.
+B: Constant speed.
+C: Accelerating.
+D: Not moving at all. 
+Pick the best suited option.",A,videos/human/0281-03.mp4
+B,B,How does the frequency of the hammer's handle striking the floor change throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,1,Eason using a hammer to hit the ground,0283-00,"['Decreasing gradually.' 'Increasing gradually.'
+ 'Increasing gradually then slows down.'
+ 'Decreasing gradually then speeds up.' 'Remains Constant.']",,"How does the frequency of the hammer's handle striking the floor change throughout the video?
+Options: 
+A: Decreasing gradually.
+B: Increasing gradually.
+C: Increasing gradually then slows down.
+D: Decreasing gradually then speeds up.
+E: Remains Constant. 
+Pick the best suited option.",B,videos/human/0283-00.mp4
+C,D,How does the frequency of the hammer's handle striking the floor change throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,3,Eason using a hammer to hit the ground,0283-01,"['Decreasing gradually then speeds up.'
+ 'Increasing gradually then slows down.' 'Increasing gradually.'
+ 'Decreasing gradually.' 'Remains Constant.']",,"How does the frequency of the hammer's handle striking the floor change throughout the video?
+Options: 
+A: Decreasing gradually then speeds up.
+B: Increasing gradually then slows down.
+C: Increasing gradually.
+D: Decreasing gradually.
+E: Remains Constant. 
+Pick the best suited option.",D,videos/human/0283-01.mp4
+E,C,How does the rate of the hammer's handle hitting the floor vary throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,2,Eason using a hammer to hit the ground,0283-02,"['Remains Constant.' 'Increasing gradually.'
+ 'Increasing gradually then slows down.'
+ 'Decreasing gradually then speeds up.' 'Decreasing gradually.']",,"How does the rate of the hammer's handle hitting the floor vary throughout the video?
+Options: 
+A: Remains Constant.
+B: Increasing gradually.
+C: Increasing gradually then slows down.
+D: Decreasing gradually then speeds up.
+E: Decreasing gradually. 
+Pick the best suited option.",C,videos/human/0283-02.mp4
+D,E,How does the rate of the hammer's handle hitting the floor vary throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,4,Eason using a hammer to hit the ground,0283-03,"['Decreasing gradually.' 'Increasing gradually then slows down.'
+ 'Remains Constant.' 'Increasing gradually.'
+ 'Decreasing gradually then speeds up.']",,"How does the rate of the hammer's handle hitting the floor vary throughout the video?
+Options: 
+A: Decreasing gradually.
+B: Increasing gradually then slows down.
+C: Remains Constant.
+D: Increasing gradually.
+E: Decreasing gradually then speeds up. 
+Pick the best suited option.",E,videos/human/0283-03.mp4
+D,E,How does the frequency of the hammer's handle striking the floor change throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,4,Eason using a hammer to hit the ground,0305-00,"['Decreasing gradually then speeds up.' 'Remains Constant.'
+ 'Increasing gradually then slows down.' 'Decreasing gradually.'
+ 'Increasing gradually.']",,"How does the frequency of the hammer's handle striking the floor change throughout the video?
+Options: 
+A: Decreasing gradually then speeds up.
+B: Remains Constant.
+C: Increasing gradually then slows down.
+D: Decreasing gradually.
+E: Increasing gradually. 
+Pick the best suited option.",E,videos/human/0305-00.mp4
+C,C,How does the frequency of the hammer's handle striking the floor change throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,2,Eason using a hammer to hit the ground,0305-01,"['Remains Constant.' 'Decreasing gradually then speeds up.'
+ 'Decreasing gradually.' 'Increasing gradually.'
+ 'Increasing gradually then slows down.']",,"How does the frequency of the hammer's handle striking the floor change throughout the video?
+Options: 
+A: Remains Constant.
+B: Decreasing gradually then speeds up.
+C: Decreasing gradually.
+D: Increasing gradually.
+E: Increasing gradually then slows down. 
+Pick the best suited option.",C,videos/human/0305-01.mp4
+D,B,How does the rate of the hammer's handle hitting the floor vary throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,1,Eason using a hammer to hit the ground,0305-02,"['Decreasing gradually.' 'Increasing gradually then slows down.'
+ 'Decreasing gradually then speeds up.' 'Increasing gradually.'
+ 'Remains Constant.']",,"How does the rate of the hammer's handle hitting the floor vary throughout the video?
+Options: 
+A: Decreasing gradually.
+B: Increasing gradually then slows down.
+C: Decreasing gradually then speeds up.
+D: Increasing gradually.
+E: Remains Constant. 
+Pick the best suited option.",B,videos/human/0305-02.mp4
+C,E,How does the rate of the hammer's handle hitting the floor vary throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,4,Eason using a hammer to hit the ground,0305-03,"['Remains Constant.' 'Increasing gradually then slows down.'
+ 'Increasing gradually.' 'Decreasing gradually.'
+ 'Decreasing gradually then speeds up.']",,"How does the rate of the hammer's handle hitting the floor vary throughout the video?
+Options: 
+A: Remains Constant.
+B: Increasing gradually then slows down.
+C: Increasing gradually.
+D: Decreasing gradually.
+E: Decreasing gradually then speeds up. 
+Pick the best suited option.",E,videos/human/0305-03.mp4
+B,A,How does the frequency of clapping change throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,0,Eason clapping,0308-00,"['Increasing gradually.' 'Decreasing gradually.' 'Remains Constant.'
+ 'Increasing gradually then slows down.'
+ 'Decreasing gradually then speeds up.']",,"How does the frequency of clapping change throughout the video?
+Options: 
+A: Increasing gradually.
+B: Decreasing gradually.
+C: Remains Constant.
+D: Increasing gradually then slows down.
+E: Decreasing gradually then speeds up. 
+Pick the best suited option.",A,videos/human/0308-00.mp4
+E,A,How does the frequency of clapping change throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,0,Eason clapping,0308-01,"['Decreasing gradually.' 'Decreasing gradually then speeds up.'
+ 'Remains Constant.' 'Increasing gradually.'
+ 'Increasing gradually then slows down.']",,"How does the frequency of clapping change throughout the video?
+Options: 
+A: Decreasing gradually.
+B: Decreasing gradually then speeds up.
+C: Remains Constant.
+D: Increasing gradually.
+E: Increasing gradually then slows down. 
+Pick the best suited option.",A,videos/human/0308-01.mp4
+D,E,How does the rate of clapping vary throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,4,Eason clapping,0308-02,"['Decreasing gradually then speeds up.' 'Remains Constant.'
+ 'Increasing gradually.' 'Decreasing gradually.'
+ 'Increasing gradually then slows down.']",,"How does the rate of clapping vary throughout the video?
+Options: 
+A: Decreasing gradually then speeds up.
+B: Remains Constant.
+C: Increasing gradually.
+D: Decreasing gradually.
+E: Increasing gradually then slows down. 
+Pick the best suited option.",E,videos/human/0308-02.mp4
+E,C,How does the rate of clapping vary throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,2,Eason clapping,0308-03,"['Remains Constant.' 'Decreasing gradually.'
+ 'Decreasing gradually then speeds up.' 'Increasing gradually.'
+ 'Increasing gradually then slows down.']",,"How does the rate of clapping vary throughout the video?
+Options: 
+A: Remains Constant.
+B: Decreasing gradually.
+C: Decreasing gradually then speeds up.
+D: Increasing gradually.
+E: Increasing gradually then slows down. 
+Pick the best suited option.",C,videos/human/0308-03.mp4
+E,C,How does the frequency of the hammer striking the floor change throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,2,Eason using a hammer to hit the ground,0315-00,"['Increasing gradually then slows down.' 'Remains Constant.'
+ 'Increasing gradually.' 'Decreasing gradually then speeds up.'
+ 'Decreasing gradually.']",,"How does the frequency of the hammer striking the floor change throughout the video?
+Options: 
+A: Increasing gradually then slows down.
+B: Remains Constant.
+C: Increasing gradually.
+D: Decreasing gradually then speeds up.
+E: Decreasing gradually. 
+Pick the best suited option.",C,videos/human/0315-00.mp4
+D,D,How does the frequency of the hammer striking the floor change throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,3,Eason using a hammer to hit the ground,0315-01,"['Increasing gradually then slows down.' 'Increasing gradually.'
+ 'Decreasing gradually then speeds up.' 'Decreasing gradually.'
+ 'Remains Constant.']",,"How does the frequency of the hammer striking the floor change throughout the video?
+Options: 
+A: Increasing gradually then slows down.
+B: Increasing gradually.
+C: Decreasing gradually then speeds up.
+D: Decreasing gradually.
+E: Remains Constant. 
+Pick the best suited option.",D,videos/human/0315-01.mp4
+D,B,How does the rate of the hammer hitting the floor vary throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,1,Eason using a hammer to hit the ground,0315-02,"['Decreasing gradually.' 'Increasing gradually then slows down.'
+ 'Decreasing gradually then speeds up.' 'Increasing gradually.'
+ 'Remains Constant.']",,"How does the rate of the hammer hitting the floor vary throughout the video?
+Options: 
+A: Decreasing gradually.
+B: Increasing gradually then slows down.
+C: Decreasing gradually then speeds up.
+D: Increasing gradually.
+E: Remains Constant. 
+Pick the best suited option.",B,videos/human/0315-02.mp4
+C,D,How does the rate of the hammer hitting the floor vary throughout the video?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,3,Eason using a hammer to hit the ground,0315-03,"['Decreasing gradually.' 'Increasing gradually then slows down.'
+ 'Increasing gradually.' 'Decreasing gradually then speeds up.'
+ 'Remains Constant.']",,"How does the rate of the hammer hitting the floor vary throughout the video?
+Options: 
+A: Decreasing gradually.
+B: Increasing gradually then slows down.
+C: Increasing gradually.
+D: Decreasing gradually then speeds up.
+E: Remains Constant. 
+Pick the best suited option.",D,videos/human/0315-03.mp4
+C,C,What is the pattern of the weight's speed on the plate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,physics;rotation,0326-02,['Decelerating.' 'Constant speed.' 'Accelerating.' 'Not moving at all.'],https://www.youtube.com/watch?v=VOOVtEjHqjw,"What is the pattern of the weight's speed on the plate?
+Options: 
+A: Decelerating.
+B: Constant speed.
+C: Accelerating.
+D: Not moving at all. 
+Pick the best suited option.",C,videos/object/0326-02.mp4
+A,A,What is the pattern of the basketball's speed?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,ball;linear,0519-00,['Decelerating.' 'Constant speed.' 'Not moving at all.' 'Accelerating.'],https://www.youtube.com/watch?v=BoanWlyZAGU,"What is the pattern of the basketball's speed?
+Options: 
+A: Decelerating.
+B: Constant speed.
+C: Not moving at all.
+D: Accelerating. 
+Pick the best suited option.",A,videos/simulated/0519-00.mp4
+D,A,What is the pattern of the slider's speed?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,physics;linear,0520-00,['Accelerating.' 'Not moving at all.' 'Decelerating.' 'Constant speed.'],https://www.youtube.com/watch?v=DPl80nZogDE,"What is the pattern of the slider's speed?
+Options: 
+A: Accelerating.
+B: Not moving at all.
+C: Decelerating.
+D: Constant speed. 
+Pick the best suited option.",A,videos/object/0520-00.mp4
+D,C,What is the pattern of the plane's speed on the runway?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,2,linear;airplane,0521-00,['Not moving at all.' 'Constant speed.' 'Accelerating.' 'Decelerating.'],https://www.youtube.com/watch?v=uwwzoftsMXc,"What is the pattern of the plane's speed on the runway?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Accelerating.
+D: Decelerating. 
+Pick the best suited option.",C,videos/object/0521-00.mp4
+B,B,What is the pattern of the plane's speed on the runway?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 1, 'zoom': 0}",velocity&frequency,1,linear;airplane,0521-01,['Accelerating.' 'Decelerating.' 'Not moving at all.' 'Constant speed.'],https://www.youtube.com/watch?v=uwwzoftsMXc,"What is the pattern of the plane's speed on the runway?
+Options: 
+A: Accelerating.
+B: Decelerating.
+C: Not moving at all.
+D: Constant speed. 
+Pick the best suited option.",B,videos/object/0521-01.mp4
+C,C,What is the pattern of the plane's speed on the runway?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,linear;airplane,0523-00,['Decelerating.' 'Constant speed.' 'Accelerating.' 'Not moving at all.'],https://www.youtube.com/watch?v=eqTZ74aXa68,"What is the pattern of the plane's speed on the runway?
+Options: 
+A: Decelerating.
+B: Constant speed.
+C: Accelerating.
+D: Not moving at all. 
+Pick the best suited option.",C,videos/object/0523-00.mp4
+D,A,What is the pattern of the plane's speed on the runway?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,linear;airplane,0523-01,['Decelerating.' 'Not moving at all.' 'Constant speed.' 'Accelerating.'],https://www.youtube.com/watch?v=eqTZ74aXa68,"What is the pattern of the plane's speed on the runway?
+Options: 
+A: Decelerating.
+B: Not moving at all.
+C: Constant speed.
+D: Accelerating. 
+Pick the best suited option.",A,videos/object/0523-01.mp4
+B,B,What is the pattern of the roller coaster's speed on the rail?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,linear;roller coaster,0525-00,['Decelerating.' 'Accelerating.' 'Constant speed.' 'Not moving at all.'],https://www.youtube.com/watch?v=dmqkEmdE5nE,"What is the pattern of the roller coaster's speed on the rail?
+Options: 
+A: Decelerating.
+B: Accelerating.
+C: Constant speed.
+D: Not moving at all. 
+Pick the best suited option.",B,videos/object/0525-00.mp4
+A,C,What is the pattern of the roller coaster's speed on the rail?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,linear;roller coaster,0525-01,['Accelerating.' 'Not moving at all.' 'Decelerating.' 'Constant speed.'],https://www.youtube.com/watch?v=dmqkEmdE5nE,"What is the pattern of the roller coaster's speed on the rail?
+Options: 
+A: Accelerating.
+B: Not moving at all.
+C: Decelerating.
+D: Constant speed. 
+Pick the best suited option.",C,videos/object/0525-01.mp4
+C,D,What is the pattern of the wheel's speed on the rail?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,linear;physics;wheel,0527-00,['Decelerating.' 'Not moving at all.' 'Constant speed.' 'Accelerating.'],https://www.youtube.com/watch?v=r8In7AM8Uo4,"What is the pattern of the wheel's speed on the rail?
+Options: 
+A: Decelerating.
+B: Not moving at all.
+C: Constant speed.
+D: Accelerating. 
+Pick the best suited option.",D,videos/object/0527-00.mp4
+D,D,What is the pattern of the train's speed?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,linear;train,0528-00,['Not moving at all.' 'Constant speed.' 'Accelerating.' 'Decelerating.'],https://www.youtube.com/watch?v=MetKW3lADr0,"What is the pattern of the train's speed?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Accelerating.
+D: Decelerating. 
+Pick the best suited option.",D,videos/object/0528-00.mp4
+A,A,What is the pattern of the wheel's speed on the rail?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,linear;physics;wheel,0527-01,['Decelerating.' 'Accelerating.' 'Not moving at all.' 'Constant speed.'],https://www.youtube.com/watch?v=r8In7AM8Uo4,"What is the pattern of the wheel's speed on the rail?
+Options: 
+A: Decelerating.
+B: Accelerating.
+C: Not moving at all.
+D: Constant speed. 
+Pick the best suited option.",A,videos/object/0527-01.mp4
+C,A,What is the pattern of the train's speed on the rail?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,linear;train,0530-00,['Decelerating.' 'Accelerating.' 'Constant speed.' 'Not moving at all.'],https://www.youtube.com/watch?v=UnbAgKI7NDw,"What is the pattern of the train's speed on the rail?
+Options: 
+A: Decelerating.
+B: Accelerating.
+C: Constant speed.
+D: Not moving at all. 
+Pick the best suited option.",A,videos/object/0530-00.mp4
+D,C,What is the pattern of the train's speed on the rail?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,linear;train,0530-01,['Decelerating.' 'Not moving at all.' 'Accelerating.' 'Constant speed.'],https://www.youtube.com/watch?v=UnbAgKI7NDw,"What is the pattern of the train's speed on the rail?
+Options: 
+A: Decelerating.
+B: Not moving at all.
+C: Accelerating.
+D: Constant speed. 
+Pick the best suited option.",C,videos/object/0530-01.mp4
+B,D,What is the pattern of the object's speed on the board?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,physics;linear,0532-00,['Constant speed.' 'Decelerating.' 'Not moving at all.' 'Accelerating.'],https://www.youtube.com/watch?v=-YdzhrKfruk,"What is the pattern of the object's speed on the board?
+Options: 
+A: Constant speed.
+B: Decelerating.
+C: Not moving at all.
+D: Accelerating. 
+Pick the best suited option.",D,videos/object/0532-00.mp4
+B,A,What is the pattern of the object's speed on the board?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,physics;linear,0532-01,['Decelerating.' 'Constant speed.' 'Accelerating.' 'Not moving at all.'],https://www.youtube.com/watch?v=-YdzhrKfruk,"What is the pattern of the object's speed on the board?
+Options: 
+A: Decelerating.
+B: Constant speed.
+C: Accelerating.
+D: Not moving at all. 
+Pick the best suited option.",A,videos/object/0532-01.mp4
+D,B,What is the pattern of the pingpong's speed on the plate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,physics;rotation;ball,0255-04,['Constant speed.' 'Decelerating.' 'Not moving at all.' 'Accelerating.'],https://www.youtube.com/watch?v=ApO6V_oetVI,"What is the pattern of the pingpong's speed on the plate?
+Options: 
+A: Constant speed.
+B: Decelerating.
+C: Not moving at all.
+D: Accelerating. 
+Pick the best suited option.",B,videos/object/0255-04.mp4
+C,C,What is the pattern of the pingpong's speed on the plate?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,physics;rotation;ball,0255-05,['Not moving at all.' 'Decelerating.' 'Accelerating.' 'Constant speed.'],https://www.youtube.com/watch?v=ApO6V_oetVI,"What is the pattern of the pingpong's speed on the plate?
+Options: 
+A: Not moving at all.
+B: Decelerating.
+C: Accelerating.
+D: Constant speed. 
+Pick the best suited option.",C,videos/object/0255-05.mp4
+C,C,What is the pattern of the iron ball's speed on the plate?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,physics;rotation;ball,0255-06,['Accelerating.' 'Not moving at all.' 'Decelerating.' 'Constant speed.'],https://www.youtube.com/watch?v=ApO6V_oetVI,"What is the pattern of the iron ball's speed on the plate?
+Options: 
+A: Accelerating.
+B: Not moving at all.
+C: Decelerating.
+D: Constant speed. 
+Pick the best suited option.",C,videos/object/0255-06.mp4
+D,D,What is the pattern of the iron ball's speed on the plate?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,physics;rotation;ball,0255-07,['Decelerating.' 'Constant speed.' 'Not moving at all.' 'Accelerating.'],https://www.youtube.com/watch?v=ApO6V_oetVI,"What is the pattern of the iron ball's speed on the plate?
+Options: 
+A: Decelerating.
+B: Constant speed.
+C: Not moving at all.
+D: Accelerating. 
+Pick the best suited option.",D,videos/object/0255-07.mp4
+B,C,What is the pattern of the ball's speed?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,physics;linear;ball,0538-00,['Not moving at all.' 'Constant speed.' 'Accelerating.' 'Decelerating.'],https://www.youtube.com/watch?v=kjSGJ0FPQIY,"What is the pattern of the ball's speed?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Accelerating.
+D: Decelerating. 
+Pick the best suited option.",C,videos/object/0538-00.mp4
+B,A,What is the pattern of the ball's speed?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,physics;linear;ball,0538-01,['Decelerating.' 'Accelerating.' 'Constant speed.' 'Not moving at all.'],https://www.youtube.com/watch?v=kjSGJ0FPQIY,"What is the pattern of the ball's speed?
+Options: 
+A: Decelerating.
+B: Accelerating.
+C: Constant speed.
+D: Not moving at all. 
+Pick the best suited option.",A,videos/object/0538-01.mp4
+D,B,What is the pattern of the train's speed?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,linear;train,0540-00,['Constant speed.' 'Decelerating.' 'Not moving at all.' 'Accelerating.'],https://www.youtube.com/watch?v=MetKW3lADr0,"What is the pattern of the train's speed?
+Options: 
+A: Constant speed.
+B: Decelerating.
+C: Not moving at all.
+D: Accelerating. 
+Pick the best suited option.",B,videos/object/0540-00.mp4
+A,B,What is the pattern of the train's speed?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,linear;train,0528-01,['Not moving at all.' 'Accelerating.' 'Decelerating.' 'Constant speed.'],https://www.youtube.com/watch?v=MetKW3lADr0,"What is the pattern of the train's speed?
+Options: 
+A: Not moving at all.
+B: Accelerating.
+C: Decelerating.
+D: Constant speed. 
+Pick the best suited option.",B,videos/object/0528-01.mp4
+A,C,What is the pattern of the train's speed?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,linear;train,0540-01,['Decelerating.' 'Not moving at all.' 'Accelerating.' 'Constant speed.'],https://www.youtube.com/watch?v=MetKW3lADr0,"What is the pattern of the train's speed?
+Options: 
+A: Decelerating.
+B: Not moving at all.
+C: Accelerating.
+D: Constant speed. 
+Pick the best suited option.",C,videos/object/0540-01.mp4
+D,C,What is the pattern of the plane's speed on the runway?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,2,linear;airplane,0543-00,['Decelerating.' 'Not moving at all.' 'Accelerating.' 'Constant speed.'],https://www.youtube.com/watch?v=h32rdmt6ySw,"What is the pattern of the plane's speed on the runway?
+Options: 
+A: Decelerating.
+B: Not moving at all.
+C: Accelerating.
+D: Constant speed. 
+Pick the best suited option.",C,videos/object/0543-00.mp4
+D,D,What is the pattern of the plane's speed on the runway?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 1, 'zoom': 0}",velocity&frequency,3,linear;airplane,0543-01,['Accelerating.' 'Not moving at all.' 'Constant speed.' 'Decelerating.'],https://www.youtube.com/watch?v=h32rdmt6ySw,"What is the pattern of the plane's speed on the runway?
+Options: 
+A: Accelerating.
+B: Not moving at all.
+C: Constant speed.
+D: Decelerating. 
+Pick the best suited option.",D,videos/object/0543-01.mp4
+D,B,What is the pattern of the object's speed in the video?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,water cup;linear,0545-00,['Constant speed.' 'Accelerating.' 'Not moving at all.' 'Decelerating.'],https://www.youtube.com/watch?v=vpQQJTyiokE,"What is the pattern of the object's speed in the video?
+Options: 
+A: Constant speed.
+B: Accelerating.
+C: Not moving at all.
+D: Decelerating. 
+Pick the best suited option.",B,videos/object/0545-00.mp4
+D,C,What is the pattern of the object's speed in the video?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,water cup;linear,0545-01,['Not moving at all.' 'Constant speed.' 'Decelerating.' 'Accelerating.'],https://www.youtube.com/watch?v=vpQQJTyiokE,"What is the pattern of the object's speed in the video?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Decelerating.
+D: Accelerating. 
+Pick the best suited option.",C,videos/object/0545-01.mp4
+D,C,What is the pattern of the train's speed?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,linear;train,0547-00,['Constant speed.' 'Not moving at all.' 'Decelerating.' 'Accelerating.'],,"What is the pattern of the train's speed?
+Options: 
+A: Constant speed.
+B: Not moving at all.
+C: Decelerating.
+D: Accelerating. 
+Pick the best suited option.",C,videos/object/0547-00.mp4
+D,A,What is the pattern of the train's speed?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,linear;train,0547-01,['Accelerating.' 'Not moving at all.' 'Constant speed.' 'Decelerating.'],,"What is the pattern of the train's speed?
+Options: 
+A: Accelerating.
+B: Not moving at all.
+C: Constant speed.
+D: Decelerating. 
+Pick the best suited option.",A,videos/object/0547-01.mp4
+B,D,What is the train's speed pattern based on the view from the window in the video?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,3,linear;train,0549-00,['Accelerating.' 'Constant speed.' 'Not moving at all.' 'Decelerating.'],,"What is the train's speed pattern based on the view from the window in the video?
+Options: 
+A: Accelerating.
+B: Constant speed.
+C: Not moving at all.
+D: Decelerating. 
+Pick the best suited option.",D,videos/object/0549-00.mp4
+C,B,What is the train's speed pattern based on the view from the window in the video?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,1,linear;train,0549-01,['Constant speed.' 'Accelerating.' 'Not moving at all.' 'Decelerating.'],,"What is the train's speed pattern based on the view from the window in the video?
+Options: 
+A: Constant speed.
+B: Accelerating.
+C: Not moving at all.
+D: Decelerating. 
+Pick the best suited option.",B,videos/object/0549-01.mp4
+C,B,What is balls' speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,physics;linear;ball,0551-00,['Not moving at all.' 'Accelerating.' 'Decelerating.' 'Constant speed.'],https://www.youtube.com/watch?v=AiGM4lrpA_k,"What is balls' speed pattern?
+Options: 
+A: Not moving at all.
+B: Accelerating.
+C: Decelerating.
+D: Constant speed. 
+Pick the best suited option.",B,videos/object/0551-00.mp4
+A,A,What is balls' speed pattern?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,physics;linear;ball,0551-01,['Decelerating.' 'Not moving at all.' 'Accelerating.' 'Constant speed.'],https://www.youtube.com/watch?v=AiGM4lrpA_k,"What is balls' speed pattern?
+Options: 
+A: Decelerating.
+B: Not moving at all.
+C: Accelerating.
+D: Constant speed. 
+Pick the best suited option.",A,videos/object/0551-01.mp4
+D,D,What is the speed pattern of the object as it moves along the slope?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,physics;linear,0553-00,['Constant speed.' 'Not moving at all.' 'Decelerating.' 'Accelerating.'],https://www.youtube.com/watch?v=JjypCDNSavw,"What is the speed pattern of the object as it moves along the slope?
+Options: 
+A: Constant speed.
+B: Not moving at all.
+C: Decelerating.
+D: Accelerating. 
+Pick the best suited option.",D,videos/object/0553-00.mp4
+B,C,What is the speed pattern of the object as it moves along the slope?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,physics;linear,0553-01,['Not moving at all.' 'Constant speed.' 'Decelerating.' 'Accelerating.'],https://www.youtube.com/watch?v=JjypCDNSavw,"What is the speed pattern of the object as it moves along the slope?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Decelerating.
+D: Accelerating. 
+Pick the best suited option.",C,videos/object/0553-01.mp4
+C,B,What is the pattern of the car's speed in the video?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,physics;car;linear,0555-00,['Constant speed.' 'Decelerating.' 'Accelerating.' 'Not moving at all.'],https://www.youtube.com/watch?v=akDSPdqE_T0,"What is the pattern of the car's speed in the video?
+Options: 
+A: Constant speed.
+B: Decelerating.
+C: Accelerating.
+D: Not moving at all. 
+Pick the best suited option.",B,videos/object/0555-00.mp4
+D,B,What is the pattern of the car's speed in the video?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,physics;car;linear,0555-01,['Constant speed.' 'Accelerating.' 'Not moving at all.' 'Decelerating.'],https://www.youtube.com/watch?v=akDSPdqE_T0,"What is the pattern of the car's speed in the video?
+Options: 
+A: Constant speed.
+B: Accelerating.
+C: Not moving at all.
+D: Decelerating. 
+Pick the best suited option.",B,videos/object/0555-01.mp4
+D,D,What is the pattern of the block's speed in the video?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,physics;linear,0557-00,['Not moving at all.' 'Accelerating.' 'Constant speed.' 'Decelerating.'],https://www.youtube.com/watch?v=-fiQIqzmIjE,"What is the pattern of the block's speed in the video?
+Options: 
+A: Not moving at all.
+B: Accelerating.
+C: Constant speed.
+D: Decelerating. 
+Pick the best suited option.",D,videos/object/0557-00.mp4
+D,D,What is the pattern of the block's speed in the video?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,physics;linear,0557-01,['Not moving at all.' 'Constant speed.' 'Decelerating.' 'Accelerating.'],https://www.youtube.com/watch?v=-fiQIqzmIjE,"What is the pattern of the block's speed in the video?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Decelerating.
+D: Accelerating. 
+Pick the best suited option.",D,videos/object/0557-01.mp4
+D,C,What is the pattern of the car's speed?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,linear;car,0559-00,['Accelerating.' 'Not moving at all.' 'Constant speed.' 'Decelerating.'],https://www.youtube.com/watch?v=TAtCs9ifRRY,"What is the pattern of the car's speed?
+Options: 
+A: Accelerating.
+B: Not moving at all.
+C: Constant speed.
+D: Decelerating. 
+Pick the best suited option.",C,videos/simulated/0559-00.mp4
+B,B,What is the pattern of the car's speed?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,linear;car,0559-01,['Constant speed.' 'Accelerating.' 'Decelerating.' 'Not moving at all.'],https://www.youtube.com/watch?v=TAtCs9ifRRY,"What is the pattern of the car's speed?
+Options: 
+A: Constant speed.
+B: Accelerating.
+C: Decelerating.
+D: Not moving at all. 
+Pick the best suited option.",B,videos/simulated/0559-01.mp4
+B,A,What is the pattern of the car's speed?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,linear;car,0559-02,['Decelerating.' 'Accelerating.' 'Constant speed.' 'Not moving at all.'],https://www.youtube.com/watch?v=TAtCs9ifRRY,"What is the pattern of the car's speed?
+Options: 
+A: Decelerating.
+B: Accelerating.
+C: Constant speed.
+D: Not moving at all. 
+Pick the best suited option.",A,videos/simulated/0559-02.mp4
+D,A,What is disks' speed pattern?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,physics;disk;linear,0562-00,['Accelerating.' 'Constant speed.' 'Not moving at all.' 'Decelerating.'],https://www.youtube.com/watch?v=CHQOctEvtTY,"What is disks' speed pattern?
+Options: 
+A: Accelerating.
+B: Constant speed.
+C: Not moving at all.
+D: Decelerating. 
+Pick the best suited option.",A,videos/object/0562-00.mp4
+D,D,What is disks' speed pattern?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,physics;disk;linear,0562-01,['Not moving at all.' 'Accelerating.' 'Constant speed.' 'Decelerating.'],https://www.youtube.com/watch?v=CHQOctEvtTY,"What is disks' speed pattern?
+Options: 
+A: Not moving at all.
+B: Accelerating.
+C: Constant speed.
+D: Decelerating. 
+Pick the best suited option.",D,videos/object/0562-01.mp4
+B,C,What is the pattern of the train's speed?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,train;linear,0564-00,['Constant speed.' 'Not moving at all.' 'Decelerating.' 'Accelerating.'],https://www.youtube.com/watch?v=5hrb5IgyVss,"What is the pattern of the train's speed?
+Options: 
+A: Constant speed.
+B: Not moving at all.
+C: Decelerating.
+D: Accelerating. 
+Pick the best suited option.",C,videos/object/0564-00.mp4
+B,D,What is the pattern of the train's speed?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,train;linear,0564-01,['Constant speed.' 'Not moving at all.' 'Decelerating.' 'Accelerating.'],https://www.youtube.com/watch?v=5hrb5IgyVss,"What is the pattern of the train's speed?
+Options: 
+A: Constant speed.
+B: Not moving at all.
+C: Decelerating.
+D: Accelerating. 
+Pick the best suited option.",D,videos/object/0564-01.mp4
+B,B,What is the train's speed pattern based on the view from the window in the video?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,1,linear;train,0566-00,['Accelerating.' 'Decelerating.' 'Constant speed.' 'Not moving at all.'],https://www.youtube.com/watch?v=TJ5MYTga51M,"What is the train's speed pattern based on the view from the window in the video?
+Options: 
+A: Accelerating.
+B: Decelerating.
+C: Constant speed.
+D: Not moving at all. 
+Pick the best suited option.",B,videos/object/0566-00.mp4
+C,B,What is the train's speed pattern based on the view from the window in the video?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,1,linear;train,0566-01,['Decelerating.' 'Accelerating.' 'Constant speed.' 'Not moving at all.'],https://www.youtube.com/watch?v=TJ5MYTga51M,"What is the train's speed pattern based on the view from the window in the video?
+Options: 
+A: Decelerating.
+B: Accelerating.
+C: Constant speed.
+D: Not moving at all. 
+Pick the best suited option.",B,videos/object/0566-01.mp4
+C,C,What is the pattern of the car's wheels' rotation speed?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,car;rotation,0378-01,['Constant speed.' 'Accelerating.' 'Decelerating.' 'Not moving at all.'],,"What is the pattern of the car's wheels' rotation speed?
+Options: 
+A: Constant speed.
+B: Accelerating.
+C: Decelerating.
+D: Not moving at all. 
+Pick the best suited option.",C,videos/object/0378-01.mp4
+D,A,What is the pattern of the car's wheels' rotation speed?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,car;rotation,0379-01,['Decelerating.' 'Not moving at all.' 'Constant speed.' 'Accelerating.'],,"What is the pattern of the car's wheels' rotation speed?
+Options: 
+A: Decelerating.
+B: Not moving at all.
+C: Constant speed.
+D: Accelerating. 
+Pick the best suited option.",A,videos/object/0379-01.mp4
+B,C,What is the pattern of the car's wheels' rotation speed?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,car;rotation,0379-02,['Decelerating.' 'Constant speed.' 'Accelerating.' 'Not moving at all.'],,"What is the pattern of the car's wheels' rotation speed?
+Options: 
+A: Decelerating.
+B: Constant speed.
+C: Accelerating.
+D: Not moving at all. 
+Pick the best suited option.",C,videos/object/0379-02.mp4
+C,B,What is the pattern of the car's wheels' rotation speed?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,car;rotation,0378-02,['Not moving at all.' 'Accelerating.' 'Decelerating.' 'Constant speed.'],,"What is the pattern of the car's wheels' rotation speed?
+Options: 
+A: Not moving at all.
+B: Accelerating.
+C: Decelerating.
+D: Constant speed. 
+Pick the best suited option.",B,videos/object/0378-02.mp4
+D,D,What is the pattern of the camera's rotation speed?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,3,human;rotation,0207-03,['Constant speed.' 'Decelerating.' 'Not moving at all.' 'Accelerating.'],,"What is the pattern of the camera's rotation speed?
+Options: 
+A: Constant speed.
+B: Decelerating.
+C: Not moving at all.
+D: Accelerating. 
+Pick the best suited option.",D,videos/human/0207-03.mp4
+D,B,What is the pattern of the camera's rotation speed?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,1,human;rotation,0207-04,['Not moving at all.' 'Decelerating.' 'Accelerating.' 'Constant speed.'],,"What is the pattern of the camera's rotation speed?
+Options: 
+A: Not moving at all.
+B: Decelerating.
+C: Accelerating.
+D: Constant speed. 
+Pick the best suited option.",B,videos/human/0207-04.mp4
+D,D,What is the pattern of the camera's rotation speed?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,3,human;rotation,0208-01,['Not moving at all.' 'Constant speed.' 'Decelerating.' 'Accelerating.'],,"What is the pattern of the camera's rotation speed?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Decelerating.
+D: Accelerating. 
+Pick the best suited option.",D,videos/human/0208-01.mp4
+D,D,What is the pattern of the camera's rotation speed?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,3,human;rotation,0208-02,['Accelerating.' 'Not moving at all.' 'Constant speed.' 'Decelerating.'],,"What is the pattern of the camera's rotation speed?
+Options: 
+A: Accelerating.
+B: Not moving at all.
+C: Constant speed.
+D: Decelerating. 
+Pick the best suited option.",D,videos/human/0208-02.mp4
+D,A,What is the pattern of the person's hand's rotation speed?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,human;rotation,0215-03,['Accelerating.' 'Constant speed.' 'Not moving at all.' 'Decelerating.'],,"What is the pattern of the person's hand's rotation speed?
+Options: 
+A: Accelerating.
+B: Constant speed.
+C: Not moving at all.
+D: Decelerating. 
+Pick the best suited option.",A,videos/human/0215-03.mp4
+D,A,What is the pattern of the person's hand's rotation speed?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,human;rotation,0215-04,['Decelerating.' 'Not moving at all.' 'Constant speed.' 'Accelerating.'],,"What is the pattern of the person's hand's rotation speed?
+Options: 
+A: Decelerating.
+B: Not moving at all.
+C: Constant speed.
+D: Accelerating. 
+Pick the best suited option.",A,videos/human/0215-04.mp4
+D,A,What is the pattern of the person's rotation speed?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,human;rotation,0216-03,['Accelerating.' 'Decelerating.' 'Constant speed.' 'Not moving at all.'],,"What is the pattern of the person's rotation speed?
+Options: 
+A: Accelerating.
+B: Decelerating.
+C: Constant speed.
+D: Not moving at all. 
+Pick the best suited option.",A,videos/human/0216-03.mp4
+A,C,What is the pattern of the person's rotation speed?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,human;rotation,0216-04,['Not moving at all.' 'Constant speed.' 'Decelerating.' 'Accelerating.'],,"What is the pattern of the person's rotation speed?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Decelerating.
+D: Accelerating. 
+Pick the best suited option.",C,videos/human/0216-04.mp4
+C,B,What is the pattern of the person's hand's rotation speed?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,human;rotation,0218-04,['Decelerating.' 'Accelerating.' 'Not moving at all.' 'Constant speed.'],,"What is the pattern of the person's hand's rotation speed?
+Options: 
+A: Decelerating.
+B: Accelerating.
+C: Not moving at all.
+D: Constant speed. 
+Pick the best suited option.",B,videos/human/0218-04.mp4
+A,B,What is the pattern of the person's hand's rotation speed?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,human;rotation,0218-05,['Not moving at all.' 'Decelerating.' 'Constant speed.' 'Accelerating.'],,"What is the pattern of the person's hand's rotation speed?
+Options: 
+A: Not moving at all.
+B: Decelerating.
+C: Constant speed.
+D: Accelerating. 
+Pick the best suited option.",B,videos/human/0218-05.mp4
+A,D,What is the pattern of the person's hand's rotation speed?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,human;rotation,0230-03,['Not moving at all.' 'Decelerating.' 'Constant speed.' 'Accelerating.'],,"What is the pattern of the person's hand's rotation speed?
+Options: 
+A: Not moving at all.
+B: Decelerating.
+C: Constant speed.
+D: Accelerating. 
+Pick the best suited option.",D,videos/human/0230-03.mp4
+B,B,What is the pattern of the person's hand's rotation speed?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,human;rotation,0230-04,['Constant speed.' 'Decelerating.' 'Not moving at all.' 'Accelerating.'],,"What is the pattern of the person's hand's rotation speed?
+Options: 
+A: Constant speed.
+B: Decelerating.
+C: Not moving at all.
+D: Accelerating. 
+Pick the best suited option.",B,videos/human/0230-04.mp4
+D,B,How does the frequency at which the triangle is drawn vary over time?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,human,0941-00,['Not moving at all.' 'Accelerating.' 'Decelerating.' 'Constant speed.'],,"How does the frequency at which the triangle is drawn vary over time?
+Options: 
+A: Not moving at all.
+B: Accelerating.
+C: Decelerating.
+D: Constant speed. 
+Pick the best suited option.",B,videos/human/0941-00.mp4
+D,C,How does the frequency at which the triangle is drawn vary over time?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,human,0941-01,['Not moving at all.' 'Accelerating.' 'Decelerating.' 'Constant speed.'],,"How does the frequency at which the triangle is drawn vary over time?
+Options: 
+A: Not moving at all.
+B: Accelerating.
+C: Decelerating.
+D: Constant speed. 
+Pick the best suited option.",C,videos/human/0941-01.mp4
+D,D,How does the frequency at which the circle is drawn vary over time?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,human,0939-00,['Decelerating.' 'Not moving at all.' 'Constant speed.' 'Accelerating.'],,"How does the frequency at which the circle is drawn vary over time?
+Options: 
+A: Decelerating.
+B: Not moving at all.
+C: Constant speed.
+D: Accelerating. 
+Pick the best suited option.",D,videos/human/0939-00.mp4
+C,D,How does the frequency at which the circle is drawn vary over time?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,human,0939-01,['Constant speed.' 'Accelerating.' 'Not moving at all.' 'Decelerating.'],,"How does the frequency at which the circle is drawn vary over time?
+Options: 
+A: Constant speed.
+B: Accelerating.
+C: Not moving at all.
+D: Decelerating. 
+Pick the best suited option.",D,videos/human/0939-01.mp4
+D,D,How does the frequency at which the rectangle is drawn vary over time?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,human,0924-00,['Not moving at all.' 'Decelerating.' 'Constant speed.' 'Accelerating.'],,"How does the frequency at which the rectangle is drawn vary over time?
+Options: 
+A: Not moving at all.
+B: Decelerating.
+C: Constant speed.
+D: Accelerating. 
+Pick the best suited option.",D,videos/human/0924-00.mp4
+D,D,How does the frequency at which the rectangle is drawn vary over time?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,human,0924-01,['Not moving at all.' 'Accelerating.' 'Constant speed.' 'Decelerating.'],,"How does the frequency at which the rectangle is drawn vary over time?
+Options: 
+A: Not moving at all.
+B: Accelerating.
+C: Constant speed.
+D: Decelerating. 
+Pick the best suited option.",D,videos/human/0924-01.mp4
+B,A,How does the frequency at which the trapezoid is drawn vary over time?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,human,0923-00,['Accelerating.' 'Not moving at all.' 'Decelerating.' 'Constant speed.'],,"How does the frequency at which the trapezoid is drawn vary over time?
+Options: 
+A: Accelerating.
+B: Not moving at all.
+C: Decelerating.
+D: Constant speed. 
+Pick the best suited option.",A,videos/human/0923-00.mp4
+D,C,How does the frequency at which the trapezoid is drawn vary over time?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,human,0923-01,['Constant speed.' 'Accelerating.' 'Decelerating.' 'Not moving at all.'],,"How does the frequency at which the trapezoid is drawn vary over time?
+Options: 
+A: Constant speed.
+B: Accelerating.
+C: Decelerating.
+D: Not moving at all. 
+Pick the best suited option.",C,videos/human/0923-01.mp4
+B,D,How does the frequency at which the diamond is drawn vary over time?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,human,0922-00,['Not moving at all.' 'Constant speed.' 'Decelerating.' 'Accelerating.'],,"How does the frequency at which the diamond is drawn vary over time?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Decelerating.
+D: Accelerating. 
+Pick the best suited option.",D,videos/human/0922-00.mp4
+D,C,How does the frequency at which the diamond is drawn vary over time?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,human,0922-01,['Constant speed.' 'Accelerating.' 'Decelerating.' 'Not moving at all.'],,"How does the frequency at which the diamond is drawn vary over time?
+Options: 
+A: Constant speed.
+B: Accelerating.
+C: Decelerating.
+D: Not moving at all. 
+Pick the best suited option.",C,videos/human/0922-01.mp4
+D,A,How does the frequency at which the 8-shape is drawn vary over time?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,human,0921-00,['Accelerating.' 'Decelerating.' 'Constant speed.' 'Not moving at all.'],,"How does the frequency at which the 8-shape is drawn vary over time?
+Options: 
+A: Accelerating.
+B: Decelerating.
+C: Constant speed.
+D: Not moving at all. 
+Pick the best suited option.",A,videos/human/0921-00.mp4
+B,B,How does the frequency at which the 8-shape is drawn vary over time?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,human,0921-01,['Accelerating.' 'Decelerating.' 'Constant speed.' 'Not moving at all.'],,"How does the frequency at which the 8-shape is drawn vary over time?
+Options: 
+A: Accelerating.
+B: Decelerating.
+C: Constant speed.
+D: Not moving at all. 
+Pick the best suited option.",B,videos/human/0921-01.mp4
+D,D,How does the frequency at which the infinity-shape is drawn vary over time?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,human,0920-00,['Constant speed.' 'Decelerating.' 'Not moving at all.' 'Accelerating.'],,"How does the frequency at which the infinity-shape is drawn vary over time?
+Options: 
+A: Constant speed.
+B: Decelerating.
+C: Not moving at all.
+D: Accelerating. 
+Pick the best suited option.",D,videos/human/0920-00.mp4
+D,B,How does the frequency at which the infinity-shape is drawn vary over time?,human,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,human,0920-01,['Constant speed.' 'Decelerating.' 'Not moving at all.' 'Accelerating.'],,"How does the frequency at which the infinity-shape is drawn vary over time?
+Options: 
+A: Constant speed.
+B: Decelerating.
+C: Not moving at all.
+D: Accelerating. 
+Pick the best suited option.",B,videos/human/0920-01.mp4
+C,B,How does the frequency of the laser pointer movement change?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,object,0919-00,['Constant speed.' 'Accelerating.' 'Not moving at all.' 'Decelerating.'],,"How does the frequency of the laser pointer movement change?
+Options: 
+A: Constant speed.
+B: Accelerating.
+C: Not moving at all.
+D: Decelerating. 
+Pick the best suited option.",B,videos/object/0919-00.mp4
+C,B,How does the frequency of the laser pointer movement change?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,object,0919-01,['Constant speed.' 'Decelerating.' 'Not moving at all.' 'Accelerating.'],,"How does the frequency of the laser pointer movement change?
+Options: 
+A: Constant speed.
+B: Decelerating.
+C: Not moving at all.
+D: Accelerating. 
+Pick the best suited option.",B,videos/object/0919-01.mp4
+D,D,How does the frequency of the laser pointer movement change?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,object,0917-00,['Decelerating.' 'Not moving at all.' 'Constant speed.' 'Accelerating.'],,"How does the frequency of the laser pointer movement change?
+Options: 
+A: Decelerating.
+B: Not moving at all.
+C: Constant speed.
+D: Accelerating. 
+Pick the best suited option.",D,videos/object/0917-00.mp4
+C,A,How does the frequency of the laser pointer movement change?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,object,0917-01,['Decelerating.' 'Constant speed.' 'Accelerating.' 'Not moving at all.'],,"How does the frequency of the laser pointer movement change?
+Options: 
+A: Decelerating.
+B: Constant speed.
+C: Accelerating.
+D: Not moving at all. 
+Pick the best suited option.",A,videos/object/0917-01.mp4
+A,D,How does the frequency of the laser pointer movement change?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,object,0915-00,['Not moving at all.' 'Constant speed.' 'Decelerating.' 'Accelerating.'],,"How does the frequency of the laser pointer movement change?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Decelerating.
+D: Accelerating. 
+Pick the best suited option.",D,videos/object/0915-00.mp4
+C,D,How does the frequency of the laser pointer movement change?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,object,0915-01,['Accelerating.' 'Constant speed.' 'Not moving at all.' 'Decelerating.'],,"How does the frequency of the laser pointer movement change?
+Options: 
+A: Accelerating.
+B: Constant speed.
+C: Not moving at all.
+D: Decelerating. 
+Pick the best suited option.",D,videos/object/0915-01.mp4
+D,B,How does the frequency of the laser pointer movement change?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,object,0914-00,['Constant speed.' 'Accelerating.' 'Decelerating.' 'Not moving at all.'],,"How does the frequency of the laser pointer movement change?
+Options: 
+A: Constant speed.
+B: Accelerating.
+C: Decelerating.
+D: Not moving at all. 
+Pick the best suited option.",B,videos/object/0914-00.mp4
+C,A,How does the frequency of the laser pointer movement change?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,object,0914-01,['Decelerating.' 'Not moving at all.' 'Accelerating.' 'Constant speed.'],,"How does the frequency of the laser pointer movement change?
+Options: 
+A: Decelerating.
+B: Not moving at all.
+C: Accelerating.
+D: Constant speed. 
+Pick the best suited option.",A,videos/object/0914-01.mp4
+C,D,How does the frequency of the laser pointer movement change?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,object,0913-00,['Constant speed.' 'Decelerating.' 'Not moving at all.' 'Accelerating.'],,"How does the frequency of the laser pointer movement change?
+Options: 
+A: Constant speed.
+B: Decelerating.
+C: Not moving at all.
+D: Accelerating. 
+Pick the best suited option.",D,videos/object/0913-00.mp4
+B,B,How does the frequency of the laser pointer movement change?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,object,0913-01,['Accelerating.' 'Decelerating.' 'Constant speed.' 'Not moving at all.'],,"How does the frequency of the laser pointer movement change?
+Options: 
+A: Accelerating.
+B: Decelerating.
+C: Constant speed.
+D: Not moving at all. 
+Pick the best suited option.",B,videos/object/0913-01.mp4
+C,A,How does the frequency of the laser pointer movement change?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,object,0912-00,['Accelerating.' 'Not moving at all.' 'Decelerating.' 'Constant speed.'],,"How does the frequency of the laser pointer movement change?
+Options: 
+A: Accelerating.
+B: Not moving at all.
+C: Decelerating.
+D: Constant speed. 
+Pick the best suited option.",A,videos/object/0912-00.mp4
+D,C,How does the frequency of the laser pointer movement change?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,object,0912-01,['Constant speed.' 'Accelerating.' 'Decelerating.' 'Not moving at all.'],,"How does the frequency of the laser pointer movement change?
+Options: 
+A: Constant speed.
+B: Accelerating.
+C: Decelerating.
+D: Not moving at all. 
+Pick the best suited option.",C,videos/object/0912-01.mp4
+C,C,How does the frequency of the laser pointer movement change?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,object,0911-00,['Not moving at all.' 'Decelerating.' 'Accelerating.' 'Constant speed.'],,"How does the frequency of the laser pointer movement change?
+Options: 
+A: Not moving at all.
+B: Decelerating.
+C: Accelerating.
+D: Constant speed. 
+Pick the best suited option.",C,videos/object/0911-00.mp4
+D,D,How does the frequency of the laser pointer movement change?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,object,0911-01,['Accelerating.' 'Constant speed.' 'Not moving at all.' 'Decelerating.'],,"How does the frequency of the laser pointer movement change?
+Options: 
+A: Accelerating.
+B: Constant speed.
+C: Not moving at all.
+D: Decelerating. 
+Pick the best suited option.",D,videos/object/0911-01.mp4
+C,C,How does the frequency of the laser pointer movement change?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,object,0910-00,['Decelerating.' 'Not moving at all.' 'Accelerating.' 'Constant speed.'],,"How does the frequency of the laser pointer movement change?
+Options: 
+A: Decelerating.
+B: Not moving at all.
+C: Accelerating.
+D: Constant speed. 
+Pick the best suited option.",C,videos/object/0910-00.mp4
+C,C,How does the frequency of the laser pointer movement change?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,object,0910-01,['Accelerating.' 'Not moving at all.' 'Decelerating.' 'Constant speed.'],,"How does the frequency of the laser pointer movement change?
+Options: 
+A: Accelerating.
+B: Not moving at all.
+C: Decelerating.
+D: Constant speed. 
+Pick the best suited option.",C,videos/object/0910-01.mp4
+D,B,How does the frequency of the laser pointer movement change?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,object,0909-00,['Not moving at all.' 'Accelerating.' 'Constant speed.' 'Decelerating.'],,"How does the frequency of the laser pointer movement change?
+Options: 
+A: Not moving at all.
+B: Accelerating.
+C: Constant speed.
+D: Decelerating. 
+Pick the best suited option.",B,videos/object/0909-00.mp4
+C,A,How does the frequency of the laser pointer movement change?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,object,0909-01,['Decelerating.' 'Not moving at all.' 'Accelerating.' 'Constant speed.'],,"How does the frequency of the laser pointer movement change?
+Options: 
+A: Decelerating.
+B: Not moving at all.
+C: Accelerating.
+D: Constant speed. 
+Pick the best suited option.",A,videos/object/0909-01.mp4
+B,C,What is the pattern of the pendulum's movement speed throughout the entire video?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,object,0254-03,['Not moving at all.' 'Constant speed.' 'Accelerating.' 'Decelerating.'],https://www.youtube.com/watch?v=QA1ZAMtxbBA,"What is the pattern of the pendulum's movement speed throughout the entire video?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Accelerating.
+D: Decelerating. 
+Pick the best suited option.",C,videos/object/0254-03.mp4
+D,B,What is the pattern of the man's rotation speed throughout the entire video?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,object,0256-03,['Constant speed.' 'Decelerating.' 'Not moving at all.' 'Accelerating.'],https://www.youtube.com/watch?v=_eMH07Tghs0,"What is the pattern of the man's rotation speed throughout the entire video?
+Options: 
+A: Constant speed.
+B: Decelerating.
+C: Not moving at all.
+D: Accelerating. 
+Pick the best suited option.",B,videos/object/0256-03.mp4
+D,A,What is the object's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,object,0262-05,['Accelerating.' 'Constant speed.' 'Not moving at all.' 'Decelerating.'],https://www.youtube.com/watch?v=mu9jAHgDjQg,"What is the object's rotational speed pattern?
+Options: 
+A: Accelerating.
+B: Constant speed.
+C: Not moving at all.
+D: Decelerating. 
+Pick the best suited option.",A,videos/object/0262-05.mp4
+D,A,What is the object's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,object,0262-06,['Decelerating.' 'Not moving at all.' 'Accelerating.' 'Constant speed.'],https://www.youtube.com/watch?v=mu9jAHgDjQg,"What is the object's rotational speed pattern?
+Options: 
+A: Decelerating.
+B: Not moving at all.
+C: Accelerating.
+D: Constant speed. 
+Pick the best suited option.",A,videos/object/0262-06.mp4
+C,D,What is the object's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,object,0263-05,['Not moving at all.' 'Decelerating.' 'Constant speed.' 'Accelerating.'],https://www.youtube.com/watch?v=sqk4SNdnjRk,"What is the object's rotational speed pattern?
+Options: 
+A: Not moving at all.
+B: Decelerating.
+C: Constant speed.
+D: Accelerating. 
+Pick the best suited option.",D,videos/object/0263-05.mp4
+D,B,What is the object's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,object,0263-06,['Not moving at all.' 'Decelerating.' 'Accelerating.' 'Constant speed.'],https://www.youtube.com/watch?v=sqk4SNdnjRk,"What is the object's rotational speed pattern?
+Options: 
+A: Not moving at all.
+B: Decelerating.
+C: Accelerating.
+D: Constant speed. 
+Pick the best suited option.",B,videos/object/0263-06.mp4
+B,B,What is the object's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,object,0265-05,['Decelerating.' 'Accelerating.' 'Constant speed.' 'Not moving at all.'],https://www.youtube.com/watch?v=2xZLqW4iH7A,"What is the object's rotational speed pattern?
+Options: 
+A: Decelerating.
+B: Accelerating.
+C: Constant speed.
+D: Not moving at all. 
+Pick the best suited option.",B,videos/object/0265-05.mp4
+C,A,What is balls' speed pattern?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,object,0266-03,['Decelerating.' 'Not moving at all.' 'Accelerating.' 'Constant speed.'],https://www.youtube.com/watch?v=QUS5BuJsqEo,"What is balls' speed pattern?
+Options: 
+A: Decelerating.
+B: Not moving at all.
+C: Accelerating.
+D: Constant speed. 
+Pick the best suited option.",A,videos/object/0266-03.mp4
+C,B,What is the disk's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,object,0268-03,['Constant speed.' 'Accelerating.' 'Decelerating.' 'Not moving at all.'],https://www.youtube.com/watch?v=WdcfWf07UIg,"What is the disk's rotational speed pattern?
+Options: 
+A: Constant speed.
+B: Accelerating.
+C: Decelerating.
+D: Not moving at all. 
+Pick the best suited option.",B,videos/object/0268-03.mp4
+C,C,What is the disk's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,object,0268-04,['Constant speed.' 'Accelerating.' 'Decelerating.' 'Not moving at all.'],https://www.youtube.com/watch?v=WdcfWf07UIg,"What is the disk's rotational speed pattern?
+Options: 
+A: Constant speed.
+B: Accelerating.
+C: Decelerating.
+D: Not moving at all. 
+Pick the best suited option.",C,videos/object/0268-04.mp4
+C,C,What is the disk's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,object,0268-01,['Not moving at all.' 'Decelerating.' 'Constant speed.' 'Accelerating.'],https://www.youtube.com/watch?v=WdcfWf07UIg,"What is the disk's rotational speed pattern?
+Options: 
+A: Not moving at all.
+B: Decelerating.
+C: Constant speed.
+D: Accelerating. 
+Pick the best suited option.",C,videos/object/0268-01.mp4
+A,A,What is the wheel's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,object,0270-02,['Accelerating.' 'Not moving at all.' 'Decelerating.' 'Constant speed.'],https://www.youtube.com/watch?v=HWpYlNDlzK4,"What is the wheel's rotational speed pattern?
+Options: 
+A: Accelerating.
+B: Not moving at all.
+C: Decelerating.
+D: Constant speed. 
+Pick the best suited option.",A,videos/object/0270-02.mp4
+A,C,What is the wheel's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,object,0270-01,['Accelerating.' 'Not moving at all.' 'Constant speed.' 'Decelerating.'],https://www.youtube.com/watch?v=HWpYlNDlzK4,"What is the wheel's rotational speed pattern?
+Options: 
+A: Accelerating.
+B: Not moving at all.
+C: Constant speed.
+D: Decelerating. 
+Pick the best suited option.",C,videos/object/0270-01.mp4
+B,B,What is the athlete's leg's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,object,0289-02,['Decelerating.' 'Accelerating.' 'Not moving at all.' 'Constant speed.'],https://www.youtube.com/watch?v=x1uOtX8mYJo,"What is the athlete's leg's rotational speed pattern?
+Options: 
+A: Decelerating.
+B: Accelerating.
+C: Not moving at all.
+D: Constant speed. 
+Pick the best suited option.",B,videos/object/0289-02.mp4
+B,D,What is engine's speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,object,0313-00,['Decelerating.' 'Constant speed.' 'Accelerating.' 'Not moving at all.'],https://www.youtube.com/watch?v=D3_0-QpavbI,"What is engine's speed pattern?
+Options: 
+A: Decelerating.
+B: Constant speed.
+C: Accelerating.
+D: Not moving at all. 
+Pick the best suited option.",D,videos/object/0313-00.mp4
+A,D,What is the disk's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,object,0326-05,['Constant speed.' 'Not moving at all.' 'Decelerating.' 'Accelerating.'],https://www.youtube.com/watch?v=VOOVtEjHqjw,"What is the disk's rotational speed pattern?
+Options: 
+A: Constant speed.
+B: Not moving at all.
+C: Decelerating.
+D: Accelerating. 
+Pick the best suited option.",D,videos/object/0326-05.mp4
+C,D,What is the washing machine agitator's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,object,0357-00,['Decelerating.' 'Accelerating.' 'Constant speed.' 'Not moving at all.'],https://www.youtube.com/watch?v=_OwoQEl_ii0,"What is the washing machine agitator's rotational speed pattern?
+Options: 
+A: Decelerating.
+B: Accelerating.
+C: Constant speed.
+D: Not moving at all. 
+Pick the best suited option.",D,videos/object/0357-00.mp4
+A,B,What is the fan blade's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,object,0368-02,['Constant speed.' 'Accelerating.' 'Decelerating.' 'Not moving at all.'],,"What is the fan blade's rotational speed pattern?
+Options: 
+A: Constant speed.
+B: Accelerating.
+C: Decelerating.
+D: Not moving at all. 
+Pick the best suited option.",B,videos/object/0368-02.mp4
+D,A,What is the fan blade's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,object,0368-03,['Decelerating.' 'Not moving at all.' 'Accelerating.' 'Constant speed.'],,"What is the fan blade's rotational speed pattern?
+Options: 
+A: Decelerating.
+B: Not moving at all.
+C: Accelerating.
+D: Constant speed. 
+Pick the best suited option.",A,videos/object/0368-03.mp4
+A,B,What is the person's walking speed pattern?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,object,0526-03,['Constant speed.' 'Accelerating.' 'Not moving at all.' 'Decelerating.'],,"What is the person's walking speed pattern?
+Options: 
+A: Constant speed.
+B: Accelerating.
+C: Not moving at all.
+D: Decelerating. 
+Pick the best suited option.",B,videos/object/0526-03.mp4
+A,D,What is the trend in the camera's movement speed across the entire video?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,3,object,0237-01,['Constant speed.' 'Decelerating.' 'Not moving at all.' 'Accelerating.'],https://www.youtube.com/watch?v=CP5k2gRabvc,"What is the trend in the camera's movement speed across the entire video?
+Options: 
+A: Constant speed.
+B: Decelerating.
+C: Not moving at all.
+D: Accelerating. 
+Pick the best suited option.",D,videos/object/0237-01.mp4
+C,B,What is the trend in the camera's movement speed across the entire video?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,object,0237-02,['Not moving at all.' 'Decelerating.' 'Constant speed.' 'Accelerating.'],https://www.youtube.com/watch?v=CP5k2gRabvc,"What is the trend in the camera's movement speed across the entire video?
+Options: 
+A: Not moving at all.
+B: Decelerating.
+C: Constant speed.
+D: Accelerating. 
+Pick the best suited option.",B,videos/object/0237-02.mp4
+C,C,What is the cat's speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,object,0243-00,['Accelerating.' 'Constant speed.' 'Not moving at all.' 'Decelerating.'],https://www.youtube.com/watch?v=ExnWRuniooY,"What is the cat's speed pattern?
+Options: 
+A: Accelerating.
+B: Constant speed.
+C: Not moving at all.
+D: Decelerating. 
+Pick the best suited option.",C,videos/object/0243-00.mp4
+D,D,What is the hula hoop's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,object,0258-03,['Not moving at all.' 'Decelerating.' 'Constant speed.' 'Accelerating.'],https://www.youtube.com/watch?v=oyvYvruZfmw,"What is the hula hoop's rotational speed pattern?
+Options: 
+A: Not moving at all.
+B: Decelerating.
+C: Constant speed.
+D: Accelerating. 
+Pick the best suited option.",D,videos/object/0258-03.mp4
+C,B,What is the hula hoop's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,object,0258-04,['Constant speed.' 'Decelerating.' 'Accelerating.' 'Not moving at all.'],https://www.youtube.com/watch?v=oyvYvruZfmw,"What is the hula hoop's rotational speed pattern?
+Options: 
+A: Constant speed.
+B: Decelerating.
+C: Accelerating.
+D: Not moving at all. 
+Pick the best suited option.",B,videos/object/0258-04.mp4
+A,A,What is the athlete's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,object,0261-01,['Accelerating.' 'Not moving at all.' 'Decelerating.' 'Constant speed.'],https://www.youtube.com/watch?v=P6UwokP8BEg,"What is the athlete's rotational speed pattern?
+Options: 
+A: Accelerating.
+B: Not moving at all.
+C: Decelerating.
+D: Constant speed. 
+Pick the best suited option.",A,videos/object/0261-01.mp4
+B,D,What is the merry-go-round's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,object,0264-03,['Not moving at all.' 'Constant speed.' 'Decelerating.' 'Accelerating.'],https://www.youtube.com/watch?v=7Da7b4gyRp4,"What is the merry-go-round's rotational speed pattern?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Decelerating.
+D: Accelerating. 
+Pick the best suited option.",D,videos/object/0264-03.mp4
+D,C,What is the merry-go-round's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,object,0264-04,['Accelerating.' 'Not moving at all.' 'Decelerating.' 'Constant speed.'],https://www.youtube.com/watch?v=7Da7b4gyRp4,"What is the merry-go-round's rotational speed pattern?
+Options: 
+A: Accelerating.
+B: Not moving at all.
+C: Decelerating.
+D: Constant speed. 
+Pick the best suited option.",C,videos/object/0264-04.mp4
+A,C,What is the merry-go-round's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,object,0264-01,['Constant speed.' 'Decelerating.' 'Not moving at all.' 'Accelerating.'],https://www.youtube.com/watch?v=7Da7b4gyRp4,"What is the merry-go-round's rotational speed pattern?
+Options: 
+A: Constant speed.
+B: Decelerating.
+C: Not moving at all.
+D: Accelerating. 
+Pick the best suited option.",C,videos/object/0264-01.mp4
+B,B,What is balls' speed pattern?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,object,0266-01,['Accelerating.' 'Constant speed.' 'Decelerating.' 'Not moving at all.'],https://www.youtube.com/watch?v=QUS5BuJsqEo,"What is balls' speed pattern?
+Options: 
+A: Accelerating.
+B: Constant speed.
+C: Decelerating.
+D: Not moving at all. 
+Pick the best suited option.",B,videos/object/0266-01.mp4
+C,C,What is the moon's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,object,0273-00,['Accelerating.' 'Not moving at all.' 'Constant speed.' 'Decelerating.'],https://www.youtube.com/watch?v=MrzWzMUhQfw,"What is the moon's rotational speed pattern?
+Options: 
+A: Accelerating.
+B: Not moving at all.
+C: Constant speed.
+D: Decelerating. 
+Pick the best suited option.",C,videos/object/0273-00.mp4
+B,C,What is the moon's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,object,0273-02,['Decelerating.' 'Constant speed.' 'Accelerating.' 'Not moving at all.'],https://www.youtube.com/watch?v=MrzWzMUhQfw,"What is the moon's rotational speed pattern?
+Options: 
+A: Decelerating.
+B: Constant speed.
+C: Accelerating.
+D: Not moving at all. 
+Pick the best suited option.",C,videos/object/0273-02.mp4
+A,D,What is the moon's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,object,0273-03,['Constant speed.' 'Not moving at all.' 'Accelerating.' 'Decelerating.'],https://www.youtube.com/watch?v=MrzWzMUhQfw,"What is the moon's rotational speed pattern?
+Options: 
+A: Constant speed.
+B: Not moving at all.
+C: Accelerating.
+D: Decelerating. 
+Pick the best suited option.",D,videos/object/0273-03.mp4
+C,A,What is the second hand's rotational speed pattern on the watch?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,object,0291-04,['Accelerating.' 'Decelerating.' 'Constant speed.' 'Not moving at all.'],https://www.youtube.com/watch?v=xyCQFLOSWGc,"What is the second hand's rotational speed pattern on the watch?
+Options: 
+A: Accelerating.
+B: Decelerating.
+C: Constant speed.
+D: Not moving at all. 
+Pick the best suited option.",A,videos/object/0291-04.mp4
+C,C,What is the second hand's rotational speed pattern on the watch?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,object,0291-00,['Not moving at all.' 'Decelerating.' 'Constant speed.' 'Accelerating.'],https://www.youtube.com/watch?v=xyCQFLOSWGc,"What is the second hand's rotational speed pattern on the watch?
+Options: 
+A: Not moving at all.
+B: Decelerating.
+C: Constant speed.
+D: Accelerating. 
+Pick the best suited option.",C,videos/object/0291-00.mp4
+A,A,What is the school of fish's speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,object,0319-00,['Constant speed.' 'Decelerating.' 'Not moving at all.' 'Accelerating.'],https://www.youtube.com/watch?v=3oMFX_2IG8U,"What is the school of fish's speed pattern?
+Options: 
+A: Constant speed.
+B: Decelerating.
+C: Not moving at all.
+D: Accelerating. 
+Pick the best suited option.",A,videos/object/0319-00.mp4
+D,B,What is the school of fish's speed pattern?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,object,0319-04,['Not moving at all.' 'Accelerating.' 'Decelerating.' 'Constant speed.'],https://www.youtube.com/watch?v=3oMFX_2IG8U,"What is the school of fish's speed pattern?
+Options: 
+A: Not moving at all.
+B: Accelerating.
+C: Decelerating.
+D: Constant speed. 
+Pick the best suited option.",B,videos/object/0319-04.mp4
+C,C,What is the school of fish's speed pattern?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,object,0319-01,['Decelerating.' 'Accelerating.' 'Constant speed.' 'Not moving at all.'],https://www.youtube.com/watch?v=3oMFX_2IG8U,"What is the school of fish's speed pattern?
+Options: 
+A: Decelerating.
+B: Accelerating.
+C: Constant speed.
+D: Not moving at all. 
+Pick the best suited option.",C,videos/object/0319-01.mp4
+C,D,What is the disk's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,object,0345-02,['Constant speed.' 'Not moving at all.' 'Accelerating.' 'Decelerating.'],https://www.youtube.com/watch?v=oCg1tK4arNM,"What is the disk's rotational speed pattern?
+Options: 
+A: Constant speed.
+B: Not moving at all.
+C: Accelerating.
+D: Decelerating. 
+Pick the best suited option.",D,videos/object/0345-02.mp4
+D,D,What is the wheel's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,object,0350-00,['Accelerating.' 'Decelerating.' 'Not moving at all.' 'Constant speed.'],https://www.youtube.com/watch?v=thTAGT4pwzM,"What is the wheel's rotational speed pattern?
+Options: 
+A: Accelerating.
+B: Decelerating.
+C: Not moving at all.
+D: Constant speed. 
+Pick the best suited option.",D,videos/object/0350-00.mp4
+D,D,What is pen's speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,object,0365-02,['Not moving at all.' 'Constant speed.' 'Decelerating.' 'Accelerating.'],,"What is pen's speed pattern?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Decelerating.
+D: Accelerating. 
+Pick the best suited option.",D,videos/object/0365-02.mp4
+C,A,What is the camera's speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,0,object,0377-01,['Accelerating.' 'Decelerating.' 'Constant speed.' 'Not moving at all.'],https://www.youtube.com/watch?v=mMRNS3XJmgU,"What is the camera's speed pattern?
+Options: 
+A: Accelerating.
+B: Decelerating.
+C: Constant speed.
+D: Not moving at all. 
+Pick the best suited option.",A,videos/object/0377-01.mp4
+B,D,What is the camera's speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,3,object,0377-02,['Not moving at all.' 'Constant speed.' 'Accelerating.' 'Decelerating.'],https://www.youtube.com/watch?v=mMRNS3XJmgU,"What is the camera's speed pattern?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Accelerating.
+D: Decelerating. 
+Pick the best suited option.",D,videos/object/0377-02.mp4
+B,C,What is the camera's speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,2,object,0387-00,['Accelerating.' 'Constant speed.' 'Not moving at all.' 'Decelerating.'],https://www.youtube.com/watch?v=0zCm_-NuTu4,"What is the camera's speed pattern?
+Options: 
+A: Accelerating.
+B: Constant speed.
+C: Not moving at all.
+D: Decelerating. 
+Pick the best suited option.",C,videos/object/0387-00.mp4
+A,A,What is the camera's speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,0,object,0391-00,['Constant speed.' 'Decelerating.' 'Accelerating.' 'Not moving at all.'],https://www.youtube.com/watch?v=ENIRIODDbbw,"What is the camera's speed pattern?
+Options: 
+A: Constant speed.
+B: Decelerating.
+C: Accelerating.
+D: Not moving at all. 
+Pick the best suited option.",A,videos/object/0391-00.mp4
+C,B,What is the camera's speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,1,object,0392-01,['Constant speed.' 'Decelerating.' 'Accelerating.' 'Not moving at all.'],https://www.youtube.com/watch?v=ENIRIODDbbw,"What is the camera's speed pattern?
+Options: 
+A: Constant speed.
+B: Decelerating.
+C: Accelerating.
+D: Not moving at all. 
+Pick the best suited option.",B,videos/object/0392-01.mp4
+B,C,What is the camera's speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,2,object,0396-01,['Not moving at all.' 'Constant speed.' 'Accelerating.' 'Decelerating.'],https://www.youtube.com/watch?v=i1QrJsOMY4k,"What is the camera's speed pattern?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Accelerating.
+D: Decelerating. 
+Pick the best suited option.",C,videos/object/0396-01.mp4
+D,C,What is the camera's speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 1, 'zoom': 0}",velocity&frequency,2,object,0396-02,['Not moving at all.' 'Accelerating.' 'Decelerating.' 'Constant speed.'],https://www.youtube.com/watch?v=i1QrJsOMY4k,"What is the camera's speed pattern?
+Options: 
+A: Not moving at all.
+B: Accelerating.
+C: Decelerating.
+D: Constant speed. 
+Pick the best suited option.",C,videos/object/0396-02.mp4
+B,D,What is the toy car's speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,object,0804-00,['Accelerating.' 'Decelerating.' 'Not moving at all.' 'Constant speed.'],https://www.youtube.com/watch?v=ZrvqwkFwUSc,"What is the toy car's speed pattern?
+Options: 
+A: Accelerating.
+B: Decelerating.
+C: Not moving at all.
+D: Constant speed. 
+Pick the best suited option.",D,videos/object/0804-00.mp4
+D,B,What is the toy car's speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,object,0804-01,['Accelerating.' 'Constant speed.' 'Decelerating.' 'Not moving at all.'],https://www.youtube.com/watch?v=ZrvqwkFwUSc,"What is the toy car's speed pattern?
+Options: 
+A: Accelerating.
+B: Constant speed.
+C: Decelerating.
+D: Not moving at all. 
+Pick the best suited option.",B,videos/object/0804-01.mp4
+D,D,What is the toy car's speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,object,0804-04,['Constant speed.' 'Not moving at all.' 'Decelerating.' 'Accelerating.'],https://www.youtube.com/watch?v=ZrvqwkFwUSc,"What is the toy car's speed pattern?
+Options: 
+A: Constant speed.
+B: Not moving at all.
+C: Decelerating.
+D: Accelerating. 
+Pick the best suited option.",D,videos/object/0804-04.mp4
+D,D,What is the toy car's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,object,0808-00,['Decelerating.' 'Not moving at all.' 'Accelerating.' 'Constant speed.'],https://www.youtube.com/watch?v=ziDyUn1uNus,"What is the toy car's rotational speed pattern?
+Options: 
+A: Decelerating.
+B: Not moving at all.
+C: Accelerating.
+D: Constant speed. 
+Pick the best suited option.",D,videos/object/0808-00.mp4
+B,D,What is the toy car's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,3,object,0808-04,['Accelerating.' 'Constant speed.' 'Not moving at all.' 'Decelerating.'],https://www.youtube.com/watch?v=ziDyUn1uNus,"What is the toy car's rotational speed pattern?
+Options: 
+A: Accelerating.
+B: Constant speed.
+C: Not moving at all.
+D: Decelerating. 
+Pick the best suited option.",D,videos/object/0808-04.mp4
+C,C,What is the wheel's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,object,0812-00,['Constant speed.' 'Accelerating.' 'Not moving at all.' 'Decelerating.'],https://systemsorienteddesign.net/reinventing-the-wheel/,"What is the wheel's rotational speed pattern?
+Options: 
+A: Constant speed.
+B: Accelerating.
+C: Not moving at all.
+D: Decelerating. 
+Pick the best suited option.",C,videos/object/0812-00.mp4
+A,B,What is the toy car's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,object,0814-00,['Not moving at all.' 'Constant speed.' 'Decelerating.' 'Accelerating.'],https://www.youtube.com/watch?v=h-HGBsZkFu8,"What is the toy car's rotational speed pattern?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Decelerating.
+D: Accelerating. 
+Pick the best suited option.",B,videos/object/0814-00.mp4
+A,A,What is the person's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,object,0253-03,['Accelerating.' 'Decelerating.' 'Constant speed.' 'Not moving at all.'],https://www.youtube.com/watch?v=5nBEyVZUrk8,"What is the person's rotational speed pattern?
+Options: 
+A: Accelerating.
+B: Decelerating.
+C: Constant speed.
+D: Not moving at all. 
+Pick the best suited option.",A,videos/object/0253-03.mp4
+D,C,What is the person's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,object,0253-04,['Not moving at all.' 'Constant speed.' 'Decelerating.' 'Accelerating.'],https://www.youtube.com/watch?v=5nBEyVZUrk8,"What is the person's rotational speed pattern?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Decelerating.
+D: Accelerating. 
+Pick the best suited option.",C,videos/object/0253-04.mp4
+D,C,What is the object's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,object,0262-01,['Decelerating.' 'Not moving at all.' 'Constant speed.' 'Accelerating.'],https://www.youtube.com/watch?v=mu9jAHgDjQg,"What is the object's rotational speed pattern?
+Options: 
+A: Decelerating.
+B: Not moving at all.
+C: Constant speed.
+D: Accelerating. 
+Pick the best suited option.",C,videos/object/0262-01.mp4
+D,C,What is the person's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,object,0267-05,['Not moving at all.' 'Constant speed.' 'Accelerating.' 'Decelerating.'],https://www.youtube.com/watch?v=K8fGcX9vUrk,"What is the person's rotational speed pattern?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Accelerating.
+D: Decelerating. 
+Pick the best suited option.",C,videos/object/0267-05.mp4
+C,C,What is the person's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,2,object,0267-06,['Accelerating.' 'Not moving at all.' 'Decelerating.' 'Constant speed.'],https://www.youtube.com/watch?v=K8fGcX9vUrk,"What is the person's rotational speed pattern?
+Options: 
+A: Accelerating.
+B: Not moving at all.
+C: Decelerating.
+D: Constant speed. 
+Pick the best suited option.",C,videos/object/0267-06.mp4
+A,A,What is the pattern of the roller coaster's speed on the rail?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,object,0275-01,['Accelerating.' 'Decelerating.' 'Not moving at all.' 'Constant speed.'],https://www.youtube.com/watch?v=NsFYcy3X_dg,"What is the pattern of the roller coaster's speed on the rail?
+Options: 
+A: Accelerating.
+B: Decelerating.
+C: Not moving at all.
+D: Constant speed. 
+Pick the best suited option.",A,videos/object/0275-01.mp4
+D,B,What is the pattern of the roller coaster's speed on the rail?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,object,0275-02,['Not moving at all.' 'Decelerating.' 'Constant speed.' 'Accelerating.'],https://www.youtube.com/watch?v=NsFYcy3X_dg,"What is the pattern of the roller coaster's speed on the rail?
+Options: 
+A: Not moving at all.
+B: Decelerating.
+C: Constant speed.
+D: Accelerating. 
+Pick the best suited option.",B,videos/object/0275-02.mp4
+A,B,What is the fan blade's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",velocity&frequency,1,object,0367-00,['Not moving at all.' 'Constant speed.' 'Accelerating.' 'Decelerating.'],,"What is the fan blade's rotational speed pattern?
+Options: 
+A: Not moving at all.
+B: Constant speed.
+C: Accelerating.
+D: Decelerating. 
+Pick the best suited option.",B,videos/object/0367-00.mp4
+D,A,What is the fan blade's rotational speed pattern?,object,"{'composite': 0, 'counterfactual': 1, 'first_person': 0, 'zoom': 0}",velocity&frequency,0,object,0367-02,['Accelerating.' 'Not moving at all.' 'Decelerating.' 'Constant speed.'],,"What is the fan blade's rotational speed pattern?
+Options: 
+A: Accelerating.
+B: Not moving at all.
+C: Decelerating.
+D: Constant speed. 
+Pick the best suited option.",A,videos/object/0367-02.mp4
+A,B,What is the pattern of the person's rotation speed?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,1,synthetic human; Eason rotating with accelerating speed,0216-14,"['Not moving at all.' 'Accelerating.' 'Moving at a constant speed.'
+ 'Decelerating.']",,"What is the pattern of the person's rotation speed?
+Options: 
+A: Not moving at all.
+B: Accelerating.
+C: Moving at a constant speed.
+D: Decelerating. 
+Pick the best suited option.",B,videos/simulated/0216-14.mp4
+B,D,What is the pattern of the person's rotation speed?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,3,synthetic human; Eason rotating with decelerating speed,0216-15,"['Accelerating.' 'Not moving at all.' 'Moving at a constant speed.'
+ 'Decelerating.']",,"What is the pattern of the person's rotation speed?
+Options: 
+A: Accelerating.
+B: Not moving at all.
+C: Moving at a constant speed.
+D: Decelerating. 
+Pick the best suited option.",D,videos/simulated/0216-15.mp4
+C,A,What is the pattern of the person's hand's rotation speed?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,0,synthetic human; Eason rotating hand with accelerating speed,0218-12,"['Accelerating.' 'Moving at a constant speed.' 'Not moving at all.'
+ 'Decelerating.']",,"What is the pattern of the person's hand's rotation speed?
+Options: 
+A: Accelerating.
+B: Moving at a constant speed.
+C: Not moving at all.
+D: Decelerating. 
+Pick the best suited option.",A,videos/simulated/0218-12.mp4
+D,B,What is the pattern of the person's hand's rotation speed?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,1,synthetic human; Eason rotating hand with decelerating speed,0218-13,"['Moving at a constant speed.' 'Decelerating.' 'Not moving at all.'
+ 'Accelerating.']",,"What is the pattern of the person's hand's rotation speed?
+Options: 
+A: Moving at a constant speed.
+B: Decelerating.
+C: Not moving at all.
+D: Accelerating. 
+Pick the best suited option.",B,videos/simulated/0218-13.mp4
+C,B,What is the pattern of the person's hand's rotation speed?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,1,synthetic human; Eason rotating hand with accelerating speed,0230-16,"['Not moving at all.' 'Accelerating.' 'Decelerating.'
+ 'Moving at a constant speed.']",,"What is the pattern of the person's hand's rotation speed?
+Options: 
+A: Not moving at all.
+B: Accelerating.
+C: Decelerating.
+D: Moving at a constant speed. 
+Pick the best suited option.",B,videos/simulated/0230-16.mp4
+D,D,What is the pattern of the person's hand's rotation speed?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,3,synthetic human; Eason rotating hand with decelerating speed,0230-17,"['Moving at a constant speed.' 'Accelerating.' 'Not moving at all.'
+ 'Decelerating.']",,"What is the pattern of the person's hand's rotation speed?
+Options: 
+A: Moving at a constant speed.
+B: Accelerating.
+C: Not moving at all.
+D: Decelerating. 
+Pick the best suited option.",D,videos/simulated/0230-17.mp4
+B,E,How does the frequency of clapping change throughout the video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,4,synthetic human; Eason clapping,0308-04,"['Increasing gradually then slows down.' 'Decreasing gradually.'
+ 'Remains Constant.' 'Decreasing gradually then speeds up.'
+ 'Increasing gradually.']",,"How does the frequency of clapping change throughout the video?
+Options: 
+A: Increasing gradually then slows down.
+B: Decreasing gradually.
+C: Remains Constant.
+D: Decreasing gradually then speeds up.
+E: Increasing gradually. 
+Pick the best suited option.",E,videos/simulated/0308-04.mp4
+B,B,How does the frequency of clapping change throughout the video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,1,synthetic human; Eason clapping,0308-05,"['Decreasing gradually then speeds up.' 'Decreasing gradually.'
+ 'Increasing gradually.' 'Remains Constant.'
+ 'Increasing gradually then slows down.']",,"How does the frequency of clapping change throughout the video?
+Options: 
+A: Decreasing gradually then speeds up.
+B: Decreasing gradually.
+C: Increasing gradually.
+D: Remains Constant.
+E: Increasing gradually then slows down. 
+Pick the best suited option.",B,videos/simulated/0308-05.mp4
+C,A,How does the rate of clapping vary throughout the video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,0,synthetic human; Eason clapping,0308-06,"['Increasing gradually then slows down.'
+ 'Decreasing gradually then speeds up.' 'Decreasing gradually.'
+ 'Increasing gradually.' 'Remains Constant.']",,"How does the rate of clapping vary throughout the video?
+Options: 
+A: Increasing gradually then slows down.
+B: Decreasing gradually then speeds up.
+C: Decreasing gradually.
+D: Increasing gradually.
+E: Remains Constant. 
+Pick the best suited option.",A,videos/simulated/0308-06.mp4
+B,C,How does the rate of clapping vary throughout the video?,simulated,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 1}",velocity&frequency,2,synthetic human; Eason clapping,0308-07,"['Increasing gradually.' 'Decreasing gradually.'
+ 'Decreasing gradually then speeds up.'
+ 'Increasing gradually then slows down.' 'Remains Constant.']",,"How does the rate of clapping vary throughout the video?
+Options: 
+A: Increasing gradually.
+B: Decreasing gradually.
+C: Decreasing gradually then speeds up.
+D: Increasing gradually then slows down.
+E: Remains Constant. 
+Pick the best suited option.",C,videos/simulated/0308-07.mp4

@@ -1,0 +1,567 @@
+a_pred,a_true,question,demonstration_type,variation,motion_type,answer,note,key,options,video_source_url,question_formatted,answer_formatted,video_name
+B,C,Which musical instrument sounds last?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,2,,0731-00,"['Cello.' 'None of them produces any sound.' 'Flute.' 'Violin.'
+ 'All instruments sound at the same time.']",,"Which musical instrument sounds last?
+Options: 
+A: Cello.
+B: None of them produces any sound.
+C: Flute.
+D: Violin.
+E: All instruments sound at the same time. 
+Pick the best suited option.",C,videos/object/0731-00.mp4
+C,D,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,3,,0732-00,"['Neither instrument produces any sound.'
+ 'Both instruments begin simultaneously.' 'Violin.' 'Piano.']",,"Which musical instrument plays first?
+Options: 
+A: Neither instrument produces any sound.
+B: Both instruments begin simultaneously.
+C: Violin.
+D: Piano. 
+Pick the best suited option.",D,videos/object/0732-00.mp4
+B,B,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0733-00,"['Neither instrument produces any sound.' 'Guzheng.'
+ 'Both instruments begin simultaneously.' 'Erhu.']",,"Which musical instrument plays first?
+Options: 
+A: Neither instrument produces any sound.
+B: Guzheng.
+C: Both instruments begin simultaneously.
+D: Erhu. 
+Pick the best suited option.",B,videos/object/0733-00.mp4
+D,C,Which instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,2,,0734-00,"['Both instruments begin simultaneously.' 'Banjo.' 'Violin.'
+ 'Neither instrument produces any sound.']",,"Which instrument plays first?
+Options: 
+A: Both instruments begin simultaneously.
+B: Banjo.
+C: Violin.
+D: Neither instrument produces any sound. 
+Pick the best suited option.",C,videos/object/0734-00.mp4
+B,A,Which Guzheng plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,0,,0735-00,"['The right one.' 'Both instruments begin simultaneously.'
+ 'Neither instrument produces any sound.' 'The left one.']",,"Which Guzheng plays first?
+Options: 
+A: The right one.
+B: Both instruments begin simultaneously.
+C: Neither instrument produces any sound.
+D: The left one. 
+Pick the best suited option.",A,videos/object/0735-00.mp4
+C,C,Which ukulele plays the final note?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,2,,0736-00,"['The left one.' 'Both instruments begin simultaneously.' 'The right one.'
+ 'Neither instrument produces any sound.']",,"Which ukulele plays the final note?
+Options: 
+A: The left one.
+B: Both instruments begin simultaneously.
+C: The right one.
+D: Neither instrument produces any sound. 
+Pick the best suited option.",C,videos/object/0736-00.mp4
+C,C,Which musical instrument is the second sounding instrument?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,2,,0737-00,"['Neither instrument produces any sound.' 'Guitar.' 'Trumpet.'
+ 'Both instruments begin simultaneously.']",,"Which musical instrument is the second sounding instrument?
+Options: 
+A: Neither instrument produces any sound.
+B: Guitar.
+C: Trumpet.
+D: Both instruments begin simultaneously. 
+Pick the best suited option.",C,videos/object/0737-00.mp4
+D,B,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0738-00,"['Neither instrument produces any sound.' 'Pipa.' 'Erhu.'
+ 'Both instruments begin simultaneously.']",,"Which musical instrument plays first?
+Options: 
+A: Neither instrument produces any sound.
+B: Pipa.
+C: Erhu.
+D: Both instruments begin simultaneously. 
+Pick the best suited option.",B,videos/object/0738-00.mp4
+B,A,Which ukulele plays the last note?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,0,,0739-00,"['The middle one.' 'The right one.'
+ 'All instruments sound at the same time.'
+ 'None of them produces any sound.' 'The left one.']",,"Which ukulele plays the last note?
+Options: 
+A: The middle one.
+B: The right one.
+C: All instruments sound at the same time.
+D: None of them produces any sound.
+E: The left one. 
+Pick the best suited option.",A,videos/object/0739-00.mp4
+D,B,Which musical instrument is the second sounding instrument?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0740-00,"['Neither instrument produces any sound.' 'Flute.'
+ 'Both instruments begin simultaneously.' 'Violin.']",,"Which musical instrument is the second sounding instrument?
+Options: 
+A: Neither instrument produces any sound.
+B: Flute.
+C: Both instruments begin simultaneously.
+D: Violin. 
+Pick the best suited option.",B,videos/object/0740-00.mp4
+C,A,Which musical instrument is the second sounding instrument?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,0,,0741-00,"['Cello.' 'Neither instrument produces any sound.' 'Piano.'
+ 'Both instruments begin simultaneously.']",,"Which musical instrument is the second sounding instrument?
+Options: 
+A: Cello.
+B: Neither instrument produces any sound.
+C: Piano.
+D: Both instruments begin simultaneously. 
+Pick the best suited option.",A,videos/object/0741-00.mp4
+B,C,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,2,,0742-00,"['Both instruments begin simultaneously.'
+ 'Neither instrument produces any sound.' 'Ukulele.' 'Guitar.']",,"Which musical instrument plays first?
+Options: 
+A: Both instruments begin simultaneously.
+B: Neither instrument produces any sound.
+C: Ukulele.
+D: Guitar. 
+Pick the best suited option.",C,videos/object/0742-00.mp4
+D,A,Which musical instrument finishes the song?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,0,,0743-00,"['Ukulele.' 'Both instruments begin simultaneously.'
+ 'Neither instrument produces any sound.' 'Clarinet.']",,"Which musical instrument finishes the song?
+Options: 
+A: Ukulele.
+B: Both instruments begin simultaneously.
+C: Neither instrument produces any sound.
+D: Clarinet. 
+Pick the best suited option.",A,videos/object/0743-00.mp4
+D,B,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0744-00,"['Both instruments begin simultaneously.' 'Piano.' 'Violin.'
+ 'Neither instrument produces any sound.']",,"Which musical instrument plays first?
+Options: 
+A: Both instruments begin simultaneously.
+B: Piano.
+C: Violin.
+D: Neither instrument produces any sound. 
+Pick the best suited option.",B,videos/object/0744-00.mp4
+B,B,Which musical instrument finishes the song?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0745-00,"['None of them produces any sound.' 'Cello on the middle.'
+ 'All instruments sound at the same time.' 'Violin on the left.'
+ 'Violin on the right.']",,"Which musical instrument finishes the song?
+Options: 
+A: None of them produces any sound.
+B: Cello on the middle.
+C: All instruments sound at the same time.
+D: Violin on the left.
+E: Violin on the right. 
+Pick the best suited option.",B,videos/object/0745-00.mp4
+C,B,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0746-00,"['Both instruments begin simultaneously.' 'Violin on the right.'
+ 'Violin on the left.' 'Neither instrument produces any sound.']",,"Which musical instrument plays first?
+Options: 
+A: Both instruments begin simultaneously.
+B: Violin on the right.
+C: Violin on the left.
+D: Neither instrument produces any sound. 
+Pick the best suited option.",B,videos/object/0746-00.mp4
+C,D,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,3,,0747-00,"['Both instruments begin simultaneously.' 'Cello.'
+ 'Neither instrument produces any sound.' 'Guitar.']",,"Which musical instrument plays first?
+Options: 
+A: Both instruments begin simultaneously.
+B: Cello.
+C: Neither instrument produces any sound.
+D: Guitar. 
+Pick the best suited option.",D,videos/object/0747-00.mp4
+D,D,Who makes the first sound?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,3,,0748-00,"['The right one.' 'Both instruments begin simultaneously.'
+ 'Neither instrument produces any sound.' 'The left one.']",,"Who makes the first sound?
+Options: 
+A: The right one.
+B: Both instruments begin simultaneously.
+C: Neither instrument produces any sound.
+D: The left one. 
+Pick the best suited option.",D,videos/object/0748-00.mp4
+D,B,Which guitar is the first sounding instrument?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0749-00,"['All guitars sound at the same time.' 'The left one.' 'The right one.'
+ 'The middle one.' 'Neither instrument produces any sound.']",,"Which guitar is the first sounding instrument?
+Options: 
+A: All guitars sound at the same time.
+B: The left one.
+C: The right one.
+D: The middle one.
+E: Neither instrument produces any sound. 
+Pick the best suited option.",B,videos/object/0749-00.mp4
+C,D,Which guitar is the first sounding instrument?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,3,,0750-00,"['The left one.' 'Neither instrument produces any sound.'
+ 'Both guitars sound at the same time.' 'The right one.']",,"Which guitar is the first sounding instrument?
+Options: 
+A: The left one.
+B: Neither instrument produces any sound.
+C: Both guitars sound at the same time.
+D: The right one. 
+Pick the best suited option.",D,videos/object/0750-00.mp4
+D,D,Which ukulele instrument is the first sounding instrument?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,3,,0751-00,"['The right one.' 'Both ukuleles sound at the same time.'
+ 'Neither instrument produces any sound.' 'The left one.']",,"Which ukulele instrument is the first sounding instrument?
+Options: 
+A: The right one.
+B: Both ukuleles sound at the same time.
+C: Neither instrument produces any sound.
+D: The left one. 
+Pick the best suited option.",D,videos/object/0751-00.mp4
+D,A,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,0,,0752-00,"['Flute.' 'Vibraphone.' 'Neither instrument produces any sound.'
+ 'Both instruments begin simultaneously.']",,"Which musical instrument plays first?
+Options: 
+A: Flute.
+B: Vibraphone.
+C: Neither instrument produces any sound.
+D: Both instruments begin simultaneously. 
+Pick the best suited option.",A,videos/object/0752-00.mp4
+D,A,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,0,,0753-00,"['Piano.' 'Neither instrument produces any sound.' 'Violin.'
+ 'Both instruments begin simultaneously.']",,"Which musical instrument plays first?
+Options: 
+A: Piano.
+B: Neither instrument produces any sound.
+C: Violin.
+D: Both instruments begin simultaneously. 
+Pick the best suited option.",A,videos/object/0753-00.mp4
+D,A,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,0,,0754-00,"['Banjo.' 'Both instruments begin simultaneously.'
+ 'Neither instrument produces any sound.' 'Violin.']",,"Which musical instrument plays first?
+Options: 
+A: Banjo.
+B: Both instruments begin simultaneously.
+C: Neither instrument produces any sound.
+D: Violin. 
+Pick the best suited option.",A,videos/object/0754-00.mp4
+C,B,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0755-00,"['Neither instrument produces any sound.' 'Saxophone.'
+ 'Both instruments begin simultaneously.' 'Drum set.']",,"Which musical instrument plays first?
+Options: 
+A: Neither instrument produces any sound.
+B: Saxophone.
+C: Both instruments begin simultaneously.
+D: Drum set. 
+Pick the best suited option.",B,videos/object/0755-00.mp4
+C,A,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,0,,0756-00,"['Guitar.' 'Neither instrument produces any sound.' 'Pipa.'
+ 'Both instruments begin simultaneously.']",,"Which musical instrument plays first?
+Options: 
+A: Guitar.
+B: Neither instrument produces any sound.
+C: Pipa.
+D: Both instruments begin simultaneously. 
+Pick the best suited option.",A,videos/object/0756-00.mp4
+D,B,Which violin is the first sounding instrument?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0757-00,"['Both violins sound at the same time.' 'The right one.'
+ 'Neither instrument produces any sound.' 'The left one.']",,"Which violin is the first sounding instrument?
+Options: 
+A: Both violins sound at the same time.
+B: The right one.
+C: Neither instrument produces any sound.
+D: The left one. 
+Pick the best suited option.",B,videos/object/0757-00.mp4
+D,A,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,0,,0758-00,"['Marimba.' 'Ukulele.' 'Neither instrument produces any sound.'
+ 'Both instruments begin simultaneously.']",,"Which musical instrument plays first?
+Options: 
+A: Marimba.
+B: Ukulele.
+C: Neither instrument produces any sound.
+D: Both instruments begin simultaneously. 
+Pick the best suited option.",A,videos/object/0758-00.mp4
+C,B,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0759-00,"['Cello.' 'Violin.' 'Both instruments begin simultaneously.'
+ 'Neither instrument produces any sound.']",,"Which musical instrument plays first?
+Options: 
+A: Cello.
+B: Violin.
+C: Both instruments begin simultaneously.
+D: Neither instrument produces any sound. 
+Pick the best suited option.",B,videos/object/0759-00.mp4
+C,D,Which instrument is the last to stop playing?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,3,,0760-00,"['Ukulele.' 'Both instruments end at the same time.'
+ 'Neither instrument produces any sound.' 'Flute.']",,"Which instrument is the last to stop playing?
+Options: 
+A: Ukulele.
+B: Both instruments end at the same time.
+C: Neither instrument produces any sound.
+D: Flute. 
+Pick the best suited option.",D,videos/object/0760-00.mp4
+C,A,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,0,,0761-00,"['Guitar.' 'Both instruments begin simultaneously.' 'Clarinet.'
+ 'Neither instrument produces any sound.']",,"Which musical instrument plays first?
+Options: 
+A: Guitar.
+B: Both instruments begin simultaneously.
+C: Clarinet.
+D: Neither instrument produces any sound. 
+Pick the best suited option.",A,videos/object/0761-00.mp4
+D,B,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0762-00,"['Both instruments begin simultaneously.' 'Flute.' 'Ukulele.'
+ 'Neither instrument produces any sound.']",,"Which musical instrument plays first?
+Options: 
+A: Both instruments begin simultaneously.
+B: Flute.
+C: Ukulele.
+D: Neither instrument produces any sound. 
+Pick the best suited option.",B,videos/object/0762-00.mp4
+D,D,Which violin is the first sounding instrument?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,3,,0763-00,"['Both violins sound at the same time.'
+ 'Neither instrument produces any sound.' 'The right one.' 'The left one.']",,"Which violin is the first sounding instrument?
+Options: 
+A: Both violins sound at the same time.
+B: Neither instrument produces any sound.
+C: The right one.
+D: The left one. 
+Pick the best suited option.",D,videos/object/0763-00.mp4
+B,A,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,0,,0764-00,"['Flute.' 'Both instruments begin simultaneously.'
+ 'Neither instrument produces any sound.' 'Violin.']",,"Which musical instrument plays first?
+Options: 
+A: Flute.
+B: Both instruments begin simultaneously.
+C: Neither instrument produces any sound.
+D: Violin. 
+Pick the best suited option.",A,videos/object/0764-00.mp4
+D,B,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0765-00,"['Trumpet.' 'Ukulele.' 'Neither instrument produces any sound.'
+ 'Both instruments begin simultaneously.']",,"Which musical instrument plays first?
+Options: 
+A: Trumpet.
+B: Ukulele.
+C: Neither instrument produces any sound.
+D: Both instruments begin simultaneously. 
+Pick the best suited option.",B,videos/object/0765-00.mp4
+A,C,Which ukulele is the first ending instrument?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,2,,0766-00,"['Neither instrument produces any sound.'
+ 'Both ukuleles sound at the same time.' 'The right one.' 'The left one.']",,"Which ukulele is the first ending instrument?
+Options: 
+A: Neither instrument produces any sound.
+B: Both ukuleles sound at the same time.
+C: The right one.
+D: The left one. 
+Pick the best suited option.",C,videos/object/0766-00.mp4
+A,D,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,3,,0767-00,"['Neither instrument produces any sound.'
+ 'Both instruments begin simultaneously.' 'Flute.' 'Piano.']",,"Which musical instrument plays first?
+Options: 
+A: Neither instrument produces any sound.
+B: Both instruments begin simultaneously.
+C: Flute.
+D: Piano. 
+Pick the best suited option.",D,videos/object/0767-00.mp4
+C,B,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0768-00,"['Clarinet.' 'Accordion.' 'Both instruments begin simultaneously.'
+ 'Neither instrument produces any sound.']",,"Which musical instrument plays first?
+Options: 
+A: Clarinet.
+B: Accordion.
+C: Both instruments begin simultaneously.
+D: Neither instrument produces any sound. 
+Pick the best suited option.",B,videos/object/0768-00.mp4
+B,B,Which violin is the first sounding instrument?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0769-00,"['Both violins sound at the same time.' 'The right one.' 'The left one.'
+ 'Neither instrument produces any sound.']",,"Which violin is the first sounding instrument?
+Options: 
+A: Both violins sound at the same time.
+B: The right one.
+C: The left one.
+D: Neither instrument produces any sound. 
+Pick the best suited option.",B,videos/object/0769-00.mp4
+B,B,Which pipa is the first sounding instrument?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0770-00,"['Neither instrument produces any sound.' 'The left one.' 'The right one.'
+ 'Both pipas sound at the same time.']",,"Which pipa is the first sounding instrument?
+Options: 
+A: Neither instrument produces any sound.
+B: The left one.
+C: The right one.
+D: Both pipas sound at the same time. 
+Pick the best suited option.",B,videos/object/0770-00.mp4
+C,D,Which violin is the first sounding instrument?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,3,,0771-00,"['Neither instrument produces any sound.'
+ 'Both instruments begin simultaneously.' 'The right one.' 'The left one.']",,"Which violin is the first sounding instrument?
+Options: 
+A: Neither instrument produces any sound.
+B: Both instruments begin simultaneously.
+C: The right one.
+D: The left one. 
+Pick the best suited option.",D,videos/object/0771-00.mp4
+B,D,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,3,,0772-00,"['Both instruments begin simultaneously.'
+ 'Neither instrument produces any sound.' 'Violin.' 'Cello.']",,"Which musical instrument plays first?
+Options: 
+A: Both instruments begin simultaneously.
+B: Neither instrument produces any sound.
+C: Violin.
+D: Cello. 
+Pick the best suited option.",D,videos/object/0772-00.mp4
+D,C,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,2,,0773-00,"['Neither instrument produces any sound.'
+ 'Both instruments begin simultaneously.' 'Piano.' 'Violin.']",,"Which musical instrument plays first?
+Options: 
+A: Neither instrument produces any sound.
+B: Both instruments begin simultaneously.
+C: Piano.
+D: Violin. 
+Pick the best suited option.",C,videos/object/0773-00.mp4
+D,A,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,0,,0774-00,"['Guitar.' 'Both instruments begin simultaneously.'
+ 'Neither instrument produces any sound.' 'Clarinet.']",,"Which musical instrument plays first?
+Options: 
+A: Guitar.
+B: Both instruments begin simultaneously.
+C: Neither instrument produces any sound.
+D: Clarinet. 
+Pick the best suited option.",A,videos/object/0774-00.mp4
+A,B,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0775-00,"['Both instruments begin simultaneously.' 'Violin.' 'Soprano saxophone.'
+ 'Neither instrument produces any sound.']",,"Which musical instrument plays first?
+Options: 
+A: Both instruments begin simultaneously.
+B: Violin.
+C: Soprano saxophone.
+D: Neither instrument produces any sound. 
+Pick the best suited option.",B,videos/object/0775-00.mp4
+B,C,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,2,,0776-00,"['Both instruments begin simultaneously.'
+ 'Neither instrument produces any sound.' 'Guitar.' 'Soprano saxophone.']",,"Which musical instrument plays first?
+Options: 
+A: Both instruments begin simultaneously.
+B: Neither instrument produces any sound.
+C: Guitar.
+D: Soprano saxophone. 
+Pick the best suited option.",C,videos/object/0776-00.mp4
+C,B,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0777-00,"['Both instruments begin simultaneously.' 'Soprano saxophone.'
+ 'Neither instrument produces any sound.' 'Guitar.']",,"Which musical instrument plays first?
+Options: 
+A: Both instruments begin simultaneously.
+B: Soprano saxophone.
+C: Neither instrument produces any sound.
+D: Guitar. 
+Pick the best suited option.",B,videos/object/0777-00.mp4
+C,C,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,2,,0778-00,"['Violin.' 'Both instruments begin simultaneously.' 'Flute.'
+ 'Neither instrument produces any sound.']",,"Which musical instrument plays first?
+Options: 
+A: Violin.
+B: Both instruments begin simultaneously.
+C: Flute.
+D: Neither instrument produces any sound. 
+Pick the best suited option.",C,videos/object/0778-00.mp4
+C,A,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,0,,0779-00,"['Pipa.' 'Erhu.' 'Both instruments begin simultaneously.'
+ 'Neither instrument produces any sound.']",,"Which musical instrument plays first?
+Options: 
+A: Pipa.
+B: Erhu.
+C: Both instruments begin simultaneously.
+D: Neither instrument produces any sound. 
+Pick the best suited option.",A,videos/object/0779-00.mp4
+D,A,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,0,,0780-00,"['Flute.' 'Keyboard.' 'Neither instrument produces any sound.'
+ 'Both instruments begin simultaneously.']",,"Which musical instrument plays first?
+Options: 
+A: Flute.
+B: Keyboard.
+C: Neither instrument produces any sound.
+D: Both instruments begin simultaneously. 
+Pick the best suited option.",A,videos/object/0780-00.mp4
+B,B,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0781-00,"['Flute.' 'Both instruments begin simultaneously.' 'Violin.'
+ 'Neither instrument produces any sound.']",,"Which musical instrument plays first?
+Options: 
+A: Flute.
+B: Both instruments begin simultaneously.
+C: Violin.
+D: Neither instrument produces any sound. 
+Pick the best suited option.",B,videos/object/0781-00.mp4
+A,B,Which ukulele is the first sounding instrument?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0782-00,"['The left one.' 'Both ukuleles sound at the same time.' 'The right one.'
+ 'Neither instrument produces any sound.']",,"Which ukulele is the first sounding instrument?
+Options: 
+A: The left one.
+B: Both ukuleles sound at the same time.
+C: The right one.
+D: Neither instrument produces any sound. 
+Pick the best suited option.",B,videos/object/0782-00.mp4
+D,A,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,0,,0783-00,"['Both instruments begin simultaneously.' 'Keyboard.'
+ 'Neither instrument produces any sound.' 'Flute.']",,"Which musical instrument plays first?
+Options: 
+A: Both instruments begin simultaneously.
+B: Keyboard.
+C: Neither instrument produces any sound.
+D: Flute. 
+Pick the best suited option.",A,videos/object/0783-00.mp4
+D,B,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0784-00,"['Neither instrument produces any sound.'
+ 'Both instruments begin simultaneously.' 'Guitar.' 'Ukulele.']",,"Which musical instrument plays first?
+Options: 
+A: Neither instrument produces any sound.
+B: Both instruments begin simultaneously.
+C: Guitar.
+D: Ukulele. 
+Pick the best suited option.",B,videos/object/0784-00.mp4
+C,B,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0785-00,"['Erhu.' 'Both instruments begin simultaneously.' 'Guzheng.'
+ 'Neither instrument produces any sound.']",,"Which musical instrument plays first?
+Options: 
+A: Erhu.
+B: Both instruments begin simultaneously.
+C: Guzheng.
+D: Neither instrument produces any sound. 
+Pick the best suited option.",B,videos/object/0785-00.mp4
+D,B,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0786-00,"['Piano.' 'Both instruments begin simultaneously.'
+ 'Neither instrument produces any sound.' 'Violin.']",,"Which musical instrument plays first?
+Options: 
+A: Piano.
+B: Both instruments begin simultaneously.
+C: Neither instrument produces any sound.
+D: Violin. 
+Pick the best suited option.",B,videos/object/0786-00.mp4
+D,A,Which ukulele is the first sounding instrument?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,0,,0787-00,"['Both ukuleles sound at the same time.'
+ 'Neither instrument produces any sound.' 'The right one.' 'The left one.']",,"Which ukulele is the first sounding instrument?
+Options: 
+A: Both ukuleles sound at the same time.
+B: Neither instrument produces any sound.
+C: The right one.
+D: The left one. 
+Pick the best suited option.",A,videos/object/0787-00.mp4
+B,B,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0788-00,"['Violin.' 'Both instruments begin simultaneously.'
+ 'Neither instrument produces any sound.' 'Cello.']",,"Which musical instrument plays first?
+Options: 
+A: Violin.
+B: Both instruments begin simultaneously.
+C: Neither instrument produces any sound.
+D: Cello. 
+Pick the best suited option.",B,videos/object/0788-00.mp4
+C,A,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,0,,0789-00,"['Both instruments begin simultaneously.' 'Violin.'
+ 'Neither instrument produces any sound.' 'Guitar.']",,"Which musical instrument plays first?
+Options: 
+A: Both instruments begin simultaneously.
+B: Violin.
+C: Neither instrument produces any sound.
+D: Guitar. 
+Pick the best suited option.",A,videos/object/0789-00.mp4
+D,C,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,2,,0790-00,"['Neither instrument produces any sound.' 'Piano.'
+ 'Both instruments begin simultaneously.' 'Violin.']",,"Which musical instrument plays first?
+Options: 
+A: Neither instrument produces any sound.
+B: Piano.
+C: Both instruments begin simultaneously.
+D: Violin. 
+Pick the best suited option.",C,videos/object/0790-00.mp4
+D,A,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,0,,0791-00,"['Both instruments begin simultaneously.' 'Ukulele.' 'Flute.'
+ 'Neither instrument produces any sound.']",,"Which musical instrument plays first?
+Options: 
+A: Both instruments begin simultaneously.
+B: Ukulele.
+C: Flute.
+D: Neither instrument produces any sound. 
+Pick the best suited option.",A,videos/object/0791-00.mp4
+A,B,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0792-00,"['Guzheng.' 'Both instruments begin simultaneously.' 'Pipa.'
+ 'Neither instrument produces any sound.']",,"Which musical instrument plays first?
+Options: 
+A: Guzheng.
+B: Both instruments begin simultaneously.
+C: Pipa.
+D: Neither instrument produces any sound. 
+Pick the best suited option.",B,videos/object/0792-00.mp4
+D,D,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,3,,0793-00,"['Accordion.' 'Flute.' 'Neither instrument produces any sound.'
+ 'Both instruments begin simultaneously.']",,"Which musical instrument plays first?
+Options: 
+A: Accordion.
+B: Flute.
+C: Neither instrument produces any sound.
+D: Both instruments begin simultaneously. 
+Pick the best suited option.",D,videos/object/0793-00.mp4
+D,A,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,0,,0794-00,"['Both instruments begin simultaneously.'
+ 'Neither instrument produces any sound.' 'Guzheng.' 'Accordion.']",,"Which musical instrument plays first?
+Options: 
+A: Both instruments begin simultaneously.
+B: Neither instrument produces any sound.
+C: Guzheng.
+D: Accordion. 
+Pick the best suited option.",A,videos/object/0794-00.mp4
+B,B,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0795-00,"['Ukulele.' 'Both instruments begin simultaneously.' 'Flute.'
+ 'Neither instrument produces any sound.']",,"Which musical instrument plays first?
+Options: 
+A: Ukulele.
+B: Both instruments begin simultaneously.
+C: Flute.
+D: Neither instrument produces any sound. 
+Pick the best suited option.",B,videos/object/0795-00.mp4
+B,B,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0796-00,"['Clarinet.' 'Both instruments begin simultaneously.' 'Guitar.'
+ 'Neither instrument produces any sound.']",,"Which musical instrument plays first?
+Options: 
+A: Clarinet.
+B: Both instruments begin simultaneously.
+C: Guitar.
+D: Neither instrument produces any sound. 
+Pick the best suited option.",B,videos/object/0796-00.mp4
+B,B,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,1,,0797-00,"['Violin.' 'Both instruments begin simultaneously.'
+ 'Neither instrument produces any sound.' 'Clarinet.']",,"Which musical instrument plays first?
+Options: 
+A: Violin.
+B: Both instruments begin simultaneously.
+C: Neither instrument produces any sound.
+D: Clarinet. 
+Pick the best suited option.",B,videos/object/0797-00.mp4
+D,D,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,3,,0798-00,"['Piano.' 'Guzheng.' 'Neither instrument produces any sound.'
+ 'Both instruments begin simultaneously.']",,"Which musical instrument plays first?
+Options: 
+A: Piano.
+B: Guzheng.
+C: Neither instrument produces any sound.
+D: Both instruments begin simultaneously. 
+Pick the best suited option.",D,videos/object/0798-00.mp4
+A,A,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,0,,0799-00,"['Both instruments begin simultaneously.' 'Cello.' 'Violin.'
+ 'Neither instrument produces any sound.']",,"Which musical instrument plays first?
+Options: 
+A: Both instruments begin simultaneously.
+B: Cello.
+C: Violin.
+D: Neither instrument produces any sound. 
+Pick the best suited option.",A,videos/object/0799-00.mp4
+A,D,Which musical instrument plays first?,object,"{'composite': 0, 'counterfactual': 0, 'first_person': 0, 'zoom': 0}",visual cues,3,,0800-00,"['Accordion.' 'Saxophone.' 'Neither instrument produces any sound.'
+ 'Both instruments begin simultaneously.']",,"Which musical instrument plays first?
+Options: 
+A: Accordion.
+B: Saxophone.
+C: Neither instrument produces any sound.
+D: Both instruments begin simultaneously. 
+Pick the best suited option.",D,videos/object/0800-00.mp4
