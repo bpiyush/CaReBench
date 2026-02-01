@@ -291,6 +291,73 @@ class EncoderForLlavaNextVideo(BaseModelForLlavaNextVideo, EncodeMixin):
         outputs = self.model.generate(**inputs, max_new_tokens=1, output_hidden_states=True, return_dict_in_generate=True)
         return outputs.hidden_states[0][-1][:, -1, :]
 
+
+from models.modeling_basemodels import BaseModelForLlavaOneVision
+class EncoderForLlavaOneVision(BaseModelForLlavaOneVision, EncodeMixin):
+    
+    def encode_vision(self, pixel_values):
+        """
+        Args:
+            pixel_values (torch.Tensor): The pixel values of the video. Shape: (T, C, H, W)
+        """
+        from llava.constants import IMAGE_TOKEN_INDEX
+        from llava.mm_utils import tokenizer_image_token
+
+        frames = self.processor.image_processor.preprocess(pixel_values, return_tensors="pt")["pixel_values"].to(self.model.device).half()
+        image_tensors = [frames]
+        nframes = len(pixel_values)
+        prompt = self.image_eol_prompt if nframes == 1 else self.video_eol_prompt
+        input_ids = tokenizer_image_token(prompt, self.tokenizer, IMAGE_TOKEN_INDEX, return_tensors="pt").unsqueeze(0).to(self.model.device)
+        image_sizes = [frame.size for frame in frames]
+        generate_kwargs = {
+            "max_new_tokens": 1,
+            "output_hidden_states": True,
+            "return_dict_in_generate": True,
+        }
+        # Generate response
+        outputs = self.model.generate(
+            input_ids,
+            images=image_tensors,
+            image_sizes=image_sizes,
+            **generate_kwargs,
+            modalities=["video"],
+        )
+        # text_outputs = model.tokenizer.batch_decode(cont, skip_special_tokens=True)
+        # print(text_outputs[0])
+        zv = outputs.hidden_states[0][-1][:, -1, :]
+        return zv
+
+    def encode_text(self, text: str | List[str]) -> torch.Tensor:
+        from llava.constants import IMAGE_TOKEN_INDEX
+        from llava.mm_utils import tokenizer_image_token
+
+        prompt = self.text_eol_prompt
+
+        if isinstance(text, str):
+            text = [text]
+        
+        prompts = [prompt.replace('<sent>', t) for t in text]
+
+        generate_kwargs = {
+            "max_new_tokens": 1,
+            "output_hidden_states": True,
+            "return_dict_in_generate": True,
+        }
+
+        text_embs = []
+
+        for p in prompts:
+            
+            input_ids = tokenizer_image_token(p, self.tokenizer, IMAGE_TOKEN_INDEX, return_tensors="pt").unsqueeze(0).to(self.model.device)
+            outputs = self.model.generate(
+                input_ids,
+                **generate_kwargs,
+            )
+            text_embs.append(outputs.hidden_states[0][-1][:, -1, :])        
+        text_embs = torch.cat(text_embs)
+        return text_embs
+
+
 class EncoderForTarsier(BaseModelForTarsier, EncodeMixin):
 
     def encode_vision(self, pixel_values: torch.Tensor | List[torch.Tensor]) -> torch.Tensor:

@@ -22,6 +22,7 @@ from models.tarsier.modeling_tarsier import TarsierForConditionalGeneration
 from models.tarsier.processor import Processor
 from utils.model import EOL_PROMPTS, load_architectures_from_config
 from abc import ABCMeta
+import copy
 
 
 base_registry = {}
@@ -354,6 +355,77 @@ class BaseModelForLlavaNextVideo(BaseModel):
         llm.save_pretrained(llm_path)
         processor.save_pretrained(llm_path)
         tokenizer.save_pretrained(llm_path)
+
+class BaseModelForLlavaOneVision(BaseModel):
+    from llava.model import LlavaQwenForCausalLM
+
+    ARCHITECTURE = "LlavaQwenForCausalLM"
+    LLM_CLASS = LlavaQwenForCausalLM
+    MLLM_CLASS = LlavaQwenForCausalLM
+
+    @property
+    def describe_prompt(self):
+        return "Please provide a detailed description of the video, focusing on the main subjects, their actions, and the background scenes."
+
+    @property
+    def text_eol_prompt(self):
+        from llava.conversation import conv_templates
+        conv_template = "qwen_1_5" 
+        conv = copy.deepcopy(conv_templates[conv_template])
+        conv.append_message(conv.roles[0], EOL_PROMPTS['text'])
+        conv.append_message(conv.roles[1], None)
+        prompt_question = conv.get_prompt()
+        return prompt_question
+    
+    @property
+    def image_eol_prompt(self):
+        from llava.conversation import conv_templates        
+        conv_template = "qwen_1_5"  # Make sure you use correct chat template for different models
+        question = EOL_PROMPTS['image']
+        conv = copy.deepcopy(conv_templates[conv_template])
+        conv.append_message(conv.roles[0], question)
+        conv.append_message(conv.roles[1], None)
+        prompt_question = conv.get_prompt()
+        return prompt_question
+    
+    @property
+    def video_eol_prompt(self):
+        from llava.conversation import conv_templates        
+        conv_template = "qwen_1_5"  # Make sure you use correct chat template for different models
+        question = EOL_PROMPTS['video']
+        question = question.replace('<video>', '<image>')
+        conv = copy.deepcopy(conv_templates[conv_template])
+        conv.append_message(conv.roles[0], question)
+        conv.append_message(conv.roles[1], None)
+        prompt_question = conv.get_prompt()
+        return prompt_question
+
+    def __init__(
+            self, 
+            model_name_or_path: str,
+            load_llm: bool = False,
+            device_map: Optional[Union[str, Dict[str, int]]] = None,
+            **kwargs,
+        ):
+        
+        # MODEL_CLASS = self.LLM_CLASS if load_llm else self.MLLM_CLASS
+        self.is_llm = load_llm
+
+        # Irrespective of load_llm, load the same model
+        from llava.model.builder import load_pretrained_model
+        llava_model_args = {
+            "multimodal": True,
+            "attn_implementation": "flash_attention_2",
+        }
+        tokenizer, model, image_processor, max_length = load_pretrained_model(
+            model_name_or_path, None, "llava_qwen", device_map=device_map, **llava_model_args,
+        )  # Add any other thing you want to pass in llava_model_args
+        model = model.eval()
+        self.model = model
+        self.tokenizer = tokenizer
+        self.processor = AutoProcessor.from_pretrained(model_name_or_path)
+        self.processor.image_processor = image_processor
+
 
 class BaseModelForTarsier(BaseModel):
     

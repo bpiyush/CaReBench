@@ -303,7 +303,7 @@ def train(
     group_by_length: bool = False,
     run_name: str = None,
     use_neg_sentence: bool = False,
-    save_steps: int = 100,
+    save_steps: int = 10000,
     seed: int = 42,
     deepspeed: str = None,
     logging_steps: int = 10,
