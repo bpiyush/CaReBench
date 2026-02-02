@@ -268,11 +268,17 @@ def eval_on_dataset(dataset, prompt, test_name, encoder):
 
 
 if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--model_id', type=str, default="/work/piyush/pretrained_checkpoints/TARA")
+    args = parser.parse_args()
+
     # Load model
     # model_id = "/work/piyush/pretrained_checkpoints/Tarsier-7b"
-    model_id = "/work/piyush/pretrained_checkpoints/TARA"
+    model_id = args.model_id
     encoder = AutoEncoder.from_pretrained(model_id, device_map='cuda:0')
     su.misc.num_params(encoder.model)
+    model_name = os.path.basename(model_id.rstrip('/'))
 
     tests = {'action_adv', 'action_bind', 'action_manner', 'agent_bind', 'agent_random', 'chrono', 'control', 'coref'}
     dataset_path = "/scratch/shared/beegfs/piyush/datasets/VELOCITI"
@@ -296,5 +302,5 @@ if __name__ == "__main__":
         print("Test Name: ", test_name)
         print("Accuracy: ", acc)
         print("-" * 100)
-        os.makedirs('./testoftime-eval/outputs/tara-entail', exist_ok=True)
-        df.to_csv(f'./testoftime-eval/outputs/tara-entail/velocity_{test_name}.csv', index=False)
+        os.makedirs(f'./testoftime-eval/outputs/{model_name}-entail', exist_ok=True)
+        df.to_csv(f'./testoftime-eval/outputs/{model_name}-entail/velocity_{test_name}.csv', index=False)

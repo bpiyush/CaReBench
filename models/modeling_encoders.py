@@ -298,10 +298,17 @@ class EncoderForLlavaOneVision(BaseModelForLlavaOneVision, EncodeMixin):
     def encode_vision(self, pixel_values):
         """
         Args:
-            pixel_values (torch.Tensor): The pixel values of the video. Shape: (T, C, H, W)
+            pixel_values (torch.Tensor): The pixel values of the video. Shape: (T, H, W, C)
         """
         from llava.constants import IMAGE_TOKEN_INDEX
         from llava.mm_utils import tokenizer_image_token
+
+        if len(pixel_values.shape) == 5:
+            pixel_values = pixel_values.squeeze(0)
+
+        if pixel_values.shape[1] == 3:
+            # Need to permute from (T, C, H, W) to (T, H, W, C)
+            pixel_values = pixel_values.permute(0, 2, 3, 1).numpy()
 
         frames = self.processor.image_processor.preprocess(pixel_values, return_tensors="pt")["pixel_values"].to(self.model.device).half()
         image_tensors = [frames]

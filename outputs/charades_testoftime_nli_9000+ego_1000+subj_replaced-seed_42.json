@@ -1,0 +1,6 @@
+{
+  "accuracy": 0.496,
+  "total": 1000,
+  "correct": 496,
+  "model_path": "/work/piyush/experiments/llava_onevision/llava-onevision-qwen2-7b-ov/final-10112025/nli_9000+ego_1000+subj_replaced-seed_42"
+}
