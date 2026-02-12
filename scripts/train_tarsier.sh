@@ -21,6 +21,7 @@ MICRO_BATCH_SIZE=32
 # BATCH_SIZE=32
 # MICRO_BATCH_SIZE=4
 EPOCH=2
+# EPOCH=10
 # EPOCH=1
 LR=2e-5
 # LR=2e-4 # paper says 2e-4 but the config had 2e-5
