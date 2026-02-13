@@ -1,6 +1,6 @@
 {
-  "accuracy": 0.542,
+  "accuracy": 0.688,
   "total": 1000,
-  "correct": 542,
+  "correct": 688,
   "model_path": "/work/piyush/experiments/CaRe/Tarsier-7b/final-10112025/before-after-random_pairs-4000/merged_checkpoint/"
 }
