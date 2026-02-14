@@ -1,6 +1,6 @@
 {
-  "accuracy": 0.5055724417426545,
-  "total": 987,
-  "correct": 499,
+  "accuracy": 0.4949290060851927,
+  "total": 986,
+  "correct": 488,
   "model_path": "/work/piyush/pretrained_checkpoints/TARA"
 }

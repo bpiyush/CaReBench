@@ -85,6 +85,17 @@ def load_temporal_frames(
     return combined_frames
 
 
+def convert_caption_to_sequence_of_events(caption):
+    if " before " in caption:
+        e1, e2 = caption.split(" before ")
+        return f"1. {e1} \n2. {e2}"
+    elif " after " in caption:
+        e2, e1 = caption.split(" after ")
+        return f"1. {e1} \n2. {e2}"
+    else:
+        raise ValueError(f"Invalid caption: {caption}")
+
+
 def evaluate_testoftime(
     model_path: str,
     csv_path: str,
@@ -92,6 +103,7 @@ def evaluate_testoftime(
     n_frames_per_event: int = 8,
     debug: bool = False,
     device_map: str = 'auto',
+    use_sequence_of_events: bool = False,
 ):
     """
     Evaluate a model on the TestOfTime (TEMPO) benchmark.
@@ -103,6 +115,7 @@ def evaluate_testoftime(
         n_frames_per_event: Number of frames to sample from each event.
         debug: If True, only evaluate on a subset of samples.
         device_map: Device mapping for the model.
+        use_sequence_of_events: If True, use a sequence of events as the input text.
         
     Returns:
         Dictionary with evaluation results.
@@ -162,10 +175,13 @@ def evaluate_testoftime(
             zv = torch.nn.functional.normalize(zv, dim=-1)
             
             # Compute text embeddings
-            zt_pos = tfc(row['caption'])
+            caption = row['caption'] if not use_sequence_of_events else convert_caption_to_sequence_of_events(row['caption'])
+            distractor = row['distractor_caption'] if not use_sequence_of_events else convert_caption_to_sequence_of_events(row['distractor_caption'])
+
+            zt_pos = tfc(caption)
             zt_pos = torch.nn.functional.normalize(zt_pos, dim=-1)
             
-            zt_neg = tfc(row['distractor_caption'])
+            zt_neg = tfc(distractor)
             zt_neg = torch.nn.functional.normalize(zt_neg, dim=-1)
             
             # Compute similarities
@@ -265,6 +281,11 @@ def main():
         default='./outputs',
         help='Directory to save results',
     )
+    parser.add_argument(
+        '--use_sequence_of_events',
+        action='store_true',
+        help='Use a sequence of events as the input text',
+    )
     args = parser.parse_args()
     
     # Run evaluation
@@ -275,6 +296,7 @@ def main():
         n_frames_per_event=args.n_frames_per_event,
         debug=args.debug,
         device_map=args.device_map,
+        use_sequence_of_events=args.use_sequence_of_events,
     )
     
     # Save results
