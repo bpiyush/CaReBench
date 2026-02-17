@@ -14,7 +14,6 @@ from IPython.display import display, Markdown, Latex
 import shared.utils as su
 from notebooks.eval_care_retrieval import load_model
 from utils.video import read_frames_decord
-from utils.video import read_frames_decord
 from utils.model import transform_pixel_values
 from torchvision.transforms.v2 import (
     ToPILImage,
