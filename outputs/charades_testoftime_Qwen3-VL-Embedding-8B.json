@@ -1,0 +1,6 @@
+{
+  "accuracy": 0.533,
+  "total": 1000,
+  "correct": 533,
+  "model_path": "/work/piyush/pretrained_checkpoints/Qwen3-VL-Embedding-8B"
+}

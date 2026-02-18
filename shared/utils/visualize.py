@@ -663,7 +663,10 @@ def reduce_dim(X, method="tsne", perplexity=30, n_iter=1000):
         pca = PCA(n_components=2)
         Z = pca.fit_transform(X)
     elif method == "umap":
-        import umap
+        try:
+            import umap
+        except:
+            import umap.umap_ as umap
         reducer = umap.UMAP(random_state=42)
         Z = reducer.fit_transform(X)
     else:
