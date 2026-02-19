@@ -1,5 +1,5 @@
 max_n_frames: 256
-n_frames: 16
+n_frames: 8
 max_pixels: 460800 # 1280 * 720 // 2
 min_pixels: 0
 max_seq_len: 16384

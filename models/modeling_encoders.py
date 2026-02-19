@@ -550,7 +550,7 @@ class EncoderForTarsier2(BaseModelForTarsier2, EncodeMixin):
         return emb
     
     def encode_text(self, text: str) -> torch.Tensor:
-        prompt = self.text_eol_prompt
+        prompt = self.text_eol_prompt.replace('<sent>', text)
         sample = format_one_sample(media_file=None, prompt=prompt)
         sample = self.super_processor(sample)
         model_inputs = {}
