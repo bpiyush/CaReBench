@@ -2,7 +2,6 @@ import os
 import math
 import torch
 import torchvision.transforms as T
-import qwen_vl_utils.vision_process as qwen_vl_vision_process
 from PIL import Image
 import einops
 from torchvision.transforms.v2 import (
@@ -196,7 +195,7 @@ class BaseModelForQwen3VL(BaseModel):
         return math.floor(number / factor) * factor
     
     def smart_resize(
-        self, height: int, width: int, factor: int = qwen_vl_vision_process.IMAGE_FACTOR, min_pixels: int = qwen_vl_vision_process.MIN_PIXELS, max_pixels: int = qwen_vl_vision_process.MAX_PIXELS
+        self, height: int, width: int, factor: int = None, min_pixels: int = None, max_pixels: int = None
     ) -> tuple[int, int]:
         """
         Rescales the image so that the following conditions are met:
@@ -207,9 +206,9 @@ class BaseModelForQwen3VL(BaseModel):
 
         3. The aspect ratio of the image is maintained as closely as possible.
         """
-        if max(height, width) / min(height, width) > qwen_vl_vision_process.MAX_RATIO:
+        if max(height, width) / min(height, width) > MAX_RATIO:
             raise ValueError(
-                f"absolute aspect ratio must be smaller than {qwen_vl_vision_process.MAX_RATIO}, got {max(height, width) / min(height, width)}"
+                f"absolute aspect ratio must be smaller than {MAX_RATIO}, got {max(height, width) / min(height, width)}"
             )
         h_bar = max(factor, self.round_by_factor(height, factor))
         w_bar = max(factor, self.round_by_factor(width, factor))

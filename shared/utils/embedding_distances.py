@@ -155,6 +155,16 @@ def embedding_distance(X: np.ndarray, Y: np.ndarray, regularization: float = 1e-
     return results
 
 
+def print_comparison(metrics1: dict, metrics2: dict, name1: str = "Model A", name2: str = "Model B"):
+    col = max(len(name1), len(name2), 14)
+    print(f"  {'Metric':<30} {name1:>{col}}  {name2:>{col}}")
+    print("-" * (34 + col * 2))
+    for key in metrics1:
+        v1 = metrics1[key]
+        v2 = metrics2.get(key, float('nan'))
+        print(f"  {key:<30} {v1:>{col}.6f}  {v2:>{col}.6f}")
+
+
 # =============================================================================
 # Example usage
 # =============================================================================
