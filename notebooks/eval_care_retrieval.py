@@ -698,7 +698,7 @@ if __name__ == "__main__":
     print_metrics_as_latex_row(metrics, sep='& ')
     
     # Save metrics
-    save_metrics = False
+    save_metrics = True
     if save_metrics:
         save_dir = os.path.join(os.path.dirname(args.model_id), 'metrics')
         os.makedirs(save_dir, exist_ok=True)
