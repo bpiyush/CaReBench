@@ -3,7 +3,6 @@ import os
 from models.modeling_basemodels import AutoBase
 
 # Need to ensure `carebench` conda env is activated.
-import sys
 command = "echo $CONDA_DEFAULT_ENV"
 output = os.popen(command).read().strip()
 if output != "carebench":
@@ -58,7 +57,7 @@ if __name__ == "__main__":
     # Replace the tokenizer in the MLLM with the fine-tuned tokenizer
     print("Replacing the tokenizer in the MLLM with the fine-tuned tokenizer:")
     mllm.tokenizer = llm_tokenizer
-    if not 'internvl2' in args.base_model.lower():
+    if 'internvl2' not in args.base_model.lower():
         mllm.processor.tokenizer = llm_tokenizer
 
     
