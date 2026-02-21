@@ -294,7 +294,8 @@ class Qwen2VLConfig(PretrainedConfig):
             if self.rope_scaling["type"] == "mrope":
                 self.rope_scaling["type"] = "default"
             self.rope_scaling["rope_type"] = self.rope_scaling["type"]
-        rope_config_validation(self, ignore_keys={"mrope_section"})
+        # rope_config_validation(self, ignore_keys={"mrope_section"})
+        rope_config_validation(self)
 
         super().__init__(tie_word_embeddings=tie_word_embeddings, **kwargs)
 

@@ -881,9 +881,21 @@ class BaseModelForTarsier2(BaseModel):
             model_name_or_path += '-llm'
             model_config = None
             
-            from models.tarsier2.tarsier2_processor import TarsierProcessor
-            self.processor = TarsierProcessor.from_pretrained(model_name_or_path, use_fast=False)
+            # from models.tarsier2.tarsier2_processor import TarsierProcessor
+            # self.processor = TarsierProcessor.from_pretrained(model_name_or_path, use_fast=False)
+            # self.tokenizer = self.processor.tokenizer
+            
+            import shared.utils as su
+            self.base_config = su.io.load_yml(
+                os.path.join(
+                    su.log.repo_path, 'models/tarsier2/default_config.yaml'
+                )
+            )
+            from models.tarsier2.dataset.tarsier_datamodule import init_processor
+            self.super_processor = init_processor(model_name_or_path, self.base_config)
+            self.processor = self.super_processor.processor
             self.tokenizer = self.processor.tokenizer
+
         else:
             model_config = LlavaConfig.from_pretrained(
                 model_name_or_path,
