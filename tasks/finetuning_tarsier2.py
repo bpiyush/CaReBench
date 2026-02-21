@@ -77,7 +77,15 @@ class SentembTrainerForTarsier2(SentembTrainer):
             del inputs["labels"]
 
         inputs["position_ids"] = self._build_text_position_ids(inputs["attention_mask"])
-        pooler_output = model(output_hidden_states=True, return_dict=True, **inputs).hidden_states[-1][:, -1, :]
+        input_ids_for_embeds = inputs["input_ids"]
+        model_inputs = {
+            "inputs_embeds": model.get_input_embeddings()(input_ids_for_embeds),
+            "attention_mask": inputs["attention_mask"],
+            "position_ids": inputs["position_ids"],
+            "output_hidden_states": True,
+            "return_dict": True,
+        }
+        pooler_output = model(**model_inputs).hidden_states[-1][:, -1, :]
 
         if self.use_neg_sentence:
             batch_size = pooler_output.size(0) // 3
@@ -180,7 +188,11 @@ def train(
 
     def process_prompt(prompt: str):
         sample = format_one_sample(media_file=None, prompt=prompt)
-        result = super_processor(sample)
+        result = super_processor.processor(
+            sample["messages"],
+            image_processing_config={},
+            is_training=True,
+        )
         input_ids = result["input_ids"]
         if isinstance(input_ids, torch.Tensor):
             input_ids = input_ids[0].tolist()

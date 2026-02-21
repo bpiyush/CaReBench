@@ -866,6 +866,23 @@ class BaseModelForTarsier2(BaseModel):
         prompt = EOL_PROMPTS["video"]
         return prompt
 
+    @staticmethod
+    def _resolve_attn_implementation(requested_attn_impl: Optional[str] = None) -> str:
+        attn_impl = requested_attn_impl or "flash_attention_2"
+        if attn_impl != "flash_attention_2":
+            return attn_impl
+        if not torch.cuda.is_available():
+            print("CUDA is unavailable; falling back attn_implementation to 'eager'.")
+            return "eager"
+        major, _ = torch.cuda.get_device_capability(torch.cuda.current_device())
+        if major < 8:
+            print(
+                f"GPU compute capability {major}.x does not support FlashAttention-2; "
+                "falling back attn_implementation to 'eager'."
+            )
+            return "eager"
+        return "flash_attention_2"
+
     def __init__(
             self, 
             model_name_or_path: str,
@@ -919,10 +936,14 @@ class BaseModelForTarsier2(BaseModel):
             self.processor = self.super_processor.processor
             self.tokenizer = self.processor.tokenizer
 
+        attn_implementation = self._resolve_attn_implementation(
+            kwargs.get("attn_implementation", "flash_attention_2")
+        )
+
         self.model = MODEL_CLASS.from_pretrained(
             model_name_or_path,
             config=model_config,
-            attn_implementation=kwargs.get("attn_implementation", "flash_attention_2"),
+            attn_implementation=attn_implementation,
             # torch_dtype=kwargs.get("torch_dtype", torch.bfloat16),
             torch_dtype=torch.bfloat16,
             device_map=device_map,
@@ -940,9 +961,10 @@ class BaseModelForTarsier2(BaseModel):
             print(f'{llm_path} already exists. Skip splitting weights.')
             return
         print('Splitting LLM weights from MLLM.')
+        attn_implementation = self._resolve_attn_implementation("flash_attention_2")
         model = self.MLLM_CLASS.from_pretrained(
             mllm_path,
-            attn_implementation='flash_attention_2',
+            attn_implementation=attn_implementation,
             torch_dtype=torch.bfloat16,
         )
         llm = model.language_model

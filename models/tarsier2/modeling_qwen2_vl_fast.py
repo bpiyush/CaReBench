@@ -802,6 +802,73 @@ class Qwen2VLAttention(nn.Module):
         self.v_proj = nn.Linear(self.hidden_size, self.num_key_value_heads * self.head_dim, bias=True)
         self.o_proj = nn.Linear(self.num_heads * self.head_dim, self.hidden_size, bias=False)
 
+    def forward(
+        self,
+        hidden_states: torch.Tensor,
+        attention_mask: Optional[torch.Tensor] = None,
+        position_ids: Optional[torch.LongTensor] = None,
+        past_key_value: Optional[Cache] = None,
+        output_attentions: bool = False,
+        use_cache: bool = False,
+        position_embeddings: Optional[Tuple[torch.Tensor, torch.Tensor]] = None,
+        use_rmpad: Optional[bool] = False,
+        cu_seqlens: Optional[torch.Tensor] = False,
+    ):
+        if use_rmpad:
+            raise NotImplementedError("use_rmpad is only supported with flash_attention_2.")
+
+        bsz, q_len, _ = hidden_states.size()
+        query_states = self.q_proj(hidden_states)
+        key_states = self.k_proj(hidden_states)
+        value_states = self.v_proj(hidden_states)
+
+        query_states = query_states.view(bsz, q_len, self.num_heads, self.head_dim).transpose(1, 2)
+        key_states = key_states.view(bsz, q_len, self.num_key_value_heads, self.head_dim).transpose(1, 2)
+        value_states = value_states.view(bsz, q_len, self.num_key_value_heads, self.head_dim).transpose(1, 2)
+
+        cos, sin = position_embeddings
+        query_states, key_states = apply_multimodal_rotary_pos_emb(
+            query_states, key_states, cos, sin, self.rope_scaling["mrope_section"]
+        )
+
+        if past_key_value is not None:
+            cache_kwargs = {"sin": sin, "cos": cos}
+            key_states, value_states = past_key_value.update(key_states, value_states, self.layer_idx, cache_kwargs)
+
+        key_states = repeat_kv(key_states, self.num_key_value_groups)
+        value_states = repeat_kv(value_states, self.num_key_value_groups)
+        kv_seq_len = key_states.shape[-2]
+
+        attn_weights = torch.matmul(query_states, key_states.transpose(2, 3)) / math.sqrt(self.head_dim)
+
+        causal_mask = torch.full(
+            (q_len, kv_seq_len),
+            fill_value=torch.finfo(attn_weights.dtype).min,
+            device=attn_weights.device,
+        )
+        causal_mask = torch.triu(causal_mask, diagonal=1 + kv_seq_len - q_len)
+        attn_weights = attn_weights + causal_mask.unsqueeze(0).unsqueeze(0)
+
+        if attention_mask is not None:
+            if attention_mask.dim() == 2:
+                if attention_mask.shape[-1] != kv_seq_len:
+                    attention_mask = attention_mask[:, -kv_seq_len:]
+                key_padding_mask = (attention_mask == 0).unsqueeze(1).unsqueeze(2)
+                attn_weights = attn_weights.masked_fill(key_padding_mask, torch.finfo(attn_weights.dtype).min)
+            else:
+                attn_weights = attn_weights + attention_mask
+
+        attn_weights = F.softmax(attn_weights.float(), dim=-1).to(query_states.dtype)
+        attn_weights = F.dropout(attn_weights, p=self.attention_dropout if self.training else 0.0, training=self.training)
+        attn_output = torch.matmul(attn_weights, value_states)
+        attn_output = attn_output.transpose(1, 2).contiguous().view(bsz, q_len, self.hidden_size)
+        attn_output = self.o_proj(attn_output)
+
+        if not output_attentions:
+            attn_weights = None
+
+        return attn_output, attn_weights, past_key_value
+
 
 class Qwen2VLFlashAttention2(Qwen2VLAttention):
     """
@@ -922,6 +989,8 @@ class Qwen2VLFlashAttention2(Qwen2VLAttention):
         return attn_output, attn_weights, past_key_value
 
 QWEN2_VL_ATTENTION_CLASSES = {
+    "eager": Qwen2VLAttention,
+    "sdpa": Qwen2VLAttention,
     "flash_attention_2": Qwen2VLFlashAttention2,
 }
 
@@ -934,10 +1003,8 @@ class Qwen2VLDecoderLayer(nn.Module):
             attn_implementation = config.attn_implementation
         except:
             attn_implementation = config._attn_implementation
-        if attn_implementation != "flash_attention_2":
-            logger.error(
-                f"只支持 flash_attention_2！attn_implementation={attn_implementation}"
-            )
+        if attn_implementation not in QWEN2_VL_ATTENTION_CLASSES:
+            raise ValueError(f"Unsupported attn_implementation={attn_implementation}")
         self.self_attn = QWEN2_VL_ATTENTION_CLASSES[attn_implementation](config, layer_idx)
 
         self.mlp = Qwen2MLP(config)
