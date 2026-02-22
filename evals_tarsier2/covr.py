@@ -85,7 +85,7 @@ def gather_metrics(
     Returns:
         Dictionary of retrieval metrics
     """
-    from cia import itm_eval
+    from utils.general_retrieval_metrics import itm_eval
     
     zq = []
     zc = []
@@ -241,7 +241,7 @@ if __name__ == "__main__":
     # Add metadata to results
     metrics['dataset'] = args.dataset
     metrics['model_path'] = args.model_path
-    metrics['num_frames'] = args.num_frames
+    # metrics['num_frames'] = args.num_frames
     metrics['debug'] = args.debug
     
     with open(result_path, 'w') as f:

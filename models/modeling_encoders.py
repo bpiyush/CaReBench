@@ -582,9 +582,15 @@ class EncoderForTarsier2(BaseModelForTarsier2, EncodeMixin):
             emb = output.hidden_states[0][-1][:, -1, :]
         return emb
     
-    def encode_text(self, text: str) -> torch.Tensor:
-        prompt = self.text_eol_prompt.replace('<sent>', text)
-        sample = format_one_sample(media_file=None, prompt=prompt)
+    def encode_image(self, image_path: str):
+        ext = image_path.split('.')[-1]
+        if ext in ['mp4', 'avi', 'mov', 'mkv', 'webm']:
+            is_video = True
+        else:
+            is_video = False
+        assert not is_video
+        prompt = self.image_eol_prompt
+        sample = format_one_sample(media_file=image_path, prompt=prompt)
         sample = self.super_processor(sample)
         model_inputs = {}
         for k, v in sample.items():
@@ -600,6 +606,50 @@ class EncoderForTarsier2(BaseModelForTarsier2, EncodeMixin):
             )
             emb = output.hidden_states[0][-1][:, -1, :]
         return emb
+    
+    def encode_text(self, text: str) -> torch.Tensor:
+        
+        if isinstance(text, str):
+            prompt = self.text_eol_prompt.replace('<sent>', text)
+            sample = format_one_sample(media_file=None, prompt=prompt)
+            sample = self.super_processor(sample)
+            model_inputs = {}
+            for k, v in sample.items():
+                if not isinstance(v, torch.Tensor):
+                    continue
+                model_inputs[k] = v.to(self.model.device)
+            with torch.inference_mode():
+                output = self.model.generate(
+                    **model_inputs,
+                    max_new_tokens=1,
+                    output_hidden_states=True,
+                    return_dict_in_generate=True,
+                )
+                emb = output.hidden_states[0][-1][:, -1, :]
+            return emb
+        elif isinstance(text, list):
+            text_embs = []
+            for t in text:
+                prompt = self.text_eol_prompt.replace('<sent>', t)
+                sample = format_one_sample(media_file=None, prompt=prompt)
+                sample = self.super_processor(sample)
+                model_inputs = {}
+                for k, v in sample.items():
+                    if not isinstance(v, torch.Tensor):
+                        continue
+                    model_inputs[k] = v.to(self.model.device)
+                with torch.inference_mode():
+                    output = self.model.generate(
+                        **model_inputs,
+                        max_new_tokens=1,
+                        output_hidden_states=True,
+                        return_dict_in_generate=True,
+                    )
+                    emb = output.hidden_states[0][-1][:, -1, :]
+                    text_embs.append(emb)
+            return torch.cat(text_embs)
+        else:
+            raise ValueError(f"Invalid type for text: {type(text)}")
 
 
 if __name__ == "__main__":
@@ -610,10 +660,13 @@ if __name__ == "__main__":
         dtype=torch.bfloat16,
         attn_implementation="flash_attention_2",
     )
-    video_path = "/scratch/shared/beegfs/piyush/datasets/SSv2/20bn-something-something-v2/69703.webm"
-    text = "A man is slicing tomatoes in the kitchen."
-    emb = encoder.encode_vision_with_text(video_path, text)
-    print(emb.shape)
+    # video_path = "/scratch/shared/beegfs/piyush/datasets/SSv2/20bn-something-something-v2/69703.webm"
+    # text = "A man is slicing tomatoes in the kitchen."
+    # emb = encoder.encode_vision_with_text(video_path, text)
+    # print(emb.shape)
+    image_path = "../TimeBound.v1/sample_data/man_at_ladder_bottom.png"
+    z = encoder.encode_image(image_path)
+    print(z.shape)
     import ipdb; ipdb.set_trace()
 
 
