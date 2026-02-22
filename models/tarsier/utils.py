@@ -16,7 +16,7 @@ import os
 from PIL import Image, ImageSequence
 import decord
 
-VALID_DATA_FORMAT_STRING = "Input data must be {'.jpg', '.jpeg', '.png', '.tif'} for image; or {'.mp4', '.avi', '.webm', '.mov', '.mkv', '.wmv', '.gif'}  for videos!"
+VALID_DATA_FORMAT_STRING = "Input data must be {'.jpg', '.jpeg', '.png', '.tif'} for image; or {'.mp4', '.avi', '.webm', '.mov', '.mkv', '.wmv', '.gif', '.MP4'}  for videos!"
 
 # 均匀抽帧，必采样首尾帧。
 def sample_frame_indices(start_frame, total_frames: int, n_frames: int):
@@ -97,7 +97,7 @@ def get_visual_type(input_file):
     ext = os.path.splitext(input_file)[-1]
     if ext in {'.gif'}:
         return 'gif'
-    elif ext in {'.mp4', '.avi', '.webm', '.mov', '.mkv', '.wmv'}:
+    elif ext in {'.mp4', '.avi', '.webm', '.mov', '.mkv', '.wmv', '.MP4'}:
         return 'video'
     elif ext in {'.jpg', '.jpeg', '.png', '.tif'}:
         return 'image'
