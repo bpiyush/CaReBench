@@ -1,0 +1,58 @@
+ssv2:
+  name: "Something Something v2"
+  video_dir: /scratch/shared/beegfs/piyush/datasets/SSv2/20bn-something-something-v2
+  csv_path: /users/piyush/projects/TimeBound.v1/adapt4change/chirality_in_action_splits/cia-ssv2-validation.csv
+  ext: webm
+
+epic:
+  name: "EPIC-Kitchens"
+  video_dir: /scratch/shared/beegfs/piyush/datasets/EPIC-Kitchens-100/cut_clips
+  csv_path: /users/piyush/projects/TimeBound.v1/adapt4change/chirality_in_action_splits/cia-epic-validation.csv
+  ext: MP4
+
+charades:
+  name: "Charades"
+  video_dir: /scratch/shared/beegfs/piyush/datasets/Charades/Charades_v1_480_cut_clips
+  csv_path: /users/piyush/projects/TimeBound.v1/adapt4change/chirality_in_action_splits/cia-charades-validation.csv
+  ext: mp4
+
+ucf101:
+  name: "UCF101"
+  video_dir: /scratch/shared/beegfs/piyush/datasets/UCF101/videos_mp4
+  csv_path: /scratch/shared/beegfs/piyush/datasets/UCF101/metadata/test01.csv
+  ext: mp4
+  id_col: id
+  target: class
+
+hmdb51:
+  name: "HMDB51"
+  video_dir: /scratch/shared/beegfs/piyush/datasets/HMDB51/videos
+  csv_path: /scratch/shared/beegfs/piyush/datasets/HMDB51/metadata/test.csv
+  ext: avi
+  id_col: id
+  target: class
+
+kinetics-verbs:
+  name: "Kinetics-400 Verbs"
+  video_dir: /datasets/KineticsClean/
+  csv_path: /scratch/shared/beegfs/piyush/datasets/Kinetics400/metadata/val_vfc.csv
+  ext: mp4
+  id_col: id
+  target: class
+
+vatex-adverbs:
+  name: "VATEX Adverbs"
+  frame_dir: /scratch/shared/beegfs/piyush/datasets/MMEB-V2/video-tasks/frames/data/ziyan/video_retrieval/VATEX/frames
+  data_dir: /scratch/shared/beegfs/piyush/datasets/PseudoAdverbs
+  annotations_csv: /scratch/shared/beegfs/piyush/datasets/PseudoAdverbs/datasets/VATEX_Adverbs/annotations.csv
+  adverbs_csv: /scratch/shared/beegfs/piyush/datasets/PseudoAdverbs/datasets/VATEX_Adverbs/adverbs.csv
+  clip_id_col: clip_id
+  action_col: clustered_action
+  adverb_col: clustered_adverb
+
+covr:
+  name: "WebVid-CoVR"
+  video_dir: /datasets/WebVid/videos
+  csv_path: /scratch/shared/beegfs/piyush/datasets/WebVid-CoVR/webvid8m-covr_test-cleaned.csv
+  problematic_videos:
+    - /datasets/WebVid/videos/108401_108450/6507308.mp4

@@ -517,6 +517,15 @@ class EncoderForTarsierTwoTokens(BaseModelForTarsierTwoTokens, EncodeMixin):
         return text_embs
 
 
+def video_edit_eol_prompt():
+    prompt = "Source video: <video>\nEdit instruction: <sent>\n"\
+    "Look at the attached video carefully. The provided text is instruction to edit the video. "\
+    "Imagine this edit instruction being applied to the provided video frame.\n"\
+    "Summarize the resulting edited video in one word:"
+    prompt = f"USER: {prompt} ASSISTANT: "
+    return prompt
+
+
 from models.modeling_basemodels import BaseModelForTarsier2
 from models.tarsier2.dataset.utils import format_one_sample
 class EncoderForTarsier2(BaseModelForTarsier2, EncodeMixin):
@@ -532,6 +541,30 @@ class EncoderForTarsier2(BaseModelForTarsier2, EncodeMixin):
             prompt = self.video_eol_prompt
         else:
             prompt = self.image_eol_prompt
+        sample = format_one_sample(media_file=video_path, prompt=prompt)
+        sample = self.super_processor(sample)
+        model_inputs = {}
+        for k, v in sample.items():
+            if not isinstance(v, torch.Tensor):
+                continue
+            model_inputs[k] = v.to(self.model.device)
+        with torch.inference_mode():
+            output = self.model.generate(
+                **model_inputs,
+                max_new_tokens=1,
+                output_hidden_states=True,
+                return_dict_in_generate=True,
+            )
+            emb = output.hidden_states[0][-1][:, -1, :]
+        return emb
+    
+    def encode_vision_with_text(self, video_path: str, text: str) -> torch.Tensor:
+        ext = video_path.split('.')[-1]
+        if ext in ['mp4', 'avi', 'mov', 'mkv', 'webm']:
+            is_video = True
+        else:
+            is_video = False
+        prompt = video_edit_eol_prompt().replace('<sent>', text)
         sample = format_one_sample(media_file=video_path, prompt=prompt)
         sample = self.super_processor(sample)
         model_inputs = {}
@@ -567,6 +600,21 @@ class EncoderForTarsier2(BaseModelForTarsier2, EncodeMixin):
             )
             emb = output.hidden_states[0][-1][:, -1, :]
         return emb
+
+
+if __name__ == "__main__":
+    encoder = EncoderForTarsier2.from_pretrained(
+        "/work/piyush/pretrained_checkpoints/Tarsier2-7b-0115",
+        device_map='auto',
+        load_llm=False,
+        dtype=torch.bfloat16,
+        attn_implementation="flash_attention_2",
+    )
+    video_path = "/scratch/shared/beegfs/piyush/datasets/SSv2/20bn-something-something-v2/69703.webm"
+    text = "A man is slicing tomatoes in the kitchen."
+    emb = encoder.encode_vision_with_text(video_path, text)
+    print(emb.shape)
+    import ipdb; ipdb.set_trace()
 
 
 class EncoderForQwen2VL(BaseModelForQwen2VL, EncodeMixin):
