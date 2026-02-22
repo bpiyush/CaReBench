@@ -700,7 +700,8 @@ if __name__ == "__main__":
     # Save metrics
     save_metrics = True
     if save_metrics:
-        save_dir = os.path.join(os.path.dirname(args.model_id), 'metrics')
+        # save_dir = os.path.join(os.path.dirname(args.model_id), 'metrics')
+        save_dir = os.path.join(args.model_id, 'metrics')
         os.makedirs(save_dir, exist_ok=True)
         with open(os.path.join(save_dir, f'metrics-{args.dataset}.json'), 'w') as f:
             json.dump(metrics, f)
