@@ -109,7 +109,6 @@ if __name__ == "__main__":
         zv = torch.nn.functional.normalize(zv, dim=-1).cpu().float()
         text_embeds[key] = zv
 
-    import ipdb; ipdb.set_trace()
 
     correct = []
     for i in range(len(df_anno)):
