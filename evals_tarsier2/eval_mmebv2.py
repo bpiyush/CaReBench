@@ -13,9 +13,9 @@ import shared.utils as su
 from models.modeling_encoders import AutoEncoder
 
 
-def gather_text_embeddings(encoder, texts):
+def gather_text_embeddings(encoder, texts, ds_name):
     ZT = {}
-    for text in su.log.tqdm_iterator(texts, desc='Computing text embeddings'):
+    for text in su.log.tqdm_iterator(texts, desc=f'Computing text embeddings for {ds_name}'):
         with torch.no_grad():
             zt = encoder.encode_text(text)
             zt = torch.nn.functional.normalize(zt, dim=-1).squeeze(0).cpu().float()
@@ -63,7 +63,7 @@ if __name__ == "__main__":
         data = su.io.load_jsonl(f"{data_root}/video-tasks/data/{d['json_name']}")
         data = pd.DataFrame(data)
         all_texts = np.unique(data.neg_text.sum())
-        text_to_emb = gather_text_embeddings(model, all_texts)
+        text_to_emb = gather_text_embeddings(model, all_texts, ds_key)
         correct = []
         for j in su.log.tqdm_iterator(range(len(data)), desc='Gathering predictions'):
             row = data.iloc[j].to_dict()
@@ -91,7 +91,7 @@ if __name__ == "__main__":
 
             zv = torch.stack([video_embs[c] for c in data.video_id.tolist()])
             texts_local = data.pos_text.unique()
-            text_to_emb_local = gather_text_embeddings(model, texts_local)
+            text_to_emb_local = gather_text_embeddings(model, texts_local, ds_key)
             zt = torch.stack([text_to_emb_local[c] for c in data.pos_text.tolist()])
 
             sim = zv @ zt.T
@@ -155,7 +155,7 @@ if __name__ == "__main__":
             ]
             all_texts = np.unique(np.concatenate(all_texts))
             print("Total number of next captions: ", len(all_texts))
-            text_embeds[ds_key] = gather_text_embeddings(model, all_texts)
+            text_embeds[ds_key] = gather_text_embeddings(model, all_texts, ds_key)
             su.log.print_update(f"")
 
 

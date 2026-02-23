@@ -149,7 +149,6 @@ if __name__ == "__main__":
         dtype=torch.bfloat16,
     )
     su.misc.num_params(model.model)
-    import ipdb; ipdb.set_trace()
     
     vid_fwd_emb, vid_rev_emb = {}, {}
     cap_fwd_emb, cap_rev_emb = {}, {}
@@ -185,11 +184,18 @@ if __name__ == "__main__":
         except:
             print(f"Error computing embeddings for {video_id}")
             continue
-    import ipdb; ipdb.set_trace()
-        
+
     # Only keep the rows with valid video embeddings
     df = df[df.video_id.isin(list(vid_fwd_emb.keys()))]
     print(f"Number of rows with valid video embeddings: {len(df)}")
+
+    # Save embeddings
+    embeds = {"vid_fwd_emb": vid_fwd_emb, "vid_rev_emb": vid_rev_emb, "cap_fwd_emb": cap_fwd_emb, "cap_rev_emb": cap_rev_emb}
+    save_dir = os.path.join(args.model_path, "embs")
+    os.makedirs(save_dir, exist_ok=True)
+    torch.save(embeds, os.path.join(save_dir, f"embeddings_rtime_{args.model_name}.pt"))
+    print(f"Saved embeddings to {os.path.join(save_dir, f'embeddings_rtime_{args.model_name}.pt')}")
+        
     
     # Compute all metrics
     metrics = {
@@ -206,38 +212,3 @@ if __name__ == "__main__":
     suffix = "filtered" if filter_novel else "all"
     with open(os.path.join(result_dir, f"metrics_rtime_{args.model_name}_{suffix}.json"), "w") as f:
         json.dump(metrics, f, indent=4)
-
-    
-    # from notebooks.eval_care_retrieval import load_model
-    # # model_path = "/work/piyush/experiments/CaRe/Tarsier-7b/nli-9k+ego4d-1k/merged_checkpoint"
-    # # model_name = "tarsier7b+tara"
-    # # model_path = "/work/piyush/pretrained_checkpoints/Tarsier-7b"
-    # # model_name = "tarsier7b"
-    # # model_path = "/work/piyush/pretrained_checkpoints/Qwen2-VL-7B-Instruct"
-    # # model_name = "qwen2vl7b"
-    # model_path = args.model_path
-    # model_name = args.model_name
-    # vfc, tfc, vp  = load_model(_id=model_path)
-    
-    # vid_fwd_emb, vid_rev_emb = compute_video_embeddings(df, vfc, vp, data_dir)
-    # cap_fwd_emb, cap_rev_emb = compute_text_embeddings(df, tfc, data)
-    
-    # # Only keep the rows with valid video embeddings
-    # df = df[df.video_id.isin(list(vid_fwd_emb.keys()))]
-    # print(f"Number of rows with valid video embeddings: {len(df)}")
-    
-    # # Compute all metrics
-    # metrics = {
-    #     'binary': compute_rtime_binary_score(vid_fwd_emb, vid_rev_emb, cap_fwd_emb, cap_rev_emb),
-    #     'origin': compute_rtime_origin_score(vid_fwd_emb, cap_fwd_emb),
-    #     'hard': compute_rtime_hard_score(vid_fwd_emb, vid_rev_emb, cap_fwd_emb, cap_rev_emb),
-    # }
-    # # print(json.dumps(metrics, indent=4))
-    # print_metrics(metrics)
-    
-    # # Save metrics
-    # result_dir = "./results"
-    # os.makedirs(result_dir, exist_ok=True)
-    # with open(os.path.join(result_dir, f"metrics_rtime_{model_name}-filtered.json"), "w") as f:
-    #     json.dump(metrics, f, indent=4)
-
