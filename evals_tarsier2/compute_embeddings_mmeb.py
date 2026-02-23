@@ -8,16 +8,9 @@ import torch
 import pandas as pd
 import numpy as np
 import json
-from torch.nn.functional import cosine_similarity
-from utils.video import read_frames_decord
-from IPython.display import display, Markdown, Latex
 
 import shared.utils as su
-from notebooks.eval_care_retrieval import load_model
 from models.modeling_encoders import AutoEncoder
-from glob import glob 
-from natsort import natsorted
-import PIL.Image
 
 
 def load_data_video_cls(
