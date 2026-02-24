@@ -1,0 +1,112 @@
+# Chiral Score Detection Prompt
+
+You are a linguist analyzing the **temporal chirality** of sentences — whether an action, played in reverse like rewinding a video, looks like another recognizable real-world action.
+
+## Task
+
+Given a sentence:
+
+1. **Extract** the main verb phrase(s) (core verb + essential complements, no adverbs/modals).
+2. **Find the temporal antonym**: imagine literally rewinding a video of the action. Does the reversed footage look like a known, nameable action? If yes, that is the temporal antonym.
+3. **Score** each verb phrase from 0.0 to 1.0.
+
+## Key Rules for Temporal Antonyms
+
+- Think **rewound video**, not conceptual opposites. "Making a cake" reversed shows ingredients unmixing, eggs uncracking — this doesn't look like any real action, so it has no valid temporal antonym. "Destroying a cake" is a conceptual opposite but NOT what the reversed video looks like.
+- NOT a negation ("not opening" is not an antonym).
+- NOT a semantic antonym unless it genuinely matches the reversed footage.
+- Valid examples: "opening a door" ↔ "closing a door"; "filling a glass" ↔ "emptying a glass"; "tying a knot" ↔ "untying a knot"; "sitting down" ↔ "standing up".
+
+## Scoring Rubric
+
+| Score | Criteria |
+|-------|----------|
+| 0.9–1.0 | Reversed video is instantly recognizable as a common action with its own verb (open/close, tie/untie). |
+| 0.7–0.89 | Reversed video is a plausible action but less of a crisp lexical pair. |
+| 0.4–0.69 | Reversal is partially coherent — some aspects map to a real action, others don't. |
+| 0.1–0.39 | Reversal is mostly implausible but vaguely gesturable. |
+| 0.0–0.09 | Fundamentally irreversible; reversed video looks like nonsense (sneezing, exploding). |
+
+## Output Format
+
+Return a JSON object:
+
+```json
+{
+  "sentence": "<input sentence>",
+  "verb_phrases": [
+    {
+      "verb_phrase": "<extracted verb phrase>",
+      "temporal_antonym": "<antonym>" or null,
+      "reasoning": "<brief explanation based on what the rewound video looks like>",
+      "chiral_score": <float>
+    }
+  ],
+  "overall_chiral_score": <float>
+}
+```
+
+## Examples
+
+**Input:** "Someone is opening the door."
+
+```json
+{
+  "sentence": "Someone is opening the door.",
+  "verb_phrases": [
+    {
+      "verb_phrase": "opening the door",
+      "temporal_antonym": "closing the door",
+      "reasoning": "Rewinding a video of a door swinging open shows it swinging shut — this is exactly what closing a door looks like.",
+      "chiral_score": 0.95
+    }
+  ],
+  "overall_chiral_score": 0.95
+}
+```
+
+**Input:** "She baked a cake and then lit the candles."
+
+```json
+{
+  "sentence": "She baked a cake and then lit the candles.",
+  "verb_phrases": [
+    {
+      "verb_phrase": "baked a cake",
+      "temporal_antonym": null,
+      "reasoning": "Rewinding a video of baking shows a cake unrising, batter unmixing, eggs uncracking — this is not a recognizable real-world action.",
+      "chiral_score": 0.1
+    },
+    {
+      "verb_phrase": "lit the candles",
+      "temporal_antonym": "extinguishing the candles",
+      "reasoning": "Rewinding a video of lighting a candle shows the flame shrinking and vanishing — this closely resembles blowing out or extinguishing a candle.",
+      "chiral_score": 0.85
+    }
+  ],
+  "overall_chiral_score": 0.475
+}
+```
+
+**Input:** "The child sneezed loudly."
+
+```json
+{
+  "sentence": "The child sneezed loudly.",
+  "verb_phrases": [
+    {
+      "verb_phrase": "sneezed",
+      "temporal_antonym": null,
+      "reasoning": "Rewinding a sneeze shows droplets flying back into the nose and a sharp inhalation — this is not any recognized action.",
+      "chiral_score": 0.05
+    }
+  ],
+  "overall_chiral_score": 0.05
+}
+```
+
+---
+
+Now analyze the following sentence:
+
+Sentence: "`<INSERT SENTENCE HERE>`"

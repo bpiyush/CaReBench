@@ -6,7 +6,7 @@ if [ -z "$split" ]; then
 fi
 echo "Using split: $split"
 
-BASE_MODEL=/work/piyush/pretrained_checkpoints/Qwen2-VL-7B-Instruct
+BASE_MODEL=/work/piyush/pretrained_checkpoints/InternVL3-8B
 echo "Using base model: $BASE_MODEL"
 
 base_model_name=$(basename $BASE_MODEL)
@@ -18,14 +18,8 @@ args=()
 
 BATCH_SIZE=768
 MICRO_BATCH_SIZE=32
-# BATCH_SIZE=32
-# MICRO_BATCH_SIZE=4
 EPOCH=2
-# EPOCH=10
-# EPOCH=10
-# EPOCH=1
 LR=2e-5
-# LR=2e-4 # paper says 2e-4 but the config had 2e-5
 WARMUP_RATIO=0.1
 CUTOFF_LEN=32
 GPUS=8
@@ -36,7 +30,7 @@ echo $BASE_MODEL
 echo $MICRO_BATCH_SIZE $BATCH_SIZE
 wandb online
 
-deepspeed --num_gpus=$GPUS --num_nodes=$NUM_NODES tasks/finetuning.py \
+deepspeed --num_gpus=$GPUS --num_nodes=$NUM_NODES tasks/finetuning_internvl3.py \
         --model_name_or_path $BASE_MODEL \
         --data_path $CSV_PATH \
         --batch_size $BATCH_SIZE \
