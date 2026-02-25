@@ -2,7 +2,7 @@
 
 split=$1
 if [ -z "$split" ]; then
-    split="final-10112025/nli_9000+ego_1000+subj_replaced-seed_42"
+    split="covr/chiral10k-covr10k"
 fi
 echo "Using split: $split"
 
