@@ -554,6 +554,7 @@ class EncoderForTarsier2(BaseModelForTarsier2, EncodeMixin):
                 max_new_tokens=1,
                 output_hidden_states=True,
                 return_dict_in_generate=True,
+                pad_token_id=self.processor.tokenizer.eos_token_id
             )
             emb = output.hidden_states[0][-1][:, -1, :]
         return emb
@@ -578,6 +579,7 @@ class EncoderForTarsier2(BaseModelForTarsier2, EncodeMixin):
                 max_new_tokens=1,
                 output_hidden_states=True,
                 return_dict_in_generate=True,
+                pad_token_id=self.processor.tokenizer.eos_token_id
             )
             emb = output.hidden_states[0][-1][:, -1, :]
         return emb
@@ -603,6 +605,7 @@ class EncoderForTarsier2(BaseModelForTarsier2, EncodeMixin):
                 max_new_tokens=1,
                 output_hidden_states=True,
                 return_dict_in_generate=True,
+                pad_token_id=self.processor.tokenizer.eos_token_id
             )
             emb = output.hidden_states[0][-1][:, -1, :]
         return emb
@@ -624,6 +627,7 @@ class EncoderForTarsier2(BaseModelForTarsier2, EncodeMixin):
                     max_new_tokens=1,
                     output_hidden_states=True,
                     return_dict_in_generate=True,
+                    pad_token_id=self.processor.tokenizer.eos_token_id
                 )
                 emb = output.hidden_states[0][-1][:, -1, :]
             return emb
