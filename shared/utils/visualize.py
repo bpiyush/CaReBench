@@ -134,8 +134,8 @@ def show_grid_of_images(
         if col_idx == 0:
             ax.set_ylabel(row_labels[i // n_cols], fontsize=sizealpha * subtitlesize)
 
-    fig.tight_layout()
-    plt.tight_layout()
+    fig.tight_layout(pad=0.2)
+    plt.tight_layout(pad=0.2)
     plt.suptitle(title, y=ysuptitle, fontsize=titlesize)
 
     if return_as_pil:
