@@ -132,11 +132,13 @@ if __name__ == "__main__":
     data = su.io.load_json(f"{data_dir}/splits/test.json")
     
     # Filter to only keep IDs that have verbs substantially different from the our Ego4D set.
-    filter_ids = su.io.load_txt("testoftime_eval/rtime_non_matching_ids.txt")
-    df = df[~df.video_id.isin(filter_ids)]
-    data = {k: v for k, v in data.items() if k not in filter_ids}
-    assert len(data) == len(df)
-    print(f"Number of rows after filtering: {len(df)}")
+    filter_novel = False
+    if filter_novel:
+        filter_ids = su.io.load_txt("testoftime_eval/rtime_non_matching_ids.txt")
+        df = df[~df.video_id.isin(filter_ids)]
+        data = {k: v for k, v in data.items() if k not in filter_ids}
+        assert len(data) == len(df)
+        print(f"Number of rows after filtering: {len(df)}")
     
     
     from notebooks.eval_care_retrieval import load_model
@@ -148,7 +150,7 @@ if __name__ == "__main__":
     # model_name = "qwen2vl7b"
     model_path = args.model_path
     model_name = args.model_name
-    vfc, tfc, vp  = load_model(_id=model_path)
+    vfc, tfc, vp  = load_model(_id=model_path, attn_implementation="flash_attention_2", n_frames=8)
     
     vid_fwd_emb, vid_rev_emb = compute_video_embeddings(df, vfc, vp, data_dir)
     cap_fwd_emb, cap_rev_emb = compute_text_embeddings(df, tfc, data)
@@ -167,8 +169,10 @@ if __name__ == "__main__":
     print_metrics(metrics)
     
     # Save metrics
-    result_dir = "./results"
+    # result_dir = "./results"
+    result_dir = f"{args.model_path}/metrics"
     os.makedirs(result_dir, exist_ok=True)
-    with open(os.path.join(result_dir, f"metrics_rtime_{model_name}-filtered.json"), "w") as f:
+    suffix = "filtered" if filter_novel else "all"
+    with open(os.path.join(result_dir, f"metrics_rtime_{model_name}_{suffix}.json"), "w") as f:
         json.dump(metrics, f, indent=4)
 

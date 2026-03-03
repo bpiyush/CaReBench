@@ -676,11 +676,14 @@ if __name__ == "__main__":
 
 class EncoderForQwen2VL(BaseModelForQwen2VL, EncodeMixin):
     
-    def encode_vision(self, pixel_values: torch.Tensor | List[torch.Tensor]) -> torch.Tensor:
+    def encode_vision(self, pixel_values: torch.Tensor | List[torch.Tensor], prompt=None) -> torch.Tensor:
         
         batched_pixel_values = transform_pixel_values(pixel_values)
         vision_embs = []
-        prompt = self.video_eol_prompt
+        if prompt is None:
+            prompt = self.video_eol_prompt
+        else:
+            assert "<video>" in prompt
         prompt = prompt.replace("<video>", "<|vision_start|><|video_pad|><|vision_end|>")
 
         for pixel_values in batched_pixel_values:
@@ -719,14 +722,19 @@ class EncoderForQwen2VL(BaseModelForQwen2VL, EncodeMixin):
         vision_embs = torch.cat(vision_embs)
         return vision_embs
     
-    def encode_text(self, text: str | List[str]) -> torch.Tensor:
+    def encode_text(self, text: str | List[str], prompt=None) -> torch.Tensor:
 
         prompt = self.text_eol_prompt
+
+        if prompt is None:
+            prompt = self.text_eol_prompt
+        else:
+            assert "<sent>" in prompt
 
         if isinstance(text, str):
             text = [text]
         prompts = [prompt.replace('<sent>', t) for t in text]
-            
+
         inputs = self.processor(
             text=prompts,
             padding=True,
@@ -736,6 +744,8 @@ class EncoderForQwen2VL(BaseModelForQwen2VL, EncodeMixin):
         with torch.inference_mode():
             output = self.model.generate(**inputs, max_new_tokens=1, output_hidden_states=True, return_dict_in_generate=True)
         return output.hidden_states[0][-1][:, -1, :]
+
+
 
 class EncoderForCaRe(BaseModelForCaRe, EncodeMixin):
     
@@ -801,6 +811,71 @@ class EncoderForCaRe(BaseModelForCaRe, EncodeMixin):
             output = self.model.generate(**inputs, max_new_tokens=1, output_hidden_states=True, return_dict_in_generate=True)
         return output.hidden_states[0][-1][:, -1, :]
 
+
+from models.modeling_basemodels import BaseModelForLamRA
+class EncoderForLamRA(BaseModelForLamRA, EncodeMixin):
+    
+    def encode_vision(self, pixel_values: torch.Tensor | List[torch.Tensor]) -> torch.Tensor:
+        
+        batched_pixel_values = transform_pixel_values(pixel_values)
+        batched_pixel_values = torch.repeat_interleave(batched_pixel_values, repeats=2, dim=1)
+        vision_embs = []
+        prompt = self.video_eol_prompt
+        prompt = prompt.replace("<video>", "<|vision_start|><|video_pad|><|vision_end|>")
+
+        for pixel_values in batched_pixel_values:
+        
+            nframes, _, height, width = pixel_values.shape
+            min_pixels = VIDEO_MIN_PIXELS
+            total_pixels = VIDEO_TOTAL_PIXELS
+            max_pixels = max(min(VIDEO_MAX_PIXELS, total_pixels / nframes * FRAME_FACTOR), int(min_pixels * 1.05))
+            max_pixels = 230400
+            resized_height, resized_width = self.smart_resize(
+                height,
+                width,
+                factor=IMAGE_FACTOR,
+                min_pixels=min_pixels,
+                max_pixels=max_pixels,
+            )
+            pixel_values = functional.resize(
+                pixel_values,
+                [resized_height, resized_width],
+                interpolation=InterpolationMode.BICUBIC,
+                antialias=True,
+            ).float()
+
+            
+            inputs = self.processor(
+                text=[prompt],
+                images=None,
+                videos=[pixel_values],
+                padding=True,
+                return_tensors="pt",
+            )
+            inputs = inputs.to(self.model.device)
+            with torch.inference_mode():
+                output = self.model.generate(**inputs, max_new_tokens=1, output_hidden_states=True, return_dict_in_generate=True)
+            vision_embs.append(output.hidden_states[0][-1][:, -1, :])
+        vision_embs = torch.cat(vision_embs)
+        return vision_embs
+    
+    def encode_text(self, text: str | List[str]) -> torch.Tensor:
+
+        prompt = self.text_eol_prompt
+
+        if isinstance(text, str):
+            text = [text]
+        prompts = [prompt.replace('<sent>', t) for t in text]
+            
+        inputs = self.processor(
+            text=prompts,
+            padding=True,
+            return_tensors="pt",
+        )
+        inputs = inputs.to(self.model.device)
+        with torch.inference_mode():
+            output = self.model.generate(**inputs, max_new_tokens=1, output_hidden_states=True, return_dict_in_generate=True)
+        return output.hidden_states[0][-1][:, -1, :]
 
 from models.modeling_basemodels import BaseModelForQwen25VL
 class EncoderForQwen25VL(BaseModelForQwen25VL, EncodeMixin):

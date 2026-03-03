@@ -757,6 +757,11 @@ class BaseModelForCaRe(BaseModelForQwen2VL):
     ARCHITECTURE = "CaReModel"
 
 
+class BaseModelForLamRA(BaseModelForQwen2VL):
+
+    ARCHITECTURE = "Qwen2VLRetForConditionalGeneration"
+
+
 class BaseModelForQwen25VL(BaseModel):
     try:
         from transformers import Qwen2_5_VLModel, Qwen2_5_VLForConditionalGeneration
@@ -764,6 +769,7 @@ class BaseModelForQwen25VL(BaseModel):
         LLM_CLASS = Qwen2_5_VLModel
         MLLM_CLASS = Qwen2_5_VLForConditionalGeneration
     except:
+        print("Failed to import Qwen2_5_VLModel, Qwen2_5_VLForConditionalGeneration.")
         ARCHITECTURE = None
         LLM_CLASS = None
         MLLM_CLASS = None

@@ -80,8 +80,11 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_id", type=str, default="/work/piyush/experiments/CaRe/Tarsier-7b/nli-9k+ego4d-1k/merged_checkpoint")
+    parser.add_argument("--model_name", type=str, default="tarsier7b")
+    parser.add_argument("--n_frames", type=int, default=16)
     args = parser.parse_args()
     model_id = args.model_id
+    model_name = args.model_name
     
     
     from models.modeling_encoders import AutoEncoder
@@ -92,11 +95,29 @@ if __name__ == "__main__":
     video_dir = '/datasets/WebVid/videos'
     df = pd.read_csv(f"{data_dir}/webvid8m-covr_test-cleaned.csv")
     print("Number of rows in CoVR-test: ", len(df))
-    
+
+    # Gather query embeddings
+    query_embeds = {}
+    for i in su.log.tqdm_iterator(range(len(query_embeds), len(df)), desc="Compute query embeddings"):
+        row = df.iloc[i].to_dict()
+        video_path = f"{video_dir}/{row['video1']}"
+        edit_text = row['edit']
+        import ipdb; ipdb.set_trace()
+        with torch.no_grad():
+            try:
+                zv = embed_video_text(encoder, video_path, edit_text, n_frames=args.n_frames)
+                zv = torch.nn.functional.normalize(zv, dim=-1)
+                zv = zv.cpu().float()
+                key = f"{edit_text}|{row['video1']}"
+                query_embeds[key] = zv
+            except:
+                print(f"Skpping {i}")
+                continue
+
     # Compute video embeddings for the candidate videos
     videos = set(df.video2.tolist())
     candidates = {}
-    n_frames = 16
+    n_frames = args.n_frames
     for video in su.log.tqdm_iterator(videos, desc='Computing features for candidate videos'):
         video_path = f"{video_dir}/{video}"
         assert os.path.exists(video_path)
@@ -105,23 +126,6 @@ if __name__ == "__main__":
             zv = encoder.encode_vision(video_tensor.unsqueeze(0)).cpu().squeeze(0).float()
             zv = torch.nn.functional.normalize(zv, dim=-1)
         candidates[video] = zv
-
-    # Gather query embeddings
-    query_embeds = {}
-    for i in su.log.tqdm_iterator(range(len(query_embeds), len(df)), desc="Compute query embeddings"):
-        row = df.iloc[i].to_dict()
-        video_path = f"{video_dir}/{row['video1']}"
-        edit_text = row['edit']
-        with torch.no_grad():
-            try:
-                zv = embed_video_text(encoder, video_path, edit_text, n_frames=n_frames)
-                zv = torch.nn.functional.normalize(zv, dim=-1)
-                zv = zv.cpu().float()
-                key = f"{edit_text}|{row['video1']}"
-                query_embeds[key] = zv
-            except:
-                print(f"Skpping {i}")
-                continue
 
     zq = []
     zc = []
@@ -150,3 +154,9 @@ if __name__ == "__main__":
         add_50=True,
     )
     print(metrics)
+    
+    # Save metrics
+    result_dir = f"{model_id}/metrics"
+    os.makedirs(result_dir, exist_ok=True)
+    with open(os.path.join(result_dir, f"metrics_covr_{model_name}.json"), "w") as f:
+        json.dump(metrics, f, indent=4)
