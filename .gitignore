@@ -17,3 +17,4 @@ external/seeAoT/data
 *.gif
 assets/ego4d*.txt
 temp.csv
+*.pt

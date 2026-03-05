@@ -135,7 +135,7 @@ if __name__ == "__main__":
     print(json.dumps(metrics, indent=4))
     
     # Save metrics
-    result_dir = "./results"
+    result_dir = f"{args.model_path}/metrics"
     os.makedirs(result_dir, exist_ok=True)
-    with open(os.path.join(result_dir, f"metrics_negbench_coco_{model_name}.json"), "w") as f:
+    with open(os.path.join(result_dir, f"metrics_negbench_coco_{args.model_name}.json"), "w") as f:
         json.dump(metrics, f, indent=4)
