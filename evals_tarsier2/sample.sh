@@ -1,0 +1,23 @@
+
+# bash evals_tarsier2/run.sh ablations/core.17000-time.1000-negs.1000-covr.1000 core.17000-time.1000-negs.1000-covr.1000
+# bash evals_tarsier2/run.sh ablations/core.20000-time.0-negs.0-covr.0 core.20000-time.0-negs.0-covr.0
+# bash evals_tarsier2/run.sh ablations/core.14000-time.2000-negs.2000-covr.2000 core.14000-time.2000-negs.2000-covr.2000
+# bash evals_tarsier2/run.sh ablations/core.12500-time.0-negs.7500-covr.0 core.12500-time.0-negs.7500-covr.0
+# bash evals_tarsier2/run.sh ablations/core.10000-time.0-negs.5000-covr.5000 core.10000-time.0-negs.5000-covr.5000
+# bash evals_tarsier2/run.sh ablations/core.10000-time.5000-negs.0-covr.5000 core.10000-time.5000-negs.0-covr.5000
+# bash evals_tarsier2/run.sh ablations/core.10000-time.5000-negs.5000-covr.0 core.10000-time.5000-negs.5000-covr.0
+# bash evals_tarsier2/run.sh ablations/core.10001-time.3333-negs.3333-covr.3333 core.10001-time.3333-negs.3333-covr.3333
+# bash evals_tarsier2/run.sh ablations/core.12500-time.0-negs.0-covr.7500 core.12500-time.0-negs.0-covr.7500
+# bash evals_tarsier2/run.sh ablations/core.12500-time.7500-negs.0-covr.0 core.12500-time.7500-negs.0-covr.0
+# bash evals_tarsier2/run.sh ablations/core.5000-time.0-negs.15000-covr.0 core.5000-time.0-negs.15000-covr.0
+# bash evals_tarsier2/run.sh ablations/core.5000-time.0-negs.7500-covr.7500 core.5000-time.0-negs.7500-covr.7500
+# bash evals_tarsier2/run.sh ablations/core.5000-time.10000-negs.2500-covr.2500 core.5000-time.10000-negs.2500-covr.2500
+# bash evals_tarsier2/run.sh ablations/core.5000-time.2500-negs.10000-covr.2500 core.5000-time.2500-negs.10000-covr.2500
+# bash evals_tarsier2/run.sh ablations/core.5000-time.2500-negs.2500-covr.10000 core.5000-time.2500-negs.2500-covr.10000
+# bash evals_tarsier2/run.sh ablations/core.5000-time.5000-negs.5000-covr.5000 core.5000-time.5000-negs.5000-covr.5000
+# bash evals_tarsier2/run.sh ablations/core.5000-time.7500-negs.7500-covr.0 core.5000-time.7500-negs.7500-covr.0
+# bash evals_tarsier2/run.sh ablations/core.8000-time.4000-negs.4000-covr.4000 core.8000-time.4000-negs.4000-covr.4000
+# bash evals_tarsier2/run.sh ablations/core.8750-time.3750-negs.3750-covr.3750 core.8750-time.3750-negs.3750-covr.3750
+# bash evals_tarsier2/run.sh ablations/core.5000-time.15000-negs.0-covr.0 core.5000-time.15000-negs.0-covr.0
+# bash evals_tarsier2/run.sh ablations/core.5000-time.7500-negs.0-covr.7500 core.5000-time.7500-negs.0-covr.7500
+# bash evals_tarsier2/run.sh ablations/core.5000-time.0-negs.0-covr.15000 core.5000-time.0-negs.0-covr.15000

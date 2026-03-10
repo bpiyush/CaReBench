@@ -170,6 +170,7 @@ def load_jsonl(file_path: str) -> list:
         >>> data = load_jsonl("path/to/file.jsonl")
         >>> print(data[0])  # Print first JSON object
     """
+    import json
     data = []
     with open(file_path, 'r', encoding='utf-8') as f:
         for line in f:
