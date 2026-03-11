@@ -212,8 +212,11 @@ class AutoEncoder:
 
 
 class EncoderForInternVL3(BaseModelForInternVL3, EncodeMixin):
-    def encode_text(self, text: str | List[str]) -> torch.Tensor:
-        prompt = self.text_eol_prompt
+    def encode_text(self, text: str | List[str], prompt=None) -> torch.Tensor:
+        if prompt is None:
+            prompt = self.text_eol_prompt
+        else:
+            assert "<sent>" in prompt
         if isinstance(text, str):
             text = [text]
         prompts = [prompt.replace("<sent>", t) for t in text]
@@ -240,7 +243,7 @@ class EncoderForInternVL3(BaseModelForInternVL3, EncodeMixin):
             )
         return outputs.hidden_states[0][-1][:, -1, :]
 
-    def encode_vision(self, pixel_values: torch.Tensor | List[torch.Tensor]) -> torch.Tensor:
+    def encode_vision(self, pixel_values: torch.Tensor | List[torch.Tensor], prompt=None) -> torch.Tensor:
         batched_pixel_values = transform_pixel_values(pixel_values)
         transform = self.build_transform(input_size=448)
 
@@ -252,7 +255,12 @@ class EncoderForInternVL3(BaseModelForInternVL3, EncodeMixin):
         for batch in batched_pixel_values:
             # batch: (T, C, H, W)
             num_frames = batch.shape[0]
-            base_prompt = self.image_eol_prompt if num_frames == 1 else self.video_eol_prompt
+            
+            if prompt is None:
+                base_prompt = self.image_eol_prompt if num_frames == 1 else self.video_eol_prompt
+            else:
+                assert "<video>" in prompt or "<image>" in prompt
+                base_prompt = prompt
             dynamic_preprocess_max_num = 12 if num_frames == 1 else 1
 
             pixel_values_list = []

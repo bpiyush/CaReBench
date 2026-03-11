@@ -1,8 +1,8 @@
 
 # bash evals_tarsier2/run.sh ablations/core.17000-time.1000-negs.1000-covr.1000 core.17000-time.1000-negs.1000-covr.1000
 # bash evals_tarsier2/run.sh ablations/core.20000-time.0-negs.0-covr.0 core.20000-time.0-negs.0-covr.0
-# bash evals_tarsier2/run.sh ablations/core.14000-time.2000-negs.2000-covr.2000 core.14000-time.2000-negs.2000-covr.2000
-# bash evals_tarsier2/run.sh ablations/core.12500-time.0-negs.7500-covr.0 core.12500-time.0-negs.7500-covr.0
+# bash evals_tarsier2/run.sh ablations/core.14000-time.2000-negs.2000-covr.2000 core.14000-time.2000-negs.2000-covr.2000 
+# bash evals_tarsier2/run.sh ablations/core.12500-time.0-negs.7500-covr.0 core.12500-time.0-negs.7500-covr.0 
 # bash evals_tarsier2/run.sh ablations/core.10000-time.0-negs.5000-covr.5000 core.10000-time.0-negs.5000-covr.5000
 # bash evals_tarsier2/run.sh ablations/core.10000-time.5000-negs.0-covr.5000 core.10000-time.5000-negs.0-covr.5000
 # bash evals_tarsier2/run.sh ablations/core.10000-time.5000-negs.5000-covr.0 core.10000-time.5000-negs.5000-covr.0

@@ -427,11 +427,14 @@ class AutoEncoder:
 
 class EncoderForQwen3VL(BaseModelForQwen3VL, EncodeMixin):
     
-    def encode_vision(self, pixel_values: torch.Tensor | List[torch.Tensor]) -> torch.Tensor:
+    def encode_vision(self, pixel_values: torch.Tensor | List[torch.Tensor], prompt=None) -> torch.Tensor:
         
         batched_pixel_values = transform_pixel_values(pixel_values)
         vision_embs = []
-        prompt = self.video_eol_prompt
+        if prompt is None:
+            prompt = self.video_eol_prompt
+        else:
+            assert "<video>" in prompt or "<image>" in prompt
         prompt = prompt.replace("<video>", "<|vision_start|><|video_pad|><|vision_end|>")
 
         for pixel_values in batched_pixel_values:
@@ -470,9 +473,12 @@ class EncoderForQwen3VL(BaseModelForQwen3VL, EncodeMixin):
         vision_embs = torch.cat(vision_embs)
         return vision_embs
     
-    def encode_text(self, text: str | List[str]) -> torch.Tensor:
+    def encode_text(self, text: str | List[str], prompt=None) -> torch.Tensor:
 
-        prompt = self.text_eol_prompt
+        if prompt is None:
+            prompt = self.text_eol_prompt
+        else:
+            assert "<sent>" in prompt
 
         if isinstance(text, str):
             text = [text]

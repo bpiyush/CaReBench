@@ -367,11 +367,15 @@ class EncoderForLlavaOneVision(BaseModelForLlavaOneVision, EncodeMixin):
 
 class EncoderForTarsier(BaseModelForTarsier, EncodeMixin):
 
-    def encode_vision(self, pixel_values: torch.Tensor | List[torch.Tensor]) -> torch.Tensor:
+    def encode_vision(self, pixel_values: torch.Tensor | List[torch.Tensor], prompt=None) -> torch.Tensor:
 
         pixel_values = transform_pixel_values(pixel_values) # [B, T, C, H, W]
         nframes = pixel_values.shape[1]
-        prompt = self.image_eol_prompt if nframes == 1 else self.video_eol_prompt
+        
+        if prompt is None:
+            prompt = self.image_eol_prompt if nframes == 1 else self.video_eol_prompt
+        else:
+            assert "<video>" in prompt or "<image>" in prompt
         
         to_image = ToPILImage()
         batched_frames = []
@@ -405,9 +409,12 @@ class EncoderForTarsier(BaseModelForTarsier, EncodeMixin):
         vision_embs = torch.cat(vision_embs)
         return vision_embs
     
-    def encode_text(self, text: str | List[str]) -> torch.Tensor:
+    def encode_text(self, text: str | List[str], prompt=None) -> torch.Tensor:
 
-        prompt = self.text_eol_prompt
+        if prompt is None:
+            prompt = self.text_eol_prompt
+        else:
+            assert "<sent>" in prompt
 
         if isinstance(text, str):
             text = [text]

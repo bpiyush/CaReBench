@@ -24,11 +24,13 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--model_path', type=str, default='/work/piyush/pretrained_checkpoints/Tarsier2-7b-0115/')
     parser.add_argument('--model_name', type=str, default='tarsier2_7b')
+    parser.add_argument("--csv_path", type=str, default='./data/nuanced_retrieval_data-validation-v1.csv')
     args = parser.parse_args()
 
 
     # Load CSV
-    csv_path = f"./data/nuanced_retrieval_data-v1.csv"
+    csv_path = args.csv_path
+    csv_name = os.path.basename(csv_path).split('.')[0]
     assert os.path.exists(csv_path), f"CSV file does not exist: {csv_path}"
     df = pd.read_csv(csv_path)
     print(f"Loaded {len(df)} rows from {csv_path}")
@@ -52,7 +54,7 @@ if __name__ == "__main__":
     # Compute embeddings
     save_dir = f"{args.model_path}/embs"
     os.makedirs(save_dir, exist_ok=True)
-    save_name = f"{args.model_name}_nuanced_retrieval_embeddings.pt"
+    save_name = f"{args.model_name}_{csv_name}_embeddings.pt"
     save_path = os.path.join(save_dir, save_name)
 
     if os.path.exists(save_path):
@@ -71,7 +73,7 @@ if __name__ == "__main__":
         
         try:
             
-            if row['modality'] == "text":
+            if row['modality'] in ["text", "text-standard", "text-negation"]:
                 z = model.encode_text(row['value']).squeeze(0).cpu().float()
             elif row['modality'] == "image":
                 image_path = data_dir[row['source']].format(row['value'])
