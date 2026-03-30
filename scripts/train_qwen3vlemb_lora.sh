@@ -14,10 +14,10 @@ OUTPUT_DIR="/work/piyush/experiments/CaRe/${base_model_name}-lora/${split}"
 echo "Using output directory: $OUTPUT_DIR"
 RUN_NAME=`basename $OUTPUT_DIR`
 
-BATCH_SIZE=384
+BATCH_SIZE=64
 MICRO_BATCH_SIZE=4
-EPOCH=2
-LR=2e-4
+EPOCH=1
+LR=2e-5
 WARMUP_RATIO=0.1
 CUTOFF_LEN=512
 GPUS=8
@@ -25,9 +25,9 @@ NUM_NODES=1
 CSV_PATH="/scratch/shared/beegfs/piyush/datasets/SimCSE-NLI/${split}.csv"
 
 # LoRA hyperparameters
-LORA_RANK=16
-LORA_ALPHA=32
-LORA_DROPOUT=0.05
+LORA_RANK=8
+LORA_ALPHA=16
+LORA_DROPOUT=0.1
 LORA_TARGET_MODULES="q_proj,k_proj,v_proj,o_proj"
 
 echo $BASE_MODEL
@@ -52,13 +52,10 @@ deepspeed --num_gpus=$GPUS --num_nodes=$NUM_NODES tasks/finetuning_qwen3vlemb_lo
         --bf16 \
         --logging_steps 1 \
         --grad_checkpoint \
+        --eval_steps 10 \
         --lora_rank $LORA_RANK \
         --lora_alpha $LORA_ALPHA \
         --lora_dropout $LORA_DROPOUT \
         --lora_target_modules "$LORA_TARGET_MODULES"
-
-# Delete intermediate checkpoints (LoRA adapters are small, but intermediates can be removed)
-echo "Deleting intermediate checkpoints..."
-rm -rf $OUTPUT_DIR/checkpoint-*
 
 echo "Done! LoRA adapter saved to $OUTPUT_DIR"

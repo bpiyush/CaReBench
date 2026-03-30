@@ -72,12 +72,12 @@ def compute_retrieval_metrics(sim: torch.Tensor, labels: torch.Tensor):
     }
 
 
-def compute_metrics_time_t2v(df, feat, labels):
+def compute_metrics_time_t2v(df, feat, labels, dataset):
     """
     Computes text-to-video retrieval metrics for the time nuance.
     """
 
-    subdf = df[(df['nuance'] == 'time') & (df.source == 'cia-ssv2')]
+    subdf = df[(df['nuance'] == 'time') & (df.source == f'cia-{dataset}')]
 
     # {"chiral": {"R@1": [...], ...}}
     metrics = defaultdict(lambda: defaultdict(list))
@@ -116,8 +116,8 @@ def compute_metrics_time_t2v(df, feat, labels):
     return avg
 
 
-def compute_metrics_time_v2t(df, feat, labels):
-    subdf = df[(df['nuance'] == 'time') & (df.source == 'cia-ssv2')]
+def compute_metrics_time_v2t(df, feat, labels, dataset):
+    subdf = df[(df['nuance'] == 'time') & (df.source == f'cia-{dataset}')]
     metrics = defaultdict(lambda: defaultdict(list))
     modes = ['chiral', 'static', 'all']
 
@@ -151,15 +151,16 @@ def compute_metrics_time_v2t(df, feat, labels):
     return avg
 
 
-def compute_metrics_negation_msrvtt(df, feat, labels):
-    subdf = df[(df.nuance == 'negation') & (df.source == 'neg-msrvtt')]
+def compute_metrics_negation(df, feat, labels, dataset):
+    subdf = df[(df.nuance == 'negation') & (df.source == f'neg-{dataset}')]
+    modality = "image" if dataset == "coco" else "video"
 
     modes = ['standard', 'negation']
     metrics_all = {}
 
     for mode in modes:
         query_ids = subdf[subdf.modality == f"text-{mode}"].id.unique()
-        candidate_ids = subdf[subdf.modality == "video"].id.unique()
+        candidate_ids = subdf[subdf.modality == modality].id.unique()
         zc = torch.stack([feat[x] for x in candidate_ids])
         
         metrics = defaultdict(lambda: defaultdict(list))
@@ -213,15 +214,22 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--model_path', type=str, default='/work/piyush/pretrained_checkpoints/Tarsier2-7b-0115/')
     parser.add_argument('--model_name', type=str, default='tarsier2_7b')
+    parser.add_argument('--feat_path', type=str, default=None)
     args = parser.parse_args()
     
+    if args.feat_path is None:
+        assert args.model_path is not None, "model_path is required if feat_path is not provided"
+        assert args.model_name is not None, "model_name is required if feat_path is not provided"
+    else:
+        args.model_path = None
+        args.model_name = None
     
     # csv_path = f"./data/nuanced_retrieval_data-v1.csv"
     # lab_path = f"./data/nuanced_retrieval_labels.json"
 
-    csv_path = f"./data/nuanced_retrieval_data-validation-v1.csv"
+    csv_path = f"./data/nuanced_retrieval_data-v1.csv"
     csv_name = os.path.basename(csv_path).split('.')[0]
-    lab_path = f"./data/nuanced_retrieval_labels-validation-v1.json"
+    lab_path = f"./data/nuanced_retrieval_labels.json"
     csv_name = os.path.basename(csv_path).split('.')[0]
 
     assert os.path.exists(csv_path), f"CSV file does not exist: {csv_path}"
@@ -230,9 +238,11 @@ if __name__ == "__main__":
     print(f"Loaded {len(df)} rows from {csv_path}.")
     print(f"Loaded {len(labels)} labels.")
     
-    
     # Load features
-    path = f"{args.model_path}/embs/{args.model_name}_{csv_name}_embeddings.pt"
+    if args.feat_path is None:
+        path = f"{args.model_path}/embs/{args.model_name}_{csv_name}_embeddings.pt"
+    else:
+        path = args.feat_path
     assert os.path.exists(path), f"Features file does not exist: {path}"
     feat = torch.load(path)
     print(f"Loaded {len(feat)} features.")
@@ -240,13 +250,24 @@ if __name__ == "__main__":
     
     # Compute metrics one by one
     metrics = {}
-    metrics['time_t2v'] = compute_metrics_time_t2v(df, feat, labels)
-    metrics['time_v2t'] = compute_metrics_time_v2t(df, feat, labels)
-    metrics['negation_msrvtt'] = compute_metrics_negation_msrvtt(df, feat, labels)
+    
+    # Time
+    for dataset in ['ssv2', 'epic', 'charades']:
+        metrics[f'time_t2v-{dataset}'] = compute_metrics_time_t2v(df, feat, labels, dataset)
+        metrics[f'time_v2t-{dataset}'] = compute_metrics_time_v2t(df, feat, labels, dataset)
+    
+    # Negation
+    for dataset in ['coco', 'msrvtt']:
+        metrics[f'negation-{dataset}'] = compute_metrics_negation(df, feat, labels, dataset)
+    
+    # Multimodal
     metrics['multimodal_covr'] = compute_metrics_multimodal_covr(df, feat, labels)
     
     # Save metrics
-    result_dir = f"{args.model_path}/metrics"
+    if args.feat_path is None:
+        result_dir = f"{args.model_path}/metrics"
+    else:
+        result_dir = os.path.join(os.path.dirname(os.path.dirname(args.feat_path)), "metrics")
     os.makedirs(result_dir, exist_ok=True)
     save_path = os.path.join(result_dir, f"metrics_{args.model_name}_{csv_name}.json")
     with open(save_path, "w") as f:
