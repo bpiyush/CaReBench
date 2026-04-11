@@ -72,9 +72,11 @@ def compute_retrieval_metrics(sim: torch.Tensor, labels: torch.Tensor):
     }
 
 
-def compute_metrics_time_t2v(df, feat, labels, dataset):
+def compute_metrics_time_t2v(df, feat, labels, dataset, feat_b=None, alpha=0.5):
     """
     Computes text-to-video retrieval metrics for the time nuance.
+
+    If feat_b is given, similarity is alpha * sim(feat) + (1 - alpha) * sim(feat_b).
     """
 
     subdf = df[(df['nuance'] == 'time') & (df.source == f'cia-{dataset}')]
@@ -102,6 +104,10 @@ def compute_metrics_time_t2v(df, feat, labels, dataset):
 
             # Compute similarity
             s = zq @ zc.T
+            if feat_b is not None:
+                zq_b = feat_b[q]
+                zc_b = torch.stack([feat_b[str(x)] for x in candidate_ids])
+                s = alpha * s + (1 - alpha) * (zq_b @ zc_b.T)
 
             # Compute metrics
             m = compute_retrieval_metrics(s, torch.tensor(is_match))
@@ -116,7 +122,7 @@ def compute_metrics_time_t2v(df, feat, labels, dataset):
     return avg
 
 
-def compute_metrics_time_v2t(df, feat, labels, dataset):
+def compute_metrics_time_v2t(df, feat, labels, dataset, feat_b=None, alpha=0.5):
     subdf = df[(df['nuance'] == 'time') & (df.source == f'cia-{dataset}')]
     metrics = defaultdict(lambda: defaultdict(list))
     modes = ['chiral', 'static', 'all']
@@ -137,6 +143,10 @@ def compute_metrics_time_v2t(df, feat, labels, dataset):
 
             # Compute similarity
             s = zq @ zc.T
+            if feat_b is not None:
+                zq_b = feat_b[q]
+                zc_b = torch.stack([feat_b[str(x)] for x in candidate_ids])
+                s = alpha * s + (1 - alpha) * (zq_b @ zc_b.T)
 
             # Compute metrics
             m = compute_retrieval_metrics(s, torch.tensor(is_match))
@@ -151,7 +161,7 @@ def compute_metrics_time_v2t(df, feat, labels, dataset):
     return avg
 
 
-def compute_metrics_negation(df, feat, labels, dataset):
+def compute_metrics_negation(df, feat, labels, dataset, feat_b=None, alpha=0.5):
     subdf = df[(df.nuance == 'negation') & (df.source == f'neg-{dataset}')]
     modality = "image" if dataset == "coco" else "video"
 
@@ -162,13 +172,17 @@ def compute_metrics_negation(df, feat, labels, dataset):
         query_ids = subdf[subdf.modality == f"text-{mode}"].id.unique()
         candidate_ids = subdf[subdf.modality == modality].id.unique()
         zc = torch.stack([feat[x] for x in candidate_ids])
-        
+        zc_b = torch.stack([feat_b[x] for x in candidate_ids]) if feat_b is not None else None
+
         metrics = defaultdict(lambda: defaultdict(list))
         for q in su.log.tqdm_iterator(query_ids, desc=f"Computing metrics for {mode}"):
-            if q not in feat:
+            if q not in feat or (feat_b is not None and q not in feat_b):
                 continue
             zq = feat[q]
             s = zq @ zc.T
+            if feat_b is not None:
+                zq_b = feat_b[q]
+                s = alpha * s + (1 - alpha) * (zq_b @ zc_b.T)
             lab = labels[q]
             is_match = np.array([x in lab for x in candidate_ids]).astype(int)
             
@@ -186,11 +200,16 @@ def compute_metrics_negation(df, feat, labels, dataset):
     return metrics_all
 
 
-def compute_metrics_multimodal_covr(df, feat, labels):
+def compute_metrics_multimodal_covr(df, feat, labels, feat_b=None, alpha=0.5):
     subdf = df[(df.nuance == 'multimodal') & (df.source == 'covr-webvid')]
     query_ids = subdf[subdf.modality == "video-text"].id.unique()
     candidate_ids = subdf[subdf.modality == "video"].id.unique()
     S = torch.stack([feat[x] for x in query_ids]) @ torch.stack([feat[x] for x in candidate_ids]).T
+    if feat_b is not None:
+        S_b = torch.stack([feat_b[x] for x in query_ids]) @ torch.stack(
+            [feat_b[x] for x in candidate_ids]
+        ).T
+        S = alpha * S + (1 - alpha) * S_b
     metrics = defaultdict(lambda: defaultdict(list))
     mode = "covr"
     for i in su.log.tqdm_iterator(range(len(query_ids)), desc="Computing metrics for WebVid-CoVR"):
