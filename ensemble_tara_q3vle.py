@@ -125,14 +125,17 @@ def main():
         json.dump(metrics, f, indent=4)
     print(f"Saved metrics to {save_path}")
     
-    # Print metrics
+    # Print metrics (None = split missing from this CSV, e.g. neg-coco on validation-v1)
+    def _fmt(v):
+        return "n/a" if v is None else str(v)
+
     lines = []
     X = metrics
     for ds in ['ssv2', 'epic', 'charades']:
-        lines.append(f"time_v2t-{ds} & {X[f'time_v2t-{ds}']['chiral']['R@1']} & {X[f'time_v2t-{ds}']['static']['R@1']} & {X[f'time_v2t-{ds}']['all']['R@1']}")
+        lines.append(f"time_v2t-{ds} & {_fmt(X[f'time_v2t-{ds}']['chiral']['R@1'])} & {_fmt(X[f'time_v2t-{ds}']['static']['R@1'])} & {_fmt(X[f'time_v2t-{ds}']['all']['R@1'])}")
     for ds in ['coco', 'msrvtt']:
-        lines.append(f"negation-{ds} & {X[f'negation-{ds}']['standard']['standard']['R@1']} & {X[f'negation-{ds}']['negation']['negation']['R@1']}")
-    lines.append(f"multimodal_covr & {X['multimodal_covr']['covr']['R@1']} & {X['multimodal_covr']['covr']['R@5']}")
+        lines.append(f"negation-{ds} & {_fmt(X[f'negation-{ds}']['standard']['standard']['R@1'])} & {_fmt(X[f'negation-{ds}']['negation']['negation']['R@1'])}")
+    lines.append(f"multimodal_covr & {_fmt(X['multimodal_covr']['covr']['R@1'])} & {_fmt(X['multimodal_covr']['covr']['R@5'])}")
     print("\n & ".join(lines))
 
 

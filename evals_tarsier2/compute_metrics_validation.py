@@ -161,6 +161,15 @@ def compute_metrics_time_v2t(df, feat, labels, dataset, feat_b=None, alpha=0.5):
     return avg
 
 
+def _negation_nan_block():
+    """Placeholder when a negation split has no rows in the dataframe (JSON-safe)."""
+    return {"R@1": None, "R@5": None, "R@10": None, "mAP": None}
+
+
+def _empty_negation_mode_metrics(mode: str):
+    return {mode: _negation_nan_block()}
+
+
 def compute_metrics_negation(df, feat, labels, dataset, feat_b=None, alpha=0.5):
     subdf = df[(df.nuance == 'negation') & (df.source == f'neg-{dataset}')]
     modality = "image" if dataset == "coco" else "video"
@@ -171,6 +180,10 @@ def compute_metrics_negation(df, feat, labels, dataset, feat_b=None, alpha=0.5):
     for mode in modes:
         query_ids = subdf[subdf.modality == f"text-{mode}"].id.unique()
         candidate_ids = subdf[subdf.modality == modality].id.unique()
+        if len(candidate_ids) == 0:
+            metrics_all[mode] = _empty_negation_mode_metrics(mode)
+            continue
+
         zc = torch.stack([feat[x] for x in candidate_ids])
         zc_b = torch.stack([feat_b[x] for x in candidate_ids]) if feat_b is not None else None
 
@@ -196,7 +209,10 @@ def compute_metrics_negation(df, feat, labels, dataset, feat_b=None, alpha=0.5):
             k: {m: round(sum(v) / len(v) * 100, 2) for m, v in inner.items()}
             for k, inner in metrics.items()
         }
-        metrics_all[mode] = avg
+        if not avg:
+            metrics_all[mode] = _empty_negation_mode_metrics(mode)
+        else:
+            metrics_all[mode] = avg
     return metrics_all
 
 
