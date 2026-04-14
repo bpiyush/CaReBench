@@ -1,0 +1,25 @@
+{
+    "alpha": 0.08,
+    "results": {
+        "cls": {
+            "per_dataset": {
+                "SmthSmthV2": 77.0,
+                "HMDB51": 70.1,
+                "UCF101": 81.3,
+                "K700": 59.9,
+                "Breakfast": 46.3
+            },
+            "mean": 66.92
+        },
+        "ret": {
+            "per_dataset": {
+                "MSR-VTT": 41.7,
+                "MSVD": 82.99,
+                "DiDeMo": 38.55,
+                "YouCook2": 18.18,
+                "VATEX": 54.62
+            },
+            "mean": 47.21
+        }
+    }
+}
