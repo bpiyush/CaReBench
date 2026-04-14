@@ -224,7 +224,8 @@ class Qwen3VLEmbedder():
         video: Optional[Union[List[Union[str, List[Union[str, Image.Image]]]], str, List[Union[str, Image.Image]]]] = None,
         instruction: Optional[str] = None,
         fps: Optional[float] = None,
-        max_frames: Optional[int] = None
+        max_frames: Optional[int] = None,
+        nframes: Optional[int] = None,
     ) -> List[Dict]:
 
         # Ensure instruction ends with punctuation
@@ -287,7 +288,11 @@ class Qwen3VLEmbedder():
             elif isinstance(vid, str):
                 # Video as file path
                 video_content = vid if vid.startswith(('http://', 'https://')) else 'file://' + vid
-                video_kwargs = {'fps': fps or self.fps, 'max_frames': max_frames or self.max_frames}
+                if nframes is not None:
+                    # Exact uniform sampling: nframes and fps are mutually exclusive in qwen_vl_utils
+                    video_kwargs = {'nframes': nframes, 'total_pixels': self.total_pixels}
+                else:
+                    video_kwargs = {'fps': fps or self.fps, 'max_frames': max_frames or self.max_frames, 'total_pixels': self.total_pixels}
             else:
                 raise TypeError(f"Unrecognized video type: {type(vid)}")
 
@@ -377,7 +382,8 @@ class Qwen3VLEmbedder():
             video=ele.get('video'),
             instruction=ele.get('instruction'),
             fps=ele.get('fps'),
-            max_frames=ele.get('max_frames')
+            max_frames=ele.get('max_frames'),
+            nframes=ele.get('nframes'),
         ) for ele in inputs]
 
         processed_inputs = self._preprocess_inputs(conversations)
@@ -391,3 +397,88 @@ class Qwen3VLEmbedder():
             embeddings = F.normalize(embeddings, p=2, dim=-1)
 
         return embeddings
+
+
+if __name__ == "__main__":
+    import argparse
+    import time
+
+    parser = argparse.ArgumentParser(description="Test Qwen3VLEmbedder on sample videos")
+    parser.add_argument(
+        "--model_path",
+        type=str,
+        default="/work/piyush/pretrained_checkpoints/Qwen3-VL-Embedding-8B",
+    )
+    parser.add_argument(
+        "--sample_dir",
+        type=str,
+        default="/users/piyush/projects/TimeBound.v1/sample_data",
+    )
+    parser.add_argument("--nframes", type=int, default=None)
+    parser.add_argument("--max_frames", type=int, default=None)
+    parser.add_argument("--verbose", action="store_true")
+    args = parser.parse_args()
+
+    print(f"Loading model from {args.model_path}")
+    model = Qwen3VLEmbedder(
+        model_name_or_path=args.model_path,
+        torch_dtype=torch.float16,
+        attn_implementation="flash_attention_2",
+        device_map="cuda:0",
+    )
+    print(f"  max_length={model.max_length}, fps={model.fps}, max_frames={model.max_frames}, "
+          f"total_pixels={model.total_pixels}")
+
+    # Collect mp4 videos, sorted by file size as a proxy for duration
+    video_paths = sorted(
+        [os.path.join(args.sample_dir, f) for f in os.listdir(args.sample_dir) if f.endswith('.mp4')],
+        key=os.path.getsize,
+    )
+    print(f"\nFound {len(video_paths)} videos in {args.sample_dir}\n")
+
+    results = []
+    for video_path in video_paths:
+        size_mb = os.path.getsize(video_path) / 1e6
+        print(f"{'='*60}")
+        print(f"Video : {os.path.basename(video_path)}  ({size_mb:.1f} MB)")
+
+        if args.verbose:
+            # Show the conversation structure before processing
+            conversation = model.format_model_input(
+                video=video_path,
+                nframes=args.nframes,
+                max_frames=args.max_frames,
+            )
+            video_content_dict = next(
+                (c for c in conversation[1]['content'] if c.get('type') == 'video'), None
+            )
+            print(f"  Content dict : {video_content_dict}")
+
+            # Show processed tensor shapes before forwarding
+            conversations = [conversation]
+            processed = model._preprocess_inputs(conversations)
+            print(f"  input_ids shape      : {processed['input_ids'].shape}")
+            print(f"  attention_mask shape : {processed['attention_mask'].shape}")
+            if 'pixel_values_videos' in processed:
+                print(f"  pixel_values_videos  : {processed['pixel_values_videos'].shape}")
+            if 'video_grid_thw' in processed:
+                print(f"  video_grid_thw       : {processed['video_grid_thw']}")
+            n_video_tokens = int((processed['input_ids'] == model.processor.tokenizer.convert_tokens_to_ids('<|video_pad|>')).sum())
+            print(f"  video pad tokens     : {n_video_tokens}")
+
+        t0 = time.time()
+        try:
+            emb = model.process([{'video': video_path, 'nframes': args.nframes, 'max_frames': args.max_frames}])
+            elapsed = time.time() - t0
+            print(f"  Embedding shape : {emb.shape}  |  norm={emb.norm().item():.4f}  |  {elapsed:.2f}s")
+            results.append((os.path.basename(video_path), True, emb.shape))
+        except Exception as e:
+            elapsed = time.time() - t0
+            print(f"  ERROR after {elapsed:.2f}s: {e}")
+            results.append((os.path.basename(video_path), False, str(e)))
+
+    print(f"\n{'='*60}")
+    print("Summary:")
+    for name, ok, info in results:
+        status = "OK " if ok else "ERR"
+        print(f"  [{status}] {name:40s}  {info}")

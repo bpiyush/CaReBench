@@ -32,12 +32,12 @@ def gather_video_features(
     # max_frames,
 ):
     """Compute video embeddings for all unique video IDs."""
-    video_ids = df.video_path.unique()
+    video_ids = df.video_id.unique()
     video_feat = {}
     for j, video_id in enumerate(
         su.log.tqdm_iterator(video_ids, desc='Computing video features')
     ):
-        video_path = df[df.video_path == video_id].video_path.unique()[0]
+        video_path = df[df.video_id == video_id].video_path.unique()[0]
 
         try:
             emb = model.process([{
@@ -132,6 +132,12 @@ def load_data_video_ret(
     return df_video
 
 
+def configure_save_path(model_name, task):
+    save_dir = "/scratch/shared/beegfs/piyush/datasets/MMEB-V2/features"
+    save_name = f"{model_name}_video_embeddings_mmebv2_video_{task}.pt"
+    os.makedirs(save_dir, exist_ok=True)
+    return os.path.join(save_dir, save_name)
+
 
 if __name__ == "__main__":
     # model_path = "/work/piyush/pretrained_checkpoints/Qwen3-VL-Embedding-8B"
@@ -141,7 +147,7 @@ if __name__ == "__main__":
     ]
     model_names = [
         "qwen3vlembedding-base",
-        "qwen3vlembedding-finetuned",
+        # "qwen3vlembedding-finetuned",
     ]
     
     for model_path, model_name in zip(model_paths, model_names):
@@ -155,27 +161,60 @@ if __name__ == "__main__":
             device_map="cuda:0",
         )
         su.misc.num_params(model.model)
-
-
+        
+        
+        #########################################################
+        # Compute video embeddings for CLS task
+        #########################################################
         df = load_data_video_cls()
         df['video_path'] = df['video_dir'].apply(lambda x: x.replace('video-tasks/frames', 'video-tasks/videos') + '.mp4')
         df = df[df['video_path'].apply(os.path.exists)]
-        video_embeddings = gather_video_features(df, model)
-        save_dir = "/scratch/shared/beegfs/piyush/datasets/MMEB-V2/features"
-        task = "cls"
-        save_name = f"{model_name}_video_embeddings_mmebv2_video_{task}.pt"
-        os.makedirs(save_dir, exist_ok=True)
-        torch.save(video_embeddings, os.path.join(save_dir, save_name))
-        print(f"Saved video embeddings to {os.path.join(save_dir, save_name)}")
+        
+        save_path_cls = configure_save_path(model_name, "cls")
+        if os.path.exists(save_path_cls):
+            print(f"Loading cached video embeddings from {save_path_cls}")
+            video_embeddings = torch.load(save_path_cls)
+            print(f"Loaded embeddings for {len(video_embeddings)} videos")
+            # video_embeds_new  = {}
+            # for k in video_embeddings.keys():
+            #     if isinstance(k, str):
+            #         video_embeds_new[os.path.basename(str(k)).split(".mp4")[0]] = video_embeddings[k]
+            #     else:
+            #         video_embeds_new[k] = video_embeddings[k]
+            # video_embeddings = {os.path.basename(str(k)).split(".mp4")[0]: v for k, v in video_embeddings.items()}
+
+            # Remove these from the df since we already have the embeddings
+            df = df[~df['video_id'].isin(video_embeddings.keys())]
+            print(f"Remaining {len(df)} videos to compute embeddings for")
+        
+        # Compute embeddings for remaining videos
+        video_embeddings.update(gather_video_features(df, model))
+        
+        # Save embeddings
+        torch.save(video_embeddings, save_path_cls)
+        print(f"Saved ({len(video_embeddings)}) CLS video embeddings to {save_path_cls}")
 
 
+        #########################################################
+        # Compute video embeddings for RET task
+        #########################################################
         df = load_data_video_ret()
         df['video_path'] = df['video_dir'].apply(lambda x: x.replace('video-tasks/frames', 'video-tasks/videos') + '.mp4')
         df = df[df['video_path'].apply(os.path.exists)]
-        video_embeddings = gather_video_features(df, model)
-        save_dir = "/scratch/shared/beegfs/piyush/datasets/MMEB-V2/features"
-        task = "ret"
-        save_name = f"{model_name}_video_embeddings_mmebv2_video_{task}.pt"
-        os.makedirs(save_dir, exist_ok=True)
-        torch.save(video_embeddings, os.path.join(save_dir, save_name))
-        print(f"Saved video embeddings to {os.path.join(save_dir, save_name)}")
+
+        save_path_ret = configure_save_path(model_name, "ret")
+        if os.path.exists(save_path_ret):
+            print(f"Loading cached video embeddings from {save_path_ret}")
+            video_embeddings = torch.load(save_path_ret)
+            print(f"Loaded embeddings for {len(video_embeddings)} videos")
+
+            # Remove these from the df_ret since we already have the embeddings
+            df = df[~df['video_id'].isin(video_embeddings.keys())]
+            print(f"Remaining {len(df)} videos to compute embeddings for")
+        
+        # Compute embeddings for remaining videos
+        video_embeddings.update(gather_video_features(df, model))
+
+        # Save embeddings
+        torch.save(video_embeddings, save_path_ret)
+        print(f"Saved ({len(video_embeddings)}) RET video embeddings to {save_path_ret}")
