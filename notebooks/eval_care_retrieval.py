@@ -47,9 +47,9 @@ EXT = {
     'charades': 'mp4',
 }
 REPO_PATH = "/users/piyush/projects/TimeBound.v1"
-def load_data(dataset='ssv2'):
+def load_data(dataset='ssv2', split='validation'):
     split_dir = f"{REPO_PATH}/adapt4change/chirality_in_action_splits"
-    csv_path = f"{split_dir}/cia-{dataset}-validation.csv"
+    csv_path = f"{split_dir}/cia-{dataset}-{split}.csv"
     assert os.path.exists(csv_path)
     df = pd.read_csv(csv_path)
 
