@@ -76,10 +76,12 @@ def main():
 
     print(f"Loading TARA embeddings from {args.tara_feat_path}")
     feat_tara = torch.load(args.tara_feat_path, weights_only=False)
+    feat_tara = {k: torch.nn.functional.normalize(v, dim=-1) for k, v in feat_tara.items()}
     print(f"  keys: {len(feat_tara)}")
 
     print(f"Loading Qwen3-VL-E embeddings from {args.qwen_feat_path}")
     feat_qwen = torch.load(args.qwen_feat_path, weights_only=False)
+    feat_qwen = {k: torch.nn.functional.normalize(v, dim=-1) for k, v in feat_qwen.items()}
     print(f"  keys: {len(feat_qwen)}")
 
     keys_tara = set(feat_tara.keys())
@@ -134,7 +136,7 @@ def main():
     for ds in ['ssv2', 'epic', 'charades']:
         lines.append(f"time_v2t-{ds} & {_fmt(X[f'time_v2t-{ds}']['chiral']['R@1'])} & {_fmt(X[f'time_v2t-{ds}']['static']['R@1'])} & {_fmt(X[f'time_v2t-{ds}']['all']['R@1'])}")
     for ds in ['coco', 'msrvtt']:
-        lines.append(f"negation-{ds} & {_fmt(X[f'negation-{ds}']['standard']['standard']['R@1'])} & {_fmt(X[f'negation-{ds}']['negation']['negation']['R@1'])}")
+        lines.append(f"negation-{ds} & {_fmt(X[f'negation-{ds}']['standard']['standard']['R@5'])} & {_fmt(X[f'negation-{ds}']['negation']['negation']['R@5'])}")
     lines.append(f"multimodal_covr & {_fmt(X['multimodal_covr']['covr']['R@1'])} & {_fmt(X['multimodal_covr']['covr']['R@5'])}")
     print("\n & ".join(lines))
 

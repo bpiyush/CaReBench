@@ -107,12 +107,11 @@ def plot_panel(ax, title, y, qwen_ref, tara_ref, row_label=None):
     ax.scatter([best_alpha], [best_val], color=ENSEMBLE_COLOR,
                s=60, zorder=4, marker='*')
 
-    ax.set_xscale('log')
-    ax.set_xlim(alphas[mask].min() * 0.7, alphas[mask].max() * 1.5)
+    ax.set_xlim(alphas[mask].min() - 0.05, alphas[mask].max() + 0.05)
+    ax.set_xticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
     ax.xaxis.set_major_formatter(mticker.FuncFormatter(
         lambda x, _: f'{x:g}'
     ))
-    ax.set_xticks([0.01, 0.1, 0.5, 0.95])
 
     # Tighten y limits with a small pad
     all_vals = np.concatenate([y[mask], [qwen_ref, tara_ref]])

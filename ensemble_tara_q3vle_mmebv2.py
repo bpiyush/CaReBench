@@ -263,6 +263,11 @@ def main():
         print(f'\n-- Video embeddings [{task.upper()}] --')
         v_tara = load_embeddings(feat_path(args.tara_model_name, 'video', task), 'TARA')
         v_qwen = load_embeddings(feat_path(args.qwen_model_name, 'video', task), 'Qwen')
+        
+        # Normalize the video embeddings
+        v_tara = {k: torch.nn.functional.normalize(v, dim=-1) for k, v in v_tara.items()}
+        v_qwen = {k: torch.nn.functional.normalize(v, dim=-1) for k, v in v_qwen.items()}
+
         print('  Key overlap:')
         verify_key_overlap(v_tara, v_qwen, 'TARA', 'Qwen')
         vid_embs[task] = (v_tara, v_qwen)
@@ -273,10 +278,14 @@ def main():
         print(f'\n-- Text embeddings [{task.upper()}] --')
         t_tara = load_embeddings(feat_path(args.tara_model_name, 'text', task), 'TARA-text')
         t_qwen = load_embeddings(feat_path(args.qwen_model_name, 'text', task), 'Qwen-text')
+
         # t_* are dicts { ds_key -> { text -> tensor } }; report per-dataset counts
         for ds_key in t_tara:
             n_t, n_q = len(t_tara[ds_key]), len(t_qwen.get(ds_key, {}))
             print(f'  {ds_key}: TARA {n_t} texts, Qwen {n_q} texts')
+
+            t_tara[ds_key] = {k: torch.nn.functional.normalize(v, dim=-1) for k, v in t_tara[ds_key].items()}
+            t_qwen[ds_key] = {k: torch.nn.functional.normalize(v, dim=-1) for k, v in t_qwen[ds_key].items()}
         txt_embs[task] = (t_tara, t_qwen)
 
     # -----------------------------------------------------------------------

@@ -3,23 +3,23 @@
     "results": {
         "cls": {
             "per_dataset": {
-                "SmthSmthV2": 76.4,
-                "HMDB51": 69.1,
-                "UCF101": 80.6,
-                "K700": 59.5,
-                "Breakfast": 44.91
+                "SmthSmthV2": 83.2,
+                "HMDB51": 76.6,
+                "UCF101": 91.1,
+                "K700": 67.4,
+                "Breakfast": 62.5
             },
-            "mean": 66.1
+            "mean": 76.16
         },
         "ret": {
             "per_dataset": {
-                "MSR-VTT": 41.0,
-                "MSVD": 82.99,
-                "DiDeMo": 37.05,
-                "YouCook2": 17.02,
-                "VATEX": 53.48
+                "MSR-VTT": 51.9,
+                "MSVD": 87.46,
+                "DiDeMo": 51.49,
+                "YouCook2": 28.31,
+                "VATEX": 63.89
             },
-            "mean": 46.31
+            "mean": 56.61
         }
     }
 }
