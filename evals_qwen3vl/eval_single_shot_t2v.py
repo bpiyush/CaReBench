@@ -61,6 +61,7 @@ def encode_single_shot_query(
     text_query: str,
     pos_video_path: str,
     neg_video_path: str,
+    nframes: int = 8,
 ) -> torch.Tensor:
     """
     Encode a single-shot query with a positive video example,
@@ -70,7 +71,7 @@ def encode_single_shot_query(
 
     def _video_entry(path: str) -> dict:
         url = path if path.startswith(('http://', 'https://')) else 'file://' + path
-        return {'type': 'video', 'video': url, 'total_pixels': model_wrapper.total_pixels}
+        return {'type': 'video', 'video': url, 'nframes': nframes, 'total_pixels': model_wrapper.total_pixels}
 
     conversation = [
         {
