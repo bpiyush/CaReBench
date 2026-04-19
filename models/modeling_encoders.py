@@ -537,17 +537,21 @@ from models.modeling_basemodels import BaseModelForTarsier2
 from models.tarsier2.dataset.utils import format_one_sample
 class EncoderForTarsier2(BaseModelForTarsier2, EncodeMixin):
     
-    def encode_vision(self, video_path: str) -> torch.Tensor:
+    def encode_vision(self, video_path: str, prompt=None) -> torch.Tensor:
         
         ext = video_path.split('.')[-1]
         if ext in ['mp4', 'avi', 'mov', 'mkv', 'webm']:
             is_video = True
         else:
             is_video = False
-        if is_video:
-            prompt = self.video_eol_prompt
+        
+        if prompt is None:
+            if is_video:
+                prompt = self.video_eol_prompt
+            else:
+                prompt = self.image_eol_prompt
         else:
-            prompt = self.image_eol_prompt
+            assert "<video>" in prompt or "<image>" in prompt
         sample = format_one_sample(media_file=video_path, prompt=prompt)
         sample = self.super_processor(sample)
         model_inputs = {}
@@ -591,14 +595,17 @@ class EncoderForTarsier2(BaseModelForTarsier2, EncodeMixin):
             emb = output.hidden_states[0][-1][:, -1, :]
         return emb
     
-    def encode_image(self, image_path: str):
+    def encode_image(self, image_path: str, prompt=None):
         ext = image_path.split('.')[-1]
         if ext in ['mp4', 'avi', 'mov', 'mkv', 'webm']:
             is_video = True
         else:
             is_video = False
         assert not is_video
-        prompt = self.image_eol_prompt
+        if prompt is None:
+            prompt = self.image_eol_prompt
+        else:
+            assert "<image>" in prompt
         sample = format_one_sample(media_file=image_path, prompt=prompt)
         sample = self.super_processor(sample)
         model_inputs = {}
@@ -617,10 +624,15 @@ class EncoderForTarsier2(BaseModelForTarsier2, EncodeMixin):
             emb = output.hidden_states[0][-1][:, -1, :]
         return emb
     
-    def encode_text(self, text: str) -> torch.Tensor:
+    def encode_text(self, text: str, prompt=None) -> torch.Tensor:
         
+        if prompt is None:
+            prompt = self.text_eol_prompt
+        else:
+            assert "<sent>" in prompt
+
         if isinstance(text, str):
-            prompt = self.text_eol_prompt.replace('<sent>', text)
+            prompt = prompt.replace('<sent>', text)
             sample = format_one_sample(media_file=None, prompt=prompt)
             sample = self.super_processor(sample)
             model_inputs = {}
