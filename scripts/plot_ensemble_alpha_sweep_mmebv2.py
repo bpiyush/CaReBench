@@ -11,7 +11,7 @@ from matplotlib.lines import Line2D
 # ---------------------------------------------------------------------------
 # Load all JSON results
 # ---------------------------------------------------------------------------
-ROOT = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 pattern = os.path.join(ROOT, '_ensemble_metrics',
                         'metrics_ensemble_tarsier2-tara-cia10k-covr10k_'
                         'qwen3vlembedding-base_a*_mmebv2_all.json')

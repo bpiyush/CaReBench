@@ -42,7 +42,7 @@ while read -r alpha; do
   (
     set +e
     export CUDA_VISIBLE_DEVICES="$gpu"
-    python "${REPO_ROOT}/ensemble_tara_q3vle.py" \
+    python "${REPO_ROOT}/scripts/ensemble_tara_q3vle.py" \
       --alpha "$alpha" \
       --tara_feat_path "$TARA_FEAT" \
       --qwen_feat_path "$QWEN_FEAT" \

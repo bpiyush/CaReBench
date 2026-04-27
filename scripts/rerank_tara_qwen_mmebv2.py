@@ -8,8 +8,8 @@ Strategy:
   4. Final prediction = top-1 after TARA re-ranking.
 
 Usage:
-  python rerank_tara_qwen_mmebv2.py
-  python rerank_tara_qwen_mmebv2.py --tara_model_name tarsier2-tara-cia10k-covr10k
+  python scripts/rerank_tara_qwen_mmebv2.py
+  python scripts/rerank_tara_qwen_mmebv2.py --tara_model_name tarsier2-tara-cia10k-covr10k
 """
 
 from __future__ import annotations
@@ -22,7 +22,7 @@ import numpy as np
 import pandas as pd
 import torch
 
-_ROOT = os.path.dirname(os.path.abspath(__file__))
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _ROOT not in sys.path:
     sys.path.insert(0, _ROOT)
 

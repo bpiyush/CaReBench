@@ -2,7 +2,7 @@
 Ensemble retrieval metrics: s(q,c) = alpha * s_TARA(q,c) + (1 - alpha) * s_Qwen(q,c).
 
 Run from the CaReBench repo root so ./data/ and shared resolve correctly:
-  python ensemble_tara_q3vle.py --alpha 0.5
+  python scripts/ensemble_tara_q3vle.py --alpha 0.5
 """
 
 from __future__ import annotations
@@ -15,7 +15,7 @@ import sys
 import pandas as pd
 import torch
 
-_ROOT = os.path.dirname(os.path.abspath(__file__))
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _ROOT not in sys.path:
     sys.path.insert(0, _ROOT)
 

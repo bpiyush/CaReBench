@@ -8,9 +8,9 @@ Pre-requisites (run once to produce the .pt files):
   python evals_qwen3vl/compute_text_embeddings_mmeb.py  --task all
 
 Usage:
-  python ensemble_tara_q3vle_mmebv2.py --task all --alpha 0.5
-  python ensemble_tara_q3vle_mmebv2.py --task cls
-  python ensemble_tara_q3vle_mmebv2.py --task ret --alpha 0.3
+  python scripts/ensemble_tara_q3vle_mmebv2.py --task all --alpha 0.5
+  python scripts/ensemble_tara_q3vle_mmebv2.py --task cls
+  python scripts/ensemble_tara_q3vle_mmebv2.py --task ret --alpha 0.3
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ import numpy as np
 import pandas as pd
 import torch
 
-_ROOT = os.path.dirname(os.path.abspath(__file__))
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _ROOT not in sys.path:
     sys.path.insert(0, _ROOT)
 
