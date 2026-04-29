@@ -2,9 +2,12 @@
 
 split=$1
 if [ -z "$split" ]; then
-    split="final-10112025/nli_9000+ego_1000+subj_replaced-seed_42"
+    split="covr/chiral10k-covr10k"
 fi
 echo "Using split: $split"
+
+POOLING_STRATEGY=${2:-last_token}
+echo "Using pooling strategy: $POOLING_STRATEGY"
 
 BASE_MODEL=/work/piyush/pretrained_checkpoints/Tarsier2-7b-0115
 echo "Using base model: $BASE_MODEL"
@@ -47,6 +50,7 @@ deepspeed --num_gpus=$GPUS --num_nodes=$NUM_NODES tasks/finetuning_tarsier2.py \
         --cutoff_len $CUTOFF_LEN \
         --output_dir $OUTPUT_DIR  \
         --run_name $RUN_NAME \
+        --pooling_strategy $POOLING_STRATEGY \
         --use_neg_sentence \
         --save_steps 100000 \
         --deepspeed ds.config \

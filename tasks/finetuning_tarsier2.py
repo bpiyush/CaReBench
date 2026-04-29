@@ -85,7 +85,19 @@ class SentembTrainerForTarsier2(SentembTrainer):
             "output_hidden_states": True,
             "return_dict": True,
         }
-        pooler_output = model(**model_inputs).hidden_states[-1][:, -1, :]
+        hidden_states = model(**model_inputs).hidden_states[-1]
+        pooling_strategy = getattr(self, "pooling_strategy", "last_token")
+        if pooling_strategy == "last_token":
+            pooler_output = hidden_states[:, -1, :]
+        elif pooling_strategy == "avg_pool":
+            attention_mask = inputs["attention_mask"].unsqueeze(-1).to(hidden_states.dtype)
+            token_counts = attention_mask.sum(dim=1).clamp(min=1.0)
+            pooler_output = (hidden_states * attention_mask).sum(dim=1) / token_counts
+        else:
+            raise ValueError(
+                f"Unsupported pooling_strategy: {pooling_strategy}. "
+                "Expected one of: ['last_token', 'avg_pool']."
+            )
 
         if self.use_neg_sentence:
             batch_size = pooler_output.size(0) // 3
@@ -156,6 +168,7 @@ def train(
     fix_attention_mask: bool = False,
     set_pad_to_unk: bool = False,
     bf16: bool = False,
+    pooling_strategy: str = "last_token",
     architecture: str = None,
     local_rank: int = 0,
 ):
@@ -274,6 +287,7 @@ def train(
     trainer.is_nli = True
     trainer.use_neg_sentence = use_neg_sentence
     trainer.fix_attention_mask = fix_attention_mask
+    trainer.pooling_strategy = pooling_strategy
     model.config.use_cache = False
 
     if torch.__version__ >= "2" and sys.platform != "win32":
