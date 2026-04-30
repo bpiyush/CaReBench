@@ -1,0 +1,94 @@
+{
+  "dataset": {
+    "source": "neg-msrvtt",
+    "pairing": "video with text-standard caption from 3-row modality groups in CSV order",
+    "N_total": 1000,
+    "D": 3584,
+    "N_train": 800,
+    "N_test": 200
+  },
+  "scalar_affine": {
+    "form": "v = a t + b (scalars broadcast to all dims)",
+    "params": {
+      "a": 0.6424336573179389,
+      "b": 0.00010060995816569868
+    },
+    "train": {
+      "mse": 0.0001638890966457803,
+      "rmse": 0.012801917694071473,
+      "r2": -0.8775762852552345,
+      "mean_cosine": 0.6423563287926115
+    },
+    "test": {
+      "mse": 0.00016140006151490343,
+      "rmse": 0.01270433239154673,
+      "r2": -0.9073971660073616,
+      "mean_cosine": 0.6492996458204686
+    }
+  },
+  "diagonal_affine": {
+    "form": "v_d = a_d t_d + b_d (per-dimension affine)",
+    "params_summary": {
+      "a_mean": 0.3314565492063582,
+      "a_std": 0.06907490940339571,
+      "a_min": 0.05559309976239883,
+      "a_max": 0.7422224006184305,
+      "b_mean": -4.398389441546703e-05,
+      "b_std": 0.01235652716009575,
+      "b_min": -0.5111950485825729,
+      "b_max": 0.2555260359868904
+    },
+    "train": {
+      "mse": 7.78464124479472e-05,
+      "rmse": 0.008823061398853983,
+      "r2": 0.10816167215583439,
+      "mean_cosine": 0.8491868923507355
+    },
+    "test": {
+      "mse": 7.557485588832613e-05,
+      "rmse": 0.008693380003676714,
+      "r2": 0.10686982030984349,
+      "mean_cosine": 0.8539553555724391
+    }
+  },
+  "full_linear_ridge": {
+    "form": "v = W t (full linear map with L2 regularization)",
+    "params_summary": {
+      "alpha": 1.0,
+      "fro_norm_W": 5.326365409480533,
+      "trace_W": 30.09897339928647
+    },
+    "train": {
+      "mse": 5.417734387243407e-05,
+      "rmse": 0.007360526059490182,
+      "r2": 0.37932359055675313,
+      "mean_cosine": 0.8986917377391382
+    },
+    "test": {
+      "mse": 6.877595496557105e-05,
+      "rmse": 0.00829312697150906,
+      "r2": 0.18721801987252085,
+      "mean_cosine": 0.8681962541884135
+    }
+  },
+  "full_affine_ridge": {
+    "form": "v = W t + b (full affine map with L2 regularization)",
+    "params_summary": {
+      "alpha": 1.0,
+      "fro_norm_W": 5.23450867857811,
+      "b_norm": 0.8097782050195781
+    },
+    "train": {
+      "mse": 5.412018034088601e-05,
+      "rmse": 0.0073566419201213,
+      "r2": 0.37997847787636563,
+      "mean_cosine": 0.898584444212134
+    },
+    "test": {
+      "mse": 6.869099471712439e-05,
+      "rmse": 0.008288003059671515,
+      "r2": 0.1882220649490184,
+      "mean_cosine": 0.8682243915627466
+    }
+  }
+}

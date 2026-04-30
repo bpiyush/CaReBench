@@ -1,0 +1,68 @@
+{
+  "dataset": {
+    "N_total": 1000,
+    "D": 3584,
+    "source": "neg-msrvtt",
+    "text": "text-standard",
+    "normalized": "explicit L2 on v and t"
+  },
+  "component_scale_stats": {
+    "v_component_mean": -8.879542232715528e-05,
+    "v_component_mean_abs": 0.008674848399198014,
+    "v_component_std": 0.016703591605258816,
+    "t_component_mean": -0.0002923018105276889,
+    "t_component_mean_abs": 0.008516214762636792,
+    "t_component_std": 0.016701269915604063
+  },
+  "delta_stats": {
+    "delta_l2_norm": 0.5624790254186921,
+    "delta_mean": 0.0002035063882005335,
+    "delta_mean_abs": 0.004691035115691923,
+    "delta_std": 0.00939334846134463
+  },
+  "g_scalar_affine_with_delta": {
+    "form": "v=(a t + b)+delta",
+    "params": {
+      "a": 0.8196294444607918,
+      "b": -5.109587338665514e-05
+    },
+    "train": {
+      "mse": 0.00010214504984248893,
+      "rmse": 0.010106683424471597,
+      "r2": -0.17021349075581238,
+      "mean_cosine": 0.7981092088958899
+    },
+    "test": {
+      "mse": 9.982096429515469e-05,
+      "rmse": 0.009991044204444032,
+      "r2": -0.17966701445970945,
+      "mean_cosine": 0.8029085969650496
+    }
+  },
+  "g_full_affine_ridge_with_delta": {
+    "form": "v=(W t + b)+delta",
+    "params_summary": {
+      "alpha": 1.0,
+      "fro_norm_W": 5.234506892879491,
+      "b_norm": 0.8470681509442444
+    },
+    "train": {
+      "mse": 5.412015540162578e-05,
+      "rmse": 0.007356640225104513,
+      "r2": 0.3799784123612079,
+      "mean_cosine": 0.8985844324495632
+    },
+    "test": {
+      "mse": 6.869095756897159e-05,
+      "rmse": 0.008288000818591393,
+      "r2": 0.18822205928438795,
+      "mean_cosine": 0.8682243910534281
+    }
+  },
+  "rmse_context": {
+    "best_model": "g_full_affine_ridge_with_delta",
+    "test_rmse": 0.008288000818591393,
+    "v_mean_abs_component": 0.008674848399198014,
+    "rmse_over_v_mean_abs_component": 0.9554058395305455
+  }
+}
