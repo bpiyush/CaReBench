@@ -1,0 +1,42 @@
+{
+  "model": "2-layer MLP v->t with biases enabled",
+  "architecture": {
+    "input_dim": 3584,
+    "hidden_dim": 1024,
+    "activation": "GELU",
+    "output_dim": 3584,
+    "bias_fc1": true,
+    "bias_fc2": true
+  },
+  "training": {
+    "optimizer": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "batch_size": 128,
+    "max_epochs": 120,
+    "best_val_mse": 6.897599814692512e-05
+  },
+  "dataset": {
+    "N": 1000,
+    "D": 3584,
+    "N_train": 800,
+    "N_test": 200,
+    "normalization": "explicit L2 on v and t"
+  },
+  "train": {
+    "mse": 5.5122534831753e-05,
+    "rmse": 0.007424455187537534,
+    "r2": 0.2730499505996704,
+    "mean_cosine": 0.8956657648086548
+  },
+  "test": {
+    "mse": 6.554706487804651e-05,
+    "rmse": 0.008096114183856754,
+    "r2": 0.1269494891166687,
+    "mean_cosine": 0.8747615218162537
+  },
+  "context": {
+    "t_mean_abs_component": 0.008516216650605202,
+    "rmse_over_t_mean_abs_component": 0.9506702935194511
+  }
+}

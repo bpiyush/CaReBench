@@ -1,0 +1,35 @@
+{
+  "model": "v = a t + b delta, delta fixed as mean(v)-mean(t)",
+  "normalization": "explicit L2 normalization on both v and t",
+  "dataset": {
+    "N": 1000,
+    "D": 3584,
+    "N_train": 800,
+    "N_test": 200
+  },
+  "params": {
+    "a": 0.799885587538871,
+    "b": 0.8883740606002025
+  },
+  "delta_stats": {
+    "delta_l2_norm": 0.5624790254186924,
+    "delta_mean_abs": 0.004691035115691923,
+    "delta_std": 0.009393348461344634
+  },
+  "train": {
+    "mse": 0.00010115706217496686,
+    "rmse": 0.010057686720860163,
+    "r2": -0.15889471907752206,
+    "mean_cosine": 0.7992693305029647
+  },
+  "test": {
+    "mse": 9.88506555959158e-05,
+    "rmse": 0.009942366699931954,
+    "r2": -0.16820007287666794,
+    "mean_cosine": 0.8044071895026561
+  },
+  "context": {
+    "v_mean_abs_component": 0.008674848399198014,
+    "rmse_over_v_mean_abs_component": 1.1461141729813984
+  }
+}

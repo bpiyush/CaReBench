@@ -1,0 +1,64 @@
+{
+  "model_family": "rotation plus shift",
+  "normalization": "explicit L2 on t and v",
+  "dataset": {
+    "N": 1000,
+    "D": 3584,
+    "N_train": 800,
+    "N_test": 200
+  },
+  "rotation_plus_fixed_delta": {
+    "form": "v = R t + delta_fixed, delta_fixed=mean(v_train)-mean(t_train)",
+    "det_R": 1.0000000000008948,
+    "delta_norm": 0.562874537054865,
+    "train": {
+      "mse": 4.4701763982996736e-05,
+      "rmse": 0.006685937778875656,
+      "r2": 0.4878791742316466,
+      "mean_cosine": 0.9186623887159426
+    },
+    "test": {
+      "mse": 0.00011410236072386086,
+      "rmse": 0.010681870656577941,
+      "r2": -0.34844210500634665,
+      "mean_cosine": 0.7912201704156807
+    }
+  },
+  "rotation_plus_learned_delta": {
+    "form": "v = R t + d, with R orthogonal and d learned via centering",
+    "det_R": 0.9999999999951519,
+    "delta_norm": 1.1257341561598209,
+    "train": {
+      "mse": 4.4355048107593624e-05,
+      "rmse": 0.006659958566507274,
+      "r2": 0.4918512863945128,
+      "mean_cosine": 0.9192621480007485
+    },
+    "test": {
+      "mse": 0.00011398739668467624,
+      "rmse": 0.010676488031402285,
+      "r2": -0.34708347973326115,
+      "mean_cosine": 0.7917875421243948
+    }
+  },
+  "scaled_rotation_plus_fixed_delta": {
+    "form": "v = s R t + b delta_fixed",
+    "params": {
+      "s": 0.9334478753228499,
+      "b": 0.9608596664709618
+    },
+    "det_R": 1.0000000000008948,
+    "train": {
+      "mse": 4.3589875773665826e-05,
+      "rmse": 0.00660226292824406,
+      "r2": 0.500617398793461,
+      "mean_cosine": 0.9187882715457811
+    },
+    "test": {
+      "mse": 0.00010849356453200612,
+      "rmse": 0.010416024411069999,
+      "r2": -0.28215831477171927,
+      "mean_cosine": 0.7918094275058348
+    }
+  }
+}
