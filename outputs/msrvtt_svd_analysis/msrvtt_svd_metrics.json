@@ -1,0 +1,35 @@
+{
+  "selection": {
+    "criterion": "shared keys matching ^video\\d+$",
+    "num_samples_N": 1000,
+    "embedding_dim_D": 3584
+  },
+  "base_metrics": {
+    "num_singular_values": 1000,
+    "mean_singular_value": 0.40074804425239563,
+    "std_singular_value": 0.38814085721969604,
+    "max_singular_value": 4.3551506996154785,
+    "min_singular_value": 6.878613930894062e-06,
+    "effective_rank": 242.2472381591797,
+    "effective_rank_over_k": 0.2422472381591797,
+    "participation_ratio": 515.9769287109375,
+    "participation_ratio_over_k": 0.5159769287109375,
+    "top1_energy_ratio": 0.06093879044055939,
+    "num_sv_for_90pct_energy": 386,
+    "num_sv_for_95pct_energy": 551
+  },
+  "finetuned_metrics": {
+    "num_singular_values": 1000,
+    "mean_singular_value": 0.6836810111999512,
+    "std_singular_value": 0.63583904504776,
+    "max_singular_value": 6.080259799957275,
+    "min_singular_value": 4.438473297341261e-06,
+    "effective_rank": 275.6878967285156,
+    "effective_rank_over_k": 0.2756878967285156,
+    "participation_ratio": 536.20947265625,
+    "participation_ratio_over_k": 0.53620947265625,
+    "top1_energy_ratio": 0.04241033270955086,
+    "num_sv_for_90pct_energy": 392,
+    "num_sv_for_95pct_energy": 557
+  }
+}
