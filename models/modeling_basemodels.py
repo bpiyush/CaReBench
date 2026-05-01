@@ -894,10 +894,12 @@ class BaseModelForTarsier2(BaseModel):
             model_name_or_path: str,
             load_llm: Optional[bool] = None,
             device_map: Optional[Union[str, Dict[str, int]]] = None,
+            base_config_name: str = 'default_config.yaml',
             **kwargs,
         ):
 
         MODEL_CLASS = self.LLM_CLASS if load_llm else self.MLLM_CLASS
+        self.base_config_name = base_config_name
 
         if load_llm:
             self.split_weights(model_name_or_path, model_name_or_path + '-llm')
@@ -909,9 +911,10 @@ class BaseModelForTarsier2(BaseModel):
             # self.tokenizer = self.processor.tokenizer
             
             import shared.utils as su
+            print("Input base_config_name: ", base_config_name)
             self.base_config = su.io.load_yml(
                 os.path.join(
-                    su.log.repo_path, 'models/tarsier2/default_config.yaml'
+                    su.log.repo_path, f'models/tarsier2/{base_config_name}'
                 )
             )
             from models.tarsier2.dataset.tarsier_datamodule import init_processor
@@ -934,7 +937,7 @@ class BaseModelForTarsier2(BaseModel):
             import shared.utils as su
             self.base_config = su.io.load_yml(
                 os.path.join(
-                    su.log.repo_path, 'models/tarsier2/default_config.yaml'
+                    su.log.repo_path, f'models/tarsier2/{base_config_name}'
                 )
             )
             from models.tarsier2.dataset.tarsier_datamodule import init_processor
@@ -979,7 +982,7 @@ class BaseModelForTarsier2(BaseModel):
         import shared.utils as su
         from models.tarsier2.dataset.tarsier_datamodule import init_processor
         base_config = su.io.load_yml(
-            os.path.join(su.log.repo_path, 'models/tarsier2/default_config.yaml'),
+            os.path.join(su.log.repo_path, f'models/tarsier2/{self.base_config_name}'),
         )
         super_processor = init_processor(
             mllm_path,

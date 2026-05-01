@@ -818,6 +818,7 @@ class Qwen2VLAttention(nn.Module):
             raise NotImplementedError("use_rmpad is only supported with flash_attention_2.")
 
         bsz, q_len, _ = hidden_states.size()
+        attn_weights = None
         query_states = self.q_proj(hidden_states)
         key_states = self.k_proj(hidden_states)
         value_states = self.v_proj(hidden_states)
@@ -932,6 +933,34 @@ class Qwen2VLFlashAttention2(Qwen2VLAttention):
         value_states = repeat_kv(value_states, self.num_key_value_groups)
         dropout_rate = 0.0 if not self.training else self.attention_dropout
 
+        # FlashAttention kernels typically do not return attention matrices.
+        # For analysis/debugging, explicitly compute A^{l,h} when requested.
+        if output_attentions:
+            kv_seq_len = key_states.shape[-2]
+            attn_weights = torch.matmul(query_states, key_states.transpose(2, 3)) / math.sqrt(self.head_dim)
+
+            causal_mask = torch.full(
+                (q_len, kv_seq_len),
+                fill_value=torch.finfo(attn_weights.dtype).min,
+                device=attn_weights.device,
+            )
+            causal_mask = torch.triu(causal_mask, diagonal=1 + kv_seq_len - q_len)
+            attn_weights = attn_weights + causal_mask.unsqueeze(0).unsqueeze(0)
+
+            if attention_mask is not None:
+                if attention_mask.dim() == 2:
+                    if attention_mask.shape[-1] != kv_seq_len:
+                        attention_mask = attention_mask[:, -kv_seq_len:]
+                    key_padding_mask = (attention_mask == 0).unsqueeze(1).unsqueeze(2)
+                    attn_weights = attn_weights.masked_fill(
+                        key_padding_mask,
+                        torch.finfo(attn_weights.dtype).min,
+                    )
+                else:
+                    attn_weights = attn_weights + attention_mask
+
+            attn_weights = F.softmax(attn_weights.float(), dim=-1).to(query_states.dtype)
+
         # In PEFT, usually we cast the layer norms in float32 for training stability reasons
         # therefore the input hidden states gets silently casted in float32. Hence, we need
         # cast them back in float16 just to be sure everything works as expected.
@@ -982,9 +1011,6 @@ class Qwen2VLFlashAttention2(Qwen2VLAttention):
 
         attn_output = attn_output.reshape(bsz, q_len, self.hidden_size).contiguous()
         attn_output = self.o_proj(attn_output)
-
-        if not output_attentions:
-            attn_weights = None
 
         return attn_output, attn_weights, past_key_value
 
