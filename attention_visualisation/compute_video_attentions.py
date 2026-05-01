@@ -1,21 +1,37 @@
-import argparse
+"""
+compute_video_attentions.py
+Helper utilities for extracting and visualising attention maps from an MLLM over video input.
+
+Bug-fixes applied vs original:
+  [CRITICAL-1] align_attn_to_frames: parameter `h` (head index) was silently shadowed by the
+               shape-unpack `L, Hh, T_attn, h, w = attn_lht_hw.shape`, so the head-averaging
+               branch was unreachable and a wrong head was always selected instead.
+               Fixed by renaming unpacked spatial dims to `_h_patches` / `_w_patches`.
+
+  [CRITICAL-2] build_visual_index_map: the independently computed N_vis (from image_grid_thw +
+               spatial_merge_size) was never cross-checked against the actual visual span
+               obtained from the token IDs via get_visual_span.  A mismatch would silently
+               misalign the thw_map / abs_positions with the real token positions.
+               Fixed by asserting N_vis == (vend - vstart) after both paths are resolved.
+"""
+
 import os
-from typing import Dict, List, Tuple
+from typing import Dict, List, Sequence, Tuple
 
-import torch
-import matplotlib.pyplot as plt
-
-from models.modeling_encoders import AutoEncoder
-from models.tarsier2.dataset.utils import format_one_sample
-from typing import List, Sequence, Tuple
 import torch
 import torch.nn.functional as F
 from PIL import Image
 
 import shared.utils as su
+from models.tarsier2.dataset.utils import format_one_sample
+
 
 VIDEO_EXTENSIONS = {"mp4", "avi", "mov", "mkv", "webm"}
 
+
+# ---------------------------------------------------------------------------
+# Media helpers
+# ---------------------------------------------------------------------------
 
 def infer_is_video(media_path: str) -> bool:
     ext = media_path.rsplit(".", 1)[-1].lower()
@@ -30,6 +46,10 @@ def resolve_prompt(encoder, media_path: str, custom_prompt: str | None = None) -
     return encoder.video_eol_prompt if infer_is_video(media_path) else encoder.image_eol_prompt
 
 
+# ---------------------------------------------------------------------------
+# Model-input construction
+# ---------------------------------------------------------------------------
+
 def build_model_inputs(encoder, media_path: str, prompt: str) -> Dict[str, torch.Tensor]:
     sample = format_one_sample(media_file=media_path, prompt=prompt)
     sample = encoder.super_processor(sample)
@@ -40,6 +60,10 @@ def build_model_inputs(encoder, media_path: str, prompt: str) -> Dict[str, torch
             model_inputs[key] = value.to(encoder.model.device)
     return model_inputs
 
+
+# ---------------------------------------------------------------------------
+# Attention / hidden-state extraction
+# ---------------------------------------------------------------------------
 
 def _flatten_first_generation_step_attentions(attentions) -> List[torch.Tensor]:
     current = attentions
@@ -63,7 +87,7 @@ def _extract_first_generation_step_hidden_states(
 ) -> torch.Tensor:
     """
     Returns first-step hidden states as [L, S, D].
-    By default, excludes token embedding output and keeps transformer layers only.
+    By default excludes the token-embedding output and keeps transformer layers only.
     """
     if hidden_states is None:
         raise RuntimeError("Model did not return hidden_states.")
@@ -74,7 +98,7 @@ def _extract_first_generation_step_hidden_states(
     if not isinstance(first_step, (list, tuple)) or len(first_step) == 0:
         raise RuntimeError("Unexpected first-step hidden_states structure.")
 
-    # HF convention is typically: [embeddings, layer1, ..., layerL]
+    # HF convention: [embeddings, layer_1, ..., layer_L]
     layer_states = list(first_step) if include_embedding_layer else list(first_step[1:])
     if len(layer_states) == 0:
         raise RuntimeError("No layer hidden states found after filtering.")
@@ -112,7 +136,7 @@ def run_embedding_and_attention(
         )
 
     per_layer = _flatten_first_generation_step_attentions(output.attentions)
-    # Each tensor is expected as [B, H, S, S]. We save as [L, H, S, S].
+    # Each tensor: [B, H, S, S].  Save as [L, H, S, S].
     attention_lhss = torch.stack(
         [layer_attn.squeeze(0).detach().to("cpu", dtype=save_dtype) for layer_attn in per_layer],
         dim=0,
@@ -134,10 +158,12 @@ def dtype_from_name(name: str) -> torch.dtype:
     }[name]
 
 
-def ids_to_string_with_image_tokens(model_inputs, encoder):
-    """
-    Convert model_inputs['input_ids'] to readable string, replacing visual spans with <image>.
-    """
+# ---------------------------------------------------------------------------
+# Token-sequence utilities
+# ---------------------------------------------------------------------------
+
+def ids_to_string_with_image_tokens(model_inputs, encoder) -> str:
+    """Convert input_ids to a readable string, collapsing visual spans to <image>."""
     ids = model_inputs["input_ids"][0]  # [S]
     tok = encoder.processor.tokenizer
     cfg = encoder.model.language_model.config
@@ -153,55 +179,67 @@ def ids_to_string_with_image_tokens(model_inputs, encoder):
     while i < n:
         tid = int(ids[i].item())
 
-        # collapse one full vision block to a single <image>
         if tid == vision_start_id:
             j = i + 1
             while j < n and int(ids[j].item()) != vision_end_id:
                 j += 1
-
             if j < n:
                 out.append("<image>")
                 i = j + 1
                 continue
             else:
-                # malformed: no end token; fallback
                 out.append("<image>")
                 break
 
-        # if standalone visual placeholder appears, map to <image>
         if tid == image_token_id:
             out.append("<image>")
             i += 1
             continue
 
-        # regular token
         out.append(tok.decode([tid], skip_special_tokens=False))
         i += 1
 
-    text = "".join(out)
-
-    # optional cleanup for readable spacing
-    text = text.replace("  ", " ")
+    text = "".join(out).replace("  ", " ")
     return text
 
 
-def get_visual_span(input_ids, vision_start_id, vision_end_id):
+def get_visual_span(input_ids, vision_start_id, vision_end_id) -> Tuple[int, int]:
+    """
+    Return (start, end) Python-slice indices of the visual token block.
+
+    Asserts that exactly one vision block is present so multi-image sequences
+    don't silently return the wrong span.
+    """
     ids = input_ids[0]  # [S]
-    s = (ids == vision_start_id).nonzero(as_tuple=True)[0].item()
-    e = (ids == vision_end_id).nonzero(as_tuple=True)[0].item()
-    # visual placeholders are in (s, e)
-    return s + 1, e  # [start, end) python slice
 
-def flat_to_thw(k, H_llm, W_llm):
-    hw = H_llm * W_llm
-    t = k // hw
-    rem = k % hw
-    r = rem // W_llm
-    c = rem % W_llm
-    return int(t), int(r), int(c)
+    starts = (ids == vision_start_id).nonzero(as_tuple=True)[0]
+    ends = (ids == vision_end_id).nonzero(as_tuple=True)[0]
 
-def build_visual_index_map(model_inputs, encoder):
-    # config + inputs
+    if starts.numel() != 1 or ends.numel() != 1:
+        raise ValueError(
+            f"Expected exactly one vision block, found {starts.numel()} start(s) "
+            f"and {ends.numel()} end(s). Multi-image sequences are not supported."
+        )
+
+    s = int(starts.item())
+    e = int(ends.item())
+    # visual placeholders are the tokens strictly between vision_start and vision_end
+    return s + 1, e  # [start, end) Python slice
+
+
+# ---------------------------------------------------------------------------
+# Visual index map
+# ---------------------------------------------------------------------------
+
+def build_visual_index_map(model_inputs, encoder) -> Dict:
+    """
+    Build a mapping between flat visual-token indices (in the full sequence)
+    and their (t, h, w) grid coordinates in the LLM's merged visual space.
+
+    FIX [CRITICAL-2]: N_vis derived from image_grid_thw is now cross-checked
+    against the actual visual span from the token IDs.  A mismatch raises
+    immediately rather than silently misaligning thw_map / abs_positions.
+    """
     grid = model_inputs["image_grid_thw"][0]   # (T, H, W)
     T, H, W = map(int, grid.tolist())
     sms = int(encoder.model.language_model.config.spatial_merge_size)
@@ -218,11 +256,30 @@ def build_visual_index_map(model_inputs, encoder):
         cfg.vision_end_token_id,
     )
 
-    # absolute token positions in full sequence for visual block
-    abs_positions = torch.arange(vstart, vstart + N_vis, device=model_inputs["input_ids"].device)
+    # --- CRITICAL-2 FIX: cross-check both derivations of the visual span length ---
+    token_span_len = vend - vstart
+    if N_vis != token_span_len:
+        raise ValueError(
+            f"Visual span mismatch: image_grid_thw + spatial_merge_size imply "
+            f"N_vis={N_vis} visual tokens, but the token-ID scan found "
+            f"{token_span_len} tokens between vision_start and vision_end. "
+            f"Check spatial_merge_size ({sms}), image_grid_thw ({T},{H},{W}), "
+            f"and the tokenised sequence."
+        )
 
-    # map each visual token to (t, h, w)
-    thw = [flat_to_thw(k, H_llm, W_llm) for k in range(N_vis)]
+    abs_positions = torch.arange(
+        vstart, vstart + N_vis, device=model_inputs["input_ids"].device
+    )
+
+    def flat_to_thw(k: int) -> Tuple[int, int, int]:
+        hw = H_llm * W_llm
+        t = k // hw
+        rem = k % hw
+        r = rem // W_llm
+        c = rem % W_llm
+        return int(t), int(r), int(c)
+
+    thw_map = [flat_to_thw(k) for k in range(N_vis)]
 
     return {
         "visual_start": vstart,
@@ -231,14 +288,18 @@ def build_visual_index_map(model_inputs, encoder):
         "H_llm": H_llm,
         "W_llm": W_llm,
         "N_vis": N_vis,
-        "abs_positions": abs_positions,  # token idx in full sequence
-        "thw_map": thw,                  # list of (t,r,c), len N_vis
+        "abs_positions": abs_positions,
+        "thw_map": thw_map,
     }
 
 
+# ---------------------------------------------------------------------------
+# Attention map post-processing
+# ---------------------------------------------------------------------------
+
 def upsample_attn_lh_hw(
-    attn_lh_hw: torch.Tensor,          # [L, Hh, h, w]
-    out_hw: Tuple[int, int],           # (H', W')
+    attn_lh_hw: torch.Tensor,      # [L, H, h, w]
+    out_hw: Tuple[int, int],
     mode: str = "bilinear",
     align_corners: bool = False,
 ) -> torch.Tensor:
@@ -252,7 +313,7 @@ def upsample_attn_lh_hw(
 
 def unpatchify_qwen2vl_pixel_values(
     pixel_values: torch.Tensor,        # [t*h*w, C*tp*ps*ps]
-    image_grid_thw: torch.Tensor,      # [3] = (t, h, w) from model_inputs["image_grid_thw"][0]
+    image_grid_thw: torch.Tensor,      # [3] = (t, h, w)
     C: int = 3,
     temporal_patch_size: int = 2,
     patch_size: int = 14,
@@ -261,9 +322,8 @@ def unpatchify_qwen2vl_pixel_values(
     """
     Inverse of Qwen2VLImageProcessor flattening.
 
-    Returns:
-        frames_tchw: [T, C, H', W']
-        where T = t * temporal_patch_size
+    Returns frames_tchw: [T, C, H', W']
+        where T  = t * temporal_patch_size
               H' = h * patch_size
               W' = w * patch_size
     """
@@ -276,7 +336,9 @@ def unpatchify_qwen2vl_pixel_values(
     tp, ps, m = temporal_patch_size, patch_size, merge_size
 
     if h % m != 0 or w % m != 0:
-        raise ValueError(f"h,w must be divisible by merge_size. Got h={h}, w={w}, merge_size={m}")
+        raise ValueError(
+            f"h, w must be divisible by merge_size. Got h={h}, w={w}, merge_size={m}"
+        )
 
     N_expected = t * h * w
     D_expected = C * tp * ps * ps
@@ -288,18 +350,16 @@ def unpatchify_qwen2vl_pixel_values(
     h_m = h // m
     w_m = w // m
 
-    # Inverse of:
-    # patches.permute(0,1,4,7,5,8,3,2,6,9).reshape(batch, t*h*w, C*tp*ps*ps)
     x = pixel_values.view(t, h_m, w_m, m, m, C, tp, ps, ps)
-    x = x.permute(0, 6, 5, 1, 3, 7, 2, 4, 8).contiguous()   # [t,tp,C,h_m,m,ps,w_m,m,ps]
+    x = x.permute(0, 6, 5, 1, 3, 7, 2, 4, 8).contiguous()  # [t,tp,C,h_m,m,ps,w_m,m,ps]
     frames = x.view(t * tp, C, h_m * m * ps, w_m * m * ps)  # [T,C,H',W']
     return frames
 
 
 def frames_tchw_to_pil_list(
-    frames_tchw: torch.Tensor,         # [T, C, H, W], normalized
-    mean: Sequence[float] = (0.48145466, 0.4578275, 0.40821073),  # OPENAI_CLIP_MEAN
-    std: Sequence[float] = (0.26862954, 0.26130258, 0.27577711),   # OPENAI_CLIP_STD
+    frames_tchw: torch.Tensor,
+    mean: Sequence[float] = (0.48145466, 0.4578275, 0.40821073),
+    std: Sequence[float] = (0.26862954, 0.26130258, 0.27577711),
     clamp: bool = True,
 ) -> List[Image.Image]:
     if frames_tchw.ndim != 4:
@@ -321,15 +381,26 @@ def frames_tchw_to_pil_list(
     return [Image.fromarray(arr.numpy(), mode="RGB") for arr in x_u8]
 
 
-
 def align_attn_to_frames(
-    attn_lht_hw: torch.Tensor,    # [L, Hh, T, h, w] e.g. [28,28,4,9,15]
-    frames_tchw: torch.Tensor,    # [T_img, C, H', W'] e.g. [8,3,252,420]
+    attn_lht_hw: torch.Tensor,         # [L, Hh, T, h_patches, w_patches]
+    frames_tchw: torch.Tensor,         # [T_img, C, H', W']
     temporal_patch_size: int = 2,
-    l=None,
-    h=None,
+    layer_idx: int | None = None,      # None → mean over layers
+    head_idx: int | None = None,       # None → mean over heads
 ) -> torch.Tensor:
     """
+    Align an attention map tensor to the pixel space of the decoded frames.
+
+    FIX [CRITICAL-1]: The original signature used `l` and `h` as parameter names.
+    `h` was immediately shadowed by the shape unpack
+        `L, Hh, T_attn, h, w = attn_lht_hw.shape`
+    making the `if h is None` branch permanently False.  The function always
+    fell into the `else` branch and indexed head `h` = (spatial patch height),
+    i.e., a fixed wrong head, silently ignoring the caller's intent.
+
+    Parameters are now named `layer_idx` / `head_idx` (unambiguous), and the
+    shape variables use the `_patches` suffix so they can never clash.
+
     Returns:
         attn_per_frame: [T_img, H', W'] aligned to frames_tchw
     """
@@ -338,39 +409,39 @@ def align_attn_to_frames(
     if frames_tchw.ndim != 4:
         raise ValueError(f"Expected [T,C,H,W], got {tuple(frames_tchw.shape)}")
 
-    L, Hh, T_attn, h, w = attn_lht_hw.shape
+    # --- CRITICAL-1 FIX: use unambiguous names that cannot shadow parameters ---
+    _L, _Hh, T_attn, _h_patches, _w_patches = attn_lht_hw.shape
     T_img, _, Hp, Wp = frames_tchw.shape
 
-    # # 1) average across L and H
-    # attn_t_hw = attn_lht_hw.mean(dim=(0, 1))  # [T_attn, h, w]
-    if h is None:
-        # Take the mean across attention heads
-        attn_t_hw = attn_lht_hw.mean(dim=1)  # [T_attn, h, w]
+    # 1) Reduce over layers
+    if layer_idx is None:
+        attn_ht_hw = attn_lht_hw.mean(dim=0)          # [Hh, T, h, w]
     else:
-        attn_t_hw = attn_lht_hw[:, h, :, :, :]  # [T_attn, h, w]
-    
-    # Likewise, if l is None, take the mean across layers
-    if l is None:
-        attn_t_hw = attn_t_hw.mean(dim=0)  # [T_attn, h, w]
-    else:
-        attn_t_hw = attn_t_hw[l, :, :, :]  # [T_attn, h, w]
-        
+        attn_ht_hw = attn_lht_hw[layer_idx]            # [Hh, T, h, w]
 
-    # 2) upsample each attention frame to image size
-    # upsample_attn_lh_hw expects [L,H,h,w], so use L=T_attn, H=1
+    # 2) Reduce over heads
+    if head_idx is None:
+        attn_t_hw = attn_ht_hw.mean(dim=0)             # [T, h, w]
+    else:
+        attn_t_hw = attn_ht_hw[head_idx]               # [T, h, w]
+
+    # 3) Upsample each attention frame to image spatial size
+    # upsample_attn_lh_hw expects [L, H, h, w]; use L=T_attn, H=1
     attn_up = upsample_attn_lh_hw(
-        attn_t_hw[:, None, :, :],  # [T_attn,1,h,w]
+        attn_t_hw[:, None, :, :],                      # [T_attn, 1, h, w]
         out_hw=(Hp, Wp),
         mode="bilinear",
         align_corners=False,
-    )[:, 0]  # [T_attn, Hp, Wp]
+    )[:, 0]                                             # [T_attn, Hp, Wp]
 
-    # 3) temporal align: each attn token corresponds to temporal_patch_size frames
-    attn_per_frame = attn_up.repeat_interleave(temporal_patch_size, dim=0)  # [T_attn*tp, Hp, Wp]
+    # 4) Temporal alignment: each attention token spans temporal_patch_size frames
+    attn_per_frame = attn_up.repeat_interleave(temporal_patch_size, dim=0)
 
     if attn_per_frame.shape[0] != T_img:
         raise ValueError(
-            f"Temporal mismatch: attn gives {attn_per_frame.shape[0]} frames, but frames_tchw has {T_img}."
+            f"Temporal mismatch: attention gives {attn_per_frame.shape[0]} frames "
+            f"but frames_tchw has {T_img}. "
+            f"Check temporal_patch_size={temporal_patch_size}."
         )
 
     return attn_per_frame
