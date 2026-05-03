@@ -1,0 +1,43 @@
+You are evaluating the quality of a hard-negative sentence pair for a semantic similarity dataset.
+
+Given:
+  Anchor:    "{sent0}"
+  Positive:  "{sent1}"
+  Hard-neg:  "{hard_neg}"
+
+A *good* hard negative must satisfy BOTH conditions:
+
+[A] STATIC PRESERVATION — The non-action elements (subject, object, setting, manner)  
+    are identical or near-identical between the anchor and the hard negative.
+
+[B] CHIRAL ACTION — The action in the hard negative is the temporal/directional antonym  
+    of the anchor's action (e.g., fold↔unfold, open↔close, pick up↔put down).  
+    It must NOT be a different action, a negation ("not folding"), or a paraphrase.
+
+Score each condition independently on a 1–3 scale:
+  3 = fully satisfied
+  2 = partially satisfied (minor issue)
+  1 = violated
+
+Then give an overall verdict: PASS (both ≥ 2) or FAIL (either = 1).
+
+Before scoring, fill in this table:
+  Subject  | anchor: ___ | hard_neg: ___ | same? ___
+  Object   | anchor: ___ | hard_neg: ___ | same? ___
+  Setting  | anchor: ___ | hard_neg: ___ | same? ___
+  Action   | anchor: ___ | hard_neg: ___ | true antonym? ___
+
+Any cell marked "no" reduces the static_score.
+
+You are a STRICT and CRITICAL evaluator. Your job is to find flaws.
+Assume the score is 1 or 2 unless you can justify raising it.
+A score of 3 should be rare and only given when the criteria is perfectly met.
+
+Respond ONLY in JSON:
+{
+  "static_score": <1|2|3>,
+  "static_reason": "<one sentence>",
+  "chiral_score": <1|2|3>,
+  "chiral_reason": "<one sentence>",
+  "verdict": "<PASS|FAIL>"
+}
