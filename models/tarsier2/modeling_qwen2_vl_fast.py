@@ -909,6 +909,7 @@ class Qwen2VLFlashAttention2(Qwen2VLAttention):
           other: (bsz, q_len) = (bsz, 1)
         """
         bsz, q_len, _ = hidden_states.size()
+        attn_weights = None  # only materialized when output_attentions is True
 
         query_states = self.q_proj(hidden_states)
         key_states = self.k_proj(hidden_states)
