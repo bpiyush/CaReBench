@@ -31,18 +31,18 @@ Expected .pt format (from observed structure)
 
 Metrics
 -------
-  Overall  R@{1,5,10}, MedR, MeanR  - rank-1 must be the exact GT video
-  Dynamic  R@{1,5,10}               - rank-1 must share direction (+ speed) with GT
-  Static   R@{1,5,10}               - rank-1 must share shape with GT; if
-                                       ``obj_color_name`` is present in metadata
-                                       for both clips, color must match too
-                                       (merge ``index.json`` via --metadata)
+  Overall  R@{1,5,10}, MedR, MeanR  - first retrieved video (by similarity) whose
+                                       **shape** and **direction** both match the
+                                       GT clip's metadata; R@K if that hit lies in
+                                       top-K (not exact ``video_id`` match).
+  Dynamic  R@{1,5,10}               - any of top-K shares **direction** with GT
+  Static   R@{1,5,10}               - any of top-K shares **shape** with GT
+                                       (needs shape in metadata, e.g. ``index.json``)
 
 Usage
 -----
     python evaluate_retrieval.py --features embeddings.pt
     python evaluate_retrieval.py --features embeddings.pt --metadata index.json
-    python evaluate_retrieval.py --features embeddings.pt --include_speed
     python evaluate_retrieval.py --features embeddings.pt --inspect
     python evaluate_retrieval.py --features embeddings.pt --save_results out.json
 """
@@ -61,12 +61,6 @@ import torch.nn.functional as F
 # Attribute keys used for static / dynamic matching
 # ---------------------------------------------------------------------------
 
-# Static retrieval: always match shape; also require obj_color_name when both
-# sides carry it (index.json from the generator has shape but not color name).
-DYNAMIC_KEYS = ("direction",)   # from parsed sub_label / label
-SPEED_KEY = "speed_label"
-
-
 def _parse_sub_label(sub_label: str) -> Tuple[str, str]:
     """'up_medium' -> ('up', 'medium').  Handles edge cases gracefully."""
     parts = sub_label.split("_", 1)
@@ -76,18 +70,21 @@ def _parse_sub_label(sub_label: str) -> Tuple[str, str]:
 
 
 def static_match(meta_a: dict, meta_b: dict) -> bool:
-    if meta_a.get("shape") != meta_b.get("shape"):
+    """Same object shape only (both sides must have a shape string)."""
+    sa, sb = meta_a.get("shape"), meta_b.get("shape")
+    if sa is None or sb is None or str(sa) == "" or str(sb) == "":
         return False
-    ca = meta_a.get("obj_color_name")
-    cb = meta_b.get("obj_color_name")
-    if ca is not None and cb is not None and str(ca) != "" and str(cb) != "":
-        return ca == cb
-    return True
+    return sa == sb
 
 
-def dynamic_match(meta_a: dict, meta_b: dict, include_speed: bool = False) -> bool:
-    keys = DYNAMIC_KEYS + ((SPEED_KEY,) if include_speed else ())
-    return all(meta_a.get(k) == meta_b.get(k) for k in keys)
+def dynamic_match(meta_a: dict, meta_b: dict) -> bool:
+    """Same motion direction only (e.g. up / down / left / right)."""
+    return meta_a.get("direction") == meta_b.get("direction")
+
+
+def overall_match(gt_meta: dict, cand_meta: dict) -> bool:
+    """Shape and direction both match GT clip attributes."""
+    return static_match(gt_meta, cand_meta) and dynamic_match(gt_meta, cand_meta)
 
 
 # ---------------------------------------------------------------------------
@@ -224,8 +221,7 @@ def load_features(pt_path: str,
 
 @torch.no_grad()
 def evaluate(ds: RetrievalDataset,
-             ks: Tuple[int, ...] = (1, 5, 10),
-             include_speed: bool = False) -> dict:
+             ks: Tuple[int, ...] = (1, 5, 10)) -> dict:
 
     N = len(ds.video_ids)
     Q = len(ds.queries)
@@ -252,37 +248,48 @@ def evaluate(ds: RetrievalDataset,
 
         gt_meta   = ds.video_meta[gt_vid]
         rank_list = ranked[qi].tolist()
-        gt_rank   = rank_list.index(gt_idx) + 1   # 1-based
 
         r1_vid  = ds.video_ids[rank_list[0]]
         r1_meta = ds.video_meta[r1_vid]
 
-        r1_static  = static_match(gt_meta, r1_meta)  if ds.has_static_meta else None
-        r1_dynamic = dynamic_match(gt_meta, r1_meta, include_speed=include_speed)
+        r1_static = static_match(gt_meta, r1_meta) if ds.has_static_meta else None
+        r1_dynamic = dynamic_match(gt_meta, r1_meta)
+        r1_overall = overall_match(gt_meta, r1_meta) if ds.has_static_meta else None
 
-        overall_at_k = {k: gt_rank <= k for k in ks}
+        if ds.has_static_meta:
+            overall_rank = N + 1
+            for pos, idx in enumerate(rank_list):
+                cand_vid = ds.video_ids[idx]
+                if overall_match(gt_meta, ds.video_meta[cand_vid]):
+                    overall_rank = pos + 1
+                    break
+            overall_at_k = {k: overall_rank <= k for k in ks}
+        else:
+            overall_rank = N + 1
+            overall_at_k = {k: False for k in ks}
+
         dynamic_at_k = {}
-        static_at_k  = {}
+        static_at_k = {}
         for k in ks:
             top_k_metas = [ds.video_meta[ds.video_ids[idx]] for idx in rank_list[:k]]
-            dynamic_at_k[k] = any(dynamic_match(gt_meta, m, include_speed=include_speed)
-                                  for m in top_k_metas)
+            dynamic_at_k[k] = any(dynamic_match(gt_meta, m) for m in top_k_metas)
             if ds.has_static_meta:
                 static_at_k[k] = any(static_match(gt_meta, m) for m in top_k_metas)
 
         results.append({
-            "query":         ds.queries[qi],
-            "gt_vid":        gt_vid,
-            "gt_rank":       gt_rank,
-            "r1_vid":        r1_vid,
-            "direction":     gt_meta.get("direction", "?"),
-            "speed_label":   gt_meta.get("speed_label", "?"),
-            "shape":         gt_meta.get("shape", "?"),
-            "static_r1":     r1_static,
-            "dynamic_r1":    r1_dynamic,
-            "overall_at_k":  overall_at_k,
-            "static_at_k":   static_at_k,
-            "dynamic_at_k":  dynamic_at_k,
+            "query":          ds.queries[qi],
+            "gt_vid":         gt_vid,
+            "overall_rank":   overall_rank,
+            "r1_vid":         r1_vid,
+            "direction":      gt_meta.get("direction", "?"),
+            "speed_label":    gt_meta.get("speed_label", "?"),
+            "shape":          gt_meta.get("shape", "?"),
+            "static_r1":      r1_static,
+            "dynamic_r1":     r1_dynamic,
+            "r1_overall":     r1_overall,
+            "overall_at_k":   overall_at_k,
+            "static_at_k":    static_at_k,
+            "dynamic_at_k":   dynamic_at_k,
         })
 
     if skipped:
@@ -293,7 +300,6 @@ def evaluate(ds: RetrievalDataset,
         "N_videos":        N,
         "Q_queries":       len(results),
         "ks":              list(ks),
-        "include_speed":   include_speed,
         "has_static_meta": ds.has_static_meta,
         "model_name":      "",
     }
@@ -315,9 +321,8 @@ def print_report(ev: dict) -> None:
     Q          = ev["Q_queries"]
     N          = ev["N_videos"]
     has_static = ev["has_static_meta"]
-    speed_note = "+speed" if ev["include_speed"] else "dir only"
 
-    all_ranks = [r["gt_rank"] for r in results]
+    all_ranks = [r["overall_rank"] for r in results]
     med_rank  = sorted(all_ranks)[len(all_ranks) // 2]
     mean_rank = sum(all_ranks) / len(all_ranks)
 
@@ -336,7 +341,7 @@ def print_report(ev: dict) -> None:
         print(f"{'model: ' + ev['model_name']:^{W}}")
     print("=" * W)
     print(f"  Videos : {N}    Queries : {Q}    "
-          f"Queries/video : {Q/N:.1f}    Dynamic : {speed_note}")
+          f"Queries/video : {Q/N:.1f}    Dynamic : direction only")
     print(SEP)
 
     k_hdr = "".join(f"   R@{k:<3}" for k in ks)
@@ -349,12 +354,18 @@ def print_report(ev: dict) -> None:
         note_s = f"  <- {note}" if note else ""
         print(f"  {label:<30}{cols}{rank_s}{note_s}")
 
-    row("Overall  (exact video match)", overall_hits, show_rank=True)
-    row(f"Dynamic  ({speed_note})",     dynamic_hits)
     if has_static:
-        row("Static   (shape [+ color])", static_hits)
+        row("Overall  (shape + direction hit)", overall_hits, show_rank=True)
     else:
-        print(f"  {'Static   (shape [+ color])':<30}"
+        print(f"  {'Overall  (shape + direction hit)':<30}"
+              + "   n/a  " * len(ks)
+              + "   n/a     n/a  "
+              + "  <- need shape in metadata (--metadata index.json)")
+    row("Dynamic  (direction)", dynamic_hits)
+    if has_static:
+        row("Static   (shape)", static_hits)
+    else:
+        print(f"  {'Static   (shape)':<30}"
               + "   n/a  " * len(ks)
               + "  <- merge index.json (--metadata) or store shape on video entries")
 
@@ -362,7 +373,7 @@ def print_report(ev: dict) -> None:
     directions = sorted({r["direction"] for r in results})
     print()
     print(SEP)
-    print("  Overall R@K  by DIRECTION")
+    print("  Overall (shape+dir) R@K  by DIRECTION")
     print(SEP)
     for d in directions:
         sub  = [r for r in results if r["direction"] == d]
@@ -376,7 +387,7 @@ def print_report(ev: dict) -> None:
                     key=lambda s: speed_order.get(s, 99))
     print()
     print(SEP)
-    print("  Overall R@K  by SPEED")
+    print("  Overall (shape+dir) R@K  by SPEED")
     print(SEP)
     for s in speeds:
         sub  = [r for r in results if r["speed_label"] == s]
@@ -384,34 +395,7 @@ def print_report(ev: dict) -> None:
         n    = len(sub)
         row(f"  {s:<28}", hits, note=f"n={n}")
 
-    # ── Failure analysis ─────────────────────────────────────────────────
-    wrong = [r for r in results if not r["overall_at_k"].get(1, False)]
-    if wrong:
-        print()
-        print(SEP)
-        print(f"  R@1 Failure Analysis  ({len(wrong)} wrong out of {Q})")
-        print(SEP)
-
-        def frow(label, n, total=len(wrong)):
-            bar = int(36 * n / max(total, 1))
-            print(f"  {label:<42}  {'#'*bar} {n}  ({100*n/max(total,1):.1f}%)")
-
-        if has_static:
-            frow("Static OK, Dynamic FAIL  (right object, wrong motion)",
-                 sum(1 for r in wrong if  r["static_r1"] and not r["dynamic_r1"]))
-            frow("Dynamic OK, Static FAIL  (right motion, wrong object)",
-                 sum(1 for r in wrong if  r["dynamic_r1"] and not r["static_r1"]))
-            frow("Both OK but different video  (aliased GT)",
-                 sum(1 for r in wrong if  r["static_r1"] and r["dynamic_r1"]))
-            frow("Both FAIL  (completely wrong)",
-                 sum(1 for r in wrong if not r["static_r1"] and not r["dynamic_r1"]))
-        else:
-            frow("Dynamic OK  (right direction, wrong exact video)",
-                 sum(1 for r in wrong if r["dynamic_r1"]))
-            frow("Dynamic FAIL  (wrong direction entirely)",
-                 sum(1 for r in wrong if not r["dynamic_r1"]))
-
-    # ── Dynamic cross-tab ─────────────────────────────────────────────────
+    # ── Static x Dynamic cross-tab at R@1 ────────────────────────────────
     print()
     print(SEP)
     if has_static:
@@ -454,8 +438,6 @@ def main():
                         help="Path to index.json (enables static metrics)")
     parser.add_argument("--ks",            nargs="+", type=int, default=[1, 5, 10],
                         help="Values of K for R@K (default: 1 5 10)")
-    parser.add_argument("--include_speed", action="store_true",
-                        help="Require speed to match in dynamic criterion")
     parser.add_argument("--inspect",       action="store_true",
                         help="Print .pt structure and exit")
     parser.add_argument("--save_results",  default=None,
@@ -477,7 +459,7 @@ def main():
         print(f"\nStatic meta available : {ds.has_static_meta}")
         return
 
-    ev = evaluate(ds, ks=tuple(args.ks), include_speed=args.include_speed)
+    ev = evaluate(ds, ks=tuple(args.ks))
 
     # Grab model name from .pt if available
     try:
