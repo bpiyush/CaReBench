@@ -13,14 +13,19 @@ BASE_MODEL=/work/piyush/pretrained_checkpoints/Tarsier2-7b-0115
 echo "Using base model: $BASE_MODEL"
 
 base_model_name=$(basename $BASE_MODEL)
-OUTPUT_DIR="/work/piyush/experiments/CaRe/${base_model_name}/${split}"
+# OUTPUT_DIR="/work/piyush/experiments/CaRe/${base_model_name}/${split}"
+OUTPUT_DIR="/work/piyush/experiments/CaRe/${base_model_name}/${split}-stepwise"
 echo "Using output directory: $OUTPUT_DIR"
 RUN_NAME=`basename $OUTPUT_DIR`
 
 args=()
 
-BATCH_SIZE=768
-MICRO_BATCH_SIZE=32
+# BATCH_SIZE=768
+# MICRO_BATCH_SIZE=32
+# SAVE_STEPS=100000
+BATCH_SIZE=128
+MICRO_BATCH_SIZE=16
+SAVE_STEPS=10
 # BATCH_SIZE=32
 # MICRO_BATCH_SIZE=4
 EPOCH=2
@@ -52,7 +57,7 @@ deepspeed --num_gpus=$GPUS --num_nodes=$NUM_NODES tasks/finetuning_tarsier2.py \
         --run_name $RUN_NAME \
         --pooling_strategy $POOLING_STRATEGY \
         --use_neg_sentence \
-        --save_steps 100000 \
+        --save_steps $SAVE_STEPS \
         --deepspeed ds.config \
         --bf16 \
         --logging_steps 1 \

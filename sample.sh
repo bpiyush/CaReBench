@@ -1,0 +1,11 @@
+python tasks/merge_weights_tarsier2.py -b /work/piyush/pretrained_checkpoints/Tarsier2-7b-0115/ -f /work/piyush/experiments/CaRe/Tarsier2-7b-0115/covr/chiral10k-covr10k-stepwise/checkpoint-30/
+python tasks/merge_weights_tarsier2.py -b /work/piyush/pretrained_checkpoints/Tarsier2-7b-0115/ -f /work/piyush/experiments/CaRe/Tarsier2-7b-0115/covr/chiral10k-covr10k-stepwise/checkpoint-40/
+python tasks/merge_weights_tarsier2.py -b /work/piyush/pretrained_checkpoints/Tarsier2-7b-0115/ -f /work/piyush/experiments/CaRe/Tarsier2-7b-0115/covr/chiral10k-covr10k-stepwise/checkpoint-60/
+python tasks/merge_weights_tarsier2.py -b /work/piyush/pretrained_checkpoints/Tarsier2-7b-0115/ -f /work/piyush/experiments/CaRe/Tarsier2-7b-0115/covr/chiral10k-covr10k-stepwise/checkpoint-50/
+python tasks/merge_weights_tarsier2.py -b /work/piyush/pretrained_checkpoints/Tarsier2-7b-0115/ -f /work/piyush/experiments/CaRe/Tarsier2-7b-0115/covr/chiral10k-covr10k-stepwise/checkpoint-70/
+python tasks/merge_weights_tarsier2.py -b /work/piyush/pretrained_checkpoints/Tarsier2-7b-0115/ -f /work/piyush/experiments/CaRe/Tarsier2-7b-0115/covr/chiral10k-covr10k-stepwise/checkpoint-80/
+python tasks/merge_weights_tarsier2.py -b /work/piyush/pretrained_checkpoints/Tarsier2-7b-0115/ -f /work/piyush/experiments/CaRe/Tarsier2-7b-0115/covr/chiral10k-covr10k-stepwise/checkpoint-90/
+python tasks/merge_weights_tarsier2.py -b /work/piyush/pretrained_checkpoints/Tarsier2-7b-0115/ -f /work/piyush/experiments/CaRe/Tarsier2-7b-0115/covr/chiral10k-covr10k-stepwise/checkpoint-100/
+python tasks/merge_weights_tarsier2.py -b /work/piyush/pretrained_checkpoints/Tarsier2-7b-0115/ -f /work/piyush/experiments/CaRe/Tarsier2-7b-0115/covr/chiral10k-covr10k-stepwise/checkpoint-110/
+python tasks/merge_weights_tarsier2.py -b /work/piyush/pretrained_checkpoints/Tarsier2-7b-0115/ -f /work/piyush/experiments/CaRe/Tarsier2-7b-0115/covr/chiral10k-covr10k-stepwise/checkpoint-120/
+python tasks/merge_weights_tarsier2.py -b /work/piyush/pretrained_checkpoints/Tarsier2-7b-0115/ -f /work/piyush/experiments/CaRe/Tarsier2-7b-0115/covr/chiral10k-covr10k-stepwise/checkpoint-130/

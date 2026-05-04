@@ -25,6 +25,11 @@ if __name__ == "__main__":
     parser.add_argument('--model_path', type=str, default='/work/piyush/pretrained_checkpoints/Tarsier2-7b-0115/')
     parser.add_argument('--model_name', type=str, default='tarsier2_7b')
     parser.add_argument("--csv_path", type=str, default='./data/nuanced_retrieval_data-validation-v1.csv')
+    parser.add_argument(
+        "--only_msrvtt",
+        action="store_true",
+        help="Only MSRVTT rows (neg-msrvtt, video + text-standard); save one .pt with msrvtt in the filename.",
+    )
     args = parser.parse_args()
 
 
@@ -39,6 +44,12 @@ if __name__ == "__main__":
     df = df.dropna()
     print(f"Number of rows after removing null values: {len(df)}")
 
+    if args.only_msrvtt:
+        df = df[
+            (df["source"] == "neg-msrvtt")
+            & (df["modality"].isin(["video", "text-standard"]))
+        ]
+        print(f"MSRVTT-only subset (video + text-standard): {len(df)} rows")
 
     # Load model
     from models.modeling_encoders import AutoEncoder
@@ -54,7 +65,10 @@ if __name__ == "__main__":
     # Compute embeddings
     save_dir = f"{args.model_path}/embs"
     os.makedirs(save_dir, exist_ok=True)
-    save_name = f"{args.model_name}_{csv_name}_embeddings.pt"
+    if args.only_msrvtt:
+        save_name = f"{args.model_name}_{csv_name}_msrvtt_embeddings.pt"
+    else:
+        save_name = f"{args.model_name}_{csv_name}_embeddings.pt"
     save_path = os.path.join(save_dir, save_name)
 
     if os.path.exists(save_path):
