@@ -1,0 +1,333 @@
+#!/usr/bin/env python3
+"""
+MSRVTT singular-value (scree) analysis for video and text embeddings:
+base Tarsier2 7B vs TARA fine-tuned.
+
+Pairs samples via data/nuanced_retrieval_data-validation-v1.csv (neg-msrvtt triplets).
+Video keys: video####. Text keys: caption strings from text-standard rows.
+
+Writes one figure: top row σ scree, bottom row ln(σ) vs index; columns Text | Video.
+
+Example:
+  python evals_tarsier2/analyze_msrvtt_svd_base_vs_tara.py \\
+    --out_dir outputs/msrvtt_svd_tarsier
+
+Default output is a compact PDF (text panel left, video right).
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import re
+from typing import Dict, List, Tuple
+
+import numpy as np
+import pandas as pd
+import torch
+
+VIDEO_KEY_RE = re.compile(r"^video\d+$")
+
+
+def _load_emb_dict(path: str) -> Dict[str, torch.Tensor]:
+    if not os.path.isfile(path):
+        raise FileNotFoundError(f"Embeddings file not found: {path}")
+    obj = torch.load(path, map_location="cpu")
+    if not isinstance(obj, dict):
+        raise TypeError(f"Expected dict in {path}, got {type(obj)}")
+    return obj
+
+
+def msrvtt_video_text_pairs(csv_path: str) -> List[Tuple[str, str]]:
+    df = pd.read_csv(csv_path)
+    ms = df[df["source"] == "neg-msrvtt"].reset_index(drop=True)
+    pairs: List[Tuple[str, str]] = []
+    for i in range(0, len(ms), 3):
+        chunk = ms.iloc[i : i + 3]
+        if len(chunk) < 3:
+            continue
+        if set(chunk["modality"]) != {"video", "text-standard", "text-negation"}:
+            continue
+        vid = str(chunk[chunk["modality"] == "video"].iloc[0]["id"])
+        tid = str(chunk[chunk["modality"] == "text-standard"].iloc[0]["id"])
+        if not VIDEO_KEY_RE.match(vid):
+            continue
+        pairs.append((vid, tid))
+    return pairs
+
+
+def stack_embeddings(
+    emb: Dict[str, torch.Tensor], keys: List[str], label: str
+) -> np.ndarray:
+    missing = [k for k in keys if k not in emb]
+    if missing:
+        raise KeyError(
+            f"{label}: missing {len(missing)} keys (showing up to 5): {missing[:5]}"
+        )
+    return np.stack([emb[k].float().numpy() for k in keys], axis=0).astype(np.float64)
+
+
+def centered_singular_values(X: np.ndarray) -> np.ndarray:
+    """X: (N, D). Return singular values in descending order."""
+    Xc = X - X.mean(axis=0, keepdims=True)
+    s = np.linalg.svd(Xc, full_matrices=False, compute_uv=False)
+    return s
+
+
+def svd_metrics(s: np.ndarray) -> dict:
+    energy = s**2
+    total = float(np.sum(energy)) + 1e-12
+    cum = np.cumsum(energy) / total
+    p = energy / total
+    ent = float(-np.sum(p * np.log(p + 1e-12)))
+    return {
+        "num_singular_values": int(len(s)),
+        "mean_singular_value": float(np.mean(s)),
+        "std_singular_value": float(np.std(s)),
+        "max_singular_value": float(np.max(s)),
+        "effective_rank": float(np.exp(ent)),
+        "top1_energy_ratio": float(energy[0] / total),
+        "num_sv_for_90pct_energy": int(np.searchsorted(cum, 0.90) + 1),
+        "num_sv_for_95pct_energy": int(np.searchsorted(cum, 0.95) + 1),
+    }
+
+
+def plot_two_panel_screes(
+    out_path: str,
+    sv_video_base: np.ndarray,
+    sv_video_tara: np.ndarray,
+    sv_text_base: np.ndarray,
+    sv_text_tara: np.ndarray,
+) -> None:
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    # Compact figure + slightly larger type so labels read well on slide/paper.
+    plt.rcParams.update(
+        {
+            "font.family": "serif",
+            "font.size": 16.1,  # +15% vs 14
+            "axes.titlesize": 18.4,  # +15% vs 16
+            "axes.labelsize": 17.25,  # +15% vs 15
+            "xtick.labelsize": 13.8,  # +15% vs 12
+            "ytick.labelsize": 13.8,
+            "legend.fontsize": 13.8,  # +15% vs 12
+        }
+    )
+
+    fig, axes = plt.subplots(2, 2, figsize=(10.5, 8.0), sharex="col", sharey=False)
+
+    def draw_compare(
+        ax,
+        sv_base: np.ndarray,
+        sv_tara: np.ndarray,
+        title: str,
+        *,
+        y_ln_sigma: bool,
+    ) -> None:
+        mb = float(np.mean(sv_base))
+        mt = float(np.mean(sv_tara))
+        xb = np.arange(1, len(sv_base) + 1)
+        xt = np.arange(1, len(sv_tara) + 1)
+        if y_ln_sigma:
+            eps = np.finfo(float).tiny
+            sb = np.maximum(sv_base, eps)
+            st = np.maximum(sv_tara, eps)
+            yb = np.log(sb)
+            yt = np.log(st)
+            ax.plot(xb, yb, color="C0", lw=2, label=f"Base (Tarsier 2 7B), μ={mb:.3f}")
+            ax.plot(xt, yt, color="C1", lw=2, label=f"TARA (Ours), μ={mt:.3f}")
+            ax.set_ylabel(r"$\ln(\sigma)$")
+            ax.set_ylim(bottom=np.log(0.1))
+            ax.grid(alpha=0.25)
+        else:
+            ax.plot(xb, sv_base, color="C0", lw=2, label=f"Base (Tarsier 2 7B), μ={mb:.3f}")
+            ax.plot(xt, sv_tara, color="C1", lw=2, label=f"TARA (Ours), μ={mt:.3f}")
+            ax.set_ylabel(r"$\sigma$")
+            ax.grid(alpha=0.25)
+
+        ax.set_title(title)
+        ax.set_xlabel("Index")
+        ax.legend(loc="upper right", frameon=False)
+
+    # Row 0: σ. Row 1: ln(σ). Columns: Text | Video.
+    draw_compare(axes[0, 0], sv_text_base, sv_text_tara, "Text", y_ln_sigma=False)
+    draw_compare(axes[0, 1], sv_video_base, sv_video_tara, "Video", y_ln_sigma=False)
+    draw_compare(axes[1, 0], sv_text_base, sv_text_tara, "Text", y_ln_sigma=True)
+    draw_compare(axes[1, 1], sv_video_base, sv_video_tara, "Video", y_ln_sigma=True)
+    axes[0, 0].set_xlabel("")
+    axes[0, 1].set_xlabel("")
+
+    plt.tight_layout()
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
+    fmt = "pdf" if out_path.lower().endswith(".pdf") else None
+    plt.savefig(out_path, format=fmt, bbox_inches="tight")
+    plt.close(fig)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="SVD scree plots: MSRVTT video & text, base vs TARA."
+    )
+    parser.add_argument(
+        "--csv_path",
+        type=str,
+        default="./data/nuanced_retrieval_data-validation-v1.csv",
+        help="CSV with neg-msrvtt triplets (video / text-standard / text-negation).",
+    )
+    parser.add_argument(
+        "--base_video_embeddings",
+        type=str,
+        default="/work/piyush/pretrained_checkpoints/Tarsier2-7b-0115/embs/"
+        "tarsier2_7b_nuanced_retrieval_embeddings.pt",
+        help="Base model video (and optionally other) embeddings.",
+    )
+    parser.add_argument(
+        "--base_text_embeddings",
+        type=str,
+        default="/work/piyush/pretrained_checkpoints/Tarsier2-7b-0115/embs/"
+        "tarsier2_7b_nuanced_retrieval_data-validation-v1_embeddings.pt",
+        help="Base model embeddings that include MSRVTT text-standard keys.",
+    )
+    parser.add_argument(
+        "--tara_video_embeddings",
+        type=str,
+        default="/work/piyush/experiments/CaRe/Tarsier2-7b-0115/special_milestones/"
+        "Tarsier2-TARA-chiral10k_covr10k/embs/"
+        "tarsier2+tara_nuanced_retrieval_data-v1_embeddings.pt",
+        help="TARA fine-tuned embeddings (must contain same video#### keys).",
+    )
+    parser.add_argument(
+        "--tara_text_embeddings",
+        type=str,
+        default=None,
+        help="TARA embeddings with same text keys as CSV. "
+        "Default: try ..._data-validation-v1_embeddings.pt next to the video "
+        "file; if missing, reuse --tara_video_embeddings (TARA v1 often "
+        "contains both modalities).",
+    )
+    parser.add_argument(
+        "--out_dir",
+        type=str,
+        default="./outputs/msrvtt_svd_base_vs_tara",
+        help="Directory for plot and metrics JSON.",
+    )
+    parser.add_argument(
+        "--plot_name",
+        type=str,
+        default="msrvtt_svd_scree_base_vs_tara.pdf",
+        help="Output plot filename under out_dir (PDF recommended).",
+    )
+    args = parser.parse_args()
+
+    csv_path = os.path.abspath(args.csv_path)
+    if not os.path.isfile(csv_path):
+        raise FileNotFoundError(csv_path)
+
+    pairs = msrvtt_video_text_pairs(csv_path)
+    if not pairs:
+        raise RuntimeError(f"No MSRVTT pairs parsed from {csv_path}")
+
+    video_keys = [p[0] for p in pairs]
+    text_keys = [p[1] for p in pairs]
+
+    emb_bv = _load_emb_dict(args.base_video_embeddings)
+    emb_bt = _load_emb_dict(args.base_text_embeddings)
+    emb_tv = _load_emb_dict(args.tara_video_embeddings)
+
+    tara_text_path = args.tara_text_embeddings
+    if tara_text_path is None:
+        d = os.path.dirname(os.path.abspath(args.tara_video_embeddings))
+        candidate = os.path.join(
+            d, "tarsier2+tara_nuanced_retrieval_data-validation-v1_embeddings.pt"
+        )
+        if os.path.isfile(candidate):
+            tara_text_path = candidate
+        else:
+            tara_text_path = args.tara_video_embeddings
+    emb_tt = _load_emb_dict(tara_text_path)
+
+    # Intersect video keys present in both base and TARA video dicts
+    vb_ok = [k for k in video_keys if k in emb_bv and k in emb_tv]
+    if len(vb_ok) < len(video_keys):
+        print(
+            f"Warning: using {len(vb_ok)}/{len(video_keys)} videos "
+            f"present in both base and TARA video files."
+        )
+    video_keys_use = vb_ok
+
+    tb_ok = [k for k in text_keys if k in emb_bt and k in emb_tt]
+    if len(tb_ok) < len(text_keys):
+        print(
+            f"Warning: using {len(tb_ok)}/{len(text_keys)} text captions "
+            f"present in both base and TARA text files."
+        )
+    text_keys_use = tb_ok
+
+    if not video_keys_use:
+        raise RuntimeError("No overlapping MSRVTT video keys between base and TARA.")
+    if not text_keys_use:
+        raise RuntimeError(
+            "No overlapping MSRVTT text keys. "
+            "Compute TARA validation embeddings with the same CSV, or pass "
+            "--tara_text_embeddings explicitly."
+        )
+
+    # Align rows: use intersection of indices where both modalities exist
+    vid_set = set(video_keys_use)
+    txt_set = set(text_keys_use)
+    aligned = [(v, t) for v, t in pairs if v in vid_set and t in txt_set]
+    if not aligned:
+        raise RuntimeError("No aligned (video, text) pairs after key filtering.")
+
+    vk = [a[0] for a in aligned]
+    tk = [a[1] for a in aligned]
+
+    X_vb = stack_embeddings(emb_bv, vk, "base video")
+    X_tv = stack_embeddings(emb_tv, vk, "TARA video")
+    X_tb = stack_embeddings(emb_bt, tk, "base text")
+    X_tt = stack_embeddings(emb_tt, tk, "TARA text")
+
+    sv_vb = centered_singular_values(X_vb)
+    sv_tv = centered_singular_values(X_tv)
+    sv_tb = centered_singular_values(X_tb)
+    sv_tt = centered_singular_values(X_tt)
+
+    out_dir = os.path.abspath(args.out_dir)
+    os.makedirs(out_dir, exist_ok=True)
+    plot_path = os.path.join(out_dir, args.plot_name)
+    plot_two_panel_screes(plot_path, sv_vb, sv_tv, sv_tb, sv_tt)
+
+    report = {
+        "csv_path": csv_path,
+        "n_samples_aligned": len(aligned),
+        "embedding_dim": int(X_vb.shape[1]),
+        "paths": {
+            "base_video": os.path.abspath(args.base_video_embeddings),
+            "base_text": os.path.abspath(args.base_text_embeddings),
+            "tara_video": os.path.abspath(args.tara_video_embeddings),
+            "tara_text": os.path.abspath(tara_text_path),
+        },
+        "video": {
+            "base": svd_metrics(sv_vb),
+            "tara": svd_metrics(sv_tv),
+        },
+        "text_standard": {
+            "base": svd_metrics(sv_tb),
+            "tara": svd_metrics(sv_tt),
+        },
+        "plot": plot_path,
+    }
+    json_path = os.path.join(out_dir, "msrvtt_svd_metrics_base_vs_tara.json")
+    with open(json_path, "w", encoding="utf-8") as f:
+        json.dump(report, f, indent=2)
+
+    print(f"Wrote plot:  {plot_path}")
+    print(f"Wrote metrics: {json_path}")
+    print(f"Aligned samples: {len(aligned)}, D={X_vb.shape[1]}")
+
+
+if __name__ == "__main__":
+    main()

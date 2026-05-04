@@ -1,0 +1,56 @@
+{
+  "csv_path": "/athenahomes/piyush/projects/CaReBench/data/nuanced_retrieval_data-validation-v1.csv",
+  "n_samples_aligned": 1000,
+  "embedding_dim": 3584,
+  "paths": {
+    "base_video": "/work/piyush/pretrained_checkpoints/Tarsier2-7b-0115/embs/tarsier2_7b_nuanced_retrieval_embeddings.pt",
+    "base_text": "/work/piyush/pretrained_checkpoints/Tarsier2-7b-0115/embs/tarsier2_7b_nuanced_retrieval_data-validation-v1_embeddings.pt",
+    "tara_video": "/work/piyush/experiments/CaRe/Tarsier2-7b-0115/special_milestones/Tarsier2-TARA-chiral10k_covr10k/embs/tarsier2+tara_nuanced_retrieval_data-v1_embeddings.pt",
+    "tara_text": "/work/piyush/experiments/CaRe/Tarsier2-7b-0115/special_milestones/Tarsier2-TARA-chiral10k_covr10k/embs/tarsier2+tara_nuanced_retrieval_data-v1_embeddings.pt"
+  },
+  "video": {
+    "base": {
+      "num_singular_values": 1000,
+      "mean_singular_value": 0.4007480164139485,
+      "std_singular_value": 0.3881408394248255,
+      "max_singular_value": 4.355150758178022,
+      "effective_rank": 242.2472272054171,
+      "top1_energy_ratio": 0.06093879180406359,
+      "num_sv_for_90pct_energy": 386,
+      "num_sv_for_95pct_energy": 551
+    },
+    "tara": {
+      "num_singular_values": 1000,
+      "mean_singular_value": 0.6836810546339334,
+      "std_singular_value": 0.6358390210639849,
+      "max_singular_value": 6.080259861616859,
+      "effective_rank": 275.687861472423,
+      "top1_energy_ratio": 0.04241033790899497,
+      "num_sv_for_90pct_energy": 392,
+      "num_sv_for_95pct_energy": 557
+    }
+  },
+  "text_standard": {
+    "base": {
+      "num_singular_values": 1000,
+      "mean_singular_value": 0.360410156507199,
+      "std_singular_value": 0.3762605958851277,
+      "max_singular_value": 3.648018740975958,
+      "effective_rank": 224.93892004367228,
+      "top1_energy_ratio": 0.04902258982968479,
+      "num_sv_for_90pct_energy": 339,
+      "num_sv_for_95pct_energy": 492
+    },
+    "tara": {
+      "num_singular_values": 1000,
+      "mean_singular_value": 0.63087965791576,
+      "std_singular_value": 0.676071242327459,
+      "max_singular_value": 6.633557388951954,
+      "effective_rank": 211.86498223571687,
+      "top1_energy_ratio": 0.05146186101133323,
+      "num_sv_for_90pct_energy": 325,
+      "num_sv_for_95pct_energy": 481
+    }
+  },
+  "plot": "/athenahomes/piyush/projects/CaReBench/outputs/msrvtt_svd_base_vs_tara/msrvtt_svd_scree_base_vs_tara.pdf"
+}
