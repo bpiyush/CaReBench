@@ -6,7 +6,8 @@ base Tarsier2 7B vs TARA fine-tuned.
 Pairs samples via data/nuanced_retrieval_data-validation-v1.csv (neg-msrvtt triplets).
 Video keys: video####. Text keys: caption strings from text-standard rows.
 
-Writes one figure: top row σ scree, bottom row ln(σ) vs index; columns Text | Video.
+Writes one figure with two side-by-side panels (Text | Video), using either
+sigma or log(sigma) on the y-axis.
 
 Example:
   python evals_tarsier2/analyze_msrvtt_svd_base_vs_tara.py \\
@@ -98,40 +99,42 @@ def plot_two_panel_screes(
     sv_video_tara: np.ndarray,
     sv_text_base: np.ndarray,
     sv_text_tara: np.ndarray,
+    use_log: bool,
+    font_scale: float,
 ) -> None:
     import matplotlib
 
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
-    # Compact figure + slightly larger type so labels read well on slide/paper.
+    base_sizes = {
+        "font.size": 14.0,
+        "axes.titlesize": 16.0,
+        "axes.labelsize": 15.0,
+        "xtick.labelsize": 12.0,
+        "ytick.labelsize": 12.0,
+        "legend.fontsize": 12.0,
+    }
     plt.rcParams.update(
         {
             "font.family": "serif",
-            "font.size": 16.1,  # +15% vs 14
-            "axes.titlesize": 18.4,  # +15% vs 16
-            "axes.labelsize": 17.25,  # +15% vs 15
-            "xtick.labelsize": 13.8,  # +15% vs 12
-            "ytick.labelsize": 13.8,
-            "legend.fontsize": 13.8,  # +15% vs 12
+            **{k: v * font_scale for k, v in base_sizes.items()},
         }
     )
 
-    fig, axes = plt.subplots(2, 2, figsize=(10.5, 8.0), sharex="col", sharey=False)
+    fig, axes = plt.subplots(1, 2, figsize=(10.5, 3.6), sharex=True, sharey=False)
 
     def draw_compare(
         ax,
         sv_base: np.ndarray,
         sv_tara: np.ndarray,
         title: str,
-        *,
-        y_ln_sigma: bool,
     ) -> None:
         mb = float(np.mean(sv_base))
         mt = float(np.mean(sv_tara))
         xb = np.arange(1, len(sv_base) + 1)
         xt = np.arange(1, len(sv_tara) + 1)
-        if y_ln_sigma:
+        if use_log:
             eps = np.finfo(float).tiny
             sb = np.maximum(sv_base, eps)
             st = np.maximum(sv_tara, eps)
@@ -139,8 +142,8 @@ def plot_two_panel_screes(
             yt = np.log(st)
             ax.plot(xb, yb, color="C0", lw=2, label=f"Base (Tarsier 2 7B), μ={mb:.3f}")
             ax.plot(xt, yt, color="C1", lw=2, label=f"TARA (Ours), μ={mt:.3f}")
-            ax.set_ylabel(r"$\ln(\sigma)$")
-            ax.set_ylim(bottom=np.log(0.1))
+            ax.set_ylim(-5, 5)
+            ax.set_ylabel(r"$\log(\sigma)$")
             ax.grid(alpha=0.25)
         else:
             ax.plot(xb, sv_base, color="C0", lw=2, label=f"Base (Tarsier 2 7B), μ={mb:.3f}")
@@ -152,13 +155,8 @@ def plot_two_panel_screes(
         ax.set_xlabel("Index")
         ax.legend(loc="upper right", frameon=False)
 
-    # Row 0: σ. Row 1: ln(σ). Columns: Text | Video.
-    draw_compare(axes[0, 0], sv_text_base, sv_text_tara, "Text", y_ln_sigma=False)
-    draw_compare(axes[0, 1], sv_video_base, sv_video_tara, "Video", y_ln_sigma=False)
-    draw_compare(axes[1, 0], sv_text_base, sv_text_tara, "Text", y_ln_sigma=True)
-    draw_compare(axes[1, 1], sv_video_base, sv_video_tara, "Video", y_ln_sigma=True)
-    axes[0, 0].set_xlabel("")
-    axes[0, 1].set_xlabel("")
+    draw_compare(axes[0], sv_text_base, sv_text_tara, "Text")
+    draw_compare(axes[1], sv_video_base, sv_video_tara, "Video")
 
     plt.tight_layout()
     os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
@@ -219,6 +217,17 @@ def main() -> None:
         type=str,
         default="msrvtt_svd_scree_base_vs_tara.pdf",
         help="Output plot filename under out_dir (PDF recommended).",
+    )
+    parser.add_argument(
+        "--log",
+        action="store_true",
+        help="If set, plot log(sigma) on the y-axis. Default plots sigma directly.",
+    )
+    parser.add_argument(
+        "--font_scale",
+        type=float,
+        default=1.0,
+        help="Global multiplier for all plot font sizes.",
     )
     args = parser.parse_args()
 
@@ -298,7 +307,15 @@ def main() -> None:
     out_dir = os.path.abspath(args.out_dir)
     os.makedirs(out_dir, exist_ok=True)
     plot_path = os.path.join(out_dir, args.plot_name)
-    plot_two_panel_screes(plot_path, sv_vb, sv_tv, sv_tb, sv_tt)
+    plot_two_panel_screes(
+        plot_path,
+        sv_vb,
+        sv_tv,
+        sv_tb,
+        sv_tt,
+        use_log=args.log,
+        font_scale=args.font_scale,
+    )
 
     report = {
         "csv_path": csv_path,

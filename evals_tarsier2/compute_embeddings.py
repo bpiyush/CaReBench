@@ -106,8 +106,9 @@ if __name__ == "__main__":
             z = torch.nn.functional.normalize(z, dim=-1)
             embeddings[row['id']] = z
 
-        except:
+        except Exception as e:
             print(f"Error computing embedding for {row['id']}")
+            print(e)
             continue
     
     # Save embeddings

@@ -16,7 +16,7 @@ fi
 echo "NUM_GPUS=$NUM_GPUS (merge + embed per checkpoint; max ${NUM_GPUS} concurrent)"
 
 n=0
-for i in $(seq 30 10 130); do
+for i in $(seq 40 10 130); do
   g=$((n % NUM_GPUS))
   (
     set -euo pipefail
