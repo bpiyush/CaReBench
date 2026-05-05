@@ -250,6 +250,8 @@ if __name__ == "__main__":
     parser.add_argument('--model_path', type=str, default='/work/piyush/pretrained_checkpoints/Tarsier2-7b-0115/')
     parser.add_argument('--model_name', type=str, default='tarsier2_7b')
     parser.add_argument('--feat_path', type=str, default=None)
+    parser.add_argument('--csv_path', type=str, default="./data/nuanced_retrieval_data-v1.csv")
+    parser.add_argument('--lab_path', type=str, default="./data/nuanced_retrieval_labels.json")
     args = parser.parse_args()
     
     if args.feat_path is None:
@@ -258,13 +260,10 @@ if __name__ == "__main__":
     else:
         args.model_path = None
         args.model_name = None
-    
-    # csv_path = f"./data/nuanced_retrieval_data-v1.csv"
-    # lab_path = f"./data/nuanced_retrieval_labels.json"
 
-    csv_path = f"./data/nuanced_retrieval_data-v1.csv"
+    csv_path = args.csv_path
     csv_name = os.path.basename(csv_path).split('.')[0]
-    lab_path = f"./data/nuanced_retrieval_labels.json"
+    lab_path = args.lab_path
     csv_name = os.path.basename(csv_path).split('.')[0]
 
     assert os.path.exists(csv_path), f"CSV file does not exist: {csv_path}"
