@@ -1286,6 +1286,40 @@ def show_grid_of_image_sequences(
         display(row_hbox)
 
 
+def show_forward_reverse(video_path, labels, n_frames=4, width_of_screen=1200):
+    """
+    Show forward and reverse frame sequences for one video.
+
+    Args:
+        video_path: Path to the input video.
+        labels: Two captions [forward_caption, reverse_caption].
+        n_frames: Number of sampled frames to visualize.
+        width_of_screen: Approximate width budget for both visualizations.
+    """
+    assert os.path.exists(video_path), f"File {video_path} does not exist."
+    assert isinstance(labels, (list, tuple)), "labels must be a list or tuple of length 2."
+    assert len(labels) == 2, f"Expected exactly 2 labels, got {len(labels)}."
+
+    width_of_single_video = width_of_screen // 2
+
+    forward_box = show_single_image_sequence(
+        video_path,
+        n_frames=n_frames,
+        label=labels[0],
+        max_width=width_of_single_video,
+        reverse=False,
+    )
+    reverse_box = show_single_image_sequence(
+        video_path,
+        n_frames=n_frames,
+        label=labels[1],
+        max_width=width_of_single_video,
+        reverse=True,
+    )
+    row_hbox = HBox([forward_box, reverse_box])
+    display(row_hbox)
+
+
 def preview_video(fp, label="Sample video frames", mode="uniform", frames_to_show=6):
     from decord import VideoReader
     
