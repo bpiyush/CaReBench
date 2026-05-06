@@ -3,7 +3,7 @@ set -euo pipefail
 
 STAGE=${1:-overfit}
 BASE_MODEL=${BASE_MODEL:-/work/piyush/pretrained_checkpoints/Tarsier2-7b-0115}
-CSV_PATH=${CSV_PATH:-/users/piyush/projects/CaReBench/data/generated-chiral-pairs-v1.csv}
+CSV_PATH=${CSV_PATH:-/users/piyush/projects/CaReBench/data/generated-chiral-pairs-v2.csv}
 OUTPUT_ROOT=${OUTPUT_ROOT:-/work/piyush/experiments/CaRe/Tarsier2-7b-0115-vlemb}
 GPUS=${GPUS:-8}
 NUM_NODES=${NUM_NODES:-1}
