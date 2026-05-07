@@ -12,6 +12,10 @@ LORA_RANK=${LORA_RANK:-16}
 LORA_ALPHA=${LORA_ALPHA:-32}
 LORA_DROPOUT=${LORA_DROPOUT:-0.05}
 LORA_TARGET_MODULES=${LORA_TARGET_MODULES:-q_proj,k_proj,v_proj,o_proj}
+# When true (default), LoRA weights are merged into the base MLLM at save time
+# so the output directory is a self-contained Tarsier2 checkpoint.
+# Set LORA_MERGE=false to save only the adapter.
+LORA_MERGE=${LORA_MERGE:-true}
 
 WANDB_PROJECT=${WANDB_PROJECT:-CaReBench-Tarsier2-VLEmb-LoRA}
 WANDB_ENTITY=${WANDB_ENTITY:-}
@@ -72,7 +76,7 @@ echo "WANDB_PROJECT: $WANDB_PROJECT"
 echo "Batching: micro=${MICRO_BATCH_SIZE} global=${BATCH_SIZE}"
 echo "Learning rate: ${LR} (set LR_OVERRIDE=... to change)"
 echo "LR scheduler: ${LR_SCHEDULER} (warmup_ratio=${WARMUP_RATIO})"
-echo "LoRA: rank=${LORA_RANK} alpha=${LORA_ALPHA} dropout=${LORA_DROPOUT} targets=${LORA_TARGET_MODULES}"
+echo "LoRA: rank=${LORA_RANK} alpha=${LORA_ALPHA} dropout=${LORA_DROPOUT} targets=${LORA_TARGET_MODULES} merge=${LORA_MERGE}"
 
 wandb online
 
@@ -99,6 +103,11 @@ deepspeed --num_gpus="${GPUS}" --num_nodes="${NUM_NODES}" tasks/finetuning_tarsi
   --lora_rank "${LORA_RANK}" \
   --lora_alpha "${LORA_ALPHA}" \
   --lora_dropout "${LORA_DROPOUT}" \
-  --lora_target_modules "${LORA_TARGET_MODULES}"
+  --lora_target_modules "${LORA_TARGET_MODULES}" \
+  --lora_merge "${LORA_MERGE}"
 
-echo "Training finished. LoRA adapter checkpoint is under: ${OUTPUT_DIR}"
+if [ "${LORA_MERGE}" = "true" ] || [ "${LORA_MERGE}" = "True" ]; then
+  echo "Training finished. Merged MLLM checkpoint is under: ${OUTPUT_DIR}"
+else
+  echo "Training finished. LoRA adapter checkpoint is under: ${OUTPUT_DIR}"
+fi

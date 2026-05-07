@@ -463,6 +463,7 @@ def train(
     lora_alpha: int = 32,
     lora_dropout: float = 0.05,
     lora_target_modules: str = "q_proj,k_proj,v_proj,o_proj",
+    lora_merge: bool = True,
 ):
     del local_rank
 
@@ -585,13 +586,36 @@ def train(
     print("Starting training")
     trainer.train()
 
-    # Final-save only policy: exactly one save at the end.
-    if lora:
-        model.save_pretrained(output_dir)
+    # Final-save only policy: exactly one save at the end. Save on rank 0 only
+    # to avoid all ranks racing to write the same files under DeepSpeed.
+    should_save = bool(getattr(trainer.args, "should_save", True))
+
+    if lora and lora_merge:
+        # ZeRO-2 keeps full params on every rank, so merge_and_unload works
+        # locally and yields identical weights across ranks. We still save
+        # only on rank 0. Returns the underlying Tarsier2ForConditionalGeneration
+        # with LoRA folded into base_layer weights, so the saved checkpoint
+        # loads as a regular MLLM via AutoBase.from_pretrained.
+        if should_save:
+            print("Merging LoRA weights into base MLLM...")
+        model.eval()
+        merged_model = model.merge_and_unload()
+        if should_save:
+            print(f"Saving merged MLLM checkpoint to {output_dir}")
+            merged_model.save_pretrained(output_dir, safe_serialization=True)
+    elif lora:
+        if should_save:
+            print(f"Saving LoRA adapter to {output_dir}")
+            model.save_pretrained(output_dir)
     else:
         trainer.save_model(output_dir)
-    processor.save_pretrained(output_dir)
-    tokenizer.save_pretrained(output_dir)
+
+    if should_save:
+        processor.save_pretrained(output_dir)
+        tokenizer.save_pretrained(output_dir)
+
+    if dist.is_initialized():
+        dist.barrier()
 
 
 if __name__ == "__main__":
