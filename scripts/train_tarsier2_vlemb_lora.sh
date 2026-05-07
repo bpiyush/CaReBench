@@ -1,14 +1,19 @@
 #!/bin/bash
 set -euo pipefail
 
-STAGE=${1:-overfit}
+STAGE=${1:-smoke}
 BASE_MODEL=${BASE_MODEL:-/work/piyush/pretrained_checkpoints/Tarsier2-7b-0115}
 CSV_PATH=${CSV_PATH:-/users/piyush/projects/CaReBench/data/generated-chiral-pairs-v2.csv}
-OUTPUT_ROOT=${OUTPUT_ROOT:-/work/piyush/experiments/CaRe/Tarsier2-7b-0115-vlemb}
+OUTPUT_ROOT=${OUTPUT_ROOT:-/work/piyush/experiments/CaRe/Tarsier2-7b-0115-vlemb-lora}
 GPUS=${GPUS:-8}
 NUM_NODES=${NUM_NODES:-1}
 
-WANDB_PROJECT=${WANDB_PROJECT:-CaReBench-Tarsier2-VLEmb}
+LORA_RANK=${LORA_RANK:-16}
+LORA_ALPHA=${LORA_ALPHA:-32}
+LORA_DROPOUT=${LORA_DROPOUT:-0.05}
+LORA_TARGET_MODULES=${LORA_TARGET_MODULES:-q_proj,k_proj,v_proj,o_proj}
+
+WANDB_PROJECT=${WANDB_PROJECT:-CaReBench-Tarsier2-VLEmb-LoRA}
 WANDB_ENTITY=${WANDB_ENTITY:-}
 export WANDB_PROJECT
 if [ -n "${WANDB_ENTITY}" ]; then
@@ -20,7 +25,7 @@ case "$STAGE" in
     MICRO_BATCH_SIZE=1
     BATCH_SIZE=8
     EPOCHS=20
-    LR=1e-6
+    LR=2e-4
     MAX_SAMPLES=4
     OVERFIT_NUM_ROWS=4
     OVERFIT_REPEAT=512
@@ -29,7 +34,7 @@ case "$STAGE" in
     MICRO_BATCH_SIZE=1
     BATCH_SIZE=32
     EPOCHS=1
-    LR=2e-6
+    LR=1e-4
     MAX_SAMPLES=256
     OVERFIT_NUM_ROWS=-1
     OVERFIT_REPEAT=1
@@ -38,7 +43,7 @@ case "$STAGE" in
     MICRO_BATCH_SIZE=1
     BATCH_SIZE=32
     EPOCHS=2
-    LR=6e-8
+    LR=1e-4
     MAX_SAMPLES=-1
     OVERFIT_NUM_ROWS=-1
     OVERFIT_REPEAT=1
@@ -50,13 +55,11 @@ case "$STAGE" in
     ;;
 esac
 
-# Override stage default without editing this file, e.g.:
-#   LR_OVERRIDE=5e-6 bash scripts/train_tarsier2_vlemb.sh overfit
 if [ -n "${LR_OVERRIDE:-}" ]; then
   LR="$LR_OVERRIDE"
 fi
 
-RUN_NAME="tarsier2-vlemb-${STAGE}-$(date +%Y%m%d_%H%M%S)"
+RUN_NAME="tarsier2-vlemb-lora-${STAGE}-$(date +%Y%m%d_%H%M%S)"
 OUTPUT_DIR="${OUTPUT_ROOT}/${RUN_NAME}"
 
 echo "Stage: $STAGE"
@@ -66,6 +69,7 @@ echo "Output: $OUTPUT_DIR"
 echo "WANDB_PROJECT: $WANDB_PROJECT"
 echo "Batching: micro=${MICRO_BATCH_SIZE} global=${BATCH_SIZE}"
 echo "Learning rate: ${LR} (set LR_OVERRIDE=... to change)"
+echo "LoRA: rank=${LORA_RANK} alpha=${LORA_ALPHA} dropout=${LORA_DROPOUT} targets=${LORA_TARGET_MODULES}"
 
 wandb online
 
@@ -87,6 +91,11 @@ deepspeed --num_gpus="${GPUS}" --num_nodes="${NUM_NODES}" tasks/finetuning_tarsi
   --max_samples "${MAX_SAMPLES}" \
   --overfit_num_rows "${OVERFIT_NUM_ROWS}" \
   --overfit_repeat "${OVERFIT_REPEAT}" \
-  --report_to_wandb True
+  --report_to_wandb True \
+  --lora True \
+  --lora_rank "${LORA_RANK}" \
+  --lora_alpha "${LORA_ALPHA}" \
+  --lora_dropout "${LORA_DROPOUT}" \
+  --lora_target_modules "${LORA_TARGET_MODULES}"
 
-echo "Training finished. Final-only checkpoint is under: ${OUTPUT_DIR}"
+echo "Training finished. LoRA adapter checkpoint is under: ${OUTPUT_DIR}"

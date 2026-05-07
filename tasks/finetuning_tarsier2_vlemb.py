@@ -194,8 +194,13 @@ class Tarsier2VLContrastiveTrainer(Trainer):
 
     @staticmethod
     def _pool_last_token(hidden_states: torch.Tensor, attention_mask: torch.Tensor) -> torch.Tensor:
-        last_idx = attention_mask.long().sum(dim=1) - 1
-        last_idx = last_idx.clamp(min=0)
+        # The collator left-pads (`cat([pad, v])`) so the EOL anchor is at
+        # position S-1. Use the rightmost mask=1 index to be robust to either
+        # padding side: argmax on the flipped mask returns the first 1 from the
+        # right, which we map back into original index space.
+        seq_len = attention_mask.size(1)
+        rev_first_one = attention_mask.flip(dims=(-1,)).long().argmax(dim=-1)
+        last_idx = (seq_len - 1 - rev_first_one).clamp(min=0)
         row_idx = torch.arange(hidden_states.size(0), device=hidden_states.device)
         return hidden_states[row_idx, last_idx]
 
@@ -350,6 +355,73 @@ def _freeze_non_llm(model: nn.Module):
         raise RuntimeError(f"Found trainable non-LLM parameters in frozen modules: {bad[:5]}")
 
 
+def _parse_lora_target_modules(lora_target_modules) -> List[str]:
+    if isinstance(lora_target_modules, str):
+        return [m.strip() for m in lora_target_modules.split(",") if m.strip()]
+    return [str(m).strip() for m in lora_target_modules if str(m).strip()]
+
+
+def _resolve_lora_target_modules(model: nn.Module, target_suffixes: List[str]) -> List[str]:
+    llm_module = getattr(model, "language_model", None)
+    if llm_module is None:
+        raise ValueError("Could not find `language_model` module on Tarsier2 model.")
+
+    targets: List[str] = []
+    for name, _ in model.named_modules():
+        if not name.startswith("language_model."):
+            continue
+        if any(name == f"language_model.{suffix}" or name.endswith(f".{suffix}") for suffix in target_suffixes):
+            targets.append(name)
+
+    if not targets:
+        raise ValueError(
+            "No LoRA target modules found under `language_model` for suffixes: "
+            f"{target_suffixes}"
+        )
+    return targets
+
+
+def _apply_lora_to_llm(
+    model: nn.Module,
+    lora_rank: int,
+    lora_alpha: int,
+    lora_dropout: float,
+    lora_target_modules,
+) -> nn.Module:
+    try:
+        from peft import LoraConfig, TaskType, get_peft_model
+    except ImportError as exc:
+        raise ImportError(
+            "LoRA finetuning requires `peft`. Install it with `pip install peft` "
+            "or from this repo's requirements.txt."
+        ) from exc
+
+    target_suffixes = _parse_lora_target_modules(lora_target_modules)
+    target_modules = _resolve_lora_target_modules(model, target_suffixes)
+    print(f"Applying LoRA to {len(target_modules)} language_model modules matching: {target_suffixes}")
+
+    lora_config = LoraConfig(
+        r=lora_rank,
+        lora_alpha=lora_alpha,
+        target_modules=target_modules,
+        lora_dropout=lora_dropout,
+        bias="none",
+        task_type=TaskType.FEATURE_EXTRACTION,
+    )
+    model = get_peft_model(model, lora_config)
+    if hasattr(model, "print_trainable_parameters"):
+        model.print_trainable_parameters()
+
+    bad = [
+        name
+        for name, p in model.named_parameters()
+        if p.requires_grad and ("lora_" not in name or not name.startswith("base_model.model.language_model."))
+    ]
+    if bad:
+        raise RuntimeError(f"Found trainable non-LoRA or non-LLM parameters: {bad[:5]}")
+    return model
+
+
 def _load_rows(data_path: str):
     if "csv" in data_path:
         data = load_dataset("csv", data_files=data_path)
@@ -368,7 +440,8 @@ def train(
     micro_batch_size: int = 1,
     num_epochs: int = 1,
     learning_rate: float = 2e-6,
-    warmup_ratio: float = 0.1,
+    warmup_ratio: float = 0.0,
+    lr_scheduler_type: str = "constant",
     group_by_length: bool = False,
     run_name: Optional[str] = None,
     seed: int = 42,
@@ -385,6 +458,11 @@ def train(
     overfit_repeat: int = 1,
     dataloader_num_workers: int = 0,
     report_to_wandb: bool = True,
+    lora: bool = False,
+    lora_rank: int = 16,
+    lora_alpha: int = 32,
+    lora_dropout: float = 0.05,
+    lora_target_modules: str = "q_proj,k_proj,v_proj,o_proj",
 ):
     del local_rank
 
@@ -425,7 +503,16 @@ def train(
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token_id = tokenizer.eos_token_id
 
-    _freeze_non_llm(model)
+    if lora:
+        model = _apply_lora_to_llm(
+            model=model,
+            lora_rank=lora_rank,
+            lora_alpha=lora_alpha,
+            lora_dropout=lora_dropout,
+            lora_target_modules=lora_target_modules,
+        )
+    else:
+        _freeze_non_llm(model)
 
     if grad_checkpoint:
         if hasattr(model, "gradient_checkpointing_enable"):
@@ -457,6 +544,7 @@ def train(
             per_device_train_batch_size=micro_batch_size,
             gradient_accumulation_steps=gradient_accumulation_steps,
             warmup_ratio=warmup_ratio,
+            lr_scheduler_type=lr_scheduler_type,
             num_train_epochs=num_epochs,
             learning_rate=learning_rate,
             fp16=not bf16,
@@ -482,11 +570,26 @@ def train(
     trainer.tokenizer = tokenizer
     model.config.use_cache = False
 
+    _log_rank = int(os.environ.get("LOCAL_RANK", "0"))
+    if _log_rank == 0:
+        print(
+            "[finetuning_tarsier2_vlemb] optimizer hyperparams: "
+            f"learning_rate={learning_rate}, warmup_ratio={warmup_ratio}, "
+            f"lr_scheduler_type={lr_scheduler_type}, "
+            f"per_device_train_batch_size={micro_batch_size}, "
+            f"gradient_accumulation_steps={gradient_accumulation_steps}, "
+            f"max_grad_norm=1.0",
+            flush=True,
+        )
+
     print("Starting training")
     trainer.train()
 
     # Final-save only policy: exactly one save at the end.
-    trainer.save_model(output_dir)
+    if lora:
+        model.save_pretrained(output_dir)
+    else:
+        trainer.save_model(output_dir)
     processor.save_pretrained(output_dir)
     tokenizer.save_pretrained(output_dir)
 

@@ -949,6 +949,28 @@ class BaseModelForTarsier2(BaseModel):
             kwargs.get("attn_implementation", "flash_attention_2")
         )
 
+        # The outer `attn_implementation` kwarg below is set on the composite
+        # (LlavaConfig) only. Tarsier2's `__init__` builds the LLM directly from
+        # `config.text_config` (see models/tarsier2/modeling_tarsier2.py), which
+        # reads `_attn_implementation` from its own sub-config. If the saved
+        # config.json does not carry `text_config.attn_implementation`
+        # (e.g. fine-tuned milestones / TARA), the LLM falls back to eager
+        # attention and OOMs on long video sequences. Force-propagate the
+        # resolved choice to all known sub-configs.
+        if model_config is not None:
+            for _sub_name in ("text_config", "vision_config"):
+                _sub = getattr(model_config, _sub_name, None)
+                if _sub is None:
+                    continue
+                try:
+                    _sub._attn_implementation = attn_implementation
+                except Exception:
+                    pass
+                try:
+                    _sub.attn_implementation = attn_implementation
+                except Exception:
+                    pass
+
         self.model = MODEL_CLASS.from_pretrained(
             model_name_or_path,
             config=model_config,
@@ -959,6 +981,13 @@ class BaseModelForTarsier2(BaseModel):
             trust_remote_code=True,
             low_cpu_mem_usage=kwargs.get("low_cpu_mem_usage", True),  # Default to True for large models
         )
+
+        try:
+            _llm_attn = getattr(getattr(self.model, "language_model", None), "config", None)
+            _llm_attn = getattr(_llm_attn, "_attn_implementation", None)
+            print(f"[BaseModelForTarsier2] LLM attn_implementation = {_llm_attn}")
+        except Exception:
+            pass
         
         # self.processor.patch_size = self.model.config.vision_config.patch_size
         # self.processor.vision_feature_select_strategy = self.model.config.vision_feature_select_strategy
