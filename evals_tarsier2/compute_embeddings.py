@@ -30,6 +30,7 @@ if __name__ == "__main__":
         action="store_true",
         help="Only MSRVTT rows (neg-msrvtt, video + text-standard); save one .pt with msrvtt in the filename.",
     )
+    parser.add_argument("--only_ssv2", action="store_true")
     args = parser.parse_args()
 
 
@@ -50,6 +51,11 @@ if __name__ == "__main__":
             & (df["modality"].isin(["video", "text-standard"]))
         ]
         print(f"MSRVTT-only subset (video + text-standard): {len(df)} rows")
+    
+    if args.only_ssv2:
+        # Only keep the ssv2 subset
+        df = df[df["source"] == "cia-ssv2"]
+        print(f"SSV2-only subset: {len(df)} rows")
 
     # Load model
     from models.modeling_encoders import AutoEncoder

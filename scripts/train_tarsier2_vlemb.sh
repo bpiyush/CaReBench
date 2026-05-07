@@ -50,11 +50,16 @@ case "$STAGE" in
     ;;
 esac
 
-# Override stage default without editing this file, e.g.:
+# Override stage defaults without editing this file, e.g.:
 #   LR_OVERRIDE=5e-6 bash scripts/train_tarsier2_vlemb.sh overfit
+#   LR_SCHEDULER=cosine WARMUP_RATIO=0.03 bash scripts/train_tarsier2_vlemb.sh full
+# Valid LR_SCHEDULER values: constant, constant_with_warmup, linear, cosine,
+# cosine_with_restarts, polynomial, inverse_sqrt, reduce_lr_on_plateau.
 if [ -n "${LR_OVERRIDE:-}" ]; then
   LR="$LR_OVERRIDE"
 fi
+LR_SCHEDULER=${LR_SCHEDULER:-constant}
+WARMUP_RATIO=${WARMUP_RATIO:-0.0}
 
 RUN_NAME="tarsier2-vlemb-${STAGE}-$(date +%Y%m%d_%H%M%S)"
 OUTPUT_DIR="${OUTPUT_ROOT}/${RUN_NAME}"
@@ -66,6 +71,7 @@ echo "Output: $OUTPUT_DIR"
 echo "WANDB_PROJECT: $WANDB_PROJECT"
 echo "Batching: micro=${MICRO_BATCH_SIZE} global=${BATCH_SIZE}"
 echo "Learning rate: ${LR} (set LR_OVERRIDE=... to change)"
+echo "LR scheduler: ${LR_SCHEDULER} (warmup_ratio=${WARMUP_RATIO})"
 
 wandb online
 
@@ -77,8 +83,8 @@ deepspeed --num_gpus="${GPUS}" --num_nodes="${NUM_NODES}" tasks/finetuning_tarsi
   --micro_batch_size "${MICRO_BATCH_SIZE}" \
   --num_epochs "${EPOCHS}" \
   --learning_rate "${LR}" \
-  --warmup_ratio 0.0 \
-  --lr_scheduler_type constant \
+  --warmup_ratio "${WARMUP_RATIO}" \
+  --lr_scheduler_type "${LR_SCHEDULER}" \
   --run_name "${RUN_NAME}" \
   --deepspeed ds.config.tarsier2_vlemb.json \
   --bf16 \

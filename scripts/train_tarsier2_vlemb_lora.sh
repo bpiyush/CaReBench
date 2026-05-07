@@ -58,6 +58,8 @@ esac
 if [ -n "${LR_OVERRIDE:-}" ]; then
   LR="$LR_OVERRIDE"
 fi
+LR_SCHEDULER=${LR_SCHEDULER:-constant}
+WARMUP_RATIO=${WARMUP_RATIO:-0.0}
 
 RUN_NAME="tarsier2-vlemb-lora-${STAGE}-$(date +%Y%m%d_%H%M%S)"
 OUTPUT_DIR="${OUTPUT_ROOT}/${RUN_NAME}"
@@ -69,6 +71,7 @@ echo "Output: $OUTPUT_DIR"
 echo "WANDB_PROJECT: $WANDB_PROJECT"
 echo "Batching: micro=${MICRO_BATCH_SIZE} global=${BATCH_SIZE}"
 echo "Learning rate: ${LR} (set LR_OVERRIDE=... to change)"
+echo "LR scheduler: ${LR_SCHEDULER} (warmup_ratio=${WARMUP_RATIO})"
 echo "LoRA: rank=${LORA_RANK} alpha=${LORA_ALPHA} dropout=${LORA_DROPOUT} targets=${LORA_TARGET_MODULES}"
 
 wandb online
@@ -81,8 +84,8 @@ deepspeed --num_gpus="${GPUS}" --num_nodes="${NUM_NODES}" tasks/finetuning_tarsi
   --micro_batch_size "${MICRO_BATCH_SIZE}" \
   --num_epochs "${EPOCHS}" \
   --learning_rate "${LR}" \
-  --warmup_ratio 0.0 \
-  --lr_scheduler_type constant \
+  --warmup_ratio "${WARMUP_RATIO}" \
+  --lr_scheduler_type "${LR_SCHEDULER}" \
   --run_name "${RUN_NAME}" \
   --deepspeed ds.config.tarsier2_vlemb.json \
   --bf16 \

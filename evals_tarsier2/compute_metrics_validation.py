@@ -250,8 +250,9 @@ if __name__ == "__main__":
     parser.add_argument('--model_path', type=str, default='/work/piyush/pretrained_checkpoints/Tarsier2-7b-0115/')
     parser.add_argument('--model_name', type=str, default='tarsier2_7b')
     parser.add_argument('--feat_path', type=str, default=None)
-    parser.add_argument('--csv_path', type=str, default="./data/nuanced_retrieval_data-v1.csv")
-    parser.add_argument('--lab_path', type=str, default="./data/nuanced_retrieval_labels.json")
+    # parser.add_argument('--csv_path', type=str, default="./data/nuanced_retrieval_data-v1.csv")
+    # parser.add_argument('--lab_path', type=str, default="./data/nuanced_retrieval_labels.json")
+    parser.add_argument("--val", action="store_true")
     args = parser.parse_args()
     
     if args.feat_path is None:
@@ -261,9 +262,16 @@ if __name__ == "__main__":
         args.model_path = None
         args.model_name = None
 
-    csv_path = args.csv_path
+    if args.val:
+        csv_path = "./data/nuanced_retrieval_data-validation-v1.csv"
+        lab_path = "./data/nuanced_retrieval_labels-validation-v1.json"
+    else:
+        csv_path = "./data/nuanced_retrieval_data-v1.csv"
+        lab_path = "./data/nuanced_retrieval_labels.json"
+
+    # csv_path = args.csv_path
     csv_name = os.path.basename(csv_path).split('.')[0]
-    lab_path = args.lab_path
+    # lab_path = args.lab_path
     csv_name = os.path.basename(csv_path).split('.')[0]
 
     assert os.path.exists(csv_path), f"CSV file does not exist: {csv_path}"
@@ -281,6 +289,10 @@ if __name__ == "__main__":
     feat = torch.load(path)
     print(f"Loaded {len(feat)} features.")
     
+    # Only keep the rows in the df with a valid feature
+    df = df[df['id'].isin(feat.keys())]
+    print(f"Number of rows after filtering: {len(df)}")
+    
     
     # Compute metrics one by one
     metrics = {}
@@ -295,7 +307,10 @@ if __name__ == "__main__":
         metrics[f'negation-{dataset}'] = compute_metrics_negation(df, feat, labels, dataset)
     
     # Multimodal
-    metrics['multimodal_covr'] = compute_metrics_multimodal_covr(df, feat, labels)
+    if 'covr-webvid' in df['source'].unique():
+        metrics['multimodal_covr'] = compute_metrics_multimodal_covr(df, feat, labels)
+    else:
+        print("Dataset covr-webvid not found in the dataframe")
     
     # Save metrics
     if args.feat_path is None:
