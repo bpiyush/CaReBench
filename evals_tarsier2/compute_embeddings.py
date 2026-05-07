@@ -31,6 +31,9 @@ if __name__ == "__main__":
         help="Only MSRVTT rows (neg-msrvtt, video + text-standard); save one .pt with msrvtt in the filename.",
     )
     parser.add_argument("--only_ssv2", action="store_true")
+    parser.add_argument("--save_every", type=int, default=None)
+    parser.add_argument("--si", type=int, default=0)
+    parser.add_argument("--ei", type=int, default=None)
     args = parser.parse_args()
 
 
@@ -87,6 +90,15 @@ if __name__ == "__main__":
     else:
         embeddings = {}
     
+    si = args.si 
+    ei = args.ei if args.ei is not None else len(df)
+    df = df.iloc[si:ei]
+    print(f"Number of rows to compute: {len(df)}")
+    
+    if args.save_every is not None:
+        save_every = args.save_every
+    else:
+        save_every = len(df)
     
     for i in su.log.tqdm_iterator(range(len(df)), desc='Computing embeddings'):
         row = df.iloc[i].to_dict()
@@ -111,6 +123,12 @@ if __name__ == "__main__":
 
             z = torch.nn.functional.normalize(z, dim=-1)
             embeddings[row['id']] = z
+            
+            if i % save_every == 0:
+                torch.save(embeddings, save_path)
+                print(f"Saved embeddings to {save_path}")
+                print(f"Number of embeddings: {len(embeddings)}")
+                print(f"Number of rows: {len(df)}")
 
         except Exception as e:
             print(f"Error computing embedding for {row['id']}")
