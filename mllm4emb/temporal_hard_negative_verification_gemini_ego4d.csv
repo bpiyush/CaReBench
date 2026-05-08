@@ -1,0 +1,192 @@
+row_id,source,sent0,sent1,hard_neg,static_score,static_reason,chiral_score,chiral_reason,verdict,error,raw
+9000,ego4d,The toddler picks a cloth from the chair with his right hand.,The toddler picks the cloth,The toddler places the cloth on the chair with his right hand.,3,"The subject, object, setting, and manner are all identical or near-identical between the anchor and the negative.",3,The verbs 'picks' and 'places' function as precise directional and temporal antonyms for the physical interaction with the object.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject, object, setting, and manner are all identical or near-identical between the anchor and the negative."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The verbs 'picks' and 'places' function as precise directional and temporal antonyms for the physical interaction with the object."",
+  ""verdict"": ""PASS""
+}"
+9001,ego4d,The zookeeper places his right hand on the metal cage.,The zookeeper places right hand on bed pole,The zookeeper removes his right hand from the metal cage.,3,"The subject, object, and setting are verbatim identical between the anchor and the hard negative.",3,The action 'removes from' is the exact directional and temporal antonym of 'places on'.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject, object, and setting are verbatim identical between the anchor and the hard negative."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The action 'removes from' is the exact directional and temporal antonym of 'places on'."",
+  ""verdict"": ""PASS""
+}"
+9002,ego4d,The laundry worker puts the iron box on the aluminum stand,The laundry worker puts the iron box down,The laundry worker takes the iron box off the aluminum stand,3,"The subject, object, and setting are identical across both sentences, maintaining perfect static preservation.",3,The actions 'puts on' and 'takes off' represent a perfect directional and temporal inversion.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject, object, and setting are identical across both sentences, maintaining perfect static preservation."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The actions 'puts on' and 'takes off' represent a perfect directional and temporal inversion."",
+  ""verdict"": ""PASS""
+}"
+9003,ego4d,The plumber opens the tap,The plumber opens another tap on the sink,The plumber closes the tap,3,The subject and object are perfectly identical between the anchor and the hard negative with no changes to the setting.,3,"The verb 'closes' is the exact directional and temporal antonym of 'opens', perfectly satisfying the chiral action criteria.",PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject and object are perfectly identical between the anchor and the hard negative with no changes to the setting."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The verb 'closes' is the exact directional and temporal antonym of 'opens', perfectly satisfying the chiral action criteria."",
+  ""verdict"": ""PASS""
+}"
+9004,ego4d,The handyman opens a drawer,The handyman opens a tool box drawer.,The handyman closes a drawer,3,The subject 'handyman' and the object 'drawer' are identical across both sentences.,3,The verb 'closes' is the precise temporal and directional antonym of 'opens'.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject 'handyman' and the object 'drawer' are identical across both sentences."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The verb 'closes' is the precise temporal and directional antonym of 'opens'."",
+  ""verdict"": ""PASS""
+}"
+9005,ego4d,The artist lifts the right hand,The artist lifts her right hand from the piece of paper,The artist lowers the right hand,3,The subject and object are word-for-word identical between the anchor and the hard negative.,3,'Lowers' serves as the exact directional antonym for 'lifts' in the context of movement.,PASS,,"```json
+{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject and object are word-for-word identical between the anchor and the hard negative."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""'Lowers' serves as the exact directional antonym for 'lifts' in the context of movement."",
+  ""verdict"": ""PASS""
+}
+```"
+9006,ego4d,The driver places the left hand on the shirt,The driver places his right hand on the gear.,The driver removes the left hand from the shirt,3,"The subject, object, and setting are identical between the anchor and the hard negative.",3,'Places' and 'removes' are direct temporal and directional antonyms in this context.,PASS,,"```json
+{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject, object, and setting are identical between the anchor and the hard negative."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""'Places' and 'removes' are direct temporal and directional antonyms in this context."",
+  ""verdict"": ""PASS""
+}
+```"
+9007,ego4d,The woman picks a plate,The woman picks up the plate of banana with her left hand,The woman puts a plate down,3,"The subject 'The woman' and object 'a plate' are identical between the anchor and the hard negative, with no discrepancies in setting or manner.",3,The action 'puts down' is the direct directional and temporal antonym of the action 'picks' (interpreted as 'picks up' based on the positive pair).,PASS,,"```json
+{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject 'The woman' and object 'a plate' are identical between the anchor and the hard negative, with no discrepancies in setting or manner."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The action 'puts down' is the direct directional and temporal antonym of the action 'picks' (interpreted as 'picks up' based on the positive pair)."",
+  ""verdict"": ""PASS""
+}
+```"
+9008,ego4d,The woman pushes the door,The woman pushes a door open with her right hand.,The woman pulls the door,3,"The subject 'The woman' and object 'the door' are identical in both sentences, with no extraneous differences in setting or manner.",3,'Pushes' and 'pulls' represent a perfect pair of directional antonyms for the force applied to an object.,PASS,,"```json
+{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject 'The woman' and object 'the door' are identical in both sentences, with no extraneous differences in setting or manner."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""'Pushes' and 'pulls' represent a perfect pair of directional antonyms for the force applied to an object."",
+  ""verdict"": ""PASS""
+}
+```"
+9009,ego4d,The woman picks a head pan from the floor with his right hand.,The woman picks up the pan,The woman puts a head pan on the floor with his right hand.,3,"The subject, object, manner, and location are perfectly identical between the anchor and the negative, including the preservation of the grammatical error 'his right hand'.",3,The actions 'picks from the floor' and 'puts on the floor' constitute a perfect directional and temporal antonym pair.,PASS,,"```json
+{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject, object, manner, and location are perfectly identical between the anchor and the negative, including the preservation of the grammatical error 'his right hand'."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The actions 'picks from the floor' and 'puts on the floor' constitute a perfect directional and temporal antonym pair."",
+  ""verdict"": ""PASS""
+}
+```"
+9010,ego4d,The technician places his left hand on the vent grille on the wall.,The technician places his left hand on the floor,The technician removes his left hand from the vent grille on the wall.,3,"The subject, object, and setting are identical across both sentences, maintaining perfect consistency in non-action elements.",3,The verbs 'places' and 'removes' constitute a perfect directional and temporal antonym pair for this context.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject, object, and setting are identical across both sentences, maintaining perfect consistency in non-action elements."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The verbs 'places' and 'removes' constitute a perfect directional and temporal antonym pair for this context."",
+  ""verdict"": ""PASS""
+}"
+9011,ego4d,The construction worker picks the transparent cellophane bag on the floor with his right hand.,The construction worker picks a bag of tiles from the table,The construction worker puts the transparent cellophane bag on the floor with his right hand.,3,"All non-action elements including the subject, the specific object description, the setting, and the manner are identical between the sentences.",3,The actions 'picks' and 'puts' serve as clear directional antonyms within the context of interacting with an object on the floor.,PASS,,"```json
+{
+  ""static_score"": 3,
+  ""static_reason"": ""All non-action elements including the subject, the specific object description, the setting, and the manner are identical between the sentences."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The actions 'picks' and 'puts' serve as clear directional antonyms within the context of interacting with an object on the floor."",
+  ""verdict"": ""PASS""
+}
+```"
+9012,ego4d,The woman picks a blue spoon with her right hand,The woman picks-up a spoon from the sink with her left hand.,The woman puts down a blue spoon with her right hand,3,"The subject, object, and manner elements are verbatim identical between the anchor and the hard negative.",3,The action 'puts down' is a perfect temporal and directional antonym of the anchor's action 'picks'.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject, object, and manner elements are verbatim identical between the anchor and the hard negative."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The action 'puts down' is a perfect temporal and directional antonym of the anchor's action 'picks'."",
+  ""verdict"": ""PASS""
+}"
+9013,ego4d,The dishwasher puts the bowl in the utensil holder,The dishwasher puts the bowl and the spoon in the sink,The dishwasher takes the bowl out of the utensil holder,3,"The subject, object, and setting are identical across both the anchor and the hard negative.",3,The action 'takes out' is the precise directional and temporal antonym of 'puts in'.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject, object, and setting are identical across both the anchor and the hard negative."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The action 'takes out' is the precise directional and temporal antonym of 'puts in'."",
+  ""verdict"": ""PASS""
+}"
+9014,ego4d,The woman picks the phone,The woman picks up a phone from the bed with her left hand.,The woman puts the phone down,3,"The subject and object are perfectly identical, and no additional setting or manner elements are present in either sentence.",2,"The verb 'picks' is an imprecise shorthand for 'picks up', making the directional antonym 'puts down' slightly asymmetrical.",PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject and object are perfectly identical, and no additional setting or manner elements are present in either sentence."",
+  ""chiral_score"": 2,
+  ""chiral_reason"": ""The verb 'picks' is an imprecise shorthand for 'picks up', making the directional antonym 'puts down' slightly asymmetrical."",
+  ""verdict"": ""PASS""
+}"
+9015,ego4d,The laboratory technician closes bottle,The laboratory technician closes a bottle of solvents with a lid,The laboratory technician opens bottle,3,"The subject and object are identical in both sentences, maintaining perfect static preservation.",3,The verb 'opens' is the direct temporal and directional antonym of 'closes'.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject and object are identical in both sentences, maintaining perfect static preservation."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The verb 'opens' is the direct temporal and directional antonym of 'closes'."",
+  ""verdict"": ""PASS""
+}"
+9016,ego4d,The tailor picks a scissors from the drawer with his right hand.,The tailor picks scissors,The tailor puts a scissors into the drawer with his right hand.,3,"The subject, object, setting, and specific manner (right hand) are identical across both sentences.",3,The actions 'picks from' and 'puts into' represent a perfect directional and temporal reversal of the same activity.,PASS,,"```json
+{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject, object, setting, and specific manner (right hand) are identical across both sentences."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The actions 'picks from' and 'puts into' represent a perfect directional and temporal reversal of the same activity."",
+  ""verdict"": ""PASS""
+}
+```"
+9017,ego4d,The mechanic opens a tool box with his gloved left hand.,The mechanic opens the box,The mechanic closes a tool box with his gloved left hand.,3,"Every word except for the main verb is identical between the anchor and the hard negative, including the specific manner phrase.",3,The verb 'closes' is the exact temporal/directional antonym of 'opens' as specified in the criteria examples.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""Every word except for the main verb is identical between the anchor and the hard negative, including the specific manner phrase."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The verb 'closes' is the exact temporal/directional antonym of 'opens' as specified in the criteria examples."",
+  ""verdict"": ""PASS""
+}"
+9018,ego4d,The woman lifts her left hand upwards.,The woman lifts the right hand,The woman lowers her left hand downwards.,3,"The subject ('The woman') and the object ('her left hand') are identical in both sentences, maintaining perfect static preservation.",3,The phrase 'lowers her left hand downwards' is a precise directional and temporal antonym of 'lifts her left hand upwards'.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject ('The woman') and the object ('her left hand') are identical in both sentences, maintaining perfect static preservation."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The phrase 'lowers her left hand downwards' is a precise directional and temporal antonym of 'lifts her left hand upwards'."",
+  ""verdict"": ""PASS""
+}"
+9019,ego4d,The student picks a book from the shelf,The student picks the book from the table with her left hand.,The student puts a book back on the shelf,3,"The subject, object, and setting are identical across both sentences, with only necessary prepositional changes to accommodate the direction of the action.",3,The actions 'picks from' and 'puts back on' represent a perfect directional and temporal antonym pair.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject, object, and setting are identical across both sentences, with only necessary prepositional changes to accommodate the direction of the action."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The actions 'picks from' and 'puts back on' represent a perfect directional and temporal antonym pair."",
+  ""verdict"": ""PASS""
+}"
+9020,ego4d,The cook picks the spoon from the pot,The cook picks up the spoon,The cook puts the spoon into the pot,3,"The subject (cook), object (spoon), and setting (pot) are verbatim identical in both sentences.",3,The actions 'picks from' and 'puts into' constitute a perfect directional and temporal reversal of the same physical process.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject (cook), object (spoon), and setting (pot) are verbatim identical in both sentences."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The actions 'picks from' and 'puts into' constitute a perfect directional and temporal reversal of the same physical process."",
+  ""verdict"": ""PASS""
+}"
+9021,ego4d,The student raises her hand,The student raises the right hand,The student lowers her hand,3,"The subject and object are identical in both sentences, preserving all non-action elements perfectly.",3,The verb 'lowers' is the direct directional antonym of 'raises' in this context.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject and object are identical in both sentences, preserving all non-action elements perfectly."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The verb 'lowers' is the direct directional antonym of 'raises' in this context."",
+  ""verdict"": ""PASS""
+}"
+9022,ego4d,The child picks a cup.,The woman B picks the cup from the table with her right hand.,The child puts a cup down.,3,The subject 'The child' and the object 'a cup' are perfectly identical across both sentences with no differences in setting or manner.,3,'Picks' (up) and 'puts down' are the definitive temporal and directional antonyms for this physical interaction.,PASS,,"```json
+{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject 'The child' and the object 'a cup' are perfectly identical across both sentences with no differences in setting or manner."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""'Picks' (up) and 'puts down' are the definitive temporal and directional antonyms for this physical interaction."",
+  ""verdict"": ""PASS""
+}
+```"
+9023,ego4d,The diner drops the napkin on the dining table with her right hand.,The diner drops the napkin on the dining table with her left hand.,The diner picks up the napkin from the dining table with her right hand.,3,"All non-action elements including the subject, object, setting, and instrument are identical between the anchor and hard negative.",3,The action 'picks up' is a perfect temporal and directional antonym of 'drops' within the given context.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""All non-action elements including the subject, object, setting, and instrument are identical between the anchor and hard negative."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The action 'picks up' is a perfect temporal and directional antonym of 'drops' within the given context."",
+  ""verdict"": ""PASS""
+}"
+9024,ego4d,The baker puts the bowl on the table,The baker puts the bowl in the dough,The baker takes the bowl off the table,3,"The subject, object, and setting are perfectly identical between the anchor and the hard negative.",3,'Takes off' is the precise directional and temporal antonym of 'puts on'.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject, object, and setting are perfectly identical between the anchor and the hard negative."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""'Takes off' is the precise directional and temporal antonym of 'puts on'."",
+  ""verdict"": ""PASS""
+}"
