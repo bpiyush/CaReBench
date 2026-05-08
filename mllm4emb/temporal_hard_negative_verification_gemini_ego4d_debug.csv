@@ -1,0 +1,77 @@
+row_id,source,sent0,sent1,hard_neg,static_score,static_reason,chiral_score,chiral_reason,verdict,error,raw
+9521,ego4d,The seamstress unfolds the cloth piece with both hands.,The seamstress unfolds the cardboard piece with both hands.,The seamstress folds the cloth piece with both hands.,3,"The subject, object, and manner phrase are identical across both the anchor and the hard negative.",3,The verb 'folds' is a precise directional and temporal antonym of 'unfolds' as required.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject, object, and manner phrase are identical across both the anchor and the hard negative."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The verb 'folds' is a precise directional and temporal antonym of 'unfolds' as required."",
+  ""verdict"": ""PASS""
+}"
+9737,ego4d,The **waiter** picks up the spoon,The **waiter** Picks up a spoon from a kitchen counter,The **waiter** puts down the spoon,3,The subject 'waiter' and object 'spoon' are identical across both sentences with no additional modifiers or setting changes.,3,'Picks up' and 'puts down' represent a perfect directional and temporal antonym pair for this action.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject 'waiter' and object 'spoon' are identical across both sentences with no additional modifiers or setting changes."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""'Picks up' and 'puts down' represent a perfect directional and temporal antonym pair for this action."",
+  ""verdict"": ""PASS""
+}"
+9740,ego4d,The mechanic puts his left hand in the motorcycle,The mechanic puts her hand on the book,The mechanic takes his left hand out of the motorcycle,3,"The subject, object, and the specific setting of the motorcycle are perfectly preserved between the anchor and the hard negative.",3,The actions 'puts in' and 'takes out' represent a perfect directional and temporal reversal of the same movement.,PASS,,"```json
+{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject, object, and the specific setting of the motorcycle are perfectly preserved between the anchor and the hard negative."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The actions 'puts in' and 'takes out' represent a perfect directional and temporal reversal of the same movement."",
+  ""verdict"": ""PASS""
+}
+```"
+9660,ego4d,The barista drops the glass cup on the kitchen slab.,The barista drops the first cup lid into the sink,The barista picks up the glass cup from the kitchen slab.,3,"The subject, object, and setting are identical, with only the prepositional change required by the verb transition.",3,The actions 'drop' and 'pick up' represent a clear directional and temporal reversal of the object's movement relative to the surface.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject, object, and setting are identical, with only the prepositional change required by the verb transition."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The actions 'drop' and 'pick up' represent a clear directional and temporal reversal of the object's movement relative to the surface."",
+  ""verdict"": ""PASS""
+}"
+9411,ego4d,The woman opens the box with her left hand.,The gardener opens the garden tool box,The woman closes the box with her left hand.,3,"Subject, object, and manner of action are identical between the anchor and the hard negative.",3,The action 'closes' is a perfect directional and temporal antonym of 'opens'.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""Subject, object, and manner of action are identical between the anchor and the hard negative."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The action 'closes' is a perfect directional and temporal antonym of 'opens'."",
+  ""verdict"": ""PASS""
+}"
+9678,ego4d,The spectator places her hand on the lap,The player places his hand beside the chess piece on the chessboard,The spectator removes her hand from the lap,3,"The subject, object, and setting (the lap) are identical between the anchor and the hard negative.",3,The action 'removes' is a precise temporal and directional antonym of 'places' in this context.,PASS,,"```json
+{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject, object, and setting (the lap) are identical between the anchor and the hard negative."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The action 'removes' is a precise temporal and directional antonym of 'places' in this context."",
+  ""verdict"": ""PASS""
+}
+```"
+9626,ego4d,The waitress drops the cup,The waiter drops a glass cup on the table with his right hand.,The waitress picks up the cup,3,The subject and object are identical between the anchor and the hard negative with no extraneous details or modifications.,3,Picking up is the direct temporal and directional reversal of dropping an object.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject and object are identical between the anchor and the hard negative with no extraneous details or modifications."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""Picking up is the direct temporal and directional reversal of dropping an object."",
+  ""verdict"": ""PASS""
+}"
+9513,ego4d,The tailor inserts the needle into the cloth with her right hand.,The tailor inserts the needle on the cloth,The tailor removes the needle from the cloth with her right hand.,3,"The subject, object, setting, and manner are identical between the anchor and the hard negative.",3,"'Inserts' and 'removes' are direct temporal and directional antonyms, effectively reversing the action.",PASS,,"```json
+{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject, object, setting, and manner are identical between the anchor and the hard negative."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""'Inserts' and 'removes' are direct temporal and directional antonyms, effectively reversing the action."",
+  ""verdict"": ""PASS""
+}
+```"
+9859,ego4d,The shopper lifts the bag up,The lady lifts up her bag,The shopper lowers the bag down,3,"The subject and object are identical between the anchor and the hard negative, maintaining perfect static preservation.",3,The action 'lowers down' is a precise directional and lexical antonym of 'lifts up'.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject and object are identical between the anchor and the hard negative, maintaining perfect static preservation."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The action 'lowers down' is a precise directional and lexical antonym of 'lifts up'."",
+  ""verdict"": ""PASS""
+}"
+9136,ego4d,The diner puts the knife down,The diner puts the knife down on the table,The diner picks up the knife,3,The subject and object are perfectly identical across both sentences with no extraneous details or modifiers.,3,The actions 'puts down' and 'picks up' represent a perfect temporal and directional reversal.,PASS,,"{
+  ""static_score"": 3,
+  ""static_reason"": ""The subject and object are perfectly identical across both sentences with no extraneous details or modifiers."",
+  ""chiral_score"": 3,
+  ""chiral_reason"": ""The actions 'puts down' and 'picks up' represent a perfect temporal and directional reversal."",
+  ""verdict"": ""PASS""
+}"
