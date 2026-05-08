@@ -38,6 +38,7 @@ case "$STAGE" in
     MICRO_BATCH_SIZE=1
     BATCH_SIZE=32
     EPOCHS=2
+    # EPOCHS=5
     LR=6e-8
     MAX_SAMPLES=-1
     OVERFIT_NUM_ROWS=-1
