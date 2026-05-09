@@ -16,6 +16,8 @@
       "max_singular_value": 4.355150758178022,
       "effective_rank": 242.2472272054171,
       "top1_energy_ratio": 0.060938791804063586,
+      "global_isotropy_score": 0.9390612081959364,
+      "global_participation_ratio": 0.02135342086005231,
       "num_sv_for_90pct_energy": 386,
       "num_sv_for_95pct_energy": 551
     },
@@ -26,6 +28,8 @@
       "max_singular_value": 6.080259861616858,
       "effective_rank": 275.68786147242344,
       "top1_energy_ratio": 0.04241033790899497,
+      "global_isotropy_score": 0.957589662091005,
+      "global_participation_ratio": 0.0284619614920537,
       "num_sv_for_90pct_energy": 392,
       "num_sv_for_95pct_energy": 557
     }
@@ -38,6 +42,8 @@
       "max_singular_value": 3.6480187409759566,
       "effective_rank": 224.93892004367248,
       "top1_energy_ratio": 0.04902258982968476,
+      "global_isotropy_score": 0.9509774101703152,
+      "global_participation_ratio": 0.022111682796141053,
       "num_sv_for_90pct_energy": 339,
       "num_sv_for_95pct_energy": 492
     },
@@ -48,8 +54,24 @@
       "max_singular_value": 6.633557388951959,
       "effective_rank": 211.86498223571687,
       "top1_energy_ratio": 0.05146186101133329,
+      "global_isotropy_score": 0.9485381389886667,
+      "global_participation_ratio": 0.020455936830274152,
       "num_sv_for_90pct_energy": 325,
       "num_sv_for_95pct_energy": 481
+    }
+  },
+  "wang_isola_uniformity": {
+    "reference": "Wang & Isola, Understanding Contrastive Representation Learning through Alignment and Uniformity on the Hypersphere (ICML 2020)",
+    "t": 2.0,
+    "L_uniform": {
+      "video": {
+        "base": -1.2258867159589435,
+        "tara": -3.408284611466347
+      },
+      "text_standard": {
+        "base": -1.0702548086249823,
+        "tara": -3.3024343090836985
+      }
     }
   },
   "plot": "/athenahomes/piyush/projects/CaReBench/outputs/msrvtt_svd_base_vs_tara/msrvtt_svd_scree_base_vs_tara.pdf"

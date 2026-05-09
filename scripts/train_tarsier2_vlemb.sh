@@ -3,6 +3,8 @@ set -euo pipefail
 
 STAGE=${1:-overfit}
 BASE_MODEL=${BASE_MODEL:-/work/piyush/pretrained_checkpoints/Tarsier2-7b-0115}
+# Wan2.2 default; for LTX2 run: scripts/remap_chiral_pairs_csv_to_ltx2.py then set
+# CSV_PATH to data/generated-chiral-pairs-v2-ltx2-complete.csv
 CSV_PATH=${CSV_PATH:-/users/piyush/projects/CaReBench/data/generated-chiral-pairs-v2.csv}
 OUTPUT_ROOT=${OUTPUT_ROOT:-/work/piyush/experiments/CaRe/Tarsier2-7b-0115-vlemb}
 GPUS=${GPUS:-8}
@@ -39,7 +41,7 @@ case "$STAGE" in
     BATCH_SIZE=32
     EPOCHS=2
     # EPOCHS=5
-    LR=6e-8
+    LR=2e-6
     MAX_SAMPLES=-1
     OVERFIT_NUM_ROWS=-1
     OVERFIT_REPEAT=1

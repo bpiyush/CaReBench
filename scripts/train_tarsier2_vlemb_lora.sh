@@ -3,6 +3,7 @@ set -euo pipefail
 
 STAGE=${1:-smoke}
 BASE_MODEL=${BASE_MODEL:-/work/piyush/pretrained_checkpoints/Tarsier2-7b-0115}
+# Wan2.2 default; for LTX2: remap (scripts/remap_chiral_pairs_csv_to_ltx2.py) then CSV_PATH=.../generated-chiral-pairs-v2-ltx2-complete.csv
 CSV_PATH=${CSV_PATH:-/users/piyush/projects/CaReBench/data/generated-chiral-pairs-v2.csv}
 OUTPUT_ROOT=${OUTPUT_ROOT:-/work/piyush/experiments/CaRe/Tarsier2-7b-0115-vlemb-lora}
 GPUS=${GPUS:-8}

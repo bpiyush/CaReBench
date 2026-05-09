@@ -9,6 +9,10 @@ Video keys: video####. Text keys: caption strings from text-standard rows.
 Writes one figure with two side-by-side panels (Text | Video), using either
 sigma or log(sigma) on the y-axis.
 
+Also reports Wang & Isola (ICML 2020) hyperspherical uniformity
+L_uniform = log E[exp(-t ||f(x)-f(x')||^2)] on row L2-normalized embeddings
+(lower => more uniform on the sphere; paper default t=2).
+
 Example:
   python evals_tarsier2/analyze_msrvtt_svd_base_vs_tara.py \\
     --out_dir outputs/msrvtt_svd_tarsier
@@ -75,12 +79,17 @@ def centered_singular_values(X: np.ndarray) -> np.ndarray:
     return s
 
 
-def svd_metrics(s: np.ndarray) -> dict:
+def svd_metrics(s: np.ndarray, embedding_dim: int) -> dict:
+    """embedding_dim D is feature size (used for global participation ratio)."""
     energy = s**2
     total = float(np.sum(energy)) + 1e-12
+    sum_energy_sq = float(np.sum(energy**2)) + 1e-12
     cum = np.cumsum(energy) / total
     p = energy / total
     ent = float(-np.sum(p * np.log(p + 1e-12)))
+    # Geometric metrics on covariance eigenvalues λ_i ∝ s_i^2
+    global_isotropy_score = float(1.0 - energy[0] / total)
+    global_participation_ratio = float((total**2) / (embedding_dim * sum_energy_sq))
     return {
         "num_singular_values": int(len(s)),
         "mean_singular_value": float(np.mean(s)),
@@ -88,9 +97,33 @@ def svd_metrics(s: np.ndarray) -> dict:
         "max_singular_value": float(np.max(s)),
         "effective_rank": float(np.exp(ent)),
         "top1_energy_ratio": float(energy[0] / total),
+        "global_isotropy_score": global_isotropy_score,
+        "global_participation_ratio": global_participation_ratio,
         "num_sv_for_90pct_energy": int(np.searchsorted(cum, 0.90) + 1),
         "num_sv_for_95pct_energy": int(np.searchsorted(cum, 0.95) + 1),
     }
+
+
+def wang_isola_uniformity_loss(X: np.ndarray, t: float = 2.0) -> float:
+    """Wang & Isola (2020): L_uniform = log E[exp(-t ||f(x)-f(x')||^2)].
+
+    f rows are L2-normalized to the unit hypersphere. Expectation is over all
+    ordered pairs (x, x') with x != x', matching torch.pdist-style pair means.
+    Lower values indicate more spatially uniform distributions on the sphere.
+    """
+    X = np.asarray(X, dtype=np.float64)
+    norms = np.linalg.norm(X, axis=1, keepdims=True)
+    F = X / np.maximum(norms, 1e-12)
+    gram = F @ F.T
+    d2 = 2.0 - 2.0 * gram
+    np.fill_diagonal(d2, 0.0)
+    n = int(F.shape[0])
+    if n < 2:
+        return float("nan")
+    w = np.exp(-t * d2)
+    np.fill_diagonal(w, 0.0)
+    mean_pair = float(w.sum() / (n * (n - 1)))
+    return float(np.log(mean_pair + 1e-12))
 
 
 def plot_two_panel_screes(
@@ -229,6 +262,12 @@ def main() -> None:
         default=1.0,
         help="Global multiplier for all plot font sizes.",
     )
+    parser.add_argument(
+        "--uniformity_t",
+        type=float,
+        default=2.0,
+        help="Temperature t in Wang & Isola L_uniform (paper uses t=2).",
+    )
     args = parser.parse_args()
 
     csv_path = os.path.abspath(args.csv_path)
@@ -317,10 +356,16 @@ def main() -> None:
         font_scale=args.font_scale,
     )
 
+    D = int(X_vb.shape[1])
+    t_unif = float(args.uniformity_t)
+    L_vid_b = wang_isola_uniformity_loss(X_vb, t_unif)
+    L_vid_t = wang_isola_uniformity_loss(X_tv, t_unif)
+    L_txt_b = wang_isola_uniformity_loss(X_tb, t_unif)
+    L_txt_t = wang_isola_uniformity_loss(X_tt, t_unif)
     report = {
         "csv_path": csv_path,
         "n_samples_aligned": len(aligned),
-        "embedding_dim": int(X_vb.shape[1]),
+        "embedding_dim": D,
         "paths": {
             "base_video": os.path.abspath(args.base_video_embeddings),
             "base_text": os.path.abspath(args.base_text_embeddings),
@@ -328,12 +373,21 @@ def main() -> None:
             "tara_text": os.path.abspath(tara_text_path),
         },
         "video": {
-            "base": svd_metrics(sv_vb),
-            "tara": svd_metrics(sv_tv),
+            "base": svd_metrics(sv_vb, D),
+            "tara": svd_metrics(sv_tv, D),
         },
         "text_standard": {
-            "base": svd_metrics(sv_tb),
-            "tara": svd_metrics(sv_tt),
+            "base": svd_metrics(sv_tb, D),
+            "tara": svd_metrics(sv_tt, D),
+        },
+        "wang_isola_uniformity": {
+            "reference": "Wang & Isola, Understanding Contrastive Representation Learning "
+            "through Alignment and Uniformity on the Hypersphere (ICML 2020)",
+            "t": t_unif,
+            "L_uniform": {
+                "video": {"base": L_vid_b, "tara": L_vid_t},
+                "text_standard": {"base": L_txt_b, "tara": L_txt_t},
+            },
         },
         "plot": plot_path,
     }
@@ -343,7 +397,33 @@ def main() -> None:
 
     print(f"Wrote plot:  {plot_path}")
     print(f"Wrote metrics: {json_path}")
-    print(f"Aligned samples: {len(aligned)}, D={X_vb.shape[1]}")
+    print(f"Aligned samples: {len(aligned)}, D={D}")
+    gi_txt_b = report["text_standard"]["base"]["global_isotropy_score"]
+    gi_txt_t = report["text_standard"]["tara"]["global_isotropy_score"]
+    gi_vid_b = report["video"]["base"]["global_isotropy_score"]
+    gi_vid_t = report["video"]["tara"]["global_isotropy_score"]
+    print(
+        "Global isotropy score G.Iso = 1 - s_1^2 / sum_i s_i^2 "
+        "(same as 1 - lambda_1 / sum_i lambda_i for lambda_i propto s_i^2):"
+    )
+    print(f"  Text:  base (Tarsier2) = {gi_txt_b:.6f},  TARA (fine-tuned) = {gi_txt_t:.6f}")
+    print(f"  Video: base (Tarsier2) = {gi_vid_b:.6f},  TARA (fine-tuned) = {gi_vid_t:.6f}")
+    gpr_txt_b = report["text_standard"]["base"]["global_participation_ratio"]
+    gpr_txt_t = report["text_standard"]["tara"]["global_participation_ratio"]
+    gpr_vid_b = report["video"]["base"]["global_participation_ratio"]
+    gpr_vid_t = report["video"]["tara"]["global_participation_ratio"]
+    print(
+        "Global participation ratio G.PR = (sum_i lambda_i)^2 / (D sum_i lambda_i^2) "
+        "= (sum_i s_i^2)^2 / (D sum_i s_i^4):"
+    )
+    print(f"  Text:  base = {gpr_txt_b:.6f},  TARA = {gpr_txt_t:.6f}")
+    print(f"  Video: base = {gpr_vid_b:.6f},  TARA = {gpr_vid_t:.6f}")
+    print(
+        f"Wang & Isola uniformity L_uniform = log E[exp(-t||f(x)-f(x')||^2)], "
+        f"t={t_unif}, f = row L2-normalized (lower => more uniform):"
+    )
+    print(f"  Text:  base (Tarsier2) = {L_txt_b:.6f},  TARA (fine-tuned) = {L_txt_t:.6f}")
+    print(f"  Video: base (Tarsier2) = {L_vid_b:.6f},  TARA (fine-tuned) = {L_vid_t:.6f}")
 
 
 if __name__ == "__main__":
