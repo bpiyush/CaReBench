@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Year Embeddings — 3D Explorer</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script src="viz_data.js"></script>
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --panel: #ffffff;
+      --ink: #1f2933;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --border: #e5e7eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+    header {
+      padding: 1.25rem 1.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--panel);
+    }
+    header h1 {
+      margin: 0 0 0.25rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 0;
+      min-height: calc(100vh - 88px);
+    }
+    aside {
+      background: var(--panel);
+      border-right: 1px solid var(--border);
+      padding: 1rem 1.1rem;
+    }
+    .control {
+      margin-bottom: 1rem;
+    }
+    .control label {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+    select, input[type="range"] {
+      width: 100%;
+      font: inherit;
+      padding: 0.45rem 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+    }
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.92rem;
+    }
+    .meta {
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .meta strong { color: var(--ink); }
+    #plot {
+      width: 100%;
+      height: calc(100vh - 88px);
+      min-height: 520px;
+    }
+    .error {
+      padding: 2rem;
+      color: #b91c1c;
+    }
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+      aside { border-right: none; border-bottom: 1px solid var(--border); }
+      #plot { height: 70vh; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Year embedding geometry</h1>
+    <p id="subtitle">Interactive 3D PCA / t-SNE / UMAP of &ldquo;In the year x&rdquo; (1700&ndash;2020)</p>
+  </header>
+
+  <div class="layout">
+    <aside>
+      <div class="control">
+        <label for="modelSelect">Model</label>
+        <select id="modelSelect"></select>
+      </div>
+      <div class="control">
+        <label for="methodSelect">Projection</label>
+        <select id="methodSelect"></select>
+      </div>
+      <div class="control">
+        <label for="pointSize">Point size</label>
+        <input id="pointSize" type="range" min="2" max="12" value="5" />
+      </div>
+      <div class="control checkbox-row">
+        <input id="showPath" type="checkbox" checked />
+        <label for="showPath" style="margin:0;text-transform:none;letter-spacing:0;color:var(--ink);">
+          Connect points in year order
+        </label>
+      </div>
+      <div class="control checkbox-row">
+        <input id="colorByYear" type="checkbox" checked />
+        <label for="colorByYear" style="margin:0;text-transform:none;letter-spacing:0;color:var(--ink);">
+          Color by year
+        </label>
+      </div>
+      <div class="meta" id="meta"></div>
+    </aside>
+    <div id="plot"></div>
+  </div>
+
+  <script>
+    const DATA = window.YEAR_EMBED_VIZ_DATA;
+    const modelSelect = document.getElementById("modelSelect");
+    const methodSelect = document.getElementById("methodSelect");
+    const pointSize = document.getElementById("pointSize");
+    const showPath = document.getElementById("showPath");
+    const colorByYear = document.getElementById("colorByYear");
+    const meta = document.getElementById("meta");
+    const subtitle = document.getElementById("subtitle");
+
+    const METHOD_LABELS = {
+      pca: "PCA",
+      tsne: "t-SNE",
+      umap: "UMAP",
+    };
+
+    function yearColor(year, minYear, maxYear) {
+      const t = (year - minYear) / Math.max(1, maxYear - minYear);
+      const hue = (1 - t) * 300;
+      return `hsl(${hue}, 78%, 52%)`;
+    }
+
+    function axisLabel(method, axisIdx) {
+      if (method === "pca") return `PC${axisIdx + 1}`;
+      if (method === "tsne") return `t-SNE ${axisIdx + 1}`;
+      if (method === "umap") return `UMAP ${axisIdx + 1}`;
+      return `Dim ${axisIdx + 1}`;
+    }
+
+    function currentModel() {
+      const id = modelSelect.value;
+      return DATA.models.find((m) => m.id === id);
+    }
+
+    function populateControls() {
+      if (!DATA) {
+        document.getElementById("plot").innerHTML =
+          '<div class="error">Missing <code>viz_data.js</code>. Run <code>python mllm4emb/build_year_embeddings_viz_data.py</code>.</div>';
+        return;
+      }
+
+      if (DATA.subtitle) subtitle.textContent = DATA.subtitle;
+
+      DATA.models.forEach((m) => {
+        const opt = document.createElement("option");
+        opt.value = m.id;
+        opt.textContent = m.name;
+        modelSelect.appendChild(opt);
+      });
+
+      DATA.methods.forEach((method) => {
+        const opt = document.createElement("option");
+        opt.value = method;
+        opt.textContent = METHOD_LABELS[method] || method.toUpperCase();
+        methodSelect.appendChild(opt);
+      });
+
+      modelSelect.addEventListener("change", updatePlot);
+      methodSelect.addEventListener("change", updatePlot);
+      pointSize.addEventListener("input", updatePlot);
+      showPath.addEventListener("change", updatePlot);
+      colorByYear.addEventListener("change", updatePlot);
+      updatePlot();
+    }
+
+    function updateMeta(model, method, projection) {
+      const lines = [
+        `<strong>${model.name}</strong>`,
+        `${model.n_points} points · dim ${model.dim}`,
+        `Projection: <strong>${METHOD_LABELS[method] || method}</strong>`,
+      ];
+      if (projection.explained_variance_ratio) {
+        const ev = projection.explained_variance_ratio
+          .slice(0, 3)
+          .map((v) => (100 * v).toFixed(1) + "%")
+          .join(", ");
+        lines.push(`Explained variance (3D): ${ev}`);
+      }
+      if (projection.perplexity) {
+        lines.push(`t-SNE perplexity: ${projection.perplexity}`);
+      }
+      lines.push("Drag to rotate · scroll to zoom · shift-drag to pan");
+      meta.innerHTML = lines.join("<br>");
+    }
+
+    function updatePlot() {
+      const model = currentModel();
+      const method = methodSelect.value;
+      const projection = model?.projections?.[method];
+      if (!projection) return;
+
+      const pts = projection.points;
+      const years = model.years;
+      const minYear = Math.min(...years);
+      const maxYear = Math.max(...years);
+      const size = Number(pointSize.value);
+
+      const x = pts.map((p) => p[0]);
+      const y = pts.map((p) => p[1]);
+      const z = pts.map((p) => p[2]);
+      const colors = years.map((yr) => yearColor(yr, minYear, maxYear));
+      const hover = years.map((yr, i) =>
+        `Year: ${yr}<br>${model.sentences[i]}<extra></extra>`
+      );
+
+      const marker = {
+        size,
+        color: colorByYear.checked ? colors : "#2563eb",
+        opacity: 0.92,
+        line: { width: 0.5, color: "rgba(0,0,0,0.25)" },
+      };
+
+      const traces = [{
+        type: "scatter3d",
+        mode: "markers",
+        x, y, z,
+        marker,
+        hovertemplate: hover,
+        name: model.name,
+      }];
+
+      if (showPath.checked) {
+        traces.push({
+          type: "scatter3d",
+          mode: "lines",
+          x, y, z,
+          line: { color: "rgba(60,60,60,0.35)", width: 3 },
+          hoverinfo: "skip",
+          showlegend: false,
+        });
+      }
+
+      const layout = {
+        margin: { l: 0, r: 0, t: 10, b: 0 },
+        paper_bgcolor: "#f7f5f0",
+        scene: {
+          bgcolor: "#f7f5f0",
+          xaxis: { title: axisLabel(method, 0), gridcolor: "#ddd", zerolinecolor: "#ccc" },
+          yaxis: { title: axisLabel(method, 1), gridcolor: "#ddd", zerolinecolor: "#ccc" },
+          zaxis: { title: axisLabel(method, 2), gridcolor: "#ddd", zerolinecolor: "#ccc" },
+          aspectmode: "cube",
+        },
+        showlegend: false,
+      };
+
+      Plotly.newPlot("plot", traces, layout, {
+        responsive: true,
+        displayModeBar: true,
+        displaylogo: false,
+        modeBarButtonsToRemove: ["toImage"],
+      });
+
+      updateMeta(model, method, projection);
+    }
+
+    populateControls();
+  </script>
+</body>
+</html>

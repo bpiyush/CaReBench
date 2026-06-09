@@ -10,6 +10,8 @@ lightning_logs/
 scores/
 external/t2v_metrics/
 outputs/tarsier2_vlemb_data_debug
+*.pt
+*.pdf
 
 checkpoints
 *.pth

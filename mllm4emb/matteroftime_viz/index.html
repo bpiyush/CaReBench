@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MatterOfTime — 3D Embedding Explorer</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script src="viz_data.js"></script>
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --panel: #ffffff;
+      --ink: #1f2933;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --text-color: #2563eb;
+      --image-color: #dc2626;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header {
+      padding: 1.2rem 1.5rem 0.8rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--panel);
+    }
+    header h1 { margin: 0 0 0.2rem; font-size: 1.45rem; }
+    header p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+    .layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      min-height: calc(100vh - 84px);
+    }
+    aside {
+      background: var(--panel);
+      border-right: 1px solid var(--border);
+      padding: 1rem 1.1rem;
+    }
+    .control { margin-bottom: 0.95rem; }
+    .control label {
+      display: block;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+    select, input[type="range"] {
+      width: 100%;
+      font: inherit;
+      padding: 0.42rem 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .radio-group { display: flex; flex-direction: column; gap: 0.35rem; }
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--ink);
+      font-size: 0.9rem;
+    }
+    .meta {
+      margin-top: 1rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .meta strong { color: var(--ink); }
+    #plot {
+      width: 100%;
+      height: calc(100vh - 84px);
+      min-height: 520px;
+    }
+    .error { padding: 2rem; color: #b91c1c; }
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+      aside { border-right: none; border-bottom: 1px solid var(--border); }
+      #plot { height: 68vh; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MatterOfTime / TIME10k explorer</h1>
+    <p id="subtitle">3D PCA / t-SNE / UMAP of text and image embeddings by semantic class</p>
+  </header>
+
+  <div class="layout">
+    <aside>
+      <div class="control">
+        <label for="modelSelect">Model</label>
+        <select id="modelSelect"></select>
+      </div>
+      <div class="control">
+        <label for="classSelect">Semantic class</label>
+        <select id="classSelect"></select>
+      </div>
+      <div class="control">
+        <label for="methodSelect">Projection</label>
+        <select id="methodSelect"></select>
+      </div>
+      <div class="control">
+        <label>Modalities</label>
+        <div class="radio-group">
+          <label><input type="radio" name="modality" value="both" checked /> Text + image</label>
+          <label><input type="radio" name="modality" value="text" /> Text only</label>
+          <label><input type="radio" name="modality" value="image" /> Image only</label>
+        </div>
+      </div>
+      <div class="control">
+        <label for="pointSize">Point size</label>
+        <input id="pointSize" type="range" min="2" max="10" value="4" />
+      </div>
+      <div class="meta" id="meta"></div>
+    </aside>
+    <div id="plot"></div>
+  </div>
+
+  <script>
+    const DATA = window.MATTEROFTIME_VIZ_DATA;
+    const modelSelect = document.getElementById("modelSelect");
+    const classSelect = document.getElementById("classSelect");
+    const methodSelect = document.getElementById("methodSelect");
+    const pointSize = document.getElementById("pointSize");
+    const meta = document.getElementById("meta");
+    const subtitle = document.getElementById("subtitle");
+
+    const METHOD_LABELS = { pca: "PCA", tsne: "t-SNE", umap: "UMAP" };
+
+    function yearColor(year, minYear, maxYear) {
+      const t = (year - minYear) / Math.max(1, maxYear - minYear);
+      return `hsl(${(1 - t) * 300}, 78%, 52%)`;
+    }
+
+    function axisLabel(method, axisIdx) {
+      if (method === "pca") return `PC${axisIdx + 1}`;
+      if (method === "tsne") return `t-SNE ${axisIdx + 1}`;
+      if (method === "umap") return `UMAP ${axisIdx + 1}`;
+      return `Dim ${axisIdx + 1}`;
+    }
+
+    function selectedModality() {
+      return document.querySelector('input[name="modality"]:checked').value;
+    }
+
+    function currentModel() {
+      return DATA.models.find((m) => m.id === modelSelect.value);
+    }
+
+    function currentClassRecord() {
+      const model = currentModel();
+      return model?.classes.find((c) => c.class === classSelect.value);
+    }
+
+    function populateModelSelect() {
+      DATA.models.forEach((m) => {
+        const opt = document.createElement("option");
+        opt.value = m.id;
+        opt.textContent = m.name;
+        modelSelect.appendChild(opt);
+      });
+    }
+
+    function populateClassSelect() {
+      classSelect.innerHTML = "";
+      const model = currentModel();
+      model.classes.forEach((c) => {
+        const opt = document.createElement("option");
+        opt.value = c.class;
+        opt.textContent = c.class_display;
+        classSelect.appendChild(opt);
+      });
+    }
+
+    function populateMethodSelect() {
+      methodSelect.innerHTML = "";
+      DATA.methods.forEach((method) => {
+        const opt = document.createElement("option");
+        opt.value = method;
+        opt.textContent = METHOD_LABELS[method] || method.toUpperCase();
+        methodSelect.appendChild(opt);
+      });
+    }
+
+    function scatterTrace(name, block, color, symbol, minYear, maxYear, size) {
+      const years = block.years;
+      const pts = block.points;
+      return {
+        type: "scatter3d",
+        mode: "markers",
+        name,
+        x: pts.map((p) => p[0]),
+        y: pts.map((p) => p[1]),
+        z: pts.map((p) => p[2]),
+        marker: {
+          size,
+          color: years.map((yr) => yearColor(yr, minYear, maxYear)),
+          symbol,
+          opacity: 0.88,
+          line: { width: 0.4, color: "rgba(0,0,0,0.25)" },
+        },
+        hovertemplate: years.map(
+          (yr, i) => `${name}<br>Year: ${yr}<br>${block.texts[i] || ""}<extra></extra>`
+        ),
+      };
+    }
+
+    function updateMeta(model, clsRecord, method, projection) {
+      const lines = [
+        `<strong>${model.name}</strong> · ${clsRecord.class_display}`,
+        `Text: ${clsRecord.n_text}` + (clsRecord.has_image ? ` · Image: ${clsRecord.n_image}` : " · Image: pending"),
+        `Showing: <strong>${selectedModality()}</strong> · ${METHOD_LABELS[method]}`,
+      ];
+      if (projection.explained_variance_ratio) {
+        const ev = projection.explained_variance_ratio
+          .slice(0, 3)
+          .map((v) => (100 * v).toFixed(1) + "%")
+          .join(", ");
+        lines.push(`Explained variance (3D): ${ev}`);
+      }
+      if (projection.perplexity) {
+        lines.push(`t-SNE perplexity: ${projection.perplexity}`);
+      }
+      lines.push("Drag to rotate · scroll to zoom · shift-drag to pan");
+      meta.innerHTML = lines.join("<br>");
+    }
+
+    function updatePlot() {
+      const model = currentModel();
+      const clsRecord = currentClassRecord();
+      const method = methodSelect.value;
+      const modality = selectedModality();
+      const projection = clsRecord?.projections?.[method];
+      if (!projection) return;
+
+      const blocks = [];
+      const hasImage = clsRecord.has_image && projection.image;
+      if (modality === "both" || modality === "text") blocks.push(["Text", projection.text, "circle"]);
+      if ((modality === "both" || modality === "image") && hasImage) {
+        blocks.push(["Image", projection.image, "diamond"]);
+      } else if (modality === "image" && !hasImage) {
+        meta.innerHTML = "<strong>Image embeddings not available yet.</strong><br>Re-run feature extraction and rebuild viz_data.js.";
+        Plotly.purge("plot");
+        return;
+      }
+
+      const allYears = blocks.flatMap(([, b]) => b.years);
+      const minYear = Math.min(...allYears);
+      const maxYear = Math.max(...allYears);
+      const size = Number(pointSize.value);
+
+      const traces = blocks.map(([name, block, symbol]) =>
+        scatterTrace(name, block, null, symbol, minYear, maxYear, size)
+      );
+
+      const layout = {
+        margin: { l: 0, r: 0, t: 10, b: 0 },
+        paper_bgcolor: "#f7f5f0",
+        scene: {
+          bgcolor: "#f7f5f0",
+          xaxis: { title: axisLabel(method, 0), gridcolor: "#ddd" },
+          yaxis: { title: axisLabel(method, 1), gridcolor: "#ddd" },
+          zaxis: { title: axisLabel(method, 2), gridcolor: "#ddd" },
+          aspectmode: "cube",
+        },
+        legend: { x: 0.02, y: 0.98 },
+      };
+
+      Plotly.newPlot("plot", traces, layout, { responsive: true, displaylogo: false });
+      updateMeta(model, clsRecord, method, projection);
+    }
+
+    function init() {
+      if (!DATA) {
+        document.getElementById("plot").innerHTML =
+          '<div class="error">Missing viz_data.js. Run build_matteroftime_viz_data.py first.</div>';
+        return;
+      }
+      if (DATA.subtitle) subtitle.textContent = DATA.subtitle;
+      populateModelSelect();
+      populateMethodSelect();
+      populateClassSelect();
+
+      modelSelect.addEventListener("change", () => {
+        populateClassSelect();
+        updatePlot();
+      });
+      classSelect.addEventListener("change", updatePlot);
+      methodSelect.addEventListener("change", updatePlot);
+      pointSize.addEventListener("input", updatePlot);
+      document.querySelectorAll('input[name="modality"]').forEach((el) => {
+        el.addEventListener("change", updatePlot);
+      });
+      updatePlot();
+    }
+
+    init();
+  </script>
+</body>
+</html>
