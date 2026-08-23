@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Video Search</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/app.css" />
+</head>
+<body>
+  <!-- PAGE: configure -->
+  <section id="page-config" class="page">
+    <div class="config-shell">
+      <header class="config-header">
+        <p class="eyebrow">TARA · presentation</p>
+        <h1>Prepare search</h1>
+        <p class="lede">Choose a model and dataset. We’ll embed the videos once, then you can search.</p>
+      </header>
+
+      <form id="config-form" class="config-form">
+        <label>
+          <span>Model</span>
+          <select id="model" required></select>
+        </label>
+        <label>
+          <span>Dataset</span>
+          <select id="dataset" required></select>
+        </label>
+        <label>
+          <span>Split</span>
+          <select id="split" required></select>
+        </label>
+        <label>
+          <span>Encode sample</span>
+          <div class="pct-row">
+            <input id="sample_pct" type="range" min="1" max="100" step="1" value="10" />
+            <output id="sample_pct_out" for="sample_pct">10%</output>
+          </div>
+          <small>Random subset for faster debugging. Cached embeddings are reused.</small>
+        </label>
+        <label>
+          <span>Sample seed</span>
+          <input id="sample_seed" type="number" min="0" step="1" value="42" />
+          <small>Same seed + % always picks the same videos.</small>
+        </label>
+        <button type="submit" id="btn-next" class="btn-primary">Next</button>
+      </form>
+
+      <div id="prep-panel" class="prep-panel hidden" aria-live="polite">
+        <div class="coffee" aria-hidden="true">☕</div>
+        <h2>Grab a coffee</h2>
+        <p class="prep-copy">We’re preparing the dataset. This only needs to run once per model × dataset (cache lives under <code>/work/piyush/experiments</code>).</p>
+        <div class="bar"><div id="prep-bar" class="bar-fill"></div></div>
+        <div class="prep-meta">
+          <span id="prep-msg">Starting…</span>
+          <span id="prep-eta">estimating time…</span>
+        </div>
+        <p id="prep-error" class="error hidden"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE: search -->
+  <section id="page-search" class="page hidden">
+    <aside class="sidebar">
+      <p class="eyebrow">Active setup</p>
+      <h2 class="side-title">Search</h2>
+      <dl class="side-meta">
+        <div><dt>Model</dt><dd id="side-model">—</dd></div>
+        <div><dt>Dataset</dt><dd id="side-dataset">—</dd></div>
+        <div><dt>Split</dt><dd id="side-split">—</dd></div>
+        <div><dt>Sample</dt><dd id="side-sample">—</dd></div>
+        <div><dt>Seed</dt><dd id="side-seed">—</dd></div>
+        <div><dt>Videos</dt><dd id="side-n">—</dd></div>
+      </dl>
+      <button type="button" id="btn-reconfig" class="btn-ghost">← Change setup</button>
+    </aside>
+
+    <main class="search-main">
+      <form id="search-form" class="search-form">
+        <input
+          id="query"
+          type="search"
+          placeholder="Describe the video you’re looking for"
+          autocomplete="off"
+          autofocus
+        />
+        <button type="submit" class="btn-primary">Search</button>
+      </form>
+
+      <div class="examples">
+        <span class="examples-label">Try</span>
+        <div id="examples" class="example-chips"></div>
+      </div>
+
+      <div class="topk-row">
+        <label>Top-K <input id="top_k" type="number" min="1" max="48" value="12" /></label>
+        <span id="search-status" class="search-status"></span>
+      </div>
+
+      <div id="results" class="results"></div>
+    </main>
+  </section>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# Run with carebench conda env (see launch.sh)
+gradio>=4.44,<5
+faiss-cpu
+numpy
+pandas
+torch
