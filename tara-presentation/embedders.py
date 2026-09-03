@@ -1,6 +1,7 @@
 """Model embedding backends for TARA and Qwen3VL."""
 from __future__ import annotations
 
+import gc
 import json
 import subprocess
 import sys
@@ -13,6 +14,13 @@ import torch.nn.functional as F
 from config import CAREBENCH_ROOT, QWEN_NFRAMES, QWEN_PYTHON, QWEN_PATH, TARA_PATH
 
 PRESENTATION_ROOT = Path(__file__).resolve().parent
+
+
+def release_gpu_memory() -> None:
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+        torch.cuda.synchronize()
 
 
 class EmbedderBackend(ABC):
@@ -60,9 +68,11 @@ class TaraEmbedder(EmbedderBackend):
         return F.normalize(emb, p=2, dim=-1)
 
     def close(self) -> None:
+        model = self.model
         self.model = None
-        if torch.cuda.is_available():
-            torch.cuda.empty_cache()
+        if model is not None:
+            del model
+        release_gpu_memory()
 
 
 class QwenSubprocessEmbedder(EmbedderBackend):
@@ -70,6 +80,12 @@ class QwenSubprocessEmbedder(EmbedderBackend):
         self.model_path = model_path or str(QWEN_PATH)
         self.proc: subprocess.Popen | None = None
         self.worker_script = Path(__file__).resolve().parent / "workers" / "qwen_worker.py"
+        self._stderr_log: Path | None = None
+
+    def _stderr_text(self) -> str:
+        if self._stderr_log and self._stderr_log.exists():
+            return self._stderr_log.read_text(errors="replace")[-4000:]
+        return ""
 
     def _send(self, payload: dict) -> dict:
         assert self.proc is not None and self.proc.stdin and self.proc.stdout
@@ -77,26 +93,36 @@ class QwenSubprocessEmbedder(EmbedderBackend):
         self.proc.stdin.flush()
         line = self.proc.stdout.readline()
         if not line:
-            raise RuntimeError("Qwen worker exited unexpectedly")
+            raise RuntimeError(
+                f"Qwen worker exited unexpectedly.\n{self._stderr_text()}"
+            )
         resp = json.loads(line)
         if "error" in resp:
-            raise RuntimeError(resp["error"])
+            extra = self._stderr_text()
+            msg = resp["error"]
+            if extra:
+                msg = f"{msg}\n--- worker log ---\n{extra}"
+            raise RuntimeError(msg)
         return resp
 
     def load(self) -> None:
         if self.proc is not None:
             return
+        log_dir = PRESENTATION_ROOT / "logs"
+        log_dir.mkdir(parents=True, exist_ok=True)
+        self._stderr_log = log_dir / "qwen_worker.log"
+        stderr_f = open(self._stderr_log, "w", encoding="utf-8")  # noqa: SIM115
         env = dict(**{k: v for k, v in __import__("os").environ.items()})
         env["PYTHONPATH"] = f"{PRESENTATION_ROOT}:{CAREBENCH_ROOT}:{env.get('PYTHONPATH', '')}"
         self.proc = subprocess.Popen(
             [str(QWEN_PYTHON), str(self.worker_script)],
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
+            stderr=stderr_f,
             text=True,
             bufsize=1,
             env=env,
-            cwd=str(CAREBENCH_ROOT),
+            cwd=str(PRESENTATION_ROOT),
         )
         self._send({"cmd": "load", "model_path": self.model_path})
 
@@ -116,7 +142,12 @@ class QwenSubprocessEmbedder(EmbedderBackend):
         except Exception:  # noqa: BLE001
             pass
         self.proc.terminate()
+        try:
+            self.proc.wait(timeout=5)
+        except subprocess.TimeoutExpired:
+            self.proc.kill()
         self.proc = None
+        release_gpu_memory()
 
 
 def create_embedder(model_id: str, model_path: str) -> EmbedderBackend:

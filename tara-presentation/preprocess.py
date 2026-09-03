@@ -75,6 +75,7 @@ def preprocess_videos(
         embedder.load()
         t0 = time.time()
         done = 0
+        last_error: str | None = None
         for entry in todo:
             try:
                 emb = embedder.encode_video(entry.video_path)
@@ -92,6 +93,7 @@ def preprocess_videos(
                     "caption": entry.caption,
                 }
             except Exception as exc:  # noqa: BLE001
+                last_error = str(exc)
                 if progress_cb:
                     progress_cb(
                         done / total,
@@ -112,11 +114,14 @@ def preprocess_videos(
                     remaining,
                 )
 
-            # Periodic save so crashes don't lose work
             if done % 25 == 0 or done == total:
                 save_feature_cache(model_id, dataset, emb_dict, meta)
 
         embedder.close()
+        if not any(e.video_id in emb_dict for e in entries) and last_error:
+            raise RuntimeError(
+                f"All {total} video encodes failed. Last error: {last_error}"
+            )
         save_feature_cache(model_id, dataset, emb_dict, meta)
 
     # Ensure smooth display previews (even for cache hits) and refresh meta

@@ -12,6 +12,11 @@ external/t2v_metrics/
 outputs/tarsier2_vlemb_data_debug
 *.pt
 *.pdf
+e_diagnostics/
+logs
+outputs
+cache/*.npy
+tara-presentation/logs
 
 checkpoints
 *.pth

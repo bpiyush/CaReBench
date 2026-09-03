@@ -18,6 +18,9 @@
 
   let config = null;
   let pollTimer = null;
+  let activeJobId = null;
+
+  let lastResults = [];
 
   function fmtEta(sec) {
     if (sec == null || !Number.isFinite(sec)) return "estimating time…";
@@ -117,21 +120,28 @@
     pollTimer = setInterval(async () => {
       const res = await fetch("/api/preprocess/status");
       const job = await res.json();
+
+      // Ignore stale status from a previous run.
+      if (activeJobId != null && job.job_id !== activeJobId) {
+        return;
+      }
+
       prepBar.style.width = `${Math.round((job.progress || 0) * 100)}%`;
       prepMsg.textContent = job.message || "Working…";
       prepEta.textContent = fmtEta(job.eta_sec);
 
-      if (job.status === "done") {
+      if (job.status === "done" && job.job_id === activeJobId) {
         stopPoll();
         const session = await refreshSession();
         fillSidebar(session);
         showSearch();
-      } else if (job.status === "error") {
+      } else if (job.status === "error" && job.job_id === activeJobId) {
         stopPoll();
         prepError.textContent = job.error || "Preprocessing failed";
         prepError.classList.remove("hidden");
         btnNext.disabled = false;
         form.classList.remove("hidden");
+        activeJobId = null;
       }
     }, 800);
   }
@@ -169,15 +179,35 @@
       prepError.classList.remove("hidden");
       form.classList.remove("hidden");
       btnNext.disabled = false;
+      activeJobId = null;
       return;
     }
+    const data = await res.json();
+    activeJobId = data.job_id;
     startPoll();
   });
 
-  $("#btn-reconfig").addEventListener("click", () => {
+  $("#btn-reconfig").addEventListener("click", async () => {
+    stopPoll();
+    activeJobId = null;
+    try {
+      await fetch("/api/reset", { method: "POST" });
+    } catch (_) {
+      /* ignore */
+    }
     form.classList.remove("hidden");
     prepPanel.classList.add("hidden");
+    prepError.classList.add("hidden");
     btnNext.disabled = false;
+    prepBar.style.width = "0%";
+    $("#results").innerHTML = "";
+    $("#search-status").textContent = "";
+    lastResults = [];
+    const rec = $("#btn-record");
+    if (rec) {
+      rec.disabled = true;
+      rec.textContent = "Save GIF";
+    }
     showConfig();
   });
 
@@ -188,6 +218,7 @@
     const top_k = Number($("#top_k").value) || 12;
     $("#search-status").textContent = "Searching…";
     $("#results").innerHTML = "";
+    $("#btn-record").disabled = true;
     const res = await fetch("/api/search", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -198,18 +229,21 @@
       return;
     }
     const data = await res.json();
-    $("#search-status").textContent = `${data.results.length} results`;
+    lastResults = data.results || [];
+    $("#search-status").textContent = `${lastResults.length} results`;
+    $("#btn-record").disabled = lastResults.length === 0;
     const box = $("#results");
-    box.innerHTML = data.results
+    box.innerHTML = lastResults
       .map(
         (r) => `
       <article class="card">
         <video
           src="${r.video_url}"
           muted
+          autoplay
           playsinline
           loop
-          preload="metadata"
+          preload="auto"
         ></video>
         <div class="meta">
           <span class="score">${r.score.toFixed(3)}</span>
@@ -221,21 +255,67 @@
       .join("");
 
     box.querySelectorAll("video").forEach((v) => {
-      const card = v.closest(".card");
-      card.addEventListener("mouseenter", () => {
-        v.play().catch(() => {});
-      });
-      card.addEventListener("mouseleave", () => {
-        v.pause();
-        v.currentTime = 0;
-      });
+      v.muted = true;
+      const play = () => v.play().catch(() => {});
+      if (v.readyState >= 2) play();
+      else v.addEventListener("canplay", play, { once: true });
     });
+  });
+
+  $("#btn-record").addEventListener("click", async () => {
+    const top = lastResults.slice(0, 9);
+    if (!top.length) return;
+    const btn = $("#btn-record");
+    const prev = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = "Saving…";
+    try {
+      const resp = await fetch("/api/record", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          query: $("#query").value.trim(),
+          video_ids: top.map((r) => r.video_id),
+          scores: top.map((r) => r.score),
+          captions: top.map((r) => r.caption || ""),
+          duration: 4,
+        }),
+      });
+      if (!resp.ok) {
+        let msg = `HTTP ${resp.status}`;
+        try {
+          const err = await resp.json();
+          msg = err.detail || JSON.stringify(err);
+        } catch (_) {
+          msg = await resp.text();
+        }
+        throw new Error(msg);
+      }
+      const blob = await resp.blob();
+      const a = document.createElement("a");
+      const disp = resp.headers.get("content-disposition") || "";
+      const match = disp.match(/filename="?([^"]+)"?/);
+      a.href = URL.createObjectURL(blob);
+      a.download = match ? match[1] : "results.gif";
+      a.click();
+      URL.revokeObjectURL(a.href);
+      btn.textContent = "Saved";
+    } catch (err) {
+      btn.textContent = "Failed";
+      $("#search-status").textContent = String(err.message || err).slice(0, 220);
+      console.error(err);
+    }
+    setTimeout(() => {
+      btn.disabled = lastResults.length === 0;
+      btn.textContent = prev;
+    }, 1600);
   });
 
   (async () => {
     await loadConfig();
     const session = await refreshSession();
     if (session.job?.status === "running") {
+      activeJobId = session.job.job_id;
       form.classList.add("hidden");
       prepPanel.classList.remove("hidden");
       startPoll();

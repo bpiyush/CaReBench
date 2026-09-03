@@ -6,13 +6,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 STATIC_DIR = ROOT / "static"
 LOGS_DIR = ROOT / "logs"
-PREVIEWS_DIR = ROOT / "cache" / "previews"
 
-# Persistent embedding cache (dict video_id -> tensor), shared across runs
-EXPERIMENTS_DIR = Path("/work/piyush/experiments/tara-presentation")
-EMBEDDINGS_DIR = EXPERIMENTS_DIR / "embeddings"
+# All heavy cache lives under /work — never in the repo.
+CACHE_ROOT = Path("/work/piyush/experiments/TARA-demo/cache")
+EMBEDDINGS_DIR = CACHE_ROOT / "embeddings"
+PREVIEWS_DIR = CACHE_ROOT / "previews"
 
-for _d in (LOGS_DIR, PREVIEWS_DIR, EMBEDDINGS_DIR, STATIC_DIR):
+for _d in (LOGS_DIR, PREVIEWS_DIR, EMBEDDINGS_DIR, STATIC_DIR, CACHE_ROOT):
     _d.mkdir(parents=True, exist_ok=True)
 
 DATA_ROOT = Path("/scratch/shared/beegfs/piyush/datasets")
@@ -81,7 +81,7 @@ MSRVTT_VAL_LIST = MSRVTT_ROOT / "videos" / "test_list_new.txt"
 MSRVTT_ANNOTATIONS = MSRVTT_ROOT / "annotation" / "MSR_VTT.json"
 
 PREVIEW_WIDTH = 480
-QWEN_NFRAMES = 16
+QWEN_NFRAMES = 8
 TOP_K_DEFAULT = 12
 DEFAULT_SAMPLE_PCT = 10.0
 DEFAULT_SAMPLE_SEED = 42

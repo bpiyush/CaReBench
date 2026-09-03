@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/static/app.css" />
+  <link rel="stylesheet" href="/static/app.css?v=5" />
 </head>
 <body>
   <!-- PAGE: configure -->
@@ -51,7 +51,7 @@
       <div id="prep-panel" class="prep-panel hidden" aria-live="polite">
         <div class="coffee" aria-hidden="true">☕</div>
         <h2>Grab a coffee</h2>
-        <p class="prep-copy">We’re preparing the dataset. This only needs to run once per model × dataset (cache lives under <code>/work/piyush/experiments</code>).</p>
+        <p class="prep-copy">We’re preparing the dataset. This only needs to run once per model × dataset (cache lives under <code>/work/piyush/experiments/TARA-demo/cache</code>).</p>
         <div class="bar"><div id="prep-bar" class="bar-fill"></div></div>
         <div class="prep-meta">
           <span id="prep-msg">Starting…</span>
@@ -97,6 +97,7 @@
 
       <div class="topk-row">
         <label>Top-K <input id="top_k" type="number" min="1" max="48" value="12" /></label>
+        <button type="button" id="btn-record" class="btn-ghost btn-record" disabled>Save GIF</button>
         <span id="search-status" class="search-status"></span>
       </div>
 
@@ -104,6 +105,6 @@
     </main>
   </section>
 
-  <script src="/static/app.js"></script>
+  <script src="/static/app.js?v=8"></script>
 </body>
 </html>

@@ -22,8 +22,10 @@ Open **http://localhost:7860**
 ## Features
 
 - **Sample %** — randomly encode a subset (default 10%) while debugging
-- **Cache** — `/work/piyush/experiments/tara-presentation/embeddings/{model}/{dataset}.pt`  
-  dict `video_id → embedding` (skips already-cached videos)
+- **Cache** — `/work/piyush/experiments/TARA-demo/cache/`  
+  - `embeddings/{model}/{dataset}.pt` — dict `video_id → embedding`  
+  - `previews/` — downsized display clips
+
 - Videos served via `/api/video/{id}` (real `<video>` tags)
 
 ## Flow

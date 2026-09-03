@@ -183,7 +183,9 @@ class Qwen3VLEmbedder():
 
         self.model = Qwen3VLForEmbedding.from_pretrained(
             model_name_or_path, trust_remote_code=True, **kwargs
-        ).to(device)
+        )
+        if kwargs.get("device_map") is None:
+            self.model = self.model.to(device)
         self.processor = Qwen3VLProcessor.from_pretrained(
             model_name_or_path, padding_side='right'
         )

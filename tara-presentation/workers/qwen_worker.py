@@ -9,6 +9,9 @@ import torch
 import torch.nn.functional as F
 
 CAREBENCH_ROOT = Path("/users/piyush/projects/CaReBench")
+PRESENTATION_ROOT = Path(__file__).resolve().parent
+
+sys.path.insert(0, str(PRESENTATION_ROOT))
 sys.path.insert(0, str(CAREBENCH_ROOT))
 
 from config import QWEN_NFRAMES, QWEN_PATH  # noqa: E402
@@ -37,11 +40,15 @@ def main() -> None:
         try:
             if cmd == "load":
                 if model is None:
+                    n_gpu = torch.cuda.device_count()
+                    max_memory = {i: "14GiB" for i in range(n_gpu)}
+                    max_memory["cpu"] = "64GiB"
                     model = Qwen3VLEmbedder(
                         model_name_or_path=req.get("model_path", str(QWEN_PATH)),
                         torch_dtype=torch.float16,
                         attn_implementation="flash_attention_2",
-                        device_map="cuda",
+                        device_map="auto",
+                        max_memory=max_memory,
                     )
                 _reply({"status": "ok"})
 

@@ -1,5 +1,6 @@
 :root {
-  --bg: #f3f1ec;
+  --bg: #ffffff;
+  --cream: #f3f1ec;
   --bg-elev: #fffcf7;
   --ink: #1c1b19;
   --muted: #7a756c;
@@ -19,10 +20,7 @@ body {
   margin: 0;
   font-family: var(--font);
   color: var(--ink);
-  background:
-    radial-gradient(1200px 600px at 10% -10%, #fff 0%, transparent 55%),
-    radial-gradient(900px 500px at 100% 0%, #e8efe9 0%, transparent 45%),
-    var(--bg);
+  background: var(--bg);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -201,7 +199,7 @@ small {
 .sidebar {
   padding: 2rem 1.25rem;
   border-right: 1px solid var(--line);
-  background: color-mix(in srgb, var(--bg-elev) 80%, white);
+  background: #fff;
   position: sticky;
   top: 0;
   height: 100vh;
@@ -285,8 +283,14 @@ small {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.75rem;
   color: var(--muted);
   font-size: 0.85rem;
+}
+.btn-record {
+  width: auto;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
 }
 .topk-row input {
   width: 4rem;
@@ -302,7 +306,7 @@ small {
   gap: 0.85rem;
 }
 .card {
-  background: #fff;
+  background: var(--cream);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
@@ -312,12 +316,12 @@ small {
 .card video {
   width: 100%;
   aspect-ratio: 16 / 10;
-  object-fit: cover;
-  background: #ddd8cf;
+  object-fit: contain;
+  background: var(--cream);
   display: block;
 }
 .card .meta {
-  padding: 0.35rem 0.55rem 0.45rem;
+  padding: 0.35rem 0.55rem 0.5rem;
 }
 .card .score {
   font-weight: 700;
