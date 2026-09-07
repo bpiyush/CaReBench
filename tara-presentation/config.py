@@ -21,6 +21,7 @@ MSRVTT_ROOT = DATA_ROOT / "MSRVTT"
 
 TARA_PATH = Path("/work/piyush/pretrained_checkpoints/TARA")
 QWEN_PATH = Path("/work/piyush/pretrained_checkpoints/Qwen3-VL-Embedding-8B")
+CLIP_PATH = Path("/work/piyush/pretrained_checkpoints/OpenAI-CLIP/ViT-L-14.pt")
 CAREBENCH_ROOT = Path("/users/piyush/projects/CaReBench")
 
 QWEN_PYTHON = Path("/users/piyush/miniconda3/envs/qwen/bin/python")
@@ -36,6 +37,11 @@ MODELS = {
         "id": "qwen3vl",
         "label": "Qwen3VL-Embedding-8B",
         "path": str(QWEN_PATH),
+    },
+    "clip": {
+        "id": "clip",
+        "label": "CLIP (avgpool)",
+        "path": str(CLIP_PATH),
     },
 }
 
@@ -82,6 +88,7 @@ MSRVTT_ANNOTATIONS = MSRVTT_ROOT / "annotation" / "MSR_VTT.json"
 
 PREVIEW_WIDTH = 480
 QWEN_NFRAMES = 8
+CLIP_NFRAMES = 16
 TOP_K_DEFAULT = 12
 DEFAULT_SAMPLE_PCT = 10.0
 DEFAULT_SAMPLE_SEED = 42

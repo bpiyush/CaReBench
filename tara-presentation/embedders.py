@@ -1,4 +1,4 @@
-"""Model embedding backends for TARA and Qwen3VL."""
+"""Model embedding backends for TARA, Qwen3VL, and CLIP (avgpool)."""
 from __future__ import annotations
 
 import gc
@@ -11,7 +11,15 @@ from pathlib import Path
 import torch
 import torch.nn.functional as F
 
-from config import CAREBENCH_ROOT, QWEN_NFRAMES, QWEN_PYTHON, QWEN_PATH, TARA_PATH
+from config import (
+    CAREBENCH_ROOT,
+    CLIP_NFRAMES,
+    CLIP_PATH,
+    QWEN_NFRAMES,
+    QWEN_PATH,
+    QWEN_PYTHON,
+    TARA_PATH,
+)
 
 PRESENTATION_ROOT = Path(__file__).resolve().parent
 
@@ -70,6 +78,58 @@ class TaraEmbedder(EmbedderBackend):
     def close(self) -> None:
         model = self.model
         self.model = None
+        if model is not None:
+            del model
+        release_gpu_memory()
+
+
+class ClipAvgPoolEmbedder(EmbedderBackend):
+    """OpenAI CLIP frame features averaged over time (ZSAR CLIP avg. baseline)."""
+
+    def __init__(self, model_path: str | None = None, nframes: int = CLIP_NFRAMES):
+        self.model_path = model_path or str(CLIP_PATH)
+        self.nframes = int(nframes)
+        self.model = None
+        self.preprocess = None
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    def load(self) -> None:
+        if self.model is not None:
+            return
+        import clip  # type: ignore[import-not-found]
+
+        # clip.load accepts a model name or a local .pt checkpoint path.
+        source = self.model_path
+        load_arg = source if Path(source).is_file() else "ViT-L/14"
+        self.model, self.preprocess = clip.load(load_arg, device=self.device)
+        self.model.eval()
+        if str(CAREBENCH_ROOT) not in sys.path:
+            sys.path.insert(0, str(CAREBENCH_ROOT))
+
+    def encode_video(self, path: str) -> torch.Tensor:
+        assert self.model is not None and self.preprocess is not None
+        from shared.utils.video import load_frames_linspace  # type: ignore[import-not-found]
+
+        frames = load_frames_linspace(path, n=self.nframes)
+        x = torch.stack([self.preprocess(f) for f in frames]).to(self.device)
+        with torch.no_grad():
+            z = self.model.encode_image(x).float()
+            z = z.mean(dim=0).cpu()
+        return F.normalize(z, p=2, dim=-1)
+
+    def encode_text(self, text: str) -> torch.Tensor:
+        assert self.model is not None
+        import clip  # type: ignore[import-not-found]
+
+        tokens = clip.tokenize([text], truncate=True).to(self.device)
+        with torch.no_grad():
+            z = self.model.encode_text(tokens).cpu().squeeze(0).float()
+        return F.normalize(z, p=2, dim=-1)
+
+    def close(self) -> None:
+        model = self.model
+        self.model = None
+        self.preprocess = None
         if model is not None:
             del model
         release_gpu_memory()
@@ -155,4 +215,6 @@ def create_embedder(model_id: str, model_path: str) -> EmbedderBackend:
         return TaraEmbedder(model_path)
     if model_id == "qwen3vl":
         return QwenSubprocessEmbedder(model_path)
+    if model_id == "clip":
+        return ClipAvgPoolEmbedder(model_path)
     raise ValueError(f"Unknown model id: {model_id}")

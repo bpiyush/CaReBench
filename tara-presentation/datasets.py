@@ -136,3 +136,21 @@ def load_videos(dataset: str, split: str) -> list[VideoEntry]:
     if dataset == "cia":
         return load_cia_split(split)
     raise ValueError(f"Unknown dataset: {dataset}")
+
+
+def load_all_videos(dataset: str) -> list[VideoEntry]:
+    """Load every split for a dataset, deduped by video_id (first wins)."""
+    from config import DATASETS
+
+    dataset = dataset.lower()
+    if dataset not in DATASETS:
+        raise ValueError(f"Unknown dataset: {dataset}")
+    seen: set[str] = set()
+    out: list[VideoEntry] = []
+    for split in DATASETS[dataset]["splits"]:
+        for e in load_videos(dataset, split):
+            if e.video_id in seen:
+                continue
+            seen.add(e.video_id)
+            out.append(e)
+    return out
